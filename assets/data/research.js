@@ -1068,5 +1068,67 @@ window.ILC_DATA={
         }
       ]
     }
-  }
+  },
+  "questions": [
+    {
+      "id": "alive",
+      "title": "What does it mean to be alive?",
+      "text": "How does matter become organized into a living system, and what allows that system to remain itself through change?",
+      "href": "research-health-formally-defined.html",
+      "programs": [
+        "health",
+        "rmmo"
+      ]
+    },
+    {
+      "id": "identity",
+      "title": "What makes something itself?",
+      "text": "What can remain invariant while a system develops, flows, transforms, or moves into a new mathematical representation?",
+      "href": "research.html#identity",
+      "programs": [
+        "health",
+        "celestial",
+        "qg"
+      ]
+    },
+    {
+      "id": "form",
+      "title": "How does form emerge?",
+      "text": "How do relations among cells become developmental direction, tissue organization, anatomy, and multicellular structure?",
+      "href": "research-relational-morphogenesis.html",
+      "programs": [
+        "rmmo"
+      ]
+    },
+    {
+      "id": "continuation",
+      "title": "What happens near the edge of continuation?",
+      "text": "What becomes visible when a physical system approaches the limit of its ability to remain regular, coherent, or viable?",
+      "href": "research-navier-stokes.html",
+      "programs": [
+        "ns",
+        "health"
+      ]
+    },
+    {
+      "id": "representation",
+      "title": "What survives representation?",
+      "text": "When a physical state is rewritten in a new mathematical language, which distinctions remain recoverable and which new structures appear?",
+      "href": "research-gaussian-celestial.html",
+      "programs": [
+        "celestial",
+        "qg"
+      ]
+    },
+    {
+      "id": "observable",
+      "title": "How does the world become observable?",
+      "text": "What must an instrument, model, or proof preserve before a signal becomes a scientifically meaningful statement about the world?",
+      "href": "research-formal-infrastructure.html",
+      "programs": [
+        "formal",
+        "health"
+      ]
+    }
+  ]
 };
