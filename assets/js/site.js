@@ -35,7 +35,18 @@ function renderPubs(list=D.publications){
 }
 function renderNotes(){
  const el=$('#note-list');if(!el||!D.notes)return;
- el.innerHTML=D.notes.map(n=>`<article class="archive-item"><div class="meta">${fmtDate(n.date)}</div><div><h3>${esc(n.title)}</h3><p>${esc(n.summary)}</p><div class="archive-item__links">${n.legacyPage?`<a href="${esc(n.legacyPage)}" target="_blank" rel="noopener">Original public note ↗</a>`:''}</div></div><div class="archive-item__right">${esc(n.program)}</div></article>`).join('');
+ el.innerHTML=D.notes.map(n=>`<article class="archive-item"><div class="meta">${fmtDate(n.date)}</div><div><h3><a href="note.html?id=${encodeURIComponent(n.id)}" style="text-decoration:none">${esc(n.title)}</a></h3><p>${esc(n.summary)}</p><div class="archive-item__links">${n.legacyPage?`<a href="${esc(n.legacyPage)}" target="_blank" rel="noopener">Original public note ↗</a>`:''}</div></div><div class="archive-item__right">${esc(n.program)}</div></article>`).join('');
+}
+
+function renderNoteDetail(){
+ const el=$('#note-detail');if(!el||!D.notes)return;
+ const id=new URLSearchParams(location.search).get('id');
+ const note=D.notes.find(x=>x.id===id);
+ if(!note){el.innerHTML='<section class="page-lead"><div class="wrap"><h1>Research note not found</h1><p><a href="notes.html">Return to research notes →</a></p></div></section>';return;}
+ document.title=note.title+' — Institute Lux Consilio';
+ const tags=(note.themes||[]).map(x=>'<span style="display:inline-block;padding:7px 10px;margin:0 5px 7px 0;background:#edf4f7;color:#23526a;font-size:12px">'+esc(x.replace(/-/g,' '))+'</span>').join('');
+ el.innerHTML='<section class="page-lead"><div class="wrap"><p class="eyebrow">Research notes · '+esc(note.program)+'</p><h1>'+esc(note.title)+'</h1><p>'+fmtDate(note.date)+'</p></div></section>'+
+ '<section class="section"><div class="wrap layout-2"><article class="prose"><p class="eyebrow">Research context</p><p style="font-size:19px;line-height:1.7">'+esc(note.summary)+'</p><h2>Scholarly provenance</h2><p>This note is indexed in the ILC research library with its original publication history preserved. Read the complete historical note at its original public record.</p><p><a class="arrow-link" href="'+esc(note.legacyPage||'notes.html')+'" target="_blank" rel="noopener">Read the original note ↗</a></p><p><a href="notes.html">← All research notes</a></p></article><aside class="card"><p class="eyebrow">Record</p><h3>'+esc(note.title)+'</h3><p>'+fmtDate(note.date)+'</p><p>'+esc(note.program)+'</p><div>'+tags+'</div></aside></div></section>';
 }
 function wirePublicationFilters(){
  const input=$('#pub-search'),filters=$$('#pub-filters .filter');if(!input)return;let active='all';
@@ -91,5 +102,5 @@ function renderPublication(){
  <section class="section"><div class="wrap"><div class="grid grid-2" style="align-items:start"><div class="prose"><p class="eyebrow">Abstract record</p><p class="kicker">${esc(p.summary)}</p><h2>Scientific context</h2><p>This publication belongs to <a href="${programHref(prog)}">${esc(prog?.title||p.series)}</a>. ILC preserves the program context around the archival publication so the result remains connected to the question, sequence, and later work it supports.</p><h2>Provenance</h2><p>This record was migrated from the existing public Fieldflux research catalog. Historical publication provenance and DOI records remain unchanged; the ILC site now provides the institute-level scholarly context.</p></div>
  <aside class="card"><p class="card__tag">Publication record</p><h3>${fmtDate(p.date)}</h3><p><strong>Author</strong><br>Zed James</p><p><strong>Type</strong><br>Preprint</p><p><strong>Series</strong><br>${esc(p.series)}</p><p><strong>DOI</strong><br><a href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener">${esc(p.doi)} ↗</a></p><p><strong>Domains</strong><br>${esc((p.domains||[]).join(' · '))}</p><div class="hero__actions"><a class="btn btn--primary" href="${esc(p.pdf)}" target="_blank" rel="noopener">Open PDF</a><a class="btn btn--quiet" href="${esc(p.legacyPage)}" target="_blank" rel="noopener">Original record</a></div></aside></div></div></section>`;
 }
-renderPrograms();renderThemes();renderQuestions();renderPubs();renderNotes();wirePublicationFilters();renderProgram();renderPublication();
+renderPrograms();renderThemes();renderQuestions();renderPubs();renderNotes();wirePublicationFilters();renderProgram();renderPublication();renderNoteDetail();
 })();
