@@ -10,7 +10,7 @@ window.ILC_DATA={
       "title": "Health, Formally Defined",
       "domain": "Measurement science",
       "status": "Active series",
-      "desc": "A formal program defining health through viable continuation, observer and collector semantics, representation sufficiency, and prospective health across contexts.",
+      "desc": "Defining health as prospective capacity, then asking how it can be measured.",
       "href": "research-health-formally-defined.html"
     },
     {
@@ -18,7 +18,7 @@ window.ILC_DATA={
       "title": "Relational Morphogenesis & Multicellular Organization",
       "domain": "Systems biology",
       "status": "Active series",
-      "desc": "A program studying biological organization through relational comparison spaces, lineage, geometry, calibration, and multicellular structure.",
+      "desc": "Studying how relational structure becomes fate, form, and multicellular organization.",
       "href": "research-relational-morphogenesis.html"
     },
     {
@@ -26,7 +26,7 @@ window.ILC_DATA={
       "title": "Gaussian Physical States & Celestial Representation",
       "domain": "Mathematical physics",
       "status": "Active series",
-      "desc": "Constrained physical states, source-aware representation, celestial transforms, spectral structure, multiparticle geometry, and the route toward scattering.",
+      "desc": "Tracking physical information through Gaussian, radiative, and celestial representations.",
       "href": "research-gaussian-celestial.html"
     },
     {
@@ -34,7 +34,7 @@ window.ILC_DATA={
       "title": "Relational Quantum Gravity",
       "domain": "Quantum gravity",
       "status": "Active program",
-      "desc": "A program in constrained quantum gravity, BV structure, Schwarzschild geometry, boundary ownership, and relational physical information.",
+      "desc": "Following quantum matter from operator law into gauge structure and geometry.",
       "href": "research-relational-quantum-gravity.html"
     },
     {
@@ -42,7 +42,7 @@ window.ILC_DATA={
       "title": "Fluid Dynamics & Navier–Stokes",
       "domain": "Analysis",
       "status": "Active program",
-      "desc": "Endpoint regularity, breakdown anatomy, continuation, restart structure, scale coherence, and formal analysis of three-dimensional incompressible flow.",
+      "desc": "Studying continuation, scale escape, and endpoint rigidity in three-dimensional flow.",
       "href": "research-navier-stokes.html"
     },
     {
@@ -50,7 +50,7 @@ window.ILC_DATA={
       "title": "Formal Scientific Infrastructure",
       "domain": "Formal methods",
       "status": "Ongoing infrastructure",
-      "desc": "Machine-assisted formalization, proof architecture, computational verification, reproducibility, and research infrastructure supporting the institute's scientific programs.",
+      "desc": "Building formal and computational infrastructure for verified scientific work.",
       "href": "research-formal-infrastructure.html"
     }
   ],
@@ -100,42 +100,42 @@ window.ILC_DATA={
     {
       "id": "health-foundations",
       "label": "Health & foundations",
-      "description": "What health is, what makes a system itself, and what must be preserved across scale."
+      "description": "Health, identity, and what a living system can continue to realize."
     },
     {
       "id": "invariance-identity",
       "label": "Invariance & identity",
-      "description": "What remains the same through change, quotient, transformation, or representation."
+      "description": "What remains the same through change."
     },
     {
       "id": "boundary-measurement",
       "label": "Boundary & measurement",
-      "description": "How boundary exchange becomes observable, reconstructable, and physically meaningful."
+      "description": "How boundaries become observable and meaningful."
     },
     {
       "id": "formalization-proof",
       "label": "Formalization & proof",
-      "description": "Machine-checkable structure, admissibility, closure, gauge structure, and proof authority."
+      "description": "How formal structure makes claims precise."
     },
     {
       "id": "evidence-validation",
       "label": "Evidence & validation",
-      "description": "Failure tests, controls, calibration, empirical support, and the boundary of warranted claim."
+      "description": "How evidence becomes trustworthy."
     },
     {
       "id": "relational-organization",
       "label": "Relational organization",
-      "description": "Relations, multiplicity, compression, comparability, ownership, and organization across states."
+      "description": "How relations become organization."
     },
     {
       "id": "continuation-stability",
       "label": "Continuation & stability",
-      "description": "Persistence, regularity, restart, dynamic stability, and the anatomy of breakdown."
+      "description": "How systems persist near breakdown."
     },
     {
       "id": "representation-reconstruction",
       "label": "Representation & reconstruction",
-      "description": "What descriptions retain, discard, reconstruct, or obstruct when states move between representations."
+      "description": "What survives a change of representation."
     }
   ],
   "publications": [
@@ -1073,7 +1073,7 @@ window.ILC_DATA={
     {
       "id": "alive",
       "title": "What does it mean to be alive?",
-      "text": "How does matter become organized into a living system, and what allows that system to remain itself through change?",
+      "text": "How does matter become living organization, and how does that organization persist through change?",
       "href": "research-health-formally-defined.html",
       "programs": [
         "health",
@@ -1083,7 +1083,7 @@ window.ILC_DATA={
     {
       "id": "identity",
       "title": "What makes something itself?",
-      "text": "What can remain invariant while a system develops, flows, transforms, or moves into a new mathematical representation?",
+      "text": "What remains invariant as a system develops, flows, or changes representation?",
       "href": "research.html#identity",
       "programs": [
         "health",
@@ -1094,7 +1094,7 @@ window.ILC_DATA={
     {
       "id": "form",
       "title": "How does form emerge?",
-      "text": "How do relations among cells become developmental direction, tissue organization, anatomy, and multicellular structure?",
+      "text": "How do relations among cells become direction, tissue, and anatomy?",
       "href": "research-relational-morphogenesis.html",
       "programs": [
         "rmmo"
@@ -1103,7 +1103,7 @@ window.ILC_DATA={
     {
       "id": "continuation",
       "title": "What happens near the edge of continuation?",
-      "text": "What becomes visible when a physical system approaches the limit of its ability to remain regular, coherent, or viable?",
+      "text": "What becomes visible as a system approaches the edge of regularity or viability?",
       "href": "research-navier-stokes.html",
       "programs": [
         "ns",
@@ -1113,7 +1113,7 @@ window.ILC_DATA={
     {
       "id": "representation",
       "title": "What survives representation?",
-      "text": "When a physical state is rewritten in a new mathematical language, which distinctions remain recoverable and which new structures appear?",
+      "text": "What survives when a physical state changes mathematical language?",
       "href": "research-gaussian-celestial.html",
       "programs": [
         "celestial",
@@ -1123,7 +1123,7 @@ window.ILC_DATA={
     {
       "id": "observable",
       "title": "How does the world become observable?",
-      "text": "What must an instrument, model, or proof preserve before a signal becomes a scientifically meaningful statement about the world?",
+      "text": "What must a measurement preserve before it becomes meaningful?",
       "href": "research-formal-infrastructure.html",
       "programs": [
         "formal",
