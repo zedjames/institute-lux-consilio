@@ -1,0 +1,178 @@
+/* Observatory palette — midtone celestial, 2026-10-07 */
+html{background:#2d3936}
+body.exploration{
+  --ink:#e4dfd5;
+  --muted:#aebbb5;
+  --paper:#2d3936;
+  --paper2:#34413d;
+  --white:#3a4944;
+  --line:#596a63;
+  --line2:#687a72;
+  --accent:#c5a66d;
+  --accent2:#8eaa9f;
+  --deep:#27312f;
+  background:
+    radial-gradient(circle at 12% 12%,rgba(142,170,159,.10),transparent 28rem),
+    radial-gradient(circle at 86% 18%,rgba(197,166,109,.08),transparent 32rem),
+    linear-gradient(180deg,#2d3936 0%,#303d39 48%,#2d3936 100%) !important;
+  color:var(--ink)!important;
+}
+body.exploration main,
+body.exploration .section,
+body.exploration .question-section,
+body.exploration .page-head,
+body.exploration .program-hero{
+  background-color:transparent!important;
+  color:var(--ink)!important;
+}
+body.exploration:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.42;
+  background-image:
+    radial-gradient(circle at 16% 20%,rgba(236,226,205,.38) 0 1px,transparent 1.6px),
+    radial-gradient(circle at 72% 14%,rgba(177,204,194,.34) 0 1px,transparent 1.6px),
+    radial-gradient(circle at 84% 62%,rgba(228,204,155,.28) 0 1px,transparent 1.6px),
+    radial-gradient(circle at 35% 80%,rgba(183,205,197,.26) 0 1px,transparent 1.6px);
+  background-size:280px 280px,360px 360px,470px 470px,590px 590px;
+}
+body.exploration .nav{
+  background:rgba(38,49,46,.94)!important;
+  border-bottom:1px solid rgba(197,166,109,.14)!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.07)!important;
+}
+body.exploration .nav__links a{color:#c2cbc7!important}
+body.exploration .nav__links a:hover{color:#ddc28a!important}
+body.exploration .brand__text{color:#e2ddd2!important}
+body.exploration .nav__menu{color:#e0dacf!important;border-color:#687a72!important}
+
+body.exploration .page-head{
+  background:
+    radial-gradient(circle at 84% 28%,rgba(142,170,159,.08),transparent 26rem),
+    radial-gradient(circle at 16% 14%,rgba(197,166,109,.05),transparent 22rem)!important;
+  border-bottom:1px solid #596a63!important;
+}
+body.exploration .page-head h1,
+body.exploration .sec-head h2,
+body.exploration .program-main h2,
+body.exploration .archive-item h3,
+body.exploration .program-row__title,
+body.exploration .question-card h3,
+body.exploration .paper-stage h3,
+body.exploration .light-band__quote,
+body.exploration .notes-intro h1,
+body.exploration .institute-manifesto p{
+  color:#e4dfd5!important;
+}
+body.exploration .page-head .lede,
+body.exploration .lede,
+body.exploration .sec-head p,
+body.exploration .prose p,
+body.exploration .prose li,
+body.exploration .program-narrative p,
+body.exploration .frontier-copy,
+body.exploration .archive-item p,
+body.exploration .program-row__desc,
+body.exploration .question-card p,
+body.exploration .light-band__copy,
+body.exploration .card p,
+body.exploration .diagram__box .muted{
+  color:#b8c3be!important;
+}
+body.exploration .eyebrow,
+body.exploration .card__tag,
+body.exploration .meta,
+body.exploration .question-card__go,
+body.exploration .paper-stage__num,
+body.exploration .archive-item__links a{
+  color:#d0ae70!important;
+}
+body.exploration .program-row__num,
+body.exploration .program-row__status,
+body.exploration .archive-item__right,
+body.exploration .question-card__index,
+body.exploration .artifact-row__kind{
+  color:#96a8a1!important;
+}
+body.exploration .section--alt{
+  background:
+    radial-gradient(circle at 82% 18%,rgba(142,170,159,.055),transparent 28rem),
+    #34413d!important;
+}
+body.exploration .section--deep,
+body.exploration .light-band{
+  background:
+    radial-gradient(circle at 18% 50%,rgba(197,166,109,.07),transparent 30rem),
+    radial-gradient(circle at 82% 42%,rgba(142,170,159,.06),transparent 28rem),
+    #35423e!important;
+}
+body.exploration .archive,
+body.exploration .archive-item,
+body.exploration .program-list,
+body.exploration .program-row,
+body.exploration .question-grid,
+body.exploration .question-card,
+body.exploration .theme-grid,
+body.exploration .theme-card,
+body.exploration .paper-sequence,
+body.exploration .paper-stage,
+body.exploration .method-list li,
+body.exploration .open-question-list li,
+body.exploration .exploration-methods,
+body.exploration .exploration-methods article{
+  border-color:#596a63!important;
+}
+body.exploration .card,
+body.exploration .diagram__box{
+  background:
+    radial-gradient(circle at 88% 16%,rgba(208,174,112,.06),transparent 18rem),
+    linear-gradient(160deg,rgba(70,89,82,.72),rgba(58,75,69,.68))!important;
+  border-color:rgba(211,188,143,.20)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 16px 38px rgba(7,13,11,.10)!important;
+}
+body.exploration .card h3,
+body.exploration .diagram__box h2{color:#e4dfd5!important}
+body.exploration .question-card:hover,
+body.exploration .program-row:hover,
+body.exploration .archive-item:hover{
+  background:rgba(255,255,255,.025)!important;
+}
+body.exploration .btn--primary{
+  background:#d6cdbc!important;color:#24302c!important;border-color:#d6cdbc!important;
+}
+body.exploration .btn--quiet{
+  background:rgba(255,255,255,.035)!important;color:#d0d8d4!important;border-color:#687a72!important;
+}
+body.exploration .link-arrow{border-color:#687a72!important}
+
+.explore-hero{
+  background:
+    radial-gradient(circle at 76% 48%,rgba(142,170,159,.10),transparent 32rem),
+    radial-gradient(circle at 23% 20%,rgba(197,166,109,.07),transparent 27rem),
+    transparent!important;
+  border-bottom:1px solid #596a63!important;
+}
+.explore-hero__title{color:#e6e0d5!important}
+.explore-hero__title em{color:#d0ae70!important}
+.explore-hero__lede{color:#bdc7c2!important}
+.explore-hero__prompt{color:#9aa9a3!important}
+.explore-hero__prompt:before{background:#71827b!important}
+.question-intro p{color:#afbbb6!important}
+.question-card h3{color:#e4dfd5!important}
+.question-card p{color:#aebbb5!important}
+.question-card__index{color:#91a49c!important}
+.question-card__go{color:#d0ae70!important}
+.light-band{border-block:1px solid #596a63!important}
+.light-band__quote{color:#e4dfd5!important}
+.light-band__copy{color:#aebbb5!important}
+.exploration-methods article{background:rgba(255,255,255,.018)!important}
+.exploration-methods span{color:#91a49c!important}
+.exploration-methods h3{color:#e0dbd1!important}
+.exploration-methods p{color:#a6b3ad!important}
+body.exploration .program-question p{color:#c0cbc6!important}
+body.exploration .paper-stage__subtitle{color:#bdc6c2!important}
+body.exploration .artifact-list,
+body.exploration .artifact-row{border-color:#596a63!important}
+body.exploration .artifact-row{color:#e4dfd5!important}
+
+@media(max-width:900px){
+  body.exploration .nav__links{background:#2b3734!important;border-color:#596a63!important}
+}
