@@ -323,3 +323,140 @@ body.exploration .artifact-row__kind{color:#93a19c}
     border-color:#3b4a45;
   }
 }
+
+/* 2026-10-07 — Contrast rescue: deep midtone sky, local glow, no washout */
+body.exploration,
+body.exploration main{
+  background-color:#17231f !important;
+  color:#e3ddd2 !important;
+}
+body.exploration main{
+  background-image:
+    radial-gradient(circle at 12% 8%,rgba(123,158,145,.07),transparent 28rem),
+    radial-gradient(circle at 88% 22%,rgba(194,163,105,.05),transparent 30rem);
+}
+body.exploration .section,
+body.exploration .question-section,
+body.exploration .program-hero,
+body.exploration .page-head{
+  background-color:#17231f !important;
+  color:#e3ddd2 !important;
+}
+body.exploration .section--alt{
+  background-color:#1c2925 !important;
+  background-image:
+    radial-gradient(circle at 82% 18%,rgba(127,159,146,.045),transparent 26rem) !important;
+}
+body.exploration .section--deep,
+body.exploration .light-band{
+  background-color:#22302c !important;
+}
+body.exploration .page-head{
+  background-image:
+    radial-gradient(circle at 84% 18%,rgba(127,159,146,.055),transparent 26rem),
+    radial-gradient(circle at 16% 16%,rgba(197,166,110,.035),transparent 22rem) !important;
+}
+body.exploration .page-head h1,
+body.exploration .sec-head h2,
+body.exploration .program-main h2,
+body.exploration .paper-stage h3,
+body.exploration .archive-item h3,
+body.exploration .program-row__title,
+body.exploration .question-card h3,
+body.exploration .light-band__quote,
+body.exploration .institute-manifesto p,
+body.exploration .notes-intro h1{
+  color:#e5ded2 !important;
+}
+body.exploration .page-head .lede,
+body.exploration .lede,
+body.exploration .sec-head p,
+body.exploration .program-narrative p,
+body.exploration .frontier-copy,
+body.exploration .archive-item p,
+body.exploration .program-row__desc,
+body.exploration .question-card p,
+body.exploration .light-band__copy,
+body.exploration .prose p,
+body.exploration .prose li,
+body.exploration .card p,
+body.exploration .diagram__box .muted{
+  color:#aebbb6 !important;
+}
+body.exploration .eyebrow,
+body.exploration .card__tag,
+body.exploration .meta,
+body.exploration .question-card__go,
+body.exploration .paper-stage__num,
+body.exploration .archive-item__links a{
+  color:#c9aa70 !important;
+}
+body.exploration .program-row__num,
+body.exploration .program-row__status,
+body.exploration .archive-item__right,
+body.exploration .question-card__index,
+body.exploration .artifact-row__kind{
+  color:#869991 !important;
+}
+body.exploration .archive,
+body.exploration .archive-item,
+body.exploration .program-list,
+body.exploration .program-row,
+body.exploration .question-grid,
+body.exploration .question-card,
+body.exploration .theme-grid,
+body.exploration .theme-card,
+body.exploration .paper-sequence,
+body.exploration .paper-stage,
+body.exploration .method-list li,
+body.exploration .open-question-list li{
+  border-color:#40534c !important;
+}
+body.exploration .card,
+body.exploration .diagram__box{
+  background:
+    linear-gradient(180deg,rgba(80,104,96,.30),rgba(55,75,69,.26)) !important;
+  border-color:rgba(201,170,112,.16) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 16px 40px rgba(7,13,11,.11) !important;
+}
+body.exploration .question-card:hover,
+body.exploration .program-row:hover,
+body.exploration .archive-item:hover{
+  background-color:rgba(255,255,255,.018) !important;
+}
+body.exploration .light-band{
+  background-image:
+    radial-gradient(circle at 17% 50%,rgba(201,170,112,.07),transparent 30rem),
+    radial-gradient(circle at 82% 42%,rgba(127,159,146,.06),transparent 28rem) !important;
+  border-color:#40534c !important;
+}
+body.exploration .exploration-methods,
+body.exploration .exploration-methods article{
+  border-color:#40534c !important;
+}
+body.exploration .exploration-methods article{
+  background:rgba(255,255,255,.012) !important;
+}
+body.exploration .explore-hero{
+  background-color:#17231f !important;
+}
+body.exploration .explore-hero__title{color:#e5ded2 !important}
+body.exploration .explore-hero__lede{color:#b5c1bc !important}
+body.exploration .btn--primary{
+  background:#d6cdbc !important;
+  color:#1a2521 !important;
+  border-color:#d6cdbc !important;
+}
+body.exploration .btn--quiet{
+  background:rgba(255,255,255,.025) !important;
+  color:#c6cfcb !important;
+  border-color:#53665e !important;
+}
+body.exploration .nav{
+  background:#1a2622 !important;
+  border-color:#354841 !important;
+}
+body.exploration .nav__links a{color:#b6c0bb !important}
+body.exploration .brand__text{color:#ddd7cc !important}
