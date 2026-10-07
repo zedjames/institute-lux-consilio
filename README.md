@@ -1,13 +1,17 @@
 # Institute Lux Consilio
 
-Independent nonprofit research institute for foundational science, formal methods, measurement, computation, and long-term scientific continuity.
+**Foundational Science & Discovery.**
 
-This repository contains the public website for Institute Lux Consilio.
+Public website and canonical research-library metadata for Institute Lux Consilio.
 
-## Site architecture
+The scholarly archive is organized by questions and research programs. It carries original DOI and historical publication provenance.
 
-The site is organized around research programs rather than a chronological feed. Publications, research notes, formal/computational artifacts, institutional information, and collaboration routes are designed to scale as the institute's public research corpus grows.
+## Source of truth
 
-## Deployment
+Edit `assets/data/research.js` for program, publication, and note records, and update the matching export `research/catalog.json` in the same commit. Automated repository checks verify that these two representations agree and that records have unique identifiers.
 
-The site is a static, dependency-free GitHub Pages project. DNS will be pointed to the final published site only after the site has been reviewed in its GitHub Pages staging location.
+The FFB website focuses on measurement technology and commercial applications. Membrane Health focuses on its app. Both link here for foundational research.
+
+## Publishing
+
+GitHub Pages deploys from `main`. The eventual custom ILC domain will be configured only after staging review and the DNS cutover.
