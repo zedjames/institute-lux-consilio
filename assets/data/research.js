@@ -10,42 +10,48 @@ window.ILC_DATA={
       "title": "Health, Formally Defined",
       "domain": "Measurement science",
       "status": "Active series",
-      "desc": "A formal program defining health through viable continuation, observer and collector semantics, representation sufficiency, and prospective health across contexts."
+      "desc": "A formal program defining health through viable continuation, observer and collector semantics, representation sufficiency, and prospective health across contexts.",
+      "href": "research-health-formally-defined.html"
     },
     {
       "id": "rmmo",
       "title": "Relational Morphogenesis & Multicellular Organization",
       "domain": "Systems biology",
       "status": "Active series",
-      "desc": "A program studying biological organization through relational comparison spaces, lineage, geometry, calibration, and multicellular structure."
+      "desc": "A program studying biological organization through relational comparison spaces, lineage, geometry, calibration, and multicellular structure.",
+      "href": "research-relational-morphogenesis.html"
     },
     {
       "id": "celestial",
       "title": "Gaussian Physical States & Celestial Representation",
       "domain": "Mathematical physics",
       "status": "Active series",
-      "desc": "Constrained physical states, source-aware representation, celestial transforms, spectral structure, multiparticle geometry, and the route toward scattering."
+      "desc": "Constrained physical states, source-aware representation, celestial transforms, spectral structure, multiparticle geometry, and the route toward scattering.",
+      "href": "research-gaussian-celestial.html"
     },
     {
       "id": "qg",
       "title": "Relational Quantum Gravity",
       "domain": "Quantum gravity",
       "status": "Active program",
-      "desc": "A program in constrained quantum gravity, BV structure, Schwarzschild geometry, boundary ownership, and relational physical information."
+      "desc": "A program in constrained quantum gravity, BV structure, Schwarzschild geometry, boundary ownership, and relational physical information.",
+      "href": "research-relational-quantum-gravity.html"
     },
     {
       "id": "ns",
       "title": "Fluid Dynamics & Navier–Stokes",
       "domain": "Analysis",
       "status": "Active program",
-      "desc": "Endpoint regularity, breakdown anatomy, continuation, restart structure, scale coherence, and formal analysis of three-dimensional incompressible flow."
+      "desc": "Endpoint regularity, breakdown anatomy, continuation, restart structure, scale coherence, and formal analysis of three-dimensional incompressible flow.",
+      "href": "research-navier-stokes.html"
     },
     {
       "id": "formal",
       "title": "Formal Scientific Infrastructure",
       "domain": "Formal methods",
       "status": "Ongoing infrastructure",
-      "desc": "Machine-assisted formalization, proof architecture, computational verification, reproducibility, and research infrastructure supporting the institute's scientific programs."
+      "desc": "Machine-assisted formalization, proof architecture, computational verification, reproducibility, and research infrastructure supporting the institute's scientific programs.",
+      "href": "research-formal-infrastructure.html"
     }
   ],
   "series": [
