@@ -171,3 +171,65 @@ a{color:inherit}.shell,.wrap{width:min(calc(100% - 48px),var(--max));margin-inli
 .program-intro,.publication-intro{padding:78px 0 62px}
 .program-intro__desc,.publication-intro__sub{font-size:1.16rem}
 .sky-window{padding:72px 0}
+
+/* 2026-10-07 — Editorial scale correction */
+.atlas-hero{
+  min-height:540px;
+  grid-template-columns:minmax(0,1.3fr) minmax(300px,.7fr);
+  gap:44px;
+  padding:48px 0 64px;
+}
+.atlas-hero h1{
+  font-size:clamp(2.9rem,4.8vw,4.9rem);
+  line-height:.95;
+  max-width:13ch;
+  margin:14px 0 22px;
+}
+.atlas-hero__lede{
+  font-size:clamp(1.02rem,1.45vw,1.24rem);
+  line-height:1.52;
+  max-width:560px;
+}
+.atlas-hero__actions{margin-top:26px}
+.aperture{
+  height:440px;
+  border-radius:50% 0 0 50%;
+}
+.aperture:before{
+  width:285px;
+  height:285px;
+  left:22%;
+  top:18%;
+  box-shadow:0 0 0 42px rgba(241,234,220,.035),0 0 0 84px rgba(111,135,145,.04);
+}
+.aperture__label{left:12%;bottom:9%;max-width:240px}
+.aperture__label strong{font-size:1.05rem}
+.manifesto-strip blockquote{font-size:clamp(1.5rem,2.5vw,2.35rem);max-width:22ch}
+.section-intro h2{font-size:clamp(1.8rem,2.8vw,2.85rem);max-width:16ch}
+.section-intro p{font-size:.98rem;max-width:540px}
+.question-line strong{font-size:clamp(1.3rem,1.9vw,1.9rem);line-height:1.08}
+.question-line em{font-size:.94rem;line-height:1.48}
+.page-head h1{font-size:clamp(2.5rem,4vw,4rem);line-height:.98;max-width:14ch}
+.page-head .lede{font-size:1.08rem;max-width:650px}
+.program-intro h1,.publication-intro h1,.program-hero h1{
+  font-size:clamp(2.5rem,4vw,4rem);
+  line-height:.98;
+  max-width:15ch;
+}
+.program-intro__desc,.publication-intro__sub{font-size:1.08rem}
+.program-question p{font-size:1.25rem}
+.essay__main h2,.program-main h2{font-size:2rem}
+.sky-window h2{font-size:clamp(1.55rem,2.4vw,2.35rem);max-width:24ch}
+.note-entry h3{font-size:1.6rem}
+.orbit-program strong,.program-row__title{font-size:1.5rem}
+.paper-row h3,.archive-item h3{font-size:1.4rem}
+
+@media(max-width:900px){
+  .atlas-hero{grid-template-columns:1fr;padding:50px 24px 60px}
+  .atlas-hero__copy{padding:0}
+  .aperture{height:330px;border-radius:0}
+}
+@media(max-width:620px){
+  .atlas-hero h1{font-size:3rem}
+  .aperture{height:260px}
+}
