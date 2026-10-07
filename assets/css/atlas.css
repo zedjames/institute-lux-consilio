@@ -233,3 +233,49 @@ a{color:inherit}.shell,.wrap{width:min(calc(100% - 48px),var(--max));margin-inli
   .atlas-hero h1{font-size:3rem}
   .aperture{height:260px}
 }
+
+/* 2026-10-07 — Observatory legibility correction */
+.aperture-wrap{
+  display:flex;
+  flex-direction:column;
+  align-self:center;
+  min-width:0;
+}
+.aperture{
+  position:relative;
+}
+.aperture__label{
+  left:auto;
+  right:8%;
+  top:10%;
+  bottom:auto;
+  max-width:none;
+  z-index:3;
+}
+.aperture__label span{
+  display:inline-block;
+  color:#d7b77a;
+  font-weight:700;
+  text-shadow:0 1px 10px rgba(7,18,16,.45);
+  background:rgba(17,35,32,.22);
+  border:1px solid rgba(241,234,220,.08);
+  padding:7px 10px 6px;
+  backdrop-filter:blur(3px);
+}
+.aperture__label strong{display:none}
+.aperture-caption{
+  margin:14px 0 0;
+  padding-left:11%;
+  max-width:420px;
+  font-family:var(--serif);
+  font-size:.98rem;
+  letter-spacing:.02em;
+  color:#56615c;
+}
+@media(max-width:900px){
+  .aperture-caption{padding-left:0;margin:12px 0 0 24px}
+  .aperture__label{right:24px;top:20px}
+}
+@media(max-width:620px){
+  .aperture-caption{margin-left:0;font-size:.9rem}
+}
