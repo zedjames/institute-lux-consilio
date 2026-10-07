@@ -1084,7 +1084,7 @@ window.ILC_DATA={
       "id": "identity",
       "title": "What makes something itself?",
       "text": "What remains invariant as a system develops, flows, or changes representation?",
-      "href": "research.html#identity",
+      "href": "research-gaussian-celestial.html",
       "programs": [
         "health",
         "celestial",
