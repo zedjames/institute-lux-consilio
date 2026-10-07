@@ -204,7 +204,7 @@ window.ILC_DATA={
       "title": "Present-State Resolution and Lineage History in Early Mouse Embryogenesis",
       "subtitle": "Matched-control lineage analysis, fully inductive molecular prediction, and representation-aware history tests in E7.5 mouse embryos.",
       "doi": "10.5281/zenodo.23125762",
-      "summary": "Across three E7.5 MELA embryos, the fully inductive molecular present predicts a disjoint contemporaneous molecular target beyond coarse annotations, while matched controls and family-wise calibration do not establish an additional predictive contribution from the tested reconstructed-lineage summaries.",
+      "summary": "Across three E7.5 MELA embryos, the fully inductive molecular present predicts a disjoint contemporaneous molecular target beyond coarse annotations; matched controls and family-wise calibration leave the additional predictive contribution from the tested reconstructed-lineage summaries unestablished.",
       "program": "rmmo",
       "domains": [
         "Systems biology",
@@ -827,7 +827,7 @@ window.ILC_DATA={
       "narrative": [
         "The program begins by treating health as a prospective, indexed proposition before treating it as a measurement. Paper I separates present constitution from future adequacy and formalizes prospective health through present realization plus requirement-adequate continuation capacity, with scenario, horizon, and formal requirement kept explicit.",
         "The response semantics are built upstream of capacity. Lawful histories are restricted to the complete viable-continuation family; capacity is then a downstream observation and collection of that family. The requirement-visible quotient identifies exactly the distinctions the declared health language can see, while explicit negative results mark where robustness or present-state observation alone is insufficient.",
-        "Paper II transports the architecture across changing contexts, developmental stages, horizons, and open-system support. It separates raw-capacity determinacy, health-visible determinacy, and full health truth, exposing branching, coalescence, and obstruction rather than assuming that a health judgment survives every contextual change."
+        "Paper II transports the architecture across changing contexts, developmental stages, horizons, and open-system support. It separates raw-capacity determinacy, health-visible determinacy, and full health truth, mapping where transport is canonical and where branching, coalescence, and obstruction appear."
       ],
       "frontier": "The public foundation now supports a next layer concerned with richer response semantics—robustness, probability, risk, cost, endogenous control and policy—followed by physiological measurement sufficiency, empirical identification, calibration, uncertainty, and validation. The formal definition and the empirical claim remain deliberately separate layers.",
       "methods": [
@@ -839,8 +839,8 @@ window.ILC_DATA={
       "openQuestions": [
         "Which response enrichments are sufficient for failure-sensitive robustness, probability, risk, and cost?",
         "What physiological observations preserve the health-relevant distinctions identified by the formal quotient?",
-        "How should uncertainty and calibration enter without changing the upstream definition?",
-        "Which empirical designs can identify prospective health rather than proxies for disease or its absence?"
+        "How can uncertainty and calibration enter while preserving the upstream definition?",
+        "Which empirical designs can identify prospective health directly, including its distinction from disease-centered proxies?"
       ],
       "artifacts": [
         {
@@ -865,7 +865,7 @@ window.ILC_DATA={
       "narrative": [
         "The biology program treats state, identity, history, fate, comparability, developmental organization, and morphogenesis as explicit relational structures on measured biological carriers.",
         "Paper I separates future enrichment, exact state–fate recovery, lineage fingerprinting, shared compression, replicate persistence, and molecular realization across lineage-resolved perturbation experiments. Paper II moves into spatial development, where local relational architecture changes strongly with comparison context while an aggregate developmental directional sign remains stable across the tested representation family.",
-        "Paper III asks which representation owns predictive information. In three E7.5 embryos, the fully inductive molecular present improves prediction of a disjoint contemporaneous molecular target beyond coarse annotations, while matched controls and complete-family calibration do not establish an additional predictive contribution from the tested reconstructed-lineage summaries."
+        "Paper III asks which representation owns predictive information. In three E7.5 embryos, the fully inductive molecular present improves prediction of a disjoint contemporaneous molecular target beyond coarse annotations; matched controls and complete-family calibration leave the added contribution from the tested reconstructed-lineage summaries unresolved."
       ],
       "frontier": "The current public sequence sharpens the distinction between information carried by measured present state and information attributable to reconstructed history. The program can now carry that distinction into morphogenesis, multicellular organization, tissue-scale persistence, developmental transitions, molecular mechanism, and other systems where measured state and later realization are separated by nontrivial relational structure.",
       "methods": [
@@ -875,7 +875,7 @@ window.ILC_DATA={
         "Family-wise calibration and representation sensitivity"
       ],
       "openQuestions": [
-        "Which relational structures recur across datasets rather than only within a chosen carrier?",
+        "Which relational structures recur across datasets and remain stable across changes in carrier?",
         "When does developmental history add predictive information beyond the measured molecular present?",
         "Which aspects of organization survive changes of representation and comparison context?",
         "How do relational carriers scale from cell-state organization toward tissue and morphogenetic structure?"
@@ -902,7 +902,7 @@ window.ILC_DATA={
       "question": "What exists, what is represented, what is identified, what is lost, and what remains reconstructible at each physical transition?",
       "narrative": [
         "The sequence follows physical information through successive changes of representation. It begins with an exactly solvable Gaussian sector under a closed matter-current constraint, where nonzero current-physical states require an all-orders completion even though a finite two-particle seed can remain faithful to the Gaussian modulus.",
-        "The middle of the series separates representation-theoretic existence from physical particle semantics, then follows the same pair geometry into radiative response. Different response maps retain different parts of the original provenance, so information compression is treated as a theorem to be determined rather than something assumed away.",
+        "The middle of the series separates representation-theoretic existence from physical particle semantics, then follows the same pair geometry into radiative response. Different response maps retain different parts of the original provenance, making information compression an explicit theorem of the construction.",
         "Papers V and VI carry the radiative Bose pair into celestial principal-series data. Fixed-source Weyl isometry fails; the correct structure is source-aware. On the intrinsic physical source range, the cross-ratio and full signed principal-series transforms are injective for every physical external-label pair, while the retained bounded completion remains explicitly conditional on one uniform core estimate."
       ],
       "frontier": "The public sequence has reached a proved source-aware carrier beyond the source-uniqueness stage. The next questions concern intrinsic spectral realization, operator geometry, stronger reconstruction and stability statements, and then the transition toward interacting celestial dynamics, scattering, collinear and soft structure, celestial operator products, and Ward identities.",
@@ -940,10 +940,10 @@ window.ILC_DATA={
       "question": "When a quantum matter sector backreacts on geometry, which structures genuinely belong to the same physical owner, and which equivalences are visible only to gravity?",
       "narrative": [
         "The public sequence constructs a self-consistent Einstein–real-scalar quantum sector from singular radial operator selection through quantum dynamics, local matter, master-action ownership, gauge structure, regulated quantization, and relational gravitational visibility.",
-        "The first papers propagate the Friedrichs-selected Schwarzschild scalar law into continuum Fock dynamics and action-derived local quantum matter, then require geometry to own the same matter law self-consistently rather than importing it from a fixed background.",
+        "The first papers propagate the Friedrichs-selected Schwarzschild scalar law into continuum Fock dynamics and action-derived local quantum matter, then require geometry to own that same matter law self-consistently within the constructed sector.",
         "The middle papers move upstream into Palatini master-action and BRST/BV structure. The regulated quantum program exposes both compatible finite quantum complexes and explicit obstruction surfaces. Paper VIII then separates physical ownership from gravitational visibility: the corresponding quotient relations are globally incomparable, while intrinsic curvature data rigidly recover the source parameter on the realized nonlinear family."
       ],
-      "frontier": "The public endpoint is relational rather than final: it identifies what the constructed geometry can recover and which equivalences it does not own. Further progress must preserve the distinction between proved operator/gauge structure, regulated quantum complexes, nonlinear gravitational realization, and any stronger claim about global quantum-gravitational completion.",
+      "frontier": "The public endpoint is relational: it identifies what the constructed geometry can recover and which equivalences remain outside its present ownership. Further progress can build from the proved operator and gauge structure, regulated quantum complexes, and nonlinear gravitational realization toward stronger global quantum-gravitational statements.",
       "methods": [
         "Critical Schwarzschild operator analysis",
         "Continuum Fock and local quantum matter",
@@ -952,7 +952,7 @@ window.ILC_DATA={
       ],
       "openQuestions": [
         "How far can the regulated quantum construction be extended while preserving a controlled physical complex?",
-        "Which boundary data are genuinely owned by the physical sector versus only visible gravitationally?",
+        "Which boundary data belong to the physical sector, and which become visible through gravity?",
         "What additional structure is required to connect the current relational geometry to stronger dynamical or asymptotic claims?",
         "Which obstructions are removable technical gaps and which are intrinsic mathematical boundaries?"
       ],
@@ -977,11 +977,11 @@ window.ILC_DATA={
     "ns": {
       "question": "What structure must remain available for a strong solution to continue, and what exact geometry is forced when that continuation reserve disappears?",
       "narrative": [
-        "The Navier–Stokes program treats continuation as an anatomy rather than a single norm. Paper I resolves finite maximal lifespan into bounded kinetic energy, eventual H² divergence, escape beyond every prescribed spectral cutoff, positive-scale regularity, and collapse of uniform continuation reserve.",
+        "The Navier–Stokes program treats continuation as a structured anatomy spanning energy, regularity, spectral scale, and restart capacity. Paper I resolves finite maximal lifespan into bounded kinetic energy, eventual H² divergence, escape beyond every prescribed spectral cutoff, positive-scale regularity, and collapse of uniform continuation reserve.",
         "Paper II sharpens that anatomy through finite-annulus spectral budgets, terminal nonlinear H² work, and coordinated failure of nonendpoint continuation controls. It gives a more explicit account of how regularity can escape every finite control surface while energy remains finite.",
         "Paper III reaches the scale-invariant L³ endpoint. Bounded terminal L³ forces continuation; therefore finite maximal time forces unbounded terminal L³ limsup. The proof architecture passes through terminal magnification, intrinsic restart, ancient-limit recovery, and rigidity."
       ],
-      "frontier": "The public trilogy sharply constrains any finite-time breakdown scenario but does not by itself establish global regularity. The frontier is therefore the structure beyond the endpoint theorem: whether the forced escape anatomy can be made incompatible with a genuine finite-time singularity, and which additional scale-coherent or terminal inheritance principles would be required.",
+      "frontier": "The public trilogy sharply constrains any finite-time breakdown scenario. The next frontier asks whether the forced escape anatomy can be made incompatible with a genuine finite-time singularity and which scale-coherent or terminal inheritance principles would carry that argument toward global regularity.",
       "methods": [
         "Machine-checked periodic Navier–Stokes framework",
         "H² continuation and spectral escape analysis",
@@ -992,7 +992,7 @@ window.ILC_DATA={
         "Can the forced high-frequency escape anatomy be closed into a contradiction with finite-time breakdown?",
         "Which scale-coherent quantities can be inherited through terminal magnification?",
         "How do endpoint rigidity and backward identification interact with global scale escape?",
-        "Which remaining step is genuinely equivalent to the global regularity problem rather than another continuation criterion?"
+        "Which remaining step is genuinely equivalent to the global regularity problem, and how does it connect to the continuation structure already established?"
       ],
       "artifacts": [
         {
@@ -1013,13 +1013,13 @@ window.ILC_DATA={
       ]
     },
     "formal": {
-      "question": "How should machine-checked structure be connected to scientific authority without confusing source presence, compilation, theorem truth, interpretation, and empirical realization?",
+      "question": "How can machine-checked structure be connected to scientific authority while keeping source presence, compilation, theorem truth, interpretation, and empirical realization legible?",
       "narrative": [
         "ILC's formal scientific infrastructure supports multiple research programs with a large Lean 4 corpus, machine-checkable definitions and proofs, targeted verification surfaces, computational research, and explicit provenance records.",
-        "The latest public source-level inventory measured 16,911 tracked Lean files, 3,982,645 physical source lines, 113,630 theorem declarations, and 4,713 lemma declarations at a clean main-branch snapshot on September 24, 2026. Those counts describe source presence, not a claim that every file was compiled together or that every declaration carries the same scientific authority.",
-        "The verification framework keeps distinct: source presence, import reachability, canonical theorem-surface membership, successful compilation of a specified target, mathematical establishment under stated hypotheses and axioms, scientific interpretation, and empirical realization. The infrastructure exists to preserve those boundaries rather than blur them."
+        "The latest public source-level inventory measured 16,911 tracked Lean files, 3,982,645 physical source lines, 113,630 theorem declarations, and 4,713 lemma declarations at a clean main-branch snapshot on September 24, 2026. Those counts record source presence; compilation targets and theorem authority are tracked as separate verification layers.",
+        "The verification framework tracks source presence, import reachability, canonical theorem-surface membership, successful compilation of specified targets, mathematical establishment under stated hypotheses and axioms, scientific interpretation, and empirical realization as distinct layers of the scientific record."
       ],
-      "frontier": "The institute's formal-methods frontier is publication-grade traceability: connecting papers to exact theorem statements, dependency surfaces, build targets, axiom audits, frozen artifacts, and cryptographic provenance while releasing public verification material where it supports independent review without exposing unrelated proprietary implementation.",
+      "frontier": "The institute's formal-methods frontier is publication-grade traceability: connecting papers to exact theorem statements, dependency surfaces, build targets, axiom audits, frozen artifacts, and cryptographic provenance, with public verification material designed for independent review and focused on the scientific surface under examination.",
       "methods": [
         "Lean 4 formalization",
         "Targeted build and theorem checks",
@@ -1029,7 +1029,7 @@ window.ILC_DATA={
       "openQuestions": [
         "How should theorem-level verification status be surfaced consistently across every publication?",
         "Which parts of the private formal corpus should receive frozen public verification artifacts?",
-        "How can computational and empirical evidence be linked to formal claims without conflating their authority?",
+        "How can computational and empirical evidence be linked to formal claims while preserving the authority of each layer?",
         "What is the right long-term archival format for reproducible proof, code, data, and publication provenance?"
       ],
       "artifacts": [
