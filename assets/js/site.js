@@ -17,6 +17,10 @@ function renderThemes(){
  const el=$('#theme-grid'); if(!el||!D.themes)return;
  el.innerHTML=D.themes.map((t,i)=>`<article class="theme-card"><span>${String(i+1).padStart(2,'0')}</span><h3>${esc(t.label)}</h3><p>${esc(t.description)}</p></article>`).join('');
 }
+function renderQuestions(){
+ const el=$('#question-grid'); if(!el||!D.questions)return;
+ el.innerHTML=D.questions.map((q,i)=>`<a class="question-card" href="${esc(q.href)}"><span class="question-card__index">${String(i+1).padStart(2,'0')}</span><h3>${esc(q.title)}</h3><p>${esc(q.text)}</p><span class="question-card__go">Explore →</span></a>`).join('');
+}
 function pubHtml(p){
  const links=[`<a href="publication.html?id=${encodeURIComponent(p.id)}">Record →</a>`];
  if(p.doi) links.push(`<a href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener">DOI ${esc(p.doi)} ↗</a>`);
@@ -86,5 +90,5 @@ function renderPublication(){
  <section class="section"><div class="wrap"><div class="grid grid-2" style="align-items:start"><div class="prose"><p class="eyebrow">Abstract record</p><p class="kicker">${esc(p.summary)}</p><h2>Scientific context</h2><p>This publication belongs to <a href="${programHref(prog)}">${esc(prog?.title||p.series)}</a>. ILC preserves the program context around the archival publication so the result remains connected to the question, sequence, and later work it supports.</p><h2>Provenance</h2><p>This record was migrated from the existing public Fieldflux research catalog. Historical publication provenance and DOI records remain unchanged; the ILC site now provides the institute-level scholarly context.</p></div>
  <aside class="card"><p class="card__tag">Publication record</p><h3>${fmtDate(p.date)}</h3><p><strong>Author</strong><br>Zed James</p><p><strong>Type</strong><br>Preprint</p><p><strong>Series</strong><br>${esc(p.series)}</p><p><strong>DOI</strong><br><a href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener">${esc(p.doi)} ↗</a></p><p><strong>Domains</strong><br>${esc((p.domains||[]).join(' · '))}</p><div class="hero__actions"><a class="btn btn--primary" href="${esc(p.pdf)}" target="_blank" rel="noopener">Open PDF</a><a class="btn btn--quiet" href="${esc(p.legacyPage)}" target="_blank" rel="noopener">Original record</a></div></aside></div></div></section>`;
 }
-renderPrograms();renderThemes();renderPubs();renderNotes();wirePublicationFilters();renderProgram();renderPublication();
+renderPrograms();renderThemes();renderQuestions();renderPubs();renderNotes();wirePublicationFilters();renderProgram();renderPublication();
 })();
