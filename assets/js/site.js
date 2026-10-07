@@ -8,10 +8,11 @@ function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt
 function programHref(p){return p?.href||('program.html?id='+encodeURIComponent(p?.id||''));}
 function renderPrograms(){
  const el=$('#program-list'); if(!el||!D.programs)return;
- el.innerHTML=D.programs.map((p,i)=>`<a class="program-row" href="${programHref(p)}">
- <div class="program-row__num">${String(i+1).padStart(2,'0')} · ${esc(p.domain)}</div>
- <div><div class="program-row__title">${esc(p.title)}</div><div class="program-row__desc">${esc(p.desc)}</div></div>
- <div class="program-row__status">${esc(p.status)}</div></a>`).join('');
+ el.innerHTML=D.programs.map((p,i)=>`<a class="orbit-program reveal" href="${programHref(p)}">
+ <span class="orbit-program__n">${String(i+1).padStart(2,'0')}</span>
+ <span class="orbit-program__domain">${esc(p.domain)}</span>
+ <div><strong>${esc(p.title)}</strong><p>${esc(p.desc)}</p></div>
+ <span class="orbit-program__status">${esc(p.status)}</span></a>`).join('');
 }
 function renderThemes(){
  const el=$('#theme-grid'); if(!el||!D.themes)return;
@@ -19,7 +20,7 @@ function renderThemes(){
 }
 function renderQuestions(){
  const el=$('#question-grid'); if(!el||!D.questions)return;
- el.innerHTML=D.questions.map((q,i)=>`<a class="question-card" href="${esc(q.href)}"><span class="question-card__index">${String(i+1).padStart(2,'0')}</span><h3>${esc(q.title)}</h3><p>${esc(q.text)}</p><span class="question-card__go">Explore →</span></a>`).join('');
+ el.innerHTML=D.questions.map((q,i)=>`<a class="question-line reveal" href="${esc(q.href)}"><span class="question-line__n">${String(i+1).padStart(2,'0')}</span><span class="question-line__body"><strong>${esc(q.title)}</strong><em>${esc(q.text)}</em></span><span class="question-line__arrow">↗</span></a>`).join('');
 }
 function pubHtml(p){
  const links=[`<a href="publication.html?id=${encodeURIComponent(p.id)}">Record →</a>`];
