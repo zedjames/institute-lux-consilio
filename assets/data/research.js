@@ -80,12 +80,12 @@ window.ILC_DATA={
       "publishedCount": 6
     },
     {
-      "id": "relational-biology",
-      "label": "Relational / Systems Biology",
+      "id": "relational-cell-fate",
+      "label": "Relational Cell Fate",
       "domain": "Systems biology",
-      "description": "An ongoing systems-biology program studying relational state, fate, comparability, developmental organization, present-state resolution, lineage history, and morphogenetic direction across measured biological carriers.",
-      "status": "Ongoing series; Papers I–III published; further papers in development",
-      "publishedCount": 3
+      "description": "A related foundational investigation of biological state, history, identity, and fate across lineage-resolved perturbation experiments.",
+      "status": "Standalone published paper with a separate public research repository",
+      "publishedCount": 1
     },
     {
       "id": "health-formally-defined",
@@ -93,6 +93,14 @@ window.ILC_DATA={
       "domain": "Foundations of health",
       "description": "A formal and measurement-science program defining health prospectively through present realization and requirement-adequate continuation capacity. Papers I–III establish viable-response semantics, contextual transport, and the information sufficient to answer declared health questions. Subsequent work will develop scale-specific instantiation, empirical identification, calibration, uncertainty, validation, and comparison.",
       "status": "Ongoing series; Papers I–III published; scale-specific measurement and empirical work ahead",
+      "publishedCount": 3
+    },
+    {
+      "id": "rmmo",
+      "label": "Relational Morphogenesis and Multicellular Organization",
+      "domain": "Systems biology",
+      "description": "A systems-biology series investigating relational comparability, developmental organization, and cross-embryo correspondence. Papers I–III establish context-sensitive directional structure, the comparative roles of measured molecular present and lineage history, and overlapping set-valued local geometry with construction-held-out molecular evidence.",
+      "status": "Ongoing series; Papers I–III published; further developmental studies ahead",
       "publishedCount": 3
     }
   ],
@@ -139,6 +147,32 @@ window.ILC_DATA={
     }
   ],
   "publications": [
+    {
+      "id": "bio4",
+      "date": "2026-10-08",
+      "seriesId": "rmmo",
+      "series": "Relational Morphogenesis and Multicellular Organization",
+      "order": 3,
+      "title": "An Overlapping Local Relational Geometry of Early Mouse Embryogenesis",
+      "doi": "10.5281/zenodo.23225034",
+      "conceptDoi": "10.5281/zenodo.23225035",
+      "summary": "Across 3,704 lineage-qualified cells from three E7.5 mouse embryos, nine prespecified construction lanes yield sparse pair-local correspondences evaluated against a disjoint molecular feature panel. Set-valued target fibers and overlapping source regions retain construction-held-out molecular organization; degree-controlled connectivity contributes additional source information. Molecular-effect direction persists across tested representations and domain scales while exact global correspondence conditions fail.",
+      "program": "rmmo",
+      "domains": [
+        "Systems biology",
+        "Developmental biology",
+        "Single-cell transcriptomics",
+        "Relational geometry"
+      ],
+      "themes": [
+        "relational-organization",
+        "representation-reconstruction",
+        "invariance-identity",
+        "evidence-validation",
+        "boundary-measurement"
+      ],
+      "companion": "https://github.com/zedjames/relational-morphogenesis/tree/main/papers/03-overlapping-local-relational-geometry"
+    },
     {
       "id": "hfd3",
       "date": "2026-10-07",
@@ -226,9 +260,9 @@ window.ILC_DATA={
     {
       "id": "bio3",
       "date": "2026-10-03",
-      "seriesId": "relational-biology",
-      "series": "Relational / Systems Biology",
-      "order": 3,
+      "seriesId": "rmmo",
+      "series": "Relational Morphogenesis and Multicellular Organization",
+      "order": 2,
       "title": "Present-State Resolution and Lineage History in Early Mouse Embryogenesis",
       "subtitle": "Matched-control lineage analysis, fully inductive molecular prediction, and representation-aware history tests in E7.5 mouse embryos.",
       "doi": "10.5281/zenodo.23125762",
@@ -276,9 +310,9 @@ window.ILC_DATA={
     {
       "id": "bio2",
       "date": "2026-10-01",
-      "seriesId": "relational-biology",
-      "series": "Relational / Systems Biology",
-      "order": 2,
+      "seriesId": "rmmo",
+      "series": "Relational Morphogenesis and Multicellular Organization",
+      "order": 1,
       "title": "Relational Organization and Directional Stability Across Mouse Organogenesis",
       "subtitle": "Relational comparability, developmental direction, and representation stability across the Mouse Organogenesis Spatiotemporal Transcriptomic Atlas.",
       "doi": "10.5281/zenodo.23090479",
@@ -326,8 +360,8 @@ window.ILC_DATA={
     {
       "id": "bio1",
       "date": "2026-09-28",
-      "seriesId": "relational-biology",
-      "series": "Relational / Systems Biology",
+      "seriesId": "relational-cell-fate",
+      "series": "Relational Cell Fate",
       "order": 1,
       "title": "Relational Anatomy of Cell Fate Across Lineage-Resolved Perturbation Experiments",
       "subtitle": "A finite relational calculus for state, identity, history, and fate across biological systems.",
@@ -896,40 +930,48 @@ window.ILC_DATA={
       ]
     },
     "rmmo": {
-      "question": "Which biological relations persist across changes of state, scale, representation, and developmental context, and which distinctions are created by the way the system is observed?",
+      "question": "Which relationships across developing biological systems remain informative as comparison context, molecular representation, and the scale of local correspondence change?",
       "narrative": [
-        "The biology program treats state, identity, history, fate, comparability, developmental organization, and morphogenesis as explicit relational structures on measured biological carriers.",
-        "Paper I separates future enrichment, exact state–fate recovery, lineage fingerprinting, shared compression, replicate persistence, and molecular realization across lineage-resolved perturbation experiments. Paper II moves into spatial development, where local relational architecture changes strongly with comparison context while an aggregate developmental directional sign remains stable across the tested representation family.",
-        "Paper III asks which representation owns predictive information. In three E7.5 embryos, the fully inductive molecular present improves prediction of a disjoint contemporaneous molecular target beyond coarse annotations; matched controls and complete-family calibration leave the added contribution from the tested reconstructed-lineage summaries unresolved."
+        "The Relational Morphogenesis and Multicellular Organization series investigates comparability, local organization, and developmental continuity through explicitly constructed relations on biological data. A related earlier study of relational cell fate provides complementary background outside the numbered RMMO paper sequence.",
+        "Paper I examines relational organization and directional stability across mouse organogenesis. Local direction depends on comparison context while an aggregate developmental sign persists across tested representations.",
+        "Paper II uses three E7.5 mouse embryos to compare present molecular state and reconstructed lineage history. A held-out molecular target is predicted beyond coarse annotation by the inductive measured present; an additional lineage contribution remains unresolved under the tested family-wise calibration.",
+        "Paper III constructs an overlapping, set-valued pair-local relational geometry in the same three E7.5 embryos. Construction features are separated from molecular evaluation; selected edges, fiber neighborhoods, and connectivity retain held-out molecular information. Effect direction persists through tested representation and domain-scale changes, while exact global compatibility fails under the declared criteria."
       ],
-      "frontier": "The current public sequence sharpens the distinction between information carried by measured present state and information attributable to reconstructed history. The program can now carry that distinction into morphogenesis, multicellular organization, tissue-scale persistence, developmental transitions, molecular mechanism, and other systems where measured state and later realization are separated by nontrivial relational structure.",
+      "frontier": "The first three RMMO papers establish context-dependent directional organization, information carried by measured molecular state, and construction-held-out support for overlapping local correspondences. Further work can test these relational objects in independent embryos, later developmental stages, and cross-horizon reconstructions while preserving distinctions between stable relational properties and representation-dependent finite realizations.",
       "methods": [
-        "Lineage-resolved perturbation analysis",
-        "Spatial and single-cell transcriptomic carriers",
-        "Matched-control and held-out prediction",
-        "Family-wise calibration and representation sensitivity"
+        "Spatial and single-cell transcriptomic analysis",
+        "Pair-local correspondences and set-valued target fibers",
+        "Construction/evaluation feature separation and matched references",
+        "Degree-controlled source fidelity and independent calibration",
+        "Representation and domain-scale sensitivity",
+        "Exact composition and common-refinement tests"
       ],
       "openQuestions": [
-        "Which relational structures recur across datasets and remain stable across changes in carrier?",
-        "When does developmental history add predictive information beyond the measured molecular present?",
-        "Which aspects of organization survive changes of representation and comparison context?",
-        "How do relational carriers scale from cell-state organization toward tissue and morphogenetic structure?"
+        "Which overlapping local relations recur across independent embryo populations or later developmental stages?",
+        "Which molecular properties remain stable when finite relation membership changes with the representation or comparison scale?",
+        "When can pair-local systems be composed across developmental horizons, and which exact compatibility conditions become satisfied?",
+        "What additional experiments distinguish biological mechanism from organization preserved under conditional reference models?"
       ],
       "artifacts": [
         {
-          "label": "Relational Morphogenesis public repository",
+          "label": "RMMO public reproducibility repository",
           "href": "https://github.com/zedjames/relational-morphogenesis",
           "kind": "Repository"
         },
         {
-          "label": "Relational Cell Fate public repository",
+          "label": "Paper III reproducibility companion",
+          "href": "https://github.com/zedjames/relational-morphogenesis/tree/main/papers/03-overlapping-local-relational-geometry",
+          "kind": "Reproducibility"
+        },
+        {
+          "label": "Related Relational Cell Fate research",
           "href": "https://github.com/zedjames/relational-cell-fate",
           "kind": "Repository"
         },
         {
-          "label": "Paper sequence",
-          "href": "publications.html",
-          "kind": "Archive"
+          "label": "Paper III — Zenodo publication",
+          "href": "https://doi.org/10.5281/zenodo.23225034",
+          "kind": "Publication"
         }
       ]
     },
