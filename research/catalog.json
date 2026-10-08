@@ -161,6 +161,32 @@
   ],
   "publications": [
     {
+      "id": "bio4",
+      "date": "2026-10-08",
+      "seriesId": "rmmo",
+      "series": "Relational Morphogenesis and Multicellular Organization",
+      "order": 3,
+      "title": "An Overlapping Local Relational Geometry of Early Mouse Embryogenesis",
+      "doi": "10.5281/zenodo.23225034",
+      "conceptDoi": "10.5281/zenodo.23225035",
+      "summary": "Across 3,704 lineage-qualified cells from three E7.5 mouse embryos, nine prespecified construction lanes yield sparse pair-local correspondences evaluated against a disjoint molecular feature panel. Set-valued target fibers and overlapping source regions retain construction-held-out molecular organization; degree-controlled connectivity contributes additional source information. Molecular-effect direction persists across tested representations and domain scales while exact global correspondence conditions fail.",
+      "program": "rmmo",
+      "domains": [
+        "Systems biology",
+        "Developmental biology",
+        "Single-cell transcriptomics",
+        "Relational geometry"
+      ],
+      "themes": [
+        "relational-organization",
+        "representation-reconstruction",
+        "invariance-identity",
+        "evidence-validation",
+        "boundary-measurement"
+      ],
+      "companion": "https://github.com/zedjames/relational-morphogenesis/tree/main/papers/03-overlapping-local-relational-geometry"
+    },
+    {
       "id": "hfd3",
       "date": "2026-10-07",
       "seriesId": "health-formally-defined",
@@ -247,9 +273,9 @@
     {
       "id": "bio3",
       "date": "2026-10-03",
-      "seriesId": "relational-biology",
-      "series": "Relational / Systems Biology",
-      "order": 3,
+      "seriesId": "rmmo",
+      "series": "Relational Morphogenesis and Multicellular Organization",
+      "order": 2,
       "title": "Present-State Resolution and Lineage History in Early Mouse Embryogenesis",
       "subtitle": "Matched-control lineage analysis, fully inductive molecular prediction, and representation-aware history tests in E7.5 mouse embryos.",
       "doi": "10.5281/zenodo.23125762",
@@ -297,9 +323,9 @@
     {
       "id": "bio2",
       "date": "2026-10-01",
-      "seriesId": "relational-biology",
-      "series": "Relational / Systems Biology",
-      "order": 2,
+      "seriesId": "rmmo",
+      "series": "Relational Morphogenesis and Multicellular Organization",
+      "order": 1,
       "title": "Relational Organization and Directional Stability Across Mouse Organogenesis",
       "subtitle": "Relational comparability, developmental direction, and representation stability across the Mouse Organogenesis Spatiotemporal Transcriptomic Atlas.",
       "doi": "10.5281/zenodo.23090479",
@@ -347,8 +373,8 @@
     {
       "id": "bio1",
       "date": "2026-09-28",
-      "seriesId": "relational-biology",
-      "series": "Relational / Systems Biology",
+      "seriesId": "relational-cell-fate",
+      "series": "Relational Cell Fate",
       "order": 1,
       "title": "Relational Anatomy of Cell Fate Across Lineage-Resolved Perturbation Experiments",
       "subtitle": "A finite relational calculus for state, identity, history, and fate across biological systems.",
