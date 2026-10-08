@@ -91,9 +91,9 @@ window.ILC_DATA={
       "id": "health-formally-defined",
       "label": "Health, Formally Defined",
       "domain": "Foundations of health",
-      "description": "An ongoing formal and measurement program defining health prospectively through present realization and requirement-adequate continuation capacity, then extending that definition across contextual licensing, developmental change, open-system support, and the later measurement and empirical layers needed to make it scientifically usable.",
-      "status": "Ongoing series; Papers I–II published; further papers in development",
-      "publishedCount": 2
+      "description": "A formal and measurement-science program defining health prospectively through present realization and requirement-adequate continuation capacity. Papers I–III establish viable-response semantics, contextual transport, and the information sufficient to answer declared health questions. Subsequent work will develop scale-specific instantiation, empirical identification, calibration, uncertainty, validation, and comparison.",
+      "status": "Ongoing series; Papers I–III published; scale-specific measurement and empirical work ahead",
+      "publishedCount": 3
     }
   ],
   "themes": [
@@ -139,6 +139,34 @@ window.ILC_DATA={
     }
   ],
   "publications": [
+    {
+      "id": "hfd3",
+      "date": "2026-10-07",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "order": 3,
+      "title": "Representation Sufficiency in Prospective Health",
+      "subtitle": "Query-Visible Quotients, Transport, and Enriched Response Semantics.",
+      "doi": "10.5281/zenodo.23219588",
+      "conceptDoi": "10.5281/zenodo.23219587",
+      "summary": "Paper III establishes a representation-sufficiency theory for prospective health. Query-visible quotients determine the exact information demanded by declared health questions, characterize sufficient representations through refinement, and identify the coarsest sufficient target for exact deterministic transport. The paper extends these results to state-level health observation and provides concrete response-semantic realizations for control, viable cost, probability, route structure, and failure-aware robustness.",
+      "program": "health",
+      "domains": [
+        "Foundations of health",
+        "Formal methods",
+        "Measurement science",
+        "Representation theory",
+        "Dynamical systems"
+      ],
+      "themes": [
+        "health-foundations",
+        "representation-reconstruction",
+        "formalization-proof",
+        "invariance-identity",
+        "evidence-validation",
+        "continuation-stability"
+      ]
+    },
     {
       "id": "hfd2",
       "date": "2026-10-05",
@@ -827,20 +855,22 @@ window.ILC_DATA={
       "narrative": [
         "The program begins by treating health as a prospective, indexed proposition before treating it as a measurement. Paper I separates present constitution from future adequacy and formalizes prospective health through present realization plus requirement-adequate continuation capacity, with scenario, horizon, and formal requirement kept explicit.",
         "The response semantics are built upstream of capacity. Lawful histories are restricted to the complete viable-continuation family; capacity is then a downstream observation and collection of that family. The requirement-visible quotient identifies exactly the distinctions the declared health language can see, while explicit negative results mark where robustness or present-state observation alone is insufficient.",
-        "Paper II transports the architecture across changing contexts, developmental stages, horizons, and open-system support. It separates raw-capacity determinacy, health-visible determinacy, and full health truth, mapping where transport is canonical and where branching, coalescence, and obstruction appear."
+        "Paper II transports the architecture across changing contexts, developmental stages, horizons, and open-system support. It separates raw-capacity determinacy, health-visible determinacy, and full health truth, mapping where transport is canonical and where branching, coalescence, and obstruction appear.",
+        "Paper III studies which representations preserve the distinctions required by a declared health-query language. It characterizes all sufficient representations as refinements of the canonical quotient, proves the least sufficient target for exact deterministic transport, and establishes the corresponding information threshold for a full state-level health observation. Control, viable cost, probability, route structure, and failure-aware robustness provide explicit response-grounded examples."
       ],
-      "frontier": "The public foundation now supports a next layer concerned with richer response semantics—robustness, probability, risk, cost, endogenous control and policy—followed by physiological measurement sufficiency, empirical identification, calibration, uncertainty, and validation. The formal definition and the empirical claim remain deliberately separate layers.",
+      "frontier": "Papers I–III establish the prospective-health definition, contextual transport, and query-relative representation sufficiency. The next scientific layers concern scale-specific instantiation and empirical identification, including observation design, calibration, uncertainty, validation, reliability, and comparison.",
       "methods": [
         "Machine-checked formal semantics",
         "Requirement-visible quotient and universal property",
         "Contextual transport and obstruction analysis",
-        "Explicit separation of theorem, measurement, and empirical authority"
+        "Explicit separation of theorem, measurement, and empirical authority",
+        "Query-visible representation sufficiency and exact deterministic transport"
       ],
       "openQuestions": [
-        "Which response enrichments are sufficient for failure-sensitive robustness, probability, risk, and cost?",
-        "What physiological observations preserve the health-relevant distinctions identified by the formal quotient?",
-        "How can uncertainty and calibration enter while preserving the upstream definition?",
-        "Which empirical designs can identify prospective health directly, including its distinction from disease-centered proxies?"
+        "Which scale-specific observations preserve the health-relevant distinctions required by the declared query language?",
+        "How can formal response structures be connected to calibrated measurements with quantified uncertainty?",
+        "What empirical designs identify prospective health, and how should reliability and competing measurements be compared?",
+        "Which richer domain semantics are required for prospective risk, failure sensitivity, and intervention-dependent health claims?"
       ],
       "artifacts": [
         {
@@ -851,6 +881,11 @@ window.ILC_DATA={
         {
           "label": "Prospective Health Across Contexts — Paper II",
           "href": "publication.html?id=hfd2",
+          "kind": "Publication"
+        },
+        {
+          "label": "Representation Sufficiency in Prospective Health — Paper III",
+          "href": "publication.html?id=hfd3",
           "kind": "Publication"
         },
         {
