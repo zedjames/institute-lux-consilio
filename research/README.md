@@ -1,6 +1,6 @@
 # Institute Lux Consilio — scholarly index
 
-ILC hosts the complete public scholarly research library. The archive is an institutional index, not a retroactive change to an author's original affiliations, DOI, or intellectual-property ownership.
+ILC hosts the complete public scholarly research library. The archive brings research programs together while preserving each publication's original authorship, DOI, and source provenance.
 
 **Editorial data source:** `assets/data/research.js` (including program narratives and public records).
 

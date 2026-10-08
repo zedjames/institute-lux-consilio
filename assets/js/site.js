@@ -107,7 +107,7 @@ function renderPublication(){
    ? `<a class="btn btn--quiet" href="${esc(p.legacyPage)}" target="_blank" rel="noopener">Original record</a>`
    : '';
  const recordHistory=p.legacyPage
-   ? 'This record was indexed from an existing public research archive. Historical authorship, affiliation, DOI, and publication provenance are retained.'
+   ? 'This publication is presented within its scientific series, with links to the original record, DOI, and available full text.'
    : 'This preprint was published on Zenodo and is presented here within its scholarly series.';
  const versionsHtml=p.conceptDoi
    ? `<p><strong>All versions DOI</strong><br><a href="https://doi.org/${encodeURIComponent(p.conceptDoi)}" target="_blank" rel="noopener">${esc(p.conceptDoi)} ↗</a></p>`
