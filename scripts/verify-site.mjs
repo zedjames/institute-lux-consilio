@@ -26,4 +26,18 @@ for(const file of ["index.html","research.html","publications.html","notes.html"
  assert.ok(html.includes("Foundational Science &amp; Discovery")||html.includes("Foundational Science & Discovery"),"Wrong ILC identity in "+file);
  assert.ok(html.includes("assets/css/institute.css"),"Missing current stylesheet in "+file);
 }
+// The historical notes remain in the scholarly catalog but are not a current ILC
+// public-facing section. Keep their records, while preventing navigation regressions.
+assert.ok(data.notes.length>0,"Historical note records should remain preserved");
+for(const page of fs.readdirSync(".").filter(name=>name.endsWith(".html")&&!["notes.html","note.html"].includes(name))){
+ const html=fs.readFileSync(page,"utf8");
+ assert.ok(!/href=["'](?:notes|note)\.html(?:\?|["'])/.test(html),"Paused note route unexpectedly exposed from "+page);
+}
+for(const page of ["notes.html","note.html"]){
+ const html=fs.readFileSync(page,"utf8");
+ assert.match(html,/<meta name="robots" content="noindex,follow">/,"Missing noindex on "+page);
+ assert.ok(!/id="note-(?:list|detail)"/.test(html),"Paused note records re-exposed on "+page);
+}
+const sitemap=fs.readFileSync("sitemap.xml","utf8");
+assert.ok(!/\/(?:notes|note)\.html/.test(sitemap),"Paused note routes unexpectedly present in sitemap");
 console.log("ILC research integrity checks passed: "+data.programs.length+" programs, "+data.publications.length+" papers, "+data.notes.length+" notes.");
