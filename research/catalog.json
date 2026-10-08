@@ -161,6 +161,31 @@
   ],
   "publications": [
     {
+      "id": "gps7",
+      "date": "2026-10-08",
+      "seriesId": "gaussian",
+      "series": "Gaussian Physical States and Celestial Representation",
+      "order": 7,
+      "title": "Dynamical Ill-Conditioning of a Faithful Celestial Representation",
+      "subtitle": "Cubic gravitational response and an adjoint-range obstruction in the physical radiative Bose sector",
+      "doi": "10.5281/zenodo.23246259",
+      "conceptDoi": "10.5281/zenodo.23246260",
+      "summary": "Under an explicit uniform completion estimate, the completed retained celestial representation determines physical radiative Bose states uniquely, while the Riesz vector of a nonzero finite-regulator gravitational cubic lies outside the retained transform's adjoint range. The exact-range cubic is discontinuous in the retained Hilbert norm; it can be approximated on the physical unit ball only with necessarily diverging retained-space reconstruction norms.",
+      "program": "celestial",
+      "domains": [
+        "Mathematical physics",
+        "Celestial holography",
+        "Representation theory",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "invariance-identity",
+        "formalization-proof"
+      ]
+    },
+    {
       "id": "bio4",
       "date": "2026-10-08",
       "seriesId": "rmmo",

@@ -75,9 +75,9 @@ window.ILC_DATA={
       "id": "gaussian",
       "label": "Gaussian Physical States and Celestial Representation",
       "domain": "Mathematical physics",
-      "description": "An ongoing series studying how physical information survives successive changes of mathematical representation, from constrained Gaussian gauge-field states through radiative multiparticle structure, source-aware celestial decomposition, and the further spectral and dynamical questions opened by those constructions.",
-      "status": "Ongoing series; Papers I–VI published; further papers in development",
-      "publishedCount": 6
+      "description": "An ongoing series studying how physical information survives successive changes of mathematical representation, from constrained Gaussian gauge-field states through radiative multiparticle structure and source-aware celestial decomposition to the stability of action-generated gravitational response.",
+      "status": "Ongoing series; Papers I–VII published; further work in development",
+      "publishedCount": 7
     },
     {
       "id": "relational-cell-fate",
@@ -147,6 +147,31 @@ window.ILC_DATA={
     }
   ],
   "publications": [
+    {
+      "id": "gps7",
+      "date": "2026-10-08",
+      "seriesId": "gaussian",
+      "series": "Gaussian Physical States and Celestial Representation",
+      "order": 7,
+      "title": "Dynamical Ill-Conditioning of a Faithful Celestial Representation",
+      "subtitle": "Cubic gravitational response and an adjoint-range obstruction in the physical radiative Bose sector",
+      "doi": "10.5281/zenodo.23246259",
+      "conceptDoi": "10.5281/zenodo.23246260",
+      "summary": "Under an explicit uniform completion estimate, the completed retained celestial representation determines physical radiative Bose states uniquely, while the Riesz vector of a nonzero finite-regulator gravitational cubic lies outside the retained transform's adjoint range. The exact-range cubic is discontinuous in the retained Hilbert norm; it can be approximated on the physical unit ball only with necessarily diverging retained-space reconstruction norms.",
+      "program": "celestial",
+      "domains": [
+        "Mathematical physics",
+        "Celestial holography",
+        "Representation theory",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "invariance-identity",
+        "formalization-proof"
+      ]
+    },
     {
       "id": "bio4",
       "date": "2026-10-08",
@@ -980,20 +1005,22 @@ window.ILC_DATA={
       "narrative": [
         "The sequence follows physical information through successive changes of representation. It begins with an exactly solvable Gaussian sector under a closed matter-current constraint, where nonzero current-physical states require an all-orders completion even though a finite two-particle seed can remain faithful to the Gaussian modulus.",
         "The middle of the series separates representation-theoretic existence from physical particle semantics, then follows the same pair geometry into radiative response. Different response maps retain different parts of the original provenance, making information compression an explicit theorem of the construction.",
-        "Papers V and VI carry the radiative Bose pair into celestial principal-series data. Fixed-source Weyl isometry fails; the correct structure is source-aware. On the intrinsic physical source range, the cross-ratio and full signed principal-series transforms are injective for every physical external-label pair, while the retained bounded completion remains explicitly conditional on one uniform core estimate."
+        "Papers V and VI carry the radiative Bose pair into celestial principal-series data. Fixed-source Weyl isometry fails; the correct structure is source-aware. On the intrinsic physical source range, the cross-ratio and full signed principal-series transforms are injective for every physical external-label pair, while the retained bounded completion remains explicitly conditional on one uniform core estimate.",
+        "Paper VII introduces the first finite-regulator action-generated gravitational cubic on the completed physical Bose carrier. Under the explicit retained-completion estimate, the map remains injective, yet the cubic lies outside the retained adjoint range: exact state determination and stable recovery of this interaction response require different analytic control. Equivalent retained Hilbert norms preserve the obstruction, and arbitrarily accurate retained-data approximations require diverging reconstruction norms."
       ],
-      "frontier": "The public sequence has reached a proved source-aware carrier beyond the source-uniqueness stage. The next questions concern intrinsic spectral realization, operator geometry, stronger reconstruction and stability statements, and then the transition toward interacting celestial dynamics, scattering, collinear and soft structure, celestial operator products, and Ward identities.",
+      "frontier": "Paper VII identifies a concrete interaction-topology obstruction for the selected finite-regulator physical packet bank. The next tasks are to resolve the retained-completion estimate, identify a physically natural topology controlling gravitational response, test persistence under smoothing and regulator refinement, and build the additional constructions required for continuum scattering, celestial OPEs, soft currents, and Ward identities.",
       "methods": [
         "Machine-checked constrained gauge-field models",
         "Completed Bose/Fock and Poincaré representation",
         "Variational and radiative response maps",
-        "Source-aware Weyl reduction and principal-series transforms"
+        "Source-aware Weyl reduction and principal-series transforms",
+        "Finite-regulator action cubic, Hilbert adjoint range, and logarithmic translation regularity"
       ],
       "openQuestions": [
-        "Can the remaining uniform core estimate supporting the retained bounded completion be closed?",
-        "Which stronger inversion or stability statements hold beyond injectivity?",
-        "What operator geometry is natural on the intrinsic source-aware spectral carrier?",
-        "How does the noninteracting carrier extend to scattering, OPE, soft structure, and Ward identities?"
+        "Can the uniform core estimate required for bounded retained completion be proved?",
+        "What intrinsic celestial interaction topology controls the gravitational cubic response?",
+        "Does the finite-cell face-jump obstruction persist under smoothing and regulator refinement?",
+        "How do the finite-regulator covariance diagnostics extend to scattering, OPE, soft structure, and Ward identities?"
       ],
       "artifacts": [
         {
@@ -1002,8 +1029,8 @@ window.ILC_DATA={
           "kind": "Series"
         },
         {
-          "label": "Paper VI DOI record",
-          "href": "https://doi.org/10.5281/zenodo.23108946",
+          "label": "Paper VII DOI record",
+          "href": "https://doi.org/10.5281/zenodo.23246259",
           "kind": "DOI"
         },
         {
