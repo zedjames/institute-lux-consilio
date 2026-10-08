@@ -1,0 +1,58 @@
+name: Diagnose ILC DNS and TLS
+on:
+  pull_request:
+    paths:
+      - .github/workflows/diagnose-domain-tls.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Resolve public and authoritative DNS
+        shell: bash
+        run: |
+          set +e
+          echo "::group::Public recursive DNS"
+          for resolver in 1.1.1.1 8.8.8.8; do
+            echo "RESOLVER $resolver"
+            for kind in NS A AAAA CAA DS; do
+              echo "instituteluxconsilio.org $kind"
+              dig +time=3 +tries=1 +short "@$resolver" instituteluxconsilio.org "$kind"
+            done
+            echo "www.instituteluxconsilio.org CNAME"
+            dig +time=3 +tries=1 +short "@$resolver" www.instituteluxconsilio.org CNAME
+          done
+          echo "::endgroup::"
+          echo "::group::DreamHost authoritative DNS"
+          for nameserver in ns1.dreamhost.com ns2.dreamhost.com; do
+            echo "Nameserver $nameserver"
+            dig +time=3 +tries=1 +short "@$nameserver" instituteluxconsilio.org A
+            dig +time=3 +tries=1 +short "@$nameserver" www.instituteluxconsilio.org CNAME
+          done
+          echo "::endgroup::"
+
+      - name: Check GitHub Pages custom-domain certificate status
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set +e
+          gh api "repos/${{ github.repository }}/pages" --jq '{status, html_url, cname, https_enforced, https_certificate}' || echo "GitHub Pages metadata unavailable with this workflow token"
+
+      - name: Check HTTPS certificate and redirects
+        shell: bash
+        run: |
+          set +e
+          for host in instituteluxconsilio.org www.instituteluxconsilio.org; do
+            echo "::group::HTTPS $host"
+            curl -L --connect-timeout 10 --max-time 25 -sS -o /dev/null -w 'HTTP=%{http_code} TLS_VERIFY=%{ssl_verify_result} REMOTE_IP=%{remote_ip} EFFECTIVE_URL=%{url_effective}\n' "https://$host/" || echo "HTTPS request failed: $host"
+            echo "Certificate from live endpoint:"
+            timeout 20 bash -c "echo | openssl s_client -connect '$host:443' -servername '$host' 2>/dev/null | openssl x509 -noout -subject -issuer -dates" || true
+            echo "::endgroup::"
+          done
