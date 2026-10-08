@@ -14,4 +14,4 @@ The FFB website focuses on measurement technology and commercial applications. M
 
 ## Publishing
 
-GitHub Pages deploys from `main`. The eventual custom ILC domain will be configured only after staging review and the DNS cutover.
+GitHub Pages deploys from `main`. The canonical site domain is `https://instituteluxconsilio.org/`, configured through the root `CNAME` file. `www.instituteluxconsilio.org` redirects to the apex once both DNS records are live. The original GitHub Pages project address is retained as the deployment origin.
