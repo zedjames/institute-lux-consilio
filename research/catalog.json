@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-10-07",
+  "updated": "2026-10-08",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "Older Fieldflux-hosted research records retain their original authorship, affiliations, DOI, URLs, and ownership. Presentation at ILC does not imply retroactive attribution.",
@@ -160,6 +160,34 @@
     }
   ],
   "publications": [
+    {
+      "id": "hfd3",
+      "date": "2026-10-07",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "order": 3,
+      "title": "Representation Sufficiency in Prospective Health",
+      "subtitle": "Query-Visible Quotients, Transport, and Enriched Response Semantics.",
+      "doi": "10.5281/zenodo.23219588",
+      "conceptDoi": "10.5281/zenodo.23219587",
+      "summary": "Paper III establishes a representation-sufficiency theory for prospective health. Query-visible quotients determine the exact information demanded by declared health questions, characterize sufficient representations through refinement, and identify the coarsest sufficient target for exact deterministic transport. The paper extends these results to state-level health observation and provides concrete response-semantic realizations for control, viable cost, probability, route structure, and failure-aware robustness.",
+      "program": "health",
+      "domains": [
+        "Foundations of health",
+        "Formal methods",
+        "Measurement science",
+        "Representation theory",
+        "Dynamical systems"
+      ],
+      "themes": [
+        "health-foundations",
+        "representation-reconstruction",
+        "formalization-proof",
+        "invariance-identity",
+        "evidence-validation",
+        "continuation-stability"
+      ]
+    },
     {
       "id": "hfd2",
       "date": "2026-10-05",

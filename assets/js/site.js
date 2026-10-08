@@ -97,10 +97,22 @@ function renderPublication(){
  const el=$('#publication-detail');if(!el||!D.publications)return;const id=new URLSearchParams(location.search).get('id');const p=D.publications.find(x=>x.id===id);
  if(!p){el.innerHTML='<section class="page-head"><div class="wrap"><p class="eyebrow">Publication</p><h1>Record not found.</h1></div></section>';return;}
  const prog=(D.programs||[]).find(x=>x.id===p.program), ser=(D.series||[]).find(x=>x.id===p.seriesId);
+ const readAction=p.pdf
+   ? `<a class="btn btn--primary" href="${esc(p.pdf)}" target="_blank" rel="noopener">Open PDF</a>`
+   : `<a class="btn btn--primary" href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener">Read on Zenodo ↗</a>`;
+ const originalAction=p.legacyPage
+   ? `<a class="btn btn--quiet" href="${esc(p.legacyPage)}" target="_blank" rel="noopener">Original record</a>`
+   : '';
+ const recordHistory=p.legacyPage
+   ? 'This record was indexed from an existing public research archive. Historical authorship, affiliation, DOI, and publication provenance are retained.'
+   : 'This preprint was published on Zenodo and is presented here within its scholarly series.';
+ const versionsHtml=p.conceptDoi
+   ? `<p><strong>All versions DOI</strong><br><a href="https://doi.org/${encodeURIComponent(p.conceptDoi)}" target="_blank" rel="noopener">${esc(p.conceptDoi)} ↗</a></p>`
+   : '';
  document.title=p.title+' — Institute Lux Consilio';
  el.innerHTML=`<section class="page-head"><div class="wrap"><p class="eyebrow">${esc(ser?.label||p.series)} · Paper ${p.order||''}</p><h1>${esc(p.title)}</h1>${p.subtitle?`<p class="lede">${esc(p.subtitle)}</p>`:''}</div></section>
- <section class="section"><div class="wrap"><div class="grid grid-2" style="align-items:start"><div class="prose"><p class="eyebrow">Abstract record</p><p class="kicker">${esc(p.summary)}</p><h2>Scientific context</h2><p>This publication belongs to <a href="${programHref(prog)}">${esc(prog?.title||p.series)}</a>. ILC preserves the program context around the archival publication so the result remains connected to the question, sequence, and later work it supports.</p><h2>Provenance</h2><p>This record was migrated from the existing public Fieldflux research catalog. Historical publication provenance and DOI records remain unchanged; the ILC site now provides the institute-level scholarly context.</p></div>
- <aside class="card"><p class="card__tag">Publication record</p><h3>${fmtDate(p.date)}</h3><p><strong>Author</strong><br>Zed James</p><p><strong>Type</strong><br>Preprint</p><p><strong>Series</strong><br>${esc(p.series)}</p><p><strong>DOI</strong><br><a href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener">${esc(p.doi)} ↗</a></p><p><strong>Domains</strong><br>${esc((p.domains||[]).join(' · '))}</p><div class="hero__actions"><a class="btn btn--primary" href="${esc(p.pdf)}" target="_blank" rel="noopener">Open PDF</a><a class="btn btn--quiet" href="${esc(p.legacyPage)}" target="_blank" rel="noopener">Original record</a></div></aside></div></div></section>`;
+ <section class="section"><div class="wrap"><div class="grid grid-2" style="align-items:start"><div class="prose"><p class="eyebrow">Abstract record</p><p class="kicker">${esc(p.summary)}</p><h2>Scientific context</h2><p>This publication belongs to <a href="${programHref(prog)}">${esc(prog?.title||p.series)}</a>. ILC preserves the program context around the archival publication so the result remains connected to the question, sequence, and later work it supports.</p><h2>Provenance</h2><p>${esc(recordHistory)}</p></div>
+ <aside class="card"><p class="card__tag">Publication record</p><h3>${fmtDate(p.date)}</h3><p><strong>Author</strong><br>Zed James</p><p><strong>Type</strong><br>Preprint</p><p><strong>Series</strong><br>${esc(p.series)}</p><p><strong>DOI</strong><br><a href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener">${esc(p.doi)} ↗</a></p>${versionsHtml}<p><strong>Domains</strong><br>${esc((p.domains||[]).join(' · '))}</p><div class="hero__actions">${readAction}${originalAction}</div></aside></div></div></section>`;
 }
 renderPrograms();renderThemes();renderQuestions();renderPubs();renderNotes();wirePublicationFilters();renderProgram();renderPublication();renderNoteDetail();
 })();
