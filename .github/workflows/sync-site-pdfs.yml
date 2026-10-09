@@ -1,0 +1,45 @@
+name: Mirror scholarly PDFs for ILC
+on:
+  push:
+    branches: [main]
+    paths:
+      - research/site-pdfs.json
+      - scripts/sync_site_pdfs.py
+      - .github/workflows/sync-site-pdfs.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch exact PDF bytes and check author SHA-256
+        run: python3 scripts/sync_site_pdfs.py
+      - name: Commit the verified on-site PDFs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "ilc-scholar-pdf-mirror"
+          git config user.email "contact@instituteluxconsilio.org"
+          git add -- papers/*.pdf
+          if git diff --cached --quiet; then
+            echo "All PDF copies already verified."
+            exit 0
+          fi
+          git commit -m "Mirror author-verified Health paper PDFs"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Unable to publish verified PDFs after three attempts."
+          exit 1
