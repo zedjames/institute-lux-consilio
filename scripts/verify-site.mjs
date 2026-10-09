@@ -18,6 +18,19 @@ const ids=(records,label)=>{
  }
 };
 ids(data.programs,"program");ids(data.publications,"publication");ids(data.notes,"note");
+const healthPapers=data.publications.filter(p=>p.seriesId==="health-formally-defined").sort((a,b)=>a.order-b.order);
+assert.deepStrictEqual(healthPapers.map(p=>p.order),[1,2,3,4,5],"Health series sequence I–V");
+assert.equal(data.series.find(s=>s.id==="health-formally-defined")?.publishedCount,5);
+for (const [id,doi,conceptDoi] of [
+  ["hfd4","10.5281/zenodo.23268802","10.5281/zenodo.23268803"],
+  ["hfd5","10.5281/zenodo.23268987","10.5281/zenodo.23268986"]
+]) {
+ const p=healthPapers.find(p=>p.id===id);
+ assert.ok(p,"Missing new Health paper "+id);
+ assert.equal(p.doi,doi); assert.equal(p.conceptDoi,conceptDoi);
+ assert.equal(p.program,"health");
+}
+
 for(const p of data.programs){assert.ok(root.has(p.href),"Missing research program: "+p.href);}
 for(const p of data.publications){assert.match(p.doi,/^10\.\d+\//,"Invalid DOI: "+p.id);}
 // Paper VII: sequence, version DOI, all-versions DOI and scientific program.

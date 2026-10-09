@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-10-08",
+  "updated": "2026-10-09",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -160,6 +160,61 @@
     }
   ],
   "publications": [
+    {
+      "id": "hfd5",
+      "date": "2026-10-09",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "order": 5,
+      "title": "Prospective Health under Declared Specifications",
+      "subtitle": "An Auditable Empirical-Synthetic Forest Measurement Study",
+      "doi": "10.5281/zenodo.23268987",
+      "conceptDoi": "10.5281/zenodo.23268986",
+      "summary": "Paper V implements prospective Health as an auditable stochastic measurement study using Harvard Forest census data and controlled synthetic worlds. It evaluates latent-state identification, demographic-law calibration, query sufficiency, and adequacy-decision reliability. Independent adult-mortality observations reveal marked hemlock-specific model miscalibration (685 observed versus 280.3 predicted deaths), while near-threshold synthetic decisions remain difficult to classify. Computational specification fidelity and stage-specific empirical tests are documented; operational ecological Health remains unestablished.",
+      "program": "health",
+      "domains": [
+        "Foundations of health",
+        "Measurement science",
+        "Forest ecology",
+        "Stochastic modeling",
+        "Empirical validation"
+      ],
+      "themes": [
+        "health-foundations",
+        "evidence-validation",
+        "representation-reconstruction",
+        "continuation-stability",
+        "boundary-measurement"
+      ],
+      "companion": "https://github.com/zedjames/empirical_synthetic_forest_study/releases/tag/v1.0.0"
+    },
+    {
+      "id": "hfd4",
+      "date": "2026-10-09",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "order": 4,
+      "title": "Information Provenance and Conservative Enrichment in Prospective Health",
+      "subtitle": "A Machine-Checked Finite Forest Benchmark",
+      "doi": "10.5281/zenodo.23268802",
+      "conceptDoi": "10.5281/zenodo.23268803",
+      "summary": "Paper IV establishes an exhaustively auditable five-state forest benchmark for prospective Health. It proves equivalence of history encodings, separates candidate, lawful, and viable responses, and classifies the exact information losses between detailed capacity, original capacity, and declared Health. A generic conservative-refinement lemma and a strict forest instance preserve established Health judgments when richer capacity projects exactly to the original representation. The results concern declared finite set-valued semantics; stochastic-law compatibility and ecological measurement require additional evidence.",
+      "program": "health",
+      "domains": [
+        "Foundations of health",
+        "Formal methods",
+        "Measurement science",
+        "Representation theory",
+        "Ecological modeling"
+      ],
+      "themes": [
+        "health-foundations",
+        "formalization-proof",
+        "representation-reconstruction",
+        "invariance-identity",
+        "evidence-validation"
+      ]
+    },
     {
       "id": "gps7",
       "date": "2026-10-08",
