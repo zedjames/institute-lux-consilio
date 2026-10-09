@@ -91,9 +91,9 @@ window.ILC_DATA={
       "id": "health-formally-defined",
       "label": "Health, Formally Defined",
       "domain": "Foundations of health",
-      "description": "A formal and measurement-science program defining health prospectively through present realization and requirement-adequate continuation capacity. Papers I–III establish viable-response semantics, contextual transport, and the information sufficient to answer declared health questions. Subsequent work will develop scale-specific instantiation, empirical identification, calibration, uncertainty, validation, and comparison.",
-      "status": "Ongoing series; Papers I–III published; scale-specific measurement and empirical work ahead",
-      "publishedCount": 3
+      "description": "A formal and measurement-science program defining health prospectively through present realization and requirement-adequate continuation capacity. Papers I–III establish the foundational definition, contextual transport, and query-relative representation theory; Paper IV provides an exact finite semantic-provenance benchmark; and Paper V investigates observation, prediction, calibration, and decision reliability in an auditable empirical-synthetic forest study.",
+      "status": "Ongoing series; Papers I–V published; empirical validation and scale-specific measurement work continue",
+      "publishedCount": 5
     },
     {
       "id": "rmmo",
@@ -147,6 +147,61 @@ window.ILC_DATA={
     }
   ],
   "publications": [
+    {
+      "id": "hfd5",
+      "date": "2026-10-09",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "order": 5,
+      "title": "Prospective Health under Declared Specifications",
+      "subtitle": "An Auditable Empirical-Synthetic Forest Measurement Study",
+      "doi": "10.5281/zenodo.23268987",
+      "conceptDoi": "10.5281/zenodo.23268986",
+      "summary": "Paper V implements prospective Health as an auditable stochastic measurement study using Harvard Forest census data and controlled synthetic worlds. It evaluates latent-state identification, demographic-law calibration, query sufficiency, and adequacy-decision reliability. Independent adult-mortality observations reveal marked hemlock-specific model miscalibration (685 observed versus 280.3 predicted deaths), while near-threshold synthetic decisions remain difficult to classify. Computational specification fidelity and stage-specific empirical tests are documented; operational ecological Health remains unestablished.",
+      "program": "health",
+      "domains": [
+        "Foundations of health",
+        "Measurement science",
+        "Forest ecology",
+        "Stochastic modeling",
+        "Empirical validation"
+      ],
+      "themes": [
+        "health-foundations",
+        "evidence-validation",
+        "representation-reconstruction",
+        "continuation-stability",
+        "boundary-measurement"
+      ],
+      "companion": "https://github.com/zedjames/empirical_synthetic_forest_study/releases/tag/v1.0.0"
+    },
+    {
+      "id": "hfd4",
+      "date": "2026-10-09",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "order": 4,
+      "title": "Information Provenance and Conservative Enrichment in Prospective Health",
+      "subtitle": "A Machine-Checked Finite Forest Benchmark",
+      "doi": "10.5281/zenodo.23268802",
+      "conceptDoi": "10.5281/zenodo.23268803",
+      "summary": "Paper IV establishes an exhaustively auditable five-state forest benchmark for prospective Health. It proves equivalence of history encodings, separates candidate, lawful, and viable responses, and classifies the exact information losses between detailed capacity, original capacity, and declared Health. A generic conservative-refinement lemma and a strict forest instance preserve established Health judgments when richer capacity projects exactly to the original representation. The results concern declared finite set-valued semantics; stochastic-law compatibility and ecological measurement require additional evidence.",
+      "program": "health",
+      "domains": [
+        "Foundations of health",
+        "Formal methods",
+        "Measurement science",
+        "Representation theory",
+        "Ecological modeling"
+      ],
+      "themes": [
+        "health-foundations",
+        "formalization-proof",
+        "representation-reconstruction",
+        "invariance-identity",
+        "evidence-validation"
+      ]
+    },
     {
       "id": "gps7",
       "date": "2026-10-08",
@@ -915,21 +970,25 @@ window.ILC_DATA={
         "The program begins by treating health as a prospective, indexed proposition before treating it as a measurement. Paper I separates present constitution from future adequacy and formalizes prospective health through present realization plus requirement-adequate continuation capacity, with scenario, horizon, and formal requirement kept explicit.",
         "The response semantics are built upstream of capacity. Lawful histories are restricted to the complete viable-continuation family; capacity is then a downstream observation and collection of that family. The requirement-visible quotient identifies exactly the distinctions the declared health language can see, while explicit negative results mark where robustness or present-state observation alone is insufficient.",
         "Paper II transports the architecture across changing contexts, developmental stages, horizons, and open-system support. It separates raw-capacity determinacy, health-visible determinacy, and full health truth, mapping where transport is canonical and where branching, coalescence, and obstruction appear.",
-        "Paper III studies which representations preserve the distinctions required by a declared health-query language. It characterizes all sufficient representations as refinements of the canonical quotient, proves the least sufficient target for exact deterministic transport, and establishes the corresponding information threshold for a full state-level health observation. Control, viable cost, probability, route structure, and failure-aware robustness provide explicit response-grounded examples."
+        "Paper III studies which representations preserve the distinctions required by a declared health-query language. It characterizes all sufficient representations as refinements of the canonical quotient, proves the least sufficient target for exact deterministic transport, and establishes the corresponding information threshold for a full state-level health observation. Control, viable cost, probability, route structure, and failure-aware robustness provide explicit response-grounded examples.",
+        "Paper IV grounds the abstract theory in a machine-checked finite forest. Two equivalent placements of contextual lawfulness preserve viable capacity and Health. Exhaustive comparison of detailed response, coarse capacity, and declared Health pinpoints where information is erased or simply unused by the query; conservative enrichment supplies an exact backward-compatibility condition.",
+        "Paper V develops the complementary empirical-synthetic measurement problem using longitudinal Harvard Forest observations. Its specified stochastic kernel and explicit original-law probability accounting support tests of reconstruction, information sufficiency, model discrepancy, and decision reliability. Later adult-mortality data reveal substantial hemlock-specific predictive miscalibration; incomplete ecological identification and limited near-boundary classification keep operational forest Health outside the established scope."
       ],
-      "frontier": "Papers I–III establish the prospective-health definition, contextual transport, and query-relative representation sufficiency. The next scientific layers concern scale-specific instantiation and empirical identification, including observation design, calibration, uncertainty, validation, reliability, and comparison.",
+      "frontier": "Papers IV–V connect the formal definition to an exact semantic-provenance benchmark and an auditable data-anchored stochastic study. The resulting obligations include identification of biological entry and time-varying hazards, calibration against independent future observations, adequate query-specific state resolution, decision uncertainty near thresholds, and the compatibility needed to preserve capacity under richer empirical representations. No operational ecological Health assessment has yet been established.",
       "methods": [
         "Machine-checked formal semantics",
         "Requirement-visible quotient and universal property",
         "Contextual transport and obstruction analysis",
         "Explicit separation of theorem, measurement, and empirical authority",
-        "Query-visible representation sufficiency and exact deterministic transport"
+        "Query-visible representation sufficiency and exact deterministic transport",
+        "Finite forest lawfulness/capacity census and conservative enrichment",
+        "Longitudinal census reconstruction, simulated continuations and independent mortality calibration"
       ],
       "openQuestions": [
-        "Which scale-specific observations preserve the health-relevant distinctions required by the declared query language?",
-        "How can formal response structures be connected to calibrated measurements with quantified uncertainty?",
-        "What empirical designs identify prospective health, and how should reliability and competing measurements be compared?",
-        "Which richer domain semantics are required for prospective risk, failure sensitivity, and intervention-dependent health claims?"
+        "Which empirically observed variables and longitudinal measurements identify the viable-response law of an actual ecological or physiological organization?",
+        "Can ecological entry processes and hemlock-specific hazards be measured and prospectively calibrated on matching observation supports?",
+        "Which query-sensitive enrichments retain adequate information while preserving established judgments across stochastic transitions?",
+        "How should prospective Health decisions report calibration, near-threshold reliability, model discrepancy, and uncertainty before operational use?"
       ],
       "artifacts": [
         {
@@ -946,6 +1005,21 @@ window.ILC_DATA={
           "label": "Representation Sufficiency in Prospective Health — Paper III",
           "href": "publication.html?id=hfd3",
           "kind": "Publication"
+        },
+        {
+          "label": "Information Provenance and Conservative Enrichment — Paper IV",
+          "href": "publication.html?id=hfd4",
+          "kind": "Publication"
+        },
+        {
+          "label": "Prospective Health under Declared Specifications — Paper V",
+          "href": "publication.html?id=hfd5",
+          "kind": "Publication"
+        },
+        {
+          "label": "Paper V computational source and evidence · v1.0.0",
+          "href": "https://github.com/zedjames/empirical_synthetic_forest_study/releases/tag/v1.0.0",
+          "kind": "Research artifact"
         },
         {
           "label": "Formal verification scope",
