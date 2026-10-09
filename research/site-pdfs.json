@@ -1,0 +1,22 @@
+{
+  "schema": "ilc-paper-pdf-mirrors/v1",
+  "description": "Author-supplied, byte-verified publication PDFs mirrored for direct on-site reading and scholarly indexing.",
+  "papers": [
+    {
+      "recordPage": "publication-hfd4.html",
+      "pdf": "papers/health-formally-defined-paper-iv.pdf",
+      "source": "https://raw.githubusercontent.com/zedjames/fieldfluxbiosystems/main/research-information-provenance-conservative-enrichment-prospective-health.pdf",
+      "doi": "10.5281/zenodo.23268802",
+      "sha256": "81153d49ccd804de4c49ce9372891bf6896207c32d6abf40649c69431b44f033",
+      "pages": 27
+    },
+    {
+      "recordPage": "publication-hfd5.html",
+      "pdf": "papers/health-formally-defined-paper-v.pdf",
+      "source": "https://raw.githubusercontent.com/zedjames/fieldfluxbiosystems/main/research-prospective-health-declared-specifications.pdf",
+      "doi": "10.5281/zenodo.23268987",
+      "sha256": "702fd63ae70487d565e92292608a20febeab202defc515559aff411581e1d112",
+      "pages": 48
+    }
+  ]
+}
