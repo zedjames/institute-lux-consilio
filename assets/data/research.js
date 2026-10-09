@@ -173,7 +173,9 @@ window.ILC_DATA={
         "continuation-stability",
         "boundary-measurement"
       ],
-      "companion": "https://github.com/zedjames/empirical_synthetic_forest_study/releases/tag/v1.0.0"
+      "companion": "https://github.com/zedjames/empirical_synthetic_forest_study/releases/tag/v1.0.0",
+      "localPage": "publication-hfd5.html",
+      "pdf": "papers/health-formally-defined-paper-v.pdf"
     },
     {
       "id": "hfd4",
@@ -200,7 +202,9 @@ window.ILC_DATA={
         "representation-reconstruction",
         "invariance-identity",
         "evidence-validation"
-      ]
+      ],
+      "localPage": "publication-hfd4.html",
+      "pdf": "papers/health-formally-defined-paper-iv.pdf"
     },
     {
       "id": "gps7",

@@ -23,10 +23,11 @@ function renderQuestions(){
  el.innerHTML=D.questions.map((q,i)=>`<a class="question-line reveal" href="${esc(q.href)}"><span class="question-line__n">${String(i+1).padStart(2,'0')}</span><span class="question-line__body"><strong>${esc(q.title)}</strong><em>${esc(q.text)}</em></span><span class="question-line__arrow">↗</span></a>`).join('');
 }
 function pubHtml(p){
- const links=[`<a href="publication.html?id=${encodeURIComponent(p.id)}">Record →</a>`];
+ const page=p.localPage||('publication.html?id='+encodeURIComponent(p.id));
+ const links=[`<a href="${esc(page)}">Record →</a>`];
  if(p.doi) links.push(`<a href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener">DOI ${esc(p.doi)} ↗</a>`);
  if(p.pdf) links.push(`<a href="${esc(p.pdf)}" target="_blank" rel="noopener">PDF ↗</a>`);
- return `<article class="archive-item" data-program="${esc(p.program)}"><div class="meta">${fmtDate(p.date)}</div><div><h3><a href="publication.html?id=${encodeURIComponent(p.id)}" style="text-decoration:none">${esc(p.title)}</a></h3><p>${esc(p.series||'')}</p>${p.subtitle?`<p style="margin-top:6px">${esc(p.subtitle)}</p>`:''}<div class="archive-item__links">${links.join('')}</div></div><div class="archive-item__right">Paper ${p.order||''}<br>Preprint</div></article>`;
+ return `<article class="archive-item" data-program="${esc(p.program)}"><div class="meta">${fmtDate(p.date)}</div><div><h3><a href="${esc(page)}" style="text-decoration:none">${esc(p.title)}</a></h3><p>${esc(p.series||'')}</p>${p.subtitle?`<p style="margin-top:6px">${esc(p.subtitle)}</p>`:''}<div class="archive-item__links">${links.join('')}</div></div><div class="archive-item__right">Paper ${p.order||''}<br>Preprint</div></article>`;
 }
 function renderPubs(list=D.publications){
  const el=$('#publication-list'); if(!el||!list)return;
@@ -86,7 +87,7 @@ function renderProgram(){
  ${metrics?`<section class="section section--tight section--alt"><div class="wrap"><div class="program-metrics">${metrics}</div></div></section>`:''}
  <section class="section section--alt"><div class="wrap">
    <div class="sec-head"><div><p class="eyebrow">Paper sequence</p><h2>Published stages of the program.</h2></div><p>${series.length?esc(series.map(s=>s.status).join(' · ')):'The public sequence is maintained as part of ILC’s scholarly archive.'}</p></div>
-   <div class="paper-sequence">${pubs.length?pubs.map((x,i)=>`<article class="paper-stage"><div class="paper-stage__num">${String(x.order||i+1).padStart(2,'0')}</div><div><p class="meta">${fmtDate(x.date)}</p><h3><a href="publication.html?id=${encodeURIComponent(x.id)}">${esc(x.title)}</a></h3>${x.subtitle?`<p class="paper-stage__subtitle">${esc(x.subtitle)}</p>`:''}<p>${esc(x.summary)}</p><div class="archive-item__links"><a href="publication.html?id=${encodeURIComponent(x.id)}">ILC record →</a>${x.doi?`<a href="https://doi.org/${encodeURIComponent(x.doi)}" target="_blank" rel="noopener">DOI ↗</a>`:''}</div></div></article>`).join(''):'<p class="muted">No public papers are attached to this program yet.</p>'}</div>
+   <div class="paper-sequence">${pubs.length?pubs.map((x,i)=>`<article class="paper-stage"><div class="paper-stage__num">${String(x.order||i+1).padStart(2,'0')}</div><div><p class="meta">${fmtDate(x.date)}</p><h3><a href="${esc(x.localPage||("publication.html?id="+encodeURIComponent(x.id)))}">${esc(x.title)}</a></h3>${x.subtitle?`<p class="paper-stage__subtitle">${esc(x.subtitle)}</p>`:''}<p>${esc(x.summary)}</p><div class="archive-item__links"><a href="${esc(x.localPage||("publication.html?id="+encodeURIComponent(x.id)))}">ILC record →</a>${x.doi?`<a href="https://doi.org/${encodeURIComponent(x.doi)}" target="_blank" rel="noopener">DOI ↗</a>`:''}</div></div></article>`).join(''):'<p class="muted">No public papers are attached to this program yet.</p>'}</div>
  </div></section>
  ${relatedPubs.length?`<section class="section section--tight"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Related scientific work</p><h2>Adjacent research</h2></div></div><div class="paper-sequence">${relatedPubs.map(x=>`<article class="paper-stage"><div class="paper-stage__num">↗</div><div><p class="meta">${esc(x.series||"Related research")} · ${fmtDate(x.date)}</p><h3><a href="publication.html?id=${encodeURIComponent(x.id)}">${esc(x.title)}</a></h3><p>${esc(x.summary)}</p></div></article>`).join("")}</div></div></section>`:""}
  <section class="section"><div class="wrap program-layout">

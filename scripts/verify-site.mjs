@@ -9,6 +9,30 @@ for(const key of ["programs","themes","questions","publications","notes"]){
  assert.deepStrictEqual(catalog[key],data[key],key+" differs from canonical ILC source");
 }
 const root=new Set(fs.readdirSync("."));
+import crypto from "node:crypto";
+const requiredPDFs = {
+ hfd4: {page:"publication-hfd4.html",pdf:"papers/health-formally-defined-paper-iv.pdf",hash:"81153d49ccd804de4c49ce9372891bf6896207c32d6abf40649c69431b44f033"},
+ hfd5: {page:"publication-hfd5.html",pdf:"papers/health-formally-defined-paper-v.pdf",hash:"702fd63ae70487d565e92292608a20febeab202defc515559aff411581e1d112"}
+};
+for(const p of data.publications){
+ if(p.date < "2026-10-09") continue; // Existing pre-migration records remain readable through their archival DOI.
+ assert.ok(p.pdf && p.localPage,"New public papers must have a site-hosted PDF and static scholarly record: "+p.id);
+ const bytes=fs.readFileSync(p.pdf);
+ assert.ok(bytes.subarray(0,5).equals(Buffer.from("%PDF-")),"Invalid PDF bytes for "+p.id);
+ const html=fs.readFileSync(p.localPage,"utf8");
+ assert.ok(html.includes('name="citation_pdf_url"') && html.includes(p.pdf),"Google Scholar full-text metadata missing for "+p.id);
+ assert.ok(html.includes('name="citation_doi"'),"Publication DOI citation missing "+p.id);
+}
+for(const [id,w] of Object.entries(requiredPDFs)){
+ const p=data.publications.find(x=>x.id===id);
+ assert.equal(p?.localPage,w.page); assert.equal(p?.pdf,w.pdf);
+ assert.equal(crypto.createHash("sha256").update(fs.readFileSync(w.pdf)).digest("hex"),w.hash,"On-site PDF differs from author-supplied bytes "+id);
+ for(const file of ["publications.html","research-health-formally-defined.html","index.html"]){
+  const html=fs.readFileSync(file,"utf8");
+  assert.ok(html.includes(w.page)&&html.includes(w.pdf),"Publication or full-text link missing from "+file);
+ }
+}
+
 const ids=(records,label)=>{
  const seen=new Set();
  for(const r of records){
