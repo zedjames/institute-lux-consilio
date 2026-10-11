@@ -1,7 +1,7 @@
 window.ILC_DATA={
   "source": {
     "catalog": "Fieldflux research/catalog.json",
-    "imported": "2026-10-07",
+    "imported": "2026-10-11",
     "note": "Historical public records retain their original publication provenance; ILC supplies the new institutional research context."
   },
   "programs": [
@@ -91,9 +91,9 @@ window.ILC_DATA={
       "id": "health-formally-defined",
       "label": "Health, Formally Defined",
       "domain": "Foundations of health",
-      "description": "A formal and measurement-science program defining health prospectively through present realization and requirement-adequate continuation capacity. Papers I–III establish the foundational definition, contextual transport, and query-relative representation theory; Paper IV provides an exact finite semantic-provenance benchmark; and Paper V investigates observation, prediction, calibration, and decision reliability in an auditable empirical-synthetic forest study.",
-      "status": "Ongoing series; Papers I–V published; empirical validation and scale-specific measurement work continue",
-      "publishedCount": 5
+      "description": "A formal measurement-science program defining prospective Health through present organization and lawful continuation. Papers I–III establish the definition, context transport and query-relative representation theory; Paper IV tests finite information provenance and conservative enrichment; Paper V studies an empirical-synthetic forest measurement chain; Paper VI proves model-relative observability and prospective-verdict preservation under maintaining measurement interventions.",
+      "status": "Ongoing series; Papers I–VI published; physical state imaging and independent predictive validation remain open",
+      "publishedCount": 6
     },
     {
       "id": "rmmo",
@@ -147,6 +147,36 @@ window.ILC_DATA={
     }
   ],
   "publications": [
+    {
+      "id": "hfd6",
+      "date": "2026-10-11",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "order": 6,
+      "title": "Constitutive Observability and the Measurement of Prospective Health",
+      "subtitle": "State Identification and Prospective Health under Maintenance Constraints",
+      "doi": "10.5281/zenodo.23301732",
+      "conceptDoi": "10.5281/zenodo.23301733",
+      "summary": "Paper VI establishes an exact constitutive-observability problem in a two-site exchange model: two present states agree in initial flux and cost yet differ under a common future condition. It constructs maintained interventions that identify the full ambiguous state family while preserving the prospective Health verdict, including a heterogeneous flux-readout method and a separate fixed-drive repeated-cost alternative. Certified local bounds govern the specified measurement and future-law uncertainties; continuous-time examples reveal limitations of sampled maintenance. Physical acquisition, calibration and physiological prediction are not validated.",
+      "program": "health",
+      "domains": [
+        "Foundations of health",
+        "Measurement science",
+        "Observability",
+        "Dynamical systems",
+        "Formal methods"
+      ],
+      "themes": [
+        "health-foundations",
+        "boundary-measurement",
+        "representation-reconstruction",
+        "continuation-stability",
+        "evidence-validation",
+        "formalization-proof"
+      ],
+      "localPage": "publication-hfd6.html",
+      "pdf": "papers/health-formally-defined-paper-vi.pdf"
+    },
     {
       "id": "hfd5",
       "date": "2026-10-09",
@@ -976,9 +1006,10 @@ window.ILC_DATA={
         "Paper II transports the architecture across changing contexts, developmental stages, horizons, and open-system support. It separates raw-capacity determinacy, health-visible determinacy, and full health truth, mapping where transport is canonical and where branching, coalescence, and obstruction appear.",
         "Paper III studies which representations preserve the distinctions required by a declared health-query language. It characterizes all sufficient representations as refinements of the canonical quotient, proves the least sufficient target for exact deterministic transport, and establishes the corresponding information threshold for a full state-level health observation. Control, viable cost, probability, route structure, and failure-aware robustness provide explicit response-grounded examples.",
         "Paper IV grounds the abstract theory in a machine-checked finite forest. Two equivalent placements of contextual lawfulness preserve viable capacity and Health. Exhaustive comparison of detailed response, coarse capacity, and declared Health pinpoints where information is erased or simply unused by the query; conservative enrichment supplies an exact backward-compatibility condition.",
-        "Paper V develops the complementary empirical-synthetic measurement problem using longitudinal Harvard Forest observations. Its specified stochastic kernel and explicit original-law probability accounting support tests of reconstruction, information sufficiency, model discrepancy, and decision reliability. Later adult-mortality data reveal substantial hemlock-specific predictive miscalibration; incomplete ecological identification and limited near-boundary classification keep operational forest Health outside the established scope."
+        "Paper V develops the complementary empirical-synthetic measurement problem using longitudinal Harvard Forest observations. Its specified stochastic kernel and explicit original-law probability accounting support tests of reconstruction, information sufficiency, model discrepancy, and decision reliability. Later adult-mortality data reveal substantial hemlock-specific predictive miscalibration; incomplete ecological identification and limited near-boundary classification keep operational forest Health outside the established scope.",
+        "Paper VI follows the state-identification question left open by the forest study. In an exact two-site exchange model, indistinguishable baseline measurements can conceal opposite prospective viability under shared future forcing. Two informative procedures—heterogeneous flux readout and fixed-drive repeated cost—are proved maintaining and verdict-preserving under their specified assumptions and local uncertainty bounds. Sampled-to-continuous counterexamples sharpen the temporal authority boundary. Physical calibration and physiological state imaging remain empirical requirements."
       ],
-      "frontier": "Papers IV–V connect the formal definition to an exact semantic-provenance benchmark and an auditable data-anchored stochastic study. The resulting obligations include identification of biological entry and time-varying hazards, calibration against independent future observations, adequate query-specific state resolution, decision uncertainty near thresholds, and the compatibility needed to preserve capacity under richer empirical representations. No operational ecological Health assessment has yet been established.",
+      "frontier": "Papers I–VI now connect prospective-Health definition, contextual licensing, representation sufficiency, exact provenance, an empirical-synthetic forest study, and the mathematics of constitutive observability under state-changing measurement. The newly established identification and preservation guarantees are conditional on a two-site exchange model and its declared observation channels. Generalizing the state representation, validating physical acquisition and measurement disturbance, and independently testing prospective physiological predictions remain open.",
       "methods": [
         "Machine-checked formal semantics",
         "Requirement-visible quotient and universal property",
@@ -986,13 +1017,17 @@ window.ILC_DATA={
         "Explicit separation of theorem, measurement, and empirical authority",
         "Query-visible representation sufficiency and exact deterministic transport",
         "Finite forest lawfulness/capacity census and conservative enrichment",
-        "Longitudinal census reconstruction, simulated continuations and independent mortality calibration"
+        "Longitudinal census reconstruction, simulated continuations and independent mortality calibration",
+        "Exact observation-fiber reconstruction and target-relative observability",
+        "Maintained intervention and prospective-verdict preservation under bounded uncertainty",
+        "Continuous-time sampled-versus-all-time maintenance counterexamples"
       ],
       "openQuestions": [
         "Which empirically observed variables and longitudinal measurements identify the viable-response law of an actual ecological or physiological organization?",
         "Can ecological entry processes and hemlock-specific hazards be measured and prospectively calibrated on matching observation supports?",
         "Which query-sensitive enrichments retain adequate information while preserving established judgments across stochastic transitions?",
-        "How should prospective Health decisions report calibration, near-threshold reliability, model discrepancy, and uncertainty before operational use?"
+        "How should prospective Health decisions report calibration, near-threshold reliability, model discrepancy, and uncertainty before operational use?",
+        "Which physically calibrated observation channels and state-response laws can identify prospective-relevant physiological states while preserving their stated constitutional and decision requirements?"
       ],
       "artifacts": [
         {
@@ -1018,6 +1053,11 @@ window.ILC_DATA={
         {
           "label": "Prospective Health under Declared Specifications — Paper V",
           "href": "publication.html?id=hfd5",
+          "kind": "Publication"
+        },
+        {
+          "label": "Constitutive Observability and the Measurement of Prospective Health — Paper VI",
+          "href": "publication-hfd6.html",
           "kind": "Publication"
         },
         {
