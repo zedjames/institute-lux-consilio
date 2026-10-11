@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-10-09",
+  "updated": "2026-10-11",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -160,6 +160,36 @@
     }
   ],
   "publications": [
+    {
+      "id": "hfd6",
+      "date": "2026-10-11",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "order": 6,
+      "title": "Constitutive Observability and the Measurement of Prospective Health",
+      "subtitle": "State Identification and Prospective Health under Maintenance Constraints",
+      "doi": "10.5281/zenodo.23301732",
+      "conceptDoi": "10.5281/zenodo.23301733",
+      "summary": "Paper VI establishes an exact constitutive-observability problem in a two-site exchange model: two present states agree in initial flux and cost yet differ under a common future condition. It constructs maintained interventions that identify the full ambiguous state family while preserving the prospective Health verdict, including a heterogeneous flux-readout method and a separate fixed-drive repeated-cost alternative. Certified local bounds govern the specified measurement and future-law uncertainties; continuous-time examples reveal limitations of sampled maintenance. Physical acquisition, calibration and physiological prediction are not validated.",
+      "program": "health",
+      "domains": [
+        "Foundations of health",
+        "Measurement science",
+        "Observability",
+        "Dynamical systems",
+        "Formal methods"
+      ],
+      "themes": [
+        "health-foundations",
+        "boundary-measurement",
+        "representation-reconstruction",
+        "continuation-stability",
+        "evidence-validation",
+        "formalization-proof"
+      ],
+      "localPage": "publication-hfd6.html",
+      "pdf": "papers/health-formally-defined-paper-vi.pdf"
+    },
     {
       "id": "hfd5",
       "date": "2026-10-09",
