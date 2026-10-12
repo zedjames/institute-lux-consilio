@@ -168,8 +168,8 @@
       "order": 6,
       "title": "Constitutive Observability and the Measurement of Prospective Health",
       "subtitle": "State Identification and Prospective Health under Maintenance Constraints",
-      "doi": "10.5281/zenodo.23301732",
-      "conceptDoi": "10.5281/zenodo.23301733",
+      "doi": "10.5281/zenodo.23301733",
+      "conceptDoi": "10.5281/zenodo.23301732",
       "summary": "Paper VI establishes an exact constitutive-observability problem in a two-site exchange model: two present states agree in initial flux and cost yet differ under a common future condition. It constructs maintained interventions that identify the full ambiguous state family while preserving the prospective Health verdict, including a heterogeneous flux-readout method and a separate fixed-drive repeated-cost alternative. Certified local bounds govern the specified measurement and future-law uncertainties; continuous-time examples reveal limitations of sampled maintenance. Physical acquisition, calibration and physiological prediction are not validated.",
       "program": "health",
       "domains": [
@@ -228,8 +228,8 @@
       "order": 4,
       "title": "Information Provenance and Conservative Enrichment in Prospective Health",
       "subtitle": "A Machine-Checked Finite Forest Benchmark",
-      "doi": "10.5281/zenodo.23268802",
-      "conceptDoi": "10.5281/zenodo.23268803",
+      "doi": "10.5281/zenodo.23268803",
+      "conceptDoi": "10.5281/zenodo.23268802",
       "summary": "Paper IV establishes an exhaustively auditable five-state forest benchmark for prospective Health. It proves equivalence of history encodings, separates candidate, lawful, and viable responses, and classifies the exact information losses between detailed capacity, original capacity, and declared Health. A generic conservative-refinement lemma and a strict forest instance preserve established Health judgments when richer capacity projects exactly to the original representation. The results concern declared finite set-valued semantics; stochastic-law compatibility and ecological measurement require additional evidence.",
       "program": "health",
       "domains": [
@@ -336,7 +336,7 @@
       "order": 2,
       "title": "Prospective Health Across Contexts",
       "subtitle": "Contextual Licensing, Developmental Transport, and Open-System Support.",
-      "doi": "10.5281/zenodo.23146280",
+      "doi": "10.5281/zenodo.23146281",
       "summary": "Paper II transports the prospective-health architecture across changing contexts, developmental stages, and open-system support by separating raw capacity transport, health-visible quotient transport, and full health truth, with exact determinacy, obstruction, branching, coalescence, and support-dependence results.",
       "program": "health",
       "domains": [
@@ -355,7 +355,8 @@
         "invariance-identity"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-prospective-health-across-contexts.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-prospective-health-across-contexts.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-prospective-health-across-contexts.pdf",
+      "conceptDoi": "10.5281/zenodo.23146280"
     },
     {
       "id": "hfd1",
@@ -365,7 +366,7 @@
       "order": 1,
       "title": "Constitutive Continuation Capacity",
       "subtitle": "A machine-checked framework for prospective health.",
-      "doi": "10.5281/zenodo.23131157",
+      "doi": "10.5281/zenodo.23131158",
       "summary": "Prospective health is formalized as present realization together with requirement-adequate continuation capacity, with exact lawful/viable response semantics, a requirement-visible capacity quotient and universal property, explicit query relativity, qualified presentation invariance, and robustness and measurement-sufficiency boundaries.",
       "program": "health",
       "domains": [
@@ -382,7 +383,8 @@
         "boundary-measurement"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-constitutive-continuation-capacity.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-constitutive-continuation-capacity.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-constitutive-continuation-capacity.pdf",
+      "conceptDoi": "10.5281/zenodo.23131157"
     },
     {
       "id": "bio3",
