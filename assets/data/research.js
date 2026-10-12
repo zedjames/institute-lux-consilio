@@ -244,8 +244,8 @@ window.ILC_DATA={
       "order": 7,
       "title": "Dynamical Ill-Conditioning of a Faithful Celestial Representation",
       "subtitle": "Cubic gravitational response and an adjoint-range obstruction in the physical radiative Bose sector",
-      "doi": "10.5281/zenodo.23246259",
-      "conceptDoi": "10.5281/zenodo.23246260",
+      "doi": "10.5281/zenodo.23246260",
+      "conceptDoi": "10.5281/zenodo.23246259",
       "summary": "Under an explicit uniform completion estimate, the completed retained celestial representation determines physical radiative Bose states uniquely, while the Riesz vector of a nonzero finite-regulator gravitational cubic lies outside the retained transform's adjoint range. The exact-range cubic is discontinuous in the retained Hilbert norm; it can be approximated on the physical unit ball only with necessarily diverging retained-space reconstruction norms.",
       "program": "celestial",
       "domains": [
@@ -259,7 +259,9 @@ window.ILC_DATA={
         "continuation-stability",
         "invariance-identity",
         "formalization-proof"
-      ]
+      ],
+      "pdf": "https://zenodo.org/api/records/23246260/files/Dynamical%20Ill-Conditioning%20of%20a%20Faithful%20Celestial%20Representation.pdf/content",
+      "pdfSha256": "2ab03b01f84b82c11b3d5abf594df48576d9396315c2bd3ca1f501ad5c27f57c"
     },
     {
       "id": "bio4",
@@ -268,8 +270,8 @@ window.ILC_DATA={
       "series": "Relational Morphogenesis and Multicellular Organization",
       "order": 3,
       "title": "An Overlapping Local Relational Geometry of Early Mouse Embryogenesis",
-      "doi": "10.5281/zenodo.23225034",
-      "conceptDoi": "10.5281/zenodo.23225035",
+      "doi": "10.5281/zenodo.23225035",
+      "conceptDoi": "10.5281/zenodo.23225034",
       "summary": "Across 3,704 lineage-qualified cells from three E7.5 mouse embryos, nine prespecified construction lanes yield sparse pair-local correspondences evaluated against a disjoint molecular feature panel. Set-valued target fibers and overlapping source regions retain construction-held-out molecular organization; degree-controlled connectivity contributes additional source information. Molecular-effect direction persists across tested representations and domain scales while exact global correspondence conditions fail.",
       "program": "rmmo",
       "domains": [
@@ -285,7 +287,9 @@ window.ILC_DATA={
         "evidence-validation",
         "boundary-measurement"
       ],
-      "companion": "https://github.com/zedjames/relational-morphogenesis/tree/main/papers/03-overlapping-local-relational-geometry"
+      "companion": "https://github.com/zedjames/relational-morphogenesis/tree/main/papers/03-overlapping-local-relational-geometry",
+      "pdf": "https://zenodo.org/api/records/23225035/files/An%20Overlapping%20Local%20Relational%20Geometry%20of%20Early%20Mouse%20Embryogenesis.pdf/content",
+      "pdfSha256": "5d507094748517024a7f06d41716435bdbf9137601268f5593b585d88cb4a95f"
     },
     {
       "id": "hfd3",
@@ -313,7 +317,9 @@ window.ILC_DATA={
         "invariance-identity",
         "evidence-validation",
         "continuation-stability"
-      ]
+      ],
+      "pdf": "https://zenodo.org/api/records/23219588/files/Representation%20Sufficiency%20in%20Prospective%20Health.pdf/content",
+      "pdfSha256": "ba193ff119434c26c2047ab0de20fbd36258fc7c65eb7b363c22584d26b3b650"
     },
     {
       "id": "hfd2",
@@ -381,7 +387,7 @@ window.ILC_DATA={
       "order": 2,
       "title": "Present-State Resolution and Lineage History in Early Mouse Embryogenesis",
       "subtitle": "Matched-control lineage analysis, fully inductive molecular prediction, and representation-aware history tests in E7.5 mouse embryos.",
-      "doi": "10.5281/zenodo.23125762",
+      "doi": "10.5281/zenodo.23125763",
       "summary": "Across three E7.5 MELA embryos, the fully inductive molecular present predicts a disjoint contemporaneous molecular target beyond coarse annotations; matched controls and family-wise calibration leave the additional predictive contribution from the tested reconstructed-lineage summaries unestablished.",
       "program": "rmmo",
       "domains": [
@@ -397,7 +403,8 @@ window.ILC_DATA={
         "invariance-identity"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-present-state-resolution-lineage-history-early-mouse-embryogenesis.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-present-state-resolution-lineage-history-early-mouse-embryogenesis.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-present-state-resolution-lineage-history-early-mouse-embryogenesis.pdf",
+      "conceptDoi": "10.5281/zenodo.23125762"
     },
     {
       "id": "gps6",
@@ -421,7 +428,8 @@ window.ILC_DATA={
         "formalization-proof"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-physical-celestial-clebsch-gordan-transform-radiative-bose-pair.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-physical-celestial-clebsch-gordan-transform-radiative-bose-pair.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-physical-celestial-clebsch-gordan-transform-radiative-bose-pair.pdf",
+      "conceptDoi": "10.5281/zenodo.23108945"
     },
     {
       "id": "bio2",
@@ -446,7 +454,8 @@ window.ILC_DATA={
         "continuation-stability"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-relational-organization-directional-stability-mouse-organogenesis.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-relational-organization-directional-stability-mouse-organogenesis.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-relational-organization-directional-stability-mouse-organogenesis.pdf",
+      "conceptDoi": "10.5281/zenodo.23090478"
     },
     {
       "id": "gps5",
@@ -456,7 +465,7 @@ window.ILC_DATA={
       "order": 5,
       "title": "Source-Aware Weyl-Reduced Celestial Representation",
       "subtitle": "Joint source-output symmetry and positive-measure obstruction to fixed-source isometry for radiative two-particle Clebsch–Gordan kernels.",
-      "doi": "10.5281/zenodo.23029056",
+      "doi": "10.5281/zenodo.23029057",
       "summary": "Source-aware Weyl reflection admits an exact joint Hilbert reduction, while a positive-measure Gram defect rules out almost-everywhere fixed-source isometric realization of the normalized physical kernel.",
       "program": "celestial",
       "domains": [
@@ -471,7 +480,8 @@ window.ILC_DATA={
         "formalization-proof"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-source-aware-weyl-reduced-celestial-representation.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-source-aware-weyl-reduced-celestial-representation.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-source-aware-weyl-reduced-celestial-representation.pdf",
+      "conceptDoi": "10.5281/zenodo.23029056"
     },
     {
       "id": "bio1",
@@ -494,17 +504,18 @@ window.ILC_DATA={
         "evidence-validation"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-relational-anatomy-cell-fate.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-relational-anatomy-cell-fate.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-relational-anatomy-cell-fate.pdf",
+      "conceptDoi": "10.5281/zenodo.22969065"
     },
     {
       "id": "gps4",
-      "date": "2026-09-26",
+      "date": "2026-09-27",
       "seriesId": "gaussian",
       "series": "Gaussian Physical States and Celestial Representation",
       "order": 4,
       "title": "Gaussian Pair Geometry and Physical Radiative Response",
       "subtitle": "Quadratic-sector variational stress, physical-helicity response, and exact information compression in a machine-checked gauge-field model.",
-      "doi": "10.5281/zenodo.23001929",
+      "doi": "10.5281/zenodo.23001930",
       "summary": "A faithful three-parameter covariance passes through response maps that retain less information: zero variational stress, one-parameter radiative response, and finally a scale-independent normalized Bose pair.",
       "program": "celestial",
       "domains": [
@@ -517,17 +528,18 @@ window.ILC_DATA={
         "boundary-measurement"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-gaussian-pair-geometry-physical-radiative-response.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-gaussian-pair-geometry-physical-radiative-response.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-gaussian-pair-geometry-physical-radiative-response.pdf",
+      "conceptDoi": "10.5281/zenodo.23001929"
     },
     {
       "id": "ns3",
-      "date": "2026-09-24",
+      "date": "2026-10-12",
       "seriesId": "navier-stokes",
       "series": "Navier–Stokes Continuation",
       "order": 3,
       "title": "Endpoint Rigidity in Periodic Navier–Stokes Flow",
       "subtitle": "Terminal magnification, intrinsic restart, and analytic rigidity at the L∞t L³x boundary.",
-      "doi": "10.5281/zenodo.22943388",
+      "doi": "10.5281/zenodo.23322948",
       "summary": "Bounded terminal L³ forces global continuation, while finite maximal time forces infinite terminal L³ limsup through magnification, restart, backward identification, and rigidity.",
       "program": "ns",
       "domains": [
@@ -540,11 +552,12 @@ window.ILC_DATA={
         "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-endpoint-rigidity-periodic-navier-stokes-flow.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-endpoint-rigidity-periodic-navier-stokes-flow.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-endpoint-rigidity-periodic-navier-stokes-flow.pdf",
+      "conceptDoi": "10.5281/zenodo.22943387"
     },
     {
       "id": "sqg8",
-      "date": "2026-09-23",
+      "date": "2026-09-24",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 8,
@@ -563,7 +576,8 @@ window.ILC_DATA={
         "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-relational-quantum-gravity-self-consistent-einstein-scalar-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-relational-quantum-gravity-self-consistent-einstein-scalar-sector.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-relational-quantum-gravity-self-consistent-einstein-scalar-sector.pdf",
+      "conceptDoi": "10.5281/zenodo.22939781"
     },
     {
       "id": "sqg7",
@@ -586,7 +600,8 @@ window.ILC_DATA={
         "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-regulated-palatini-bv-quantization-self-consistent-einstein-scalar-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-regulated-palatini-bv-quantization-self-consistent-einstein-scalar-sector.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-regulated-palatini-bv-quantization-self-consistent-einstein-scalar-sector.pdf",
+      "conceptDoi": "10.5281/zenodo.22904030"
     },
     {
       "id": "sqg6",
@@ -609,11 +624,12 @@ window.ILC_DATA={
         "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-quantum-gauge-structure-self-consistent-einstein-scalar-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-quantum-gauge-structure-self-consistent-einstein-scalar-sector.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-quantum-gauge-structure-self-consistent-einstein-scalar-sector.pdf",
+      "conceptDoi": "10.5281/zenodo.22859435"
     },
     {
       "id": "sqg5",
-      "date": "2026-09-18",
+      "date": "2026-09-19",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 5,
@@ -632,7 +648,8 @@ window.ILC_DATA={
         "relational-organization"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-master-action-ownership-self-consistent-einstein-scalar-quantum-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-master-action-ownership-self-consistent-einstein-scalar-quantum-sector.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-master-action-ownership-self-consistent-einstein-scalar-quantum-sector.pdf",
+      "conceptDoi": "10.5281/zenodo.22846742"
     },
     {
       "id": "sqg4",
@@ -656,7 +673,8 @@ window.ILC_DATA={
         "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-self-consistent-einstein-scalar-quantum-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-self-consistent-einstein-scalar-quantum-sector.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-self-consistent-einstein-scalar-quantum-sector.pdf",
+      "conceptDoi": "10.5281/zenodo.22834304"
     },
     {
       "id": "sqg3",
@@ -680,7 +698,8 @@ window.ILC_DATA={
         "formalization-proof"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-friedrichs-selected-schwarzschild-quantum-matter.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-friedrichs-selected-schwarzschild-quantum-matter.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-friedrichs-selected-schwarzschild-quantum-matter.pdf",
+      "conceptDoi": "10.5281/zenodo.22819416"
     },
     {
       "id": "gps3",
@@ -702,7 +721,8 @@ window.ILC_DATA={
         "invariance-identity"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-from-pair-generated-fock-structure-to-physical-particle-semantics.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-from-pair-generated-fock-structure-to-physical-particle-semantics.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-from-pair-generated-fock-structure-to-physical-particle-semantics.pdf",
+      "conceptDoi": "10.5281/zenodo.22820147"
     },
     {
       "id": "sqg2",
@@ -726,7 +746,8 @@ window.ILC_DATA={
         "continuation-stability"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-friedrichs-selected-schwarzschild-quantum-dynamics.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-friedrichs-selected-schwarzschild-quantum-dynamics.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-friedrichs-selected-schwarzschild-quantum-dynamics.pdf",
+      "conceptDoi": "10.5281/zenodo.22804350"
     },
     {
       "id": "gps2",
@@ -749,7 +770,8 @@ window.ILC_DATA={
         "formalization-proof"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-pair-generated-completion-gaussian-physical-states.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-pair-generated-completion-gaussian-physical-states.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-pair-generated-completion-gaussian-physical-states.pdf",
+      "conceptDoi": "10.5281/zenodo.22818923"
     },
     {
       "id": "gps1",
@@ -772,7 +794,8 @@ window.ILC_DATA={
         "invariance-identity"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-closed-matter-current-gaussian-physical-moduli.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-closed-matter-current-gaussian-physical-moduli.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-closed-matter-current-gaussian-physical-moduli.pdf",
+      "conceptDoi": "10.5281/zenodo.22818291"
     },
     {
       "id": "sqg1",
@@ -796,7 +819,8 @@ window.ILC_DATA={
         "continuation-stability"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-critical-schwarzschild-scalar-dynamics.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-critical-schwarzschild-scalar-dynamics.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-critical-schwarzschild-scalar-dynamics.pdf",
+      "conceptDoi": "10.5281/zenodo.22800859"
     },
     {
       "id": "ns2",
@@ -818,7 +842,8 @@ window.ILC_DATA={
         "formalization-proof"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-critical-regularity-navier-stokes.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-critical-regularity-navier-stokes.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-critical-regularity-navier-stokes.pdf",
+      "conceptDoi": "10.5281/zenodo.22754458"
     },
     {
       "id": "ns1",
@@ -841,7 +866,8 @@ window.ILC_DATA={
         "invariance-identity"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-continuation-anatomy-navier-stokes.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-continuation-anatomy-navier-stokes.pdf"
+      "pdf": "https://fieldfluxbiosystems.com/research-continuation-anatomy-navier-stokes.pdf",
+      "conceptDoi": "10.5281/zenodo.22737977"
     }
   ],
   "notes": [
