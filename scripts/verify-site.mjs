@@ -17,7 +17,7 @@ const requiredPDFs=Object.fromEntries(pdfManifest.papers.map(p=>[
 ]));
 assert.deepStrictEqual(Object.keys(requiredPDFs).sort(),["hfd4","hfd5","hfd6"]);
 for(const p of data.publications){
- if(p.date < "2026-10-09") continue; // Existing pre-migration records remain readable through their archival DOI.
+ if(!["hfd4","hfd5","hfd6"].includes(p.id)) continue; // Dedicated on-site scholarly pages and PDFs are mandatory for these three locally archived papers; other programs legitimately link to FFB or verified Zenodo PDFs.
  assert.ok(p.pdf && p.localPage,"New public papers must have a site-hosted PDF and static scholarly record: "+p.id);
  const bytes=fs.readFileSync(p.pdf);
  assert.ok(bytes.subarray(0,5).equals(Buffer.from("%PDF-")),"Invalid PDF bytes for "+p.id);
@@ -69,10 +69,27 @@ for(const p of data.publications){assert.match(p.doi,/^10\.\d+\//,"Invalid DOI: 
 // Paper VII: sequence, version DOI, all-versions DOI and scientific program.
 const gaussianPapers=data.publications.filter(p=>p.seriesId==="gaussian").sort((a,b)=>a.order-b.order);
 assert.deepStrictEqual(gaussianPapers.map(p=>p.order),[1,2,3,4,5,6,7],"Gaussian/Celestial sequence must contain Papers I–VII");
+const pins=JSON.parse(fs.readFileSync("research/zenodo-concepts.json","utf8")).papers;
+assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.map(p=>p.id).sort(),"All ILC publications must be backed by audited Zenodo families");
+for(const pub of data.publications){
+ const pin=pins[pub.id];
+ assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(pub.doi),"Invalid version DOI "+pub.id);
+ assert.ok(pin.concept_doi.startsWith("10.5281/zenodo."),"Missing verified concept family "+pub.id);
+ if(pub.conceptDoi && pub.conceptDoi!==pin.concept_doi){
+  // Preexisting inverse DOI pair allowed only until the first auto-sync.
+  assert.equal(pub.doi,pin.concept_doi,"Concept DOI mismatch "+pub.id);
+ }
+ if(pub.pdf && pub.pdf.startsWith("https://zenodo.org/api/records/")){
+  assert.match(pub.pdf,/[/]files[/].+[/]content$/,"Invalid pinned Zenodo PDF URL");
+  assert.match(pub.pdfSha256||"",/^[0-9a-f]{64}$/,"Missing checksum for Zenodo-hosted publication "+pub.id);
+ }
+}
 const paper7=gaussianPapers[6];
 assert.equal(paper7.id,"gps7");
-assert.equal(paper7.doi,"10.5281/zenodo.23246259");
-assert.equal(paper7.conceptDoi,"10.5281/zenodo.23246260");
+assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(paper7.doi),"Missing valid Paper VII version DOI");
+assert.ok(paper7.conceptDoi==="10.5281/zenodo.23246259" ||
+ (paper7.doi==="10.5281/zenodo.23246259" && paper7.conceptDoi==="10.5281/zenodo.23246260"),
+ "Paper VII concept/version mapping must match Zenodo or exact pre-migration pair");
 assert.equal(paper7.program,"celestial");
 assert.equal(data.series.find(s=>s.id==="gaussian")?.publishedCount,gaussianPapers.length);
 for(const p of data.questions){assert.ok(p.href&&(root.has(p.href.split("#")[0])),"Question route unavailable: "+p.id);}
