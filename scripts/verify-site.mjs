@@ -54,7 +54,9 @@ for (const [id,conceptDoi] of [
 ]) {
  const p=healthPapers.find(p=>p.id===id);
  assert.ok(p,"Missing new Health paper "+id);
- assert.match(p.doi,/^10\\.5281\\/zenodo\\.\\d+$/); assert.equal(p.conceptDoi,conceptDoi);\n assert.equal(requiredPDFs[id].doi,p.doi,"Manifest version DOI differs from scholarly catalog");
+ assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(p.doi),"Invalid version DOI");
+ assert.equal(p.conceptDoi,conceptDoi);
+ assert.equal(requiredPDFs[id].doi,p.doi,"Manifest version DOI differs from scholarly catalog");
  assert.equal(p.program,"health");
 }
 
