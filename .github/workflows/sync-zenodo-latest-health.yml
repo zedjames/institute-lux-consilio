@@ -25,9 +25,9 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Verify live Zenodo concept and version records without writing
-        run: python3 scripts/zenodo_latest_sync.py --site ilc --probe
-      - name: Validate current scholarly repository
+      - name: Preview published Zenodo PDF and citation updates without committing
+        run: python3 scripts/zenodo_latest_sync.py --site ilc
+      - name: Validate complete updated scholarly preview
         run: |
           node scripts/verify-site.mjs
 
