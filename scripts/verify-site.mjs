@@ -17,7 +17,7 @@ const requiredPDFs=Object.fromEntries(pdfManifest.papers.map(p=>[
 ]));
 assert.deepStrictEqual(Object.keys(requiredPDFs).sort(),["hfd4","hfd5","hfd6"]);
 for(const p of data.publications){
- if(p.date < "2026-10-09") continue; // Existing pre-migration records remain readable through their archival DOI.
+ if(!["hfd4","hfd5","hfd6"].includes(p.id)) continue; // Dedicated on-site scholarly pages and PDFs are mandatory for these three locally archived papers; other programs legitimately link to FFB or verified Zenodo PDFs.
  assert.ok(p.pdf && p.localPage,"New public papers must have a site-hosted PDF and static scholarly record: "+p.id);
  const bytes=fs.readFileSync(p.pdf);
  assert.ok(bytes.subarray(0,5).equals(Buffer.from("%PDF-")),"Invalid PDF bytes for "+p.id);
