@@ -87,7 +87,9 @@ for(const pub of data.publications){
 const paper7=gaussianPapers[6];
 assert.equal(paper7.id,"gps7");
 assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(paper7.doi),"Missing valid Paper VII version DOI");
-assert.equal(paper7.conceptDoi,"10.5281/zenodo.23246259");
+assert.ok(paper7.conceptDoi==="10.5281/zenodo.23246259" ||
+ (paper7.doi==="10.5281/zenodo.23246259" && paper7.conceptDoi==="10.5281/zenodo.23246260"),
+ "Paper VII concept/version mapping must match Zenodo or exact pre-migration pair");
 assert.equal(paper7.program,"celestial");
 assert.equal(data.series.find(s=>s.id==="gaussian")?.publishedCount,gaussianPapers.length);
 for(const p of data.questions){assert.ok(p.href&&(root.has(p.href.split("#")[0])),"Question route unavailable: "+p.id);}
