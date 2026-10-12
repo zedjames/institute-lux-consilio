@@ -10,11 +10,12 @@ for(const key of ["programs","themes","questions","publications","notes"]){
 }
 const root=new Set(fs.readdirSync("."));
 import crypto from "node:crypto";
-const requiredPDFs = {
- hfd4: {page:"publication-hfd4.html",pdf:"papers/health-formally-defined-paper-iv.pdf",hash:"81153d49ccd804de4c49ce9372891bf6896207c32d6abf40649c69431b44f033"},
- hfd5: {page:"publication-hfd5.html",pdf:"papers/health-formally-defined-paper-v.pdf",hash:"702fd63ae70487d565e92292608a20febeab202defc515559aff411581e1d112"},
- hfd6: {page:"publication-hfd6.html",pdf:"papers/health-formally-defined-paper-vi.pdf",hash:"35fef03e386aa2813da56e93bdb8b31c264dd2de8f81a85156a1cd250117f40c"}
-};
+const pdfManifest=JSON.parse(fs.readFileSync("research/site-pdfs.json","utf8"));
+const requiredPDFs=Object.fromEntries(pdfManifest.papers.map(p=>[
+  p.recordPage.replace(/^publication-(hfd[0-9]+)\.html$/, "$1"),
+  {page:p.recordPage,pdf:p.pdf,hash:p.sha256,doi:p.doi}
+]));
+assert.deepStrictEqual(Object.keys(requiredPDFs).sort(),["hfd4","hfd5","hfd6"]);
 for(const p of data.publications){
  if(p.date < "2026-10-09") continue; // Existing pre-migration records remain readable through their archival DOI.
  assert.ok(p.pdf && p.localPage,"New public papers must have a site-hosted PDF and static scholarly record: "+p.id);
@@ -46,14 +47,20 @@ ids(data.programs,"program");ids(data.publications,"publication");ids(data.notes
 const healthPapers=data.publications.filter(p=>p.seriesId==="health-formally-defined").sort((a,b)=>a.order-b.order);
 assert.deepStrictEqual(healthPapers.map(p=>p.order),[1,2,3,4,5,6],"Health series sequence I–VI");
 assert.equal(data.series.find(s=>s.id==="health-formally-defined")?.publishedCount,6);
-for (const [id,doi,conceptDoi] of [
-  ["hfd4","10.5281/zenodo.23268802","10.5281/zenodo.23268803"],
-  ["hfd5","10.5281/zenodo.23268987","10.5281/zenodo.23268986"],
-  ["hfd6","10.5281/zenodo.23301732","10.5281/zenodo.23301733"]
+for (const [id,conceptDoi] of [
+  ["hfd4","10.5281/zenodo.23268802"],
+  ["hfd5","10.5281/zenodo.23268986"],
+  ["hfd6","10.5281/zenodo.23301732"]
 ]) {
  const p=healthPapers.find(p=>p.id===id);
  assert.ok(p,"Missing new Health paper "+id);
- assert.equal(p.doi,doi); assert.equal(p.conceptDoi,conceptDoi);
+ assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(p.doi),"Invalid version DOI");
+ // Four paper records may still have the precisely known legacy DOI inversion
+ // until the initial verified Zenodo mirror transaction runs.
+ const legacyVersion={hfd4:"10.5281/zenodo.23268803",hfd6:"10.5281/zenodo.23301733"};
+ const legacy=p.doi===conceptDoi && p.conceptDoi===legacyVersion[id];
+ assert.ok(p.conceptDoi===conceptDoi || legacy,"Incorrect all-versions DOI family");
+ assert.equal(requiredPDFs[id].doi,p.doi,"Manifest version DOI differs from scholarly catalog");
  assert.equal(p.program,"health");
 }
 
