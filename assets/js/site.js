@@ -5,6 +5,19 @@ if('IntersectionObserver' in window){const obs=new IntersectionObserver(es=>es.f
 const D=window.ILC_DATA||{};
 function fmtDate(s){if(!s)return'';const d=new Date(s+'T12:00:00');return d.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});}
 function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+
+// Generic records are rendered from catalog data. Keep their canonical URL
+// distinct from other papers; never canonicalize every ?id to publication.html.
+function setRecordSeo(title,description,url){
+ const desc=String(description||'').replace(/\s+/g,' ').trim().slice(0,220);
+ const head=document.head;
+ let meta=$('meta[name="description"]');if(!meta){meta=document.createElement('meta');meta.name='description';head.appendChild(meta)}meta.content=desc;
+ let canonical=$('link[rel="canonical"]');if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';head.appendChild(canonical)}canonical.href=url;
+ [['og:type','article'],['og:site_name','Institute Lux Consilio'],['og:title',title],['og:description',desc],['og:url',url]].forEach(([name,value])=>{
+  let m=$('meta[property="'+name+'"]');if(!m){m=document.createElement('meta');m.setAttribute('property',name);head.appendChild(m)}m.content=value;
+ });
+}
+
 function programHref(p){return p?.href||('program.html?id='+encodeURIComponent(p?.id||''));}
 function renderPrograms(){
  const el=$('#program-list'); if(!el||!D.programs)return;
@@ -63,6 +76,10 @@ function renderProgram(){
  const relatedPubs=p.id==="rmmo"?programPubs.filter(x=>x.seriesId!=="rmmo"):[];
  const seriesIds=[...new Set(pubs.map(x=>x.seriesId))], series=(D.series||[]).filter(s=>seriesIds.includes(s.id));
  document.title=p.title+' — Institute Lux Consilio';
+ if(location.pathname.endsWith('/program.html')){
+  const recordPath=/^research-[a-z0-9-]+\.html$/.test(p.href||'')?p.href:('program.html?id='+encodeURIComponent(p.id));
+  setRecordSeo(p.title+' — Institute Lux Consilio',p.desc,'https://instituteluxconsilio.org/'+recordPath);
+ }
  const narrative=(detail.narrative||[]).map(x=>`<p>${esc(x)}</p>`).join('');
  const methods=(detail.methods||[]).map(x=>`<li>${esc(x)}</li>`).join('');
  const questions=(detail.openQuestions||[]).map((x,i)=>`<li><span>${String(i+1).padStart(2,'0')}</span><p>${esc(x)}</p></li>`).join('');
@@ -117,6 +134,9 @@ function renderPublication(){
    ? `<p><strong>Reproducibility</strong><br><a href="${esc(p.companion)}" target="_blank" rel="noopener">Public companion ↗</a></p>`
    : '';
  document.title=p.title+' — Institute Lux Consilio';
+ const recordPath=/^publication-[a-z0-9-]+\.html$/.test(p.localPage||'')?p.localPage:('publication.html?id='+encodeURIComponent(p.id));
+ setRecordSeo(p.title+' — Institute Lux Consilio',p.summary||p.subtitle||p.series,'https://instituteluxconsilio.org/'+recordPath);
+
  el.innerHTML=`<section class="page-head"><div class="wrap"><p class="eyebrow">${esc(ser?.label||p.series)} · Paper ${p.order||''}</p><h1>${esc(p.title)}</h1>${p.subtitle?`<p class="lede">${esc(p.subtitle)}</p>`:''}</div></section>
  <section class="section"><div class="wrap"><div class="grid grid-2" style="align-items:start"><div class="prose"><p class="eyebrow">Abstract record</p><p class="kicker">${esc(p.summary)}</p><h2>Scientific context</h2><p>This publication belongs to <a href="${programHref(prog)}">${esc(prog?.title||p.series)}</a>. ILC preserves the program context around the archival publication so the result remains connected to the question, sequence, and later work it supports.</p><h2>Provenance</h2><p>${esc(recordHistory)}</p></div>
  <aside class="card"><p class="card__tag">Publication record</p><h3>${fmtDate(p.date)}</h3><p><strong>Author</strong><br>Zed James</p><p><strong>Type</strong><br>Preprint</p><p><strong>Series</strong><br>${esc(p.series)}</p><p><strong>DOI</strong><br><a href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener">${esc(p.doi)} ↗</a></p>${versionsHtml}${companionHtml}<p><strong>Domains</strong><br>${esc((p.domains||[]).join(' · '))}</p><div class="hero__actions">${readAction}${originalAction}</div></aside></div></div></section>`;
