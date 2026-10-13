@@ -35,8 +35,9 @@ function renderQuestions(){
  const el=$('#question-grid'); if(!el||!D.questions)return;
  el.innerHTML=D.questions.map((q,i)=>`<a class="question-line reveal" href="${esc(q.href)}"><span class="question-line__n">${String(i+1).padStart(2,'0')}</span><span class="question-line__body"><strong>${esc(q.title)}</strong><em>${esc(q.text)}</em></span><span class="question-line__arrow">↗</span></a>`).join('');
 }
+function publicationHref(p){return p?.localPage||('publication-'+encodeURIComponent(p?.id||'')+'.html');}
 function pubHtml(p){
- const page=p.localPage||('publication.html?id='+encodeURIComponent(p.id));
+ const page=publicationHref(p);
  const links=[`<a href="${esc(page)}">Record →</a>`];
  if(p.doi) links.push(`<a href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener">DOI ${esc(p.doi)} ↗</a>`);
  if(p.pdf) links.push(`<a href="${esc(p.pdf)}" target="_blank" rel="noopener">PDF ↗</a>`);
@@ -104,9 +105,9 @@ function renderProgram(){
  ${metrics?`<section class="section section--tight section--alt"><div class="wrap"><div class="program-metrics">${metrics}</div></div></section>`:''}
  <section class="section section--alt"><div class="wrap">
    <div class="sec-head"><div><p class="eyebrow">Paper sequence</p><h2>Published stages of the program.</h2></div><p>${series.length?esc(series.map(s=>s.status).join(' · ')):'The public sequence is maintained as part of ILC’s scholarly archive.'}</p></div>
-   <div class="paper-sequence">${pubs.length?pubs.map((x,i)=>`<article class="paper-stage"><div class="paper-stage__num">${String(x.order||i+1).padStart(2,'0')}</div><div><p class="meta">${fmtDate(x.date)}</p><h3><a href="${esc(x.localPage||("publication.html?id="+encodeURIComponent(x.id)))}">${esc(x.title)}</a></h3>${x.subtitle?`<p class="paper-stage__subtitle">${esc(x.subtitle)}</p>`:''}<p>${esc(x.summary)}</p><div class="archive-item__links"><a href="${esc(x.localPage||("publication.html?id="+encodeURIComponent(x.id)))}">ILC record →</a>${x.doi?`<a href="https://doi.org/${encodeURIComponent(x.doi)}" target="_blank" rel="noopener">DOI ↗</a>`:''}</div></div></article>`).join(''):'<p class="muted">No public papers are attached to this program yet.</p>'}</div>
+   <div class="paper-sequence">${pubs.length?pubs.map((x,i)=>`<article class="paper-stage"><div class="paper-stage__num">${String(x.order||i+1).padStart(2,'0')}</div><div><p class="meta">${fmtDate(x.date)}</p><h3><a href="${esc(publicationHref(x))}">${esc(x.title)}</a></h3>${x.subtitle?`<p class="paper-stage__subtitle">${esc(x.subtitle)}</p>`:''}<p>${esc(x.summary)}</p><div class="archive-item__links"><a href="${esc(publicationHref(x))}">ILC record →</a>${x.doi?`<a href="https://doi.org/${encodeURIComponent(x.doi)}" target="_blank" rel="noopener">DOI ↗</a>`:''}</div></div></article>`).join(''):'<p class="muted">No public papers are attached to this program yet.</p>'}</div>
  </div></section>
- ${relatedPubs.length?`<section class="section section--tight"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Related scientific work</p><h2>Adjacent research</h2></div></div><div class="paper-sequence">${relatedPubs.map(x=>`<article class="paper-stage"><div class="paper-stage__num">↗</div><div><p class="meta">${esc(x.series||"Related research")} · ${fmtDate(x.date)}</p><h3><a href="publication.html?id=${encodeURIComponent(x.id)}">${esc(x.title)}</a></h3><p>${esc(x.summary)}</p></div></article>`).join("")}</div></div></section>`:""}
+ ${relatedPubs.length?`<section class="section section--tight"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Related scientific work</p><h2>Adjacent research</h2></div></div><div class="paper-sequence">${relatedPubs.map(x=>`<article class="paper-stage"><div class="paper-stage__num">↗</div><div><p class="meta">${esc(x.series||"Related research")} · ${fmtDate(x.date)}</p><h3><a href="${publicationHref(x)}">${esc(x.title)}</a></h3><p>${esc(x.summary)}</p></div></article>`).join("")}</div></div></section>`:""}
  <section class="section"><div class="wrap program-layout">
    <article class="program-main"><p class="eyebrow">Current frontier</p><h2>What the public record hands forward.</h2><p class="frontier-copy">${esc(detail.frontier||'The program remains active and will be updated as additional public results are released.')}</p></article>
    <aside class="program-aside"><p class="eyebrow">Open questions</p><ol class="open-question-list">${questions}</ol></aside>
@@ -134,7 +135,7 @@ function renderPublication(){
    ? `<p><strong>Reproducibility</strong><br><a href="${esc(p.companion)}" target="_blank" rel="noopener">Public companion ↗</a></p>`
    : '';
  document.title=p.title+' — Institute Lux Consilio';
- const recordPath=/^publication-[a-z0-9-]+\.html$/.test(p.localPage||'')?p.localPage:('publication.html?id='+encodeURIComponent(p.id));
+ const recordPath=publicationHref(p);
  setRecordSeo(p.title+' — Institute Lux Consilio',p.summary||p.subtitle||p.series,'https://instituteluxconsilio.org/'+recordPath);
 
  el.innerHTML=`<section class="page-head"><div class="wrap"><p class="eyebrow">${esc(ser?.label||p.series)} · Paper ${p.order||''}</p><h1>${esc(p.title)}</h1>${p.subtitle?`<p class="lede">${esc(p.subtitle)}</p>`:''}</div></section>

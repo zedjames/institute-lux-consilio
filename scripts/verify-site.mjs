@@ -9,7 +9,29 @@ for(const key of ["programs","themes","questions","publications","notes"]){
  assert.deepStrictEqual(catalog[key],data[key],key+" differs from canonical ILC source");
 }
 const root=new Set(fs.readdirSync("."));
+const generated=makeArtifacts(data);
+assert.equal(Object.keys(generated.pages).length, data.publications.length-3,
+ "Every catalog publication without an existing dedicated page must have a generated static record");
+for(const p of data.publications){
+ const page=publicationPath(p);
+ assert.ok(root.has(page),"No directly crawlable HTML record for "+p.id);
+ const html=fs.readFileSync(page,"utf8");
+ assert.ok(html.includes('href="https://instituteluxconsilio.org/'+page+'"'),"Missing canonical for "+p.id);
+ assert.ok(html.includes('name="citation_doi" content="'+p.doi+'"'),"Missing DOI citation for "+p.id);
+ assert.ok(html.includes('name="citation_title"'),"Missing scholarly title citation for "+p.id);
+ if(!p.localPage) assert.equal(html,generated.pages[page],"Generated publication record is out of sync: "+p.id);
+}
+assert.equal(fs.readFileSync("sitemap.xml","utf8"),generated.sitemap,"Generated sitemap is out of sync");
+const archive=fs.readFileSync("publications.html","utf8"),start='<div id="publication-list" class="archive">',end='</div></div></section></main>';
+const ia=archive.indexOf(start),ib=archive.indexOf(end,ia+start.length);
+assert.ok(ia>=0&&ib>ia,"Archive markup missing");
+assert.equal(archive.slice(ia+start.length,ib),"\n"+generated.archive+"\n","Crawlable archive index is out of sync");
+for(const p of data.publications){
+ assert.ok(archive.includes('href="'+publicationPath(p)+'"'),"Static archive missing "+p.id);
+}
+
 import crypto from "node:crypto";
+import {makeArtifacts, publicationPath} from "./build-publication-pages.mjs";
 const pdfManifest=JSON.parse(fs.readFileSync("research/site-pdfs.json","utf8"));
 const requiredPDFs=Object.fromEntries(pdfManifest.papers.map(p=>[
   p.recordPage.replace(/^publication-(hfd[0-9]+)\.html$/, "$1"),
