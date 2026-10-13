@@ -1,0 +1,52 @@
+// Generated scholarly pages. Keep DOI metadata tied to the audited catalog.
+import fs from "node:fs";
+import path from "node:path";
+import {fileURLToPath} from "node:url";
+function escapeHtml(t){return String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function publicationPath(p){if(p.localPage){if(!/^publication-[a-z0-9-]+\.html$/.test(p.localPage))throw Error("Invalid static publication route");return p.localPage;}if(!/^[a-z0-9-]+$/.test(p.id))throw Error("Invalid paper ID");return "publication-"+p.id+".html";}
+function makeArtifacts(data){
+ const base="https://instituteluxconsilio.org/",pubs=data.publications,programs=new Map(data.programs.map(p=>[p.id,p])),pages={};
+ const url=(s)=>{s=String(s||"");if(!/^(https:\/\/[^ <>"']+|[a-zA-Z0-9_./-]+)$/.test(s))throw Error("Invalid destination "+s);return escapeHtml(s);};
+ const date=(s)=>new Date(s+"T12:00:00Z").toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric",timeZone:"UTC"});
+ const meta=(p,page)=>{
+ const canonical=base+page,abst=String(p.summary||p.subtitle||p.title),short=escapeHtml(abst.slice(0,255)),name=escapeHtml(p.title);
+ const schema={"@context":"https://schema.org","@type":"ScholarlyArticle","@id":canonical+"#article","mainEntityOfPage":canonical,"name":p.title,"headline":p.title,"description":abst,"datePublished":p.date,"inLanguage":"en","identifier":"https://doi.org/"+p.doi,"author":{"@type":"Person","name":"Zed James"},"isPartOf":{"@type":"CreativeWorkSeries","name":p.series},"isAccessibleForFree":true};
+ if(p.conceptDoi)schema.sameAs=["https://doi.org/"+p.doi,"https://doi.org/"+p.conceptDoi];
+ if(p.pdf)schema.encoding={"@type":"MediaObject","contentUrl":p.pdf.startsWith("https://")?p.pdf:base+p.pdf,"encodingFormat":"application/pdf"};
+ return `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#081e2f"><meta name="robots" content="index,follow"><title>${name} — Institute Lux Consilio</title><meta name="description" content="${short}"><link rel="canonical" href="${canonical}"><link rel="icon" href="assets/img/lux-mark.svg"><link rel="stylesheet" href="assets/css/institute.css?v=1">`+
+ `<meta name="citation_title" content="${name}"><meta name="citation_author" content="Zed James"><meta name="citation_publication_date" content="${p.date.replaceAll("-","/")}"><meta name="citation_online_date" content="${p.date.replaceAll("-","/")}"><meta name="citation_doi" content="${escapeHtml(p.doi)}"><meta name="citation_abstract_html_url" content="${canonical}"><meta name="citation_language" content="en">`+
+ (p.pdf&&!p.pdf.startsWith("http")?`<meta name="citation_pdf_url" content="${base+escapeHtml(p.pdf)}">`:"")+
+ `<meta property="og:type" content="article"><meta property="og:site_name" content="Institute Lux Consilio"><meta property="og:title" content="${name}"><meta property="og:description" content="${short}"><meta property="og:url" content="${canonical}"><script type="application/ld+json">${JSON.stringify(schema).replace(/</g,"\\u003c")}</script>`;
+ };
+ const header=`<header class="site-header"><div class="wrap site-header__inner"><a class="site-logo" href="index.html"><img class="site-logo__symbol" src="assets/img/lux-mark.svg" alt=""><span class="site-logo__text">Institute Lux Consilio<small>Foundational Science &amp; Discovery</small></span></a><button class="nav__menu menu-toggle" type="button" aria-label="Toggle navigation">Menu</button><nav class="nav__links site-nav" aria-label="Main navigation"><a href="research.html">Research</a><a href="publications.html" aria-current="page">Publications</a><a href="methods.html">Methods</a><a href="institute.html">About</a><a href="collaborate.html">Collaborate</a></nav></div></header>`;
+ const footer=`<footer class="footer"><div class="wrap"><div class="footer__grid"><div><a class="site-logo" href="index.html"><img class="site-logo__symbol" src="assets/img/lux-mark.svg" alt=""><span class="site-logo__text">Institute Lux Consilio<small>Questions worth exploring</small></span></a><p style="font-size:13px;color:#b5c9d4;max-width:300px;margin-top:18px">Research into life, physical reality, and the structures that make them intelligible.</p></div><div><h3>Research</h3><a href="research.html">Programs</a><a href="publications.html">Publications</a></div><div><h3>Institute</h3><a href="institute.html">About ILC</a><a href="methods.html">Methods</a><a href="governance.html">Research integrity</a></div><div><h3>Get involved</h3><a href="collaborate.html">Collaborate</a><a href="translation.html">Discovery &amp; translation</a><a href="contact.html">Contact</a></div></div><div class="footer__fine"><span>© 2026 Institute Lux Consilio · Delaware nonprofit public charity</span><span>Science, curiosity, and discovery.</span></div></div></footer>`;
+ for(const p of pubs){
+  if(p.localPage)continue;
+  const page=publicationPath(p),prog=programs.get(p.program),siblings=pubs.filter(x=>x.seriesId===p.seriesId).sort((a,b)=>a.order-b.order),idx=siblings.findIndex(x=>x.id===p.id);
+  const adjacent=[siblings[idx-1],siblings[idx+1]].filter(Boolean);
+  const links=adjacent.length?`<section class="section section--mist"><div class="wrap"><div class="heading-row"><div><p class="eyebrow">In this series</p><h2>Adjacent papers</h2></div></div><div class="archive">${adjacent.map(x=>`<article class="archive-item"><div class="meta">Paper ${escapeHtml(x.order)}</div><div><h3><a href="${publicationPath(x)}">${escapeHtml(x.title)}</a></h3><p>${escapeHtml(x.series)}</p></div></article>`).join("")}</div></div></section>`:"";
+  const other=(label,href,text)=>`<p><strong>${label}</strong><br><a href="${url(href)}" target="_blank" rel="noopener">${escapeHtml(text)} ↗</a></p>`;
+  const pdfLink=p.pdf?`<a class="action action--light" style="background:#e5f1f7;color:#17364b" href="${url(p.pdf)}" target="_blank" rel="noopener">Full paper (PDF) ↗</a>`:"";
+  pages[page]=`<!doctype html>\n<html lang="en"><head>${meta(p,page)}</head><body><a class="skip" href="#main">Skip to content</a>${header}<main id="main">`+
+  `<section class="page-lead"><div class="wrap"><p class="kicker">${escapeHtml(p.series)} · Paper ${escapeHtml(p.order)} · ${date(p.date)}</p><h1>${escapeHtml(p.title)}</h1>${p.subtitle?`<p class="lede">${escapeHtml(p.subtitle)}</p>`:""}<p style="margin-top:18px">Zed James · <a href="https://doi.org/${escapeHtml(p.doi)}" target="_blank" rel="noopener">DOI ${escapeHtml(p.doi)} ↗</a></p></div></section>`+
+  `<section class="section"><div class="wrap"><div class="grid grid-2" style="align-items:start"><article class="prose"><p class="eyebrow">Scholarly record</p><h2>Research summary</h2><p>${escapeHtml(p.summary||"See the official DOI record for the research summary.")}</p><p>This catalog summary is provided for orientation. Please consult the complete manuscript for its original abstract and mathematical results.</p><h2>Scientific context</h2><p>This paper belongs to the <a href="${url(prog?.href||"research.html")}">${escapeHtml(prog?.title||p.series)}</a> research program.</p><p><a class="arrow-link" href="publications.html">← All publications</a></p></article>`+
+  `<aside class="card"><p class="eyebrow">Publication information</p><h3>${escapeHtml(p.series)}</h3><p><strong>Author</strong><br>Zed James</p><p><strong>Publication date</strong><br>${date(p.date)}</p>`+
+  other("DOI","https://doi.org/"+p.doi,p.doi)+(p.conceptDoi?other("All versions DOI","https://doi.org/"+p.conceptDoi,p.conceptDoi):"")+
+  (p.companion?other("Reproducibility",""+p.companion,"Public companion"):"")+(p.legacyPage?other("Historical record",""+p.legacyPage,"Original publication page"):"")+
+  (p.domains?.length?`<p><strong>Research areas</strong><br>${escapeHtml(p.domains.join(" · "))}</p>`:"")+
+  `<div class="actions">${pdfLink}</div></aside></div></div></section>${links}</main>${footer}<script src="assets/js/site.js?v=20261013-scholar"></script></body></html>\n`;
+ }
+ const staticPages=["","research.html","publications.html","methods.html","institute.html","translation.html","collaborate.html","governance.html","contact.html",...data.programs.map(x=>x.href)];
+ const locs=[...new Set([...staticPages,...pubs.map(publicationPath),...pubs.filter(x=>x.pdf&&!x.pdf.startsWith("http")).map(x=>x.pdf)])];
+ const sitemap=`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${locs.map(x=>`  <url><loc>${base+x}</loc></url>`).join("\n")}\n</urlset>\n`;
+ const archive=pubs.map(p=>`<article class="archive-item" data-program="${escapeHtml(p.program)}"><div class="meta">${date(p.date)}</div><div><h3><a href="${publicationPath(p)}">${escapeHtml(p.title)}</a></h3><p>${escapeHtml(p.series)} · Paper ${escapeHtml(p.order)}</p>${p.subtitle?`<p style="margin-top:6px">${escapeHtml(p.subtitle)}</p>`:""}<div class="archive-item__links"><a href="${publicationPath(p)}">Publication record →</a><a href="https://doi.org/${escapeHtml(p.doi)}" target="_blank" rel="noopener">DOI ↗</a>${p.pdf?`<a href="${url(p.pdf)}" target="_blank" rel="noopener">PDF ↗</a>`:""}</div></div><div class="archive-item__right">Paper ${escapeHtml(p.order)}<br>Preprint</div></article>`).join("\n");
+ return {pages,locs,sitemap,archive};
+}
+export {makeArtifacts,publicationPath};
+
+export function readCatalog(root=process.cwd()){let s=fs.readFileSync(path.join(root,"assets/data/research.js"),"utf8").trim();if(!s.startsWith("window.ILC_DATA="))throw Error("Missing catalog preamble");return JSON.parse(s.slice("window.ILC_DATA=".length).replace(/;\s*$/,""));}
+export function materialize(root=process.cwd()){const result=makeArtifacts(readCatalog(root));for(const [name,html] of Object.entries(result.pages))fs.writeFileSync(path.join(root,name),html);fs.writeFileSync(path.join(root,"sitemap.xml"),result.sitemap);
+const archiveFile=path.join(root,"publications.html"),text=fs.readFileSync(archiveFile,"utf8"),start='<div id="publication-list" class="archive">',end='</div></div></section></main>';
+const i=text.indexOf(start),j=text.indexOf(end,i+start.length);if(i<0||j<0)throw Error("Publication layout changed");fs.writeFileSync(archiveFile,text.slice(0,i+start.length)+"\n"+result.archive+"\n"+text.slice(j));
+console.log("Generated "+Object.keys(result.pages).length+" static publication records and "+result.locs.length+" sitemap entries.");}
+if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))materialize();
