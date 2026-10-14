@@ -173,15 +173,22 @@ def sync(site,probe=False):
             raise ValueError(f"{ident}: mismatched historical DOI partner")
         local=p.get("pdf") or (next((x["pdf"] for x in manifest["papers"] if x.get("doi")==old),None) if ffb else None)
         is_local=bool(local and not local.startswith(("https://","http://")))
+        externally_hosted=bool(local and local.startswith(("https://","http://")))
         lacks_pdf=not bool(local)
-        needs_change=(new!=old or prior!=concept or (not ffb and lacks_pdf))
+        # A new Zenodo version must not retain an earlier FFB-hosted PDF.
+        # ILC replaces only this external pointer with a freshly verified
+        # published-version Zenodo URL. On-site mirrored PDFs retain their
+        # existing byte-for-byte manifest verification and update path.
+        refresh_external=not ffb and externally_hosted and new!=old
+        needs_public_pdf_link=not ffb and (lacks_pdf or refresh_external)
+        needs_change=(new!=old or prior!=concept or needs_public_pdf_link)
         if probe:
             print(f"{ident}: stored={old}, latest={new}, family={concept}, local={bool(is_local)}, needs_update={needs_change}",flush=True)
             # The actual PR preview tests the full transaction, not this shortcut.
         if not needs_change: continue
         raw=None
         source=None
-        if is_local or lacks_pdf:
+        if is_local or needs_public_pdf_link:
             raw,source=verified_pdf(doc)
         if is_local:
             if local not in mirrors:
@@ -191,7 +198,7 @@ def sync(site,probe=False):
                 raise ValueError(f"{ident}: old local PDF fails registered checksum")
         changes.append(dict(id=ident,old=old,new=new,concept=concept,old_date=p.get("date",""),
             date=(doc.get("metadata") or {}).get("publication_date") or p.get("date"),
-            local=local,is_local=is_local,needs_new_link=lacks_pdf,content=raw,
+            local=local,is_local=is_local,needs_public_pdf_link=needs_public_pdf_link,content=raw,
             source=source,legacy_partner=(prior or new) if legacy else None))
     if probe:
         print(f"Published-version inspection completed for {len(pubs)} pinned paper families",flush=True)
@@ -213,9 +220,9 @@ def sync(site,probe=False):
             m["sha256"]=hashlib.sha256(item["content"]).hexdigest()
             m["publication_date"]=item["date"]
             m["source"]=item["source"]
-        elif item["needs_new_link"] and not ffb:
-            # ILC-only research records not yet hosted by FFB receive a live
-            # published-version PDF link, with verified bytes and provenance.
+        elif item["needs_public_pdf_link"] and not ffb:
+            # A missing PDF or a preexisting external FFB PDF reference is
+            # replaced with the *verified* Zenodo PDF for the new version.
             p["pdf"]=item["source"]
             p["pdfSha256"]=hashlib.sha256(item["content"]).hexdigest()
         print(f"UPDATED {item['id']} {item['old']} -> {item['new']}",flush=True)
