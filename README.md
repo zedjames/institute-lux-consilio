@@ -45,3 +45,13 @@ Already-mirrored local Health PDFs retain their existing manifest/checksum
 verification path. This avoids a citation to a new paper version pointing
 readers to an older externally hosted manuscript. The scheduled workflow
 also supports manual dispatch in GitHub Actions when a same-day update is needed.
+
+## Static research-program landing pages
+
+Research-program pages other than the bespoke Health overview are now rendered
+into HTML from the audited catalog. In particular, the Navier–Stokes page lists
+all four published papers without waiting for JavaScript or a possibly stale
+browser-cached `research.js`. Run `node scripts/build-program-pages.mjs` after
+updating the catalog; the Zenodo workflow automatically runs it and stages
+`research-*.html` with the paper-record changes. The repository validation
+checks that every generated program page matches its source catalog.

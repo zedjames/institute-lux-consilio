@@ -10,12 +10,14 @@ on:
     paths:
       - scripts/zenodo_latest_sync.py
       - scripts/build-publication-pages.mjs
+      - scripts/build-program-pages.mjs
       - research/zenodo-concepts.json
       - .github/workflows/sync-zenodo-latest-health.yml
   pull_request:
     paths:
       - scripts/zenodo_latest_sync.py
       - scripts/build-publication-pages.mjs
+      - scripts/build-program-pages.mjs
       - research/catalog.json
       - research/zenodo-concepts.json
       - research/site-pdfs.json
@@ -39,7 +41,9 @@ jobs:
       - name: Preview published Zenodo PDF and citation updates for all indexed series without committing
         run: python3 scripts/zenodo_latest_sync.py --site ilc
       - name: Refresh static scholarly records, archive links and sitemap from audited metadata
-        run: node scripts/build-publication-pages.mjs
+        run: |
+          node scripts/build-publication-pages.mjs
+          node scripts/build-program-pages.mjs
       - name: Validate complete updated scholarly preview
         run: |
           node scripts/verify-site.mjs
@@ -55,7 +59,9 @@ jobs:
       - name: Detect new Zenodo versions across all series and verify published PDF bytes
         run: python3 scripts/zenodo_latest_sync.py --site ilc
       - name: Refresh static scholarly records, archive links and sitemap from audited metadata
-        run: node scripts/build-publication-pages.mjs
+        run: |
+          node scripts/build-publication-pages.mjs
+          node scripts/build-program-pages.mjs
       - name: Validate complete updated scholarly state
         run: |
           node scripts/verify-site.mjs
@@ -66,7 +72,7 @@ jobs:
           git config user.name "scholarly-zenodo-version-bot"
           git config user.email "contact@instituteluxconsilio.org"
           git add -- research/catalog.json research/site-pdfs.json assets/data/research.js
-          git add -- papers/*.pdf 'publication-*.html' publications.html sitemap.xml index.html research.html research-health-formally-defined.html
+          git add -- papers/*.pdf 'publication-*.html' publications.html sitemap.xml index.html research.html research-*.html
           if git diff --cached --quiet; then
             echo "No newly published Zenodo versions."
             exit 0
