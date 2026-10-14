@@ -169,6 +169,12 @@
       "author": "James, Zed",
       "title": "Continuation Anatomy of Periodic Navier–Stokes Breakdown",
       "record_title": "Continuation Anatomy for Periodic Navier Stokes Breakdown"
+    },
+    "ns4": {
+      "concept_doi": "10.5281/zenodo.23378028",
+      "author": "James, Zed",
+      "title": "Faithful Terminal Descent of Autonomous Histories in Periodic Navier–Stokes Flow",
+      "record_title": "Faithful Terminal Descent of Autonomous Histories in Periodic Navier–Stokes Flow"
     }
   }
 }

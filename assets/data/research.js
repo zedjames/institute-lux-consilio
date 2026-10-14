@@ -59,9 +59,9 @@ window.ILC_DATA={
       "id": "navier-stokes",
       "label": "Navier–Stokes Continuation",
       "domain": "Fluid dynamics",
-      "description": "Continuation geometry, regularity escape, spectral transfer, and endpoint rigidity.",
-      "status": "Current published sequence: 3 papers",
-      "publishedCount": 3
+      "description": "Continuation geometry, spectral escape, endpoint rigidity, and faithful original-history descent under terminal magnification.",
+      "status": "Current published sequence: 4 papers",
+      "publishedCount": 4
     },
     {
       "id": "schwarzschild-qg",
@@ -147,6 +147,32 @@ window.ILC_DATA={
     }
   ],
   "publications": [
+    {
+      "id": "ns4",
+      "date": "2026-10-14",
+      "seriesId": "navier-stokes",
+      "series": "Navier–Stokes Continuation",
+      "order": 4,
+      "title": "Faithful Terminal Descent of Autonomous Histories in Periodic Navier–Stokes Flow",
+      "subtitle": "Strong original-field recovery, exact proper-past energy, and registered observations",
+      "doi": "10.5281/zenodo.23378029",
+      "conceptDoi": "10.5281/zenodo.23378028",
+      "summary": "Conditional on finite maximal lifespan of a smooth unforced periodic three-dimensional Navier–Stokes history, amplitude-normalized records yield a bounded nonzero suitable ancient core. On fixed compact physical–spectral queries, original velocity, unit-ball-gauged canonical pressure, localized Fourier observations, and signed nonlinear work recover their same-core counterparts. Strong proper-past gradient convergence yields exact viscous dissipation and local kinetic-energy equality; countably registered queries admit one strict refinement. The initial-to-ancient energy balance requires positive historical donor work at each fixed sufficiently large radius. These are necessary properties of hypothetical breakdown histories, without a blowup construction or global-regularity conclusion.",
+      "program": "ns",
+      "domains": [
+        "Fluid dynamics",
+        "Navier–Stokes",
+        "Partial differential equations",
+        "Mathematical physics",
+        "Formal methods"
+      ],
+      "themes": [
+        "continuation-stability",
+        "representation-reconstruction",
+        "formalization-proof",
+        "invariance-identity"
+      ]
+    },
     {
       "id": "hfd6",
       "date": "2026-10-11",
@@ -1230,35 +1256,42 @@ window.ILC_DATA={
       "narrative": [
         "The Navier–Stokes program treats continuation as a structured anatomy spanning energy, regularity, spectral scale, and restart capacity. Paper I resolves finite maximal lifespan into bounded kinetic energy, eventual H² divergence, escape beyond every prescribed spectral cutoff, positive-scale regularity, and collapse of uniform continuation reserve.",
         "Paper II sharpens that anatomy through finite-annulus spectral budgets, terminal nonlinear H² work, and coordinated failure of nonendpoint continuation controls. It gives a more explicit account of how regularity can escape every finite control surface while energy remains finite.",
-        "Paper III reaches the scale-invariant L³ endpoint. Bounded terminal L³ forces continuation; therefore finite maximal time forces unbounded terminal L³ limsup. The proof architecture passes through terminal magnification, intrinsic restart, ancient-limit recovery, and rigidity."
+        "Paper III reaches the scale-invariant L³ endpoint. Bounded terminal L³ forces continuation; therefore finite maximal time forces unbounded terminal L³ limsup. The proof architecture passes through terminal magnification, intrinsic restart, ancient-limit recovery, and rigidity.",
+        "Paper IV follows one hypothetical finite-maximal smooth unforced periodic history through terminal magnification. It establishes same-history recovery of canonical pressure, spatial gradients, dissipation, localized Fourier observations, and signed nonlinear work on fixed proper-past carriers. Countable query families admit common strict refinements; the initial-to-ancient balance imposes positive historical donor work at each fixed sufficiently large radius. The results give conditional constraints, without constructing a singularity or proving global regularity."
       ],
-      "frontier": "The public trilogy sharply constrains any finite-time breakdown scenario. The next frontier asks whether the forced escape anatomy can be made incompatible with a genuine finite-time singularity and which scale-coherent or terminal inheritance principles would carry that argument toward global regularity.",
+      "frontier": "The first four papers connect regularity escape and endpoint rigidity to an explicit original-history observation framework. Further work must determine whether a genuinely dynamical constraint on reachable ancient cores can be derived while preserving the signed donor terms, matched spectral corrections, and differences between fixed and moving observation windows.",
       "methods": [
         "Machine-checked periodic Navier–Stokes framework",
         "H² continuation and spectral escape analysis",
         "Finite-annulus nonlinear transfer budgets",
-        "Scale-invariant L³ endpoint magnification and restart"
+        "Scale-invariant L³ endpoint magnification and restart",
+        "Original-history pressure and gradient descent with exact proper-past energy"
       ],
       "openQuestions": [
-        "Can the forced high-frequency escape anatomy be closed into a contradiction with finite-time breakdown?",
-        "Which scale-coherent quantities can be inherited through terminal magnification?",
-        "How do endpoint rigidity and backward identification interact with global scale escape?",
-        "Which remaining step is genuinely equivalent to the global regularity problem, and how does it connect to the continuation structure already established?"
+        "Which moving-observation families can inherit fixed-query descent with quantified uniform error control?",
+        "What additional dynamical estimates could constrain a reached ancient core beyond classical extraction and the exact historical energy obligation?",
+        "Can the signed donor, pressure, and spectral ledgers yield causal cross-scale transport without presupposing positive transfer?",
+        "How can reachability be characterized while retaining one generating history and its original pressure gauge?"
       ],
       "artifacts": [
         {
           "label": "Continuation Anatomy — Paper I",
-          "href": "publication.html?id=ns1",
+          "href": "publication-ns1.html",
           "kind": "Publication"
         },
         {
           "label": "Critical Regularity Anatomy — Paper II",
-          "href": "publication.html?id=ns2",
+          "href": "publication-ns2.html",
           "kind": "Publication"
         },
         {
           "label": "Endpoint Rigidity — Paper III",
-          "href": "publication.html?id=ns3",
+          "href": "publication-ns3.html",
+          "kind": "Publication"
+        },
+        {
+          "label": "Faithful Terminal Descent — Paper IV",
+          "href": "publication-ns4.html",
           "kind": "Publication"
         }
       ]

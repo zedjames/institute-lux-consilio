@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-10-11",
+  "updated": "2026-10-14",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -160,6 +160,32 @@
     }
   ],
   "publications": [
+    {
+      "id": "ns4",
+      "date": "2026-10-14",
+      "seriesId": "navier-stokes",
+      "series": "Navier–Stokes Continuation",
+      "order": 4,
+      "title": "Faithful Terminal Descent of Autonomous Histories in Periodic Navier–Stokes Flow",
+      "subtitle": "Strong original-field recovery, exact proper-past energy, and registered observations",
+      "doi": "10.5281/zenodo.23378029",
+      "conceptDoi": "10.5281/zenodo.23378028",
+      "summary": "Conditional on finite maximal lifespan of a smooth unforced periodic three-dimensional Navier–Stokes history, amplitude-normalized records yield a bounded nonzero suitable ancient core. On fixed compact physical–spectral queries, original velocity, unit-ball-gauged canonical pressure, localized Fourier observations, and signed nonlinear work recover their same-core counterparts. Strong proper-past gradient convergence yields exact viscous dissipation and local kinetic-energy equality; countably registered queries admit one strict refinement. The initial-to-ancient energy balance requires positive historical donor work at each fixed sufficiently large radius. These are necessary properties of hypothetical breakdown histories, without a blowup construction or global-regularity conclusion.",
+      "program": "ns",
+      "domains": [
+        "Fluid dynamics",
+        "Navier–Stokes",
+        "Partial differential equations",
+        "Mathematical physics",
+        "Formal methods"
+      ],
+      "themes": [
+        "continuation-stability",
+        "representation-reconstruction",
+        "formalization-proof",
+        "invariance-identity"
+      ]
+    },
     {
       "id": "hfd6",
       "date": "2026-10-11",
