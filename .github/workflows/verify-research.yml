@@ -12,3 +12,4 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/verify-site.mjs
+      - run: python3 -m unittest discover -s tests -p "test_zenodo_sync_*.py"

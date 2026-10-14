@@ -34,3 +34,14 @@ atomically with new DOI/PDF information. Avoid hand-editing generated records.
 
 Google Scholar handles discovery independently: these structured landing pages
 and verified links improve crawlability but do not guarantee Scholar inclusion.
+
+## External PDF links on new Zenodo versions
+
+For historical records whose full-text PDF is still linked from FFB or another
+external host, a newly published Zenodo version replaces that link with the
+**checksum-verified PDF of the new Zenodo version**. The DOI, date, browser
+catalog, permanent publication page, and archive links update together.
+Already-mirrored local Health PDFs retain their existing manifest/checksum
+verification path. This avoids a citation to a new paper version pointing
+readers to an older externally hosted manuscript. The scheduled workflow
+also supports manual dispatch in GitHub Actions when a same-day update is needed.
