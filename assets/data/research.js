@@ -171,7 +171,9 @@ window.ILC_DATA={
         "representation-reconstruction",
         "formalization-proof",
         "invariance-identity"
-      ]
+      ],
+      "pdf": "https://zenodo.org/api/records/23378029/files/Faithful%20Terminal%20Descent%20of%20Autonomous%20Histories%20in%20Periodic%20Navier-Stokes%20Flow.pdf/content",
+      "pdfSha256": "b78f388dfbc5c860d508fb8cafc903df6e585111fa7b82208feb5ec92b045abd"
     },
     {
       "id": "hfd6",
@@ -679,13 +681,13 @@ window.ILC_DATA={
     },
     {
       "id": "sqg4",
-      "date": "2026-09-18",
+      "date": "2026-10-14",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 4,
       "title": "A Self-Consistent Einstein–Scalar Quantum Sector",
       "subtitle": "Friedrichs selection, native quantum evolution, and exact gravitational matter.",
-      "doi": "10.5281/zenodo.22834305",
+      "doi": "10.5281/zenodo.23381184",
       "summary": "The changed nonlinear geometry owns its own selected quantum law, Fock/Cauchy dynamics, conserved stress, and exact quantum-source branches satisfying Einstein's equation on that same geometry.",
       "program": "qg",
       "domains": [
@@ -699,8 +701,9 @@ window.ILC_DATA={
         "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-self-consistent-einstein-scalar-quantum-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-self-consistent-einstein-scalar-quantum-sector.pdf",
-      "conceptDoi": "10.5281/zenodo.22834304"
+      "pdf": "https://zenodo.org/api/records/23381184/files/A%20Self%20Consistent%20Einstein%20Scalar%20Quantum%20Sector%20v2.0.pdf/content",
+      "conceptDoi": "10.5281/zenodo.22834304",
+      "pdfSha256": "2f75be0e6438a73c730c7658f86d60f62eeafc9ff84a401cde0c442a11afb2b5"
     },
     {
       "id": "sqg3",
