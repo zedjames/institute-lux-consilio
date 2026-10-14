@@ -678,13 +678,13 @@ window.ILC_DATA={
     },
     {
       "id": "sqg3",
-      "date": "2026-09-17",
+      "date": "2026-10-14",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 3,
       "title": "Friedrichs-Selected Schwarzschild Quantum Matter",
       "subtitle": "A machine-checked real-scalar stress theory, physical-clock coherence, and regulator-independent sources.",
-      "doi": "10.5281/zenodo.22819417",
+      "doi": "10.5281/zenodo.23376915",
       "summary": "The selected scalar is promoted from quantum dynamics to local spacetime matter through action-derived stress, coherent Fock moments, regulator removal, and explicit quantum sources.",
       "program": "qg",
       "domains": [
@@ -698,8 +698,9 @@ window.ILC_DATA={
         "formalization-proof"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-friedrichs-selected-schwarzschild-quantum-matter.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-friedrichs-selected-schwarzschild-quantum-matter.pdf",
-      "conceptDoi": "10.5281/zenodo.22819416"
+      "pdf": "https://zenodo.org/api/records/23376915/files/Friedrichs%20Selected%20Schwarzchild%20Quantum%20Matter%20v2.0.pdf/content",
+      "conceptDoi": "10.5281/zenodo.22819416",
+      "pdfSha256": "e86e6de413a27c65050a724be2b08f2fc0325264b351e6366ae7719f7234bf32"
     },
     {
       "id": "gps3",
