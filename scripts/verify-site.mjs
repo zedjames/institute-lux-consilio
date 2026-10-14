@@ -9,6 +9,18 @@ for(const key of ["programs","themes","questions","publications","notes"]){
  assert.deepStrictEqual(catalog[key],data[key],key+" differs from canonical ILC source");
 }
 const root=new Set(fs.readdirSync("."));
+for(const id of PROGRAM_IDS){
+ const program=data.programs.find(x=>x.id===id);
+ assert.ok(program && program.href, "Unknown program: "+id);
+ const html=fs.readFileSync(program.href,"utf8");
+ assert.ok(!html.includes('id="program-detail"'),"Program page still relies on JavaScript: "+id);
+ assert.ok(!html.includes('src="assets/data/research.js'),"Program page still needs client catalog: "+id);
+ const start="<!-- ILC_PROGRAM_START -->", end="<!-- ILC_PROGRAM_END -->";
+ const a=html.indexOf(start), b=html.indexOf(end,a+start.length);
+ assert.ok(a>=0 && b>a,"Static program record missing: "+id);
+ assert.equal(html.slice(a+start.length,b),renderProgramContent(data,id),"Static program page out of sync: "+id);
+}
+
 const generated=makeArtifacts(data);
 assert.equal(Object.keys(generated.pages).length, data.publications.length-3,
  "Every catalog publication without an existing dedicated page must have a generated static record");
@@ -32,6 +44,7 @@ for(const p of data.publications){
 
 import crypto from "node:crypto";
 import {makeArtifacts, publicationPath} from "./build-publication-pages.mjs";
+import {renderProgramContent, PROGRAM_IDS} from "./build-program-pages.mjs";
 const pdfManifest=JSON.parse(fs.readFileSync("research/site-pdfs.json","utf8"));
 const requiredPDFs=Object.fromEntries(pdfManifest.papers.map(p=>[
   p.recordPage.replace(/^publication-(hfd[0-9]+)\.html$/, "$1"),
