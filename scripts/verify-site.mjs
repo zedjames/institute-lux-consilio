@@ -89,6 +89,13 @@ for (const [id,conceptDoi] of [
 for(const p of data.programs){assert.ok(root.has(p.href),"Missing research program: "+p.href);}
 for(const p of data.publications){assert.match(p.doi,/^10\.\d+\//,"Invalid DOI: "+p.id);}
 // Paper VII: sequence, version DOI, all-versions DOI and scientific program.
+const nsPublished=data.publications.filter(p=>p.seriesId==="navier-stokes").sort((a,b)=>a.order-b.order);
+assert.deepStrictEqual(nsPublished.map(p=>p.order),nsPublished.map((_,i)=>i+1),"Navier-Stokes sequence must be consecutive");
+assert.equal(data.series.find(s=>s.id==="navier-stokes")?.publishedCount,nsPublished.length);
+const nsIV=nsPublished.find(p=>p.id==="ns4");
+assert.equal(nsIV?.title,"Faithful Terminal Descent of Autonomous Histories in Periodic Navier–Stokes Flow");
+assert.equal(nsIV?.conceptDoi,"10.5281/zenodo.23378028");
+assert.equal(nsIV?.program,"ns");
 const gaussianPapers=data.publications.filter(p=>p.seriesId==="gaussian").sort((a,b)=>a.order-b.order);
 assert.deepStrictEqual(gaussianPapers.map(p=>p.order),[1,2,3,4,5,6,7],"Gaussian/Celestial sequence must contain Papers I–VII");
 const pins=JSON.parse(fs.readFileSync("research/zenodo-concepts.json","utf8")).papers;
