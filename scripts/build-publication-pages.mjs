@@ -32,7 +32,7 @@ function makeArtifacts(data){
   `<section class="section"><div class="wrap"><div class="grid grid-2" style="align-items:start"><article class="prose"><p class="eyebrow">Scholarly record</p><h2>Research summary</h2><p>${escapeHtml(p.summary||"See the official DOI record for the research summary.")}</p><p>This catalog summary is provided for orientation. Please consult the complete manuscript for its original abstract and mathematical results.</p><h2>Scientific context</h2><p>This paper belongs to the <a href="${url(prog?.href||"research.html")}">${escapeHtml(prog?.title||p.series)}</a> research program.</p><p><a class="arrow-link" href="publications.html">← All publications</a></p></article>`+
   `<aside class="card"><p class="eyebrow">Publication information</p><h3>${escapeHtml(p.series)}</h3><p><strong>Author</strong><br>Zed James</p><p><strong>Publication date</strong><br>${date(p.date)}</p>`+
   other("DOI","https://doi.org/"+p.doi,p.doi)+(p.conceptDoi?other("All versions DOI","https://doi.org/"+p.conceptDoi,p.conceptDoi):"")+
-  (p.companion?other("Reproducibility",""+p.companion,"Public companion"):"")+(p.legacyPage?other("Historical record",""+p.legacyPage,"Original publication page"):"")+
+  (p.companion?other("Reproducibility",""+p.companion,"Public companion"):"")+
   (p.domains?.length?`<p><strong>Research areas</strong><br>${escapeHtml(p.domains.join(" · "))}</p>`:"")+
   `<div class="actions">${pdfLink}</div></aside></div></div></section>${links}</main>${footer}<script src="assets/js/site.js?v=20261013-scholar"></script></body></html>\n`;
  }
