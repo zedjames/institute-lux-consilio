@@ -29,6 +29,12 @@ for(const id of PROGRAM_IDS){
  assert.equal(html.slice(a+start.length,b),renderProgramContent(data,id),"Static program page out of sync: "+id);
 }
 
+const kineticSeries=data.series.find(x=>x.id==="kinetic-organization-biological-function");
+const kineticPaper=data.publications.find(x=>x.id==="kobf1");
+assert.equal(kineticSeries?.publishedCount,1,"Kinetic series registration missing");
+assert.equal(kineticPaper?.conceptDoi,"10.5281/zenodo.23405912","Kinetic Paper I Zenodo family changed");
+assert.equal(kineticPaper?.program,"kinetic","Kinetic Paper I program link missing");
+assert.ok(data.programDetails.kinetic?.artifacts?.some(x=>x.href==="publication-kobf1.html"),"Kinetic series artifact missing");
 const generated=makeArtifacts(data);
 assert.equal(Object.keys(generated.pages).length, data.publications.length-3,
  "Every catalog publication without an existing dedicated page must have a generated static record");

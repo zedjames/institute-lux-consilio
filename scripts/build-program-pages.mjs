@@ -31,7 +31,7 @@ ${artifacts?`<section class="section section--deep"><div class="wrap"><div class
 <section class="section section--tight"><div class="wrap"><a class="link-arrow" href="research.html">← Return to all research programs</a></div></section>
 `;
 }
-const PROGRAM_IDS=["formal","celestial","ns","rmmo","qg"];
+const PROGRAM_IDS=["formal","celestial","ns","rmmo","qg","kinetic"];
 function rewriteProgramPage(html, d, programId){
  const start='<main id="main">',end='</main>',a=html.indexOf(start),b=html.indexOf(end,a+start.length);
  if(a<0||b<a||html.indexOf(start,a+start.length)!==-1)throw Error("Unexpected research page main");

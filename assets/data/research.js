@@ -14,6 +14,14 @@ window.ILC_DATA={
       "href": "research-health-formally-defined.html"
     },
     {
+      "id": "kinetic",
+      "title": "Kinetic Organization and Biological Function",
+      "domain": "Biophysical systems",
+      "status": "Active series",
+      "desc": "How organized movement and coupled physical dynamics produce specified biological functions.",
+      "href": "research-kinetic-organization-biological-function.html"
+    },
+    {
       "id": "rmmo",
       "title": "Relational Morphogenesis & Multicellular Organization",
       "domain": "Systems biology",
@@ -62,6 +70,14 @@ window.ILC_DATA={
       "description": "Continuation geometry, spectral escape, endpoint rigidity, and faithful original-history descent under terminal magnification.",
       "status": "Current published sequence: 4 papers",
       "publishedCount": 4
+    },
+    {
+      "id": "kinetic-organization-biological-function",
+      "label": "Kinetic Organization and Biological Function",
+      "domain": "Biophysics and mathematical biology",
+      "description": "A research series examining how mechanochemical dynamics, material transport, energy exchange, and observation determine specific biological functions.",
+      "status": "New series; Paper I published",
+      "publishedCount": 1
     },
     {
       "id": "schwarzschild-qg",
@@ -147,6 +163,32 @@ window.ILC_DATA={
     }
   ],
   "publications": [
+    {
+      "id": "kobf1",
+      "date": "2026-10-16",
+      "seriesId": "kinetic-organization-biological-function",
+      "series": "Kinetic Organization and Biological Function",
+      "order": 1,
+      "title": "From Kinetic Movement to Biological Function",
+      "subtitle": "Functional descent, historical energy, and certified observation in coupled transport processes",
+      "doi": "10.5281/zenodo.23405911",
+      "conceptDoi": "10.5281/zenodo.23405912",
+      "summary": "A synthetic reversible four-phase, single-ion mechanochemical transporter connects continuous mechanical motion to conformational jumps, chemical reservoirs, and signed ionic release. Equal observed phase and kinetic energy need not determine future function: at nonzero coupling two mechanical preparations have initial outside-release rates differing by a factor of approximately 1.35. Conditioning on transition histories yields a measure-valued predictive state. For specified finite windows, source-derived backward bounds certify signed transport and outside-edge event probability. Exact caloric path identities link endpoint phase, signed ion transport, and energy accounting. Results concern a specified synthetic source rather than a calibrated protein or a general physical definition of qi.",
+      "program": "kinetic",
+      "domains": [
+        "Biophysics",
+        "Mathematical biology",
+        "Stochastic processes",
+        "Mechanochemical transport",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "formalization-proof",
+        "invariance-identity"
+      ]
+    },
     {
       "id": "ns4",
       "date": "2026-10-14",
@@ -1352,6 +1394,35 @@ window.ILC_DATA={
         {
           "value": "2026-09-24",
           "label": "Measured snapshot"
+        }
+      ]
+    },
+    "kinetic": {
+      "question": "Which organized microscopic movements determine a specified physical function, and what can an observer recover from incomplete histories?",
+      "narrative": [
+        "Paper I constructs a reversible four-phase, single-ion mechanochemical transporter. Continuous position and momentum interact with conformational changes and maintained chemical reservoirs. Signed outside-edge events measure accomplished ion redistribution, while source caloric labels and mechanical energy distinguish functional transport from energy exchange.",
+        "The coupled generator gives an explicit obstruction to universal phase-only Markov dynamics. Two microscopic preparations can share the visible conformation and zero momentum while having different immediate outside-release rates. Complete observed phase histories instead determine a conditional measure over hidden mechanics, whose survival and event updates support source-faithful future prediction.",
+        "For the nominal positive-coupling model, robust rate envelopes and backward recursion give certified finite-window bounds on expected signed release and the probability of outside-edge events. A separate rare-history calculation encloses the conditional mean of initial energy. The four-phase graph yields an exact caloric path identity, while negative examples identify the information lost under coarse observation and some numerical approximations. The established Chinese medical distinction between qìjī (organized movement) and qìhuà (functional transformation) motivates the question without assigning a modern microscopic identity to qi."
+      ],
+      "frontier": "The completed first paper gives source-specific physical and mathematical results for a synthetic transporter. Future studies may examine interacting transport networks, pump–leak feedback, finite reservoirs, collective functional stability, and stronger history-dependent observation while maintaining explicit conservation and verification requirements. These remain research directions rather than results of Paper I.",
+      "methods": [
+        "Hybrid Langevin–jump mechanochemical generators and physically marked transport events",
+        "Conditional mechanical laws under complete and partial phase observation",
+        "Stochastic energetic and exact finite-cycle caloric identities",
+        "Verified finite-graph algebra and source-specific numerical enclosures",
+        "Deterministic outward rational arithmetic and explicit rare-history bounds"
+      ],
+      "openQuestions": [
+        "Which observation variables are sufficient to recover a declared function without reconstructing the complete microscopic state?",
+        "How do coupled mechanical configurations prevent autonomous coarse evolution, and which history-conditioned states restore predictive sufficiency?",
+        "When do rate-envelope certificates remain informative under stronger coupling, additional hidden cycles, or changing reservoirs?",
+        "How can collective transport regulation be derived from shared conservation laws in experimentally characterized systems?"
+      ],
+      "artifacts": [
+        {
+          "label": "From Kinetic Movement to Biological Function — Paper I",
+          "href": "publication-kobf1.html",
+          "kind": "Publication"
         }
       ]
     }
