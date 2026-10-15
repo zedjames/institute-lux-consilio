@@ -6,6 +6,15 @@ import {fileURLToPath} from "node:url";
 function escHtml(x){return String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function paperHref(p){return p.localPage||"publication-"+p.id+".html";}
 function fmtDate(s){return new Date(s+"T12:00:00Z").toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric",timeZone:"UTC"});}
+function escapeD(v){return String(v??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]))}
+function questionCards(d){return d.questions.map((q,i)=>`<a class="question-line reveal" href="${escapeD(q.href)}"><span class="question-line__n">${String(i+1).padStart(2,"0")}</span><span class="question-line__body"><strong>${escapeD(q.title)}</strong><em>${escapeD(q.text)}</em></span><span class="question-line__arrow">↗</span></a>`).join("\n")}
+function themeCards(d){return d.themes.map((t,i)=>`<article class="theme-card"><span>${String(i+1).padStart(2,"0")}</span><h3>${escapeD(t.label)}</h3><p>${escapeD(t.description)}</p></article>`).join("\n")}
+function setStatic(html,id,items,marker){
+ const a=`<!-- ${marker}_START -->`,z=`<!-- ${marker}_END -->`;
+ if(html.includes(a)){let i=html.indexOf(a)+a.length,j=html.indexOf(z,i);if(j<i)throw Error("Missing end "+marker);return html.slice(0,i)+"\n"+items+"\n"+html.slice(j)}
+ const old=`<div id="${id}"${id==="theme-grid"?' class="theme-grid"':""}></div>`;
+ return exact(html,old,`<div id="${id}"${id==="theme-grid"?' class="theme-grid"':""} data-static="1">${a}\n${items}\n${z}</div>`,id)
+}
 function programCards(data){return data.programs.map((p,i)=>`<a class="orbit-program reveal" href="${escHtml(p.href||"program.html?id="+encodeURIComponent(p.id))}"><span class="orbit-program__n">${String(i+1).padStart(2,"0")}</span><span class="orbit-program__domain">${escHtml(p.domain)}</span><div><strong>${escHtml(p.title)}</strong><p>${escHtml(p.desc)}</p></div><span class="orbit-program__status">${escHtml(p.status)}</span></a>`).join("\n");}
 function recentCards(data){
  const list=[...data.publications].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);
@@ -51,6 +60,8 @@ function updateHealthFullText(html,block){
 function updateDiscovery(data,home,research){
  let newHome=updateProgramBlock(home,programCards(data));
  let newResearch=updateProgramBlock(research,programCards(data));
+ newResearch=setStatic(newResearch,'question-grid',questionCards(data),'ILC_QUESTION_INDEX');
+ newResearch=setStatic(newResearch,'theme-grid',themeCards(data),'ILC_THEME_INDEX');
  newHome=updateHomeRecent(newHome,recentCards(data));
  newHome=updateHealthFullText(newHome,healthFullText(data));
  // The remaining themes and questions continue to use the browser-side catalog.
@@ -64,7 +75,7 @@ function updateDiscovery(data,home,research){
  if(!newHome.includes("Kinetic Organization and Biological Function")||!newHome.includes("From Kinetic Movement to Biological Function")||!newResearch.includes("Kinetic Organization and Biological Function"))throw Error("Site discovery build missing new series/paper");
  return {home:newHome,research:newResearch};
 }
-export {programCards,recentCards,healthFullText,updateDiscovery};
+export {programCards,recentCards,healthFullText,questionCards,themeCards,updateDiscovery};
 export function updateSite(root=process.cwd()){
  const raw=fs.readFileSync(path.join(root,"assets/data/research.js"),"utf8").trim();
  if(!raw.startsWith("window.ILC_DATA="))throw Error("Unrecognized ILC catalog");

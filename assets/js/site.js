@@ -28,11 +28,11 @@ function renderPrograms(){
  <span class="orbit-program__status">${esc(p.status)}</span></a>`).join('');
 }
 function renderThemes(){
- const el=$('#theme-grid'); if(!el||!D.themes)return;
+ const el=$('#theme-grid'); if(!el||!D.themes||el.dataset.static==='1')return;
  el.innerHTML=D.themes.map((t,i)=>`<article class="theme-card"><span>${String(i+1).padStart(2,'0')}</span><h3>${esc(t.label)}</h3><p>${esc(t.description)}</p></article>`).join('');
 }
 function renderQuestions(){
- const el=$('#question-grid'); if(!el||!D.questions)return;
+ const el=$('#question-grid'); if(!el||!D.questions||el.dataset.static==='1')return;
  el.innerHTML=D.questions.map((q,i)=>`<a class="question-line reveal" href="${esc(q.href)}"><span class="question-line__n">${String(i+1).padStart(2,'0')}</span><span class="question-line__body"><strong>${esc(q.title)}</strong><em>${esc(q.text)}</em></span><span class="question-line__arrow">↗</span></a>`).join('');
 }
 function publicationHref(p){return p?.localPage||('publication-'+encodeURIComponent(p?.id||'')+'.html');}
@@ -64,9 +64,28 @@ function renderNoteDetail(){
  '<section class="section"><div class="wrap layout-2"><article class="prose"><p class="eyebrow">Research context</p><p style="font-size:19px;line-height:1.7">'+esc(note.summary)+'</p><h2>Scholarly provenance</h2><p>This note is indexed in the ILC research library with its original publication history preserved. Read the complete historical note at its original public record.</p><p><a class="arrow-link" href="'+esc(note.legacyPage||'notes.html')+'" target="_blank" rel="noopener">Read the original note ↗</a></p><p><a href="notes.html">← All research notes</a></p></article><aside class="card"><p class="eyebrow">Record</p><h3>'+esc(note.title)+'</h3><p>'+fmtDate(note.date)+'</p><p>'+esc(note.program)+'</p><div>'+tags+'</div></aside></div></section>';
 }
 function wirePublicationFilters(){
- const input=$('#pub-search'),filters=$$('#pub-filters .filter');if(!input)return;let active='all';
- function apply(){const q=input.value.toLowerCase().trim();const arr=(D.publications||[]).filter(p=>(active==='all'||p.program===active)&&(!q||[p.title,p.subtitle,p.series,p.doi,...(p.domains||[])].join(' ').toLowerCase().includes(q)));renderPubs(arr)}
- input.addEventListener('input',apply);filters.forEach(b=>b.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));b.classList.add('active');active=b.dataset.filter;apply()}));
+ const input=$('#pub-search'),list=$('#publication-list'),filters=$$('#pub-filters .filter');
+ if(!input||!list)return;
+ let active='all';
+ const cards=list.dataset.static==='1'?[...list.querySelectorAll('.archive-item')]:null;
+ let empty=null;
+ if(cards){empty=document.createElement('p');empty.className='muted';empty.textContent='No publications match this view.';empty.hidden=true;list.after(empty)}
+ function apply(){
+  const q=input.value.toLowerCase().trim();
+  if(cards){
+   let visible=0;
+   for(const card of cards){
+    const text=(card.dataset.search||card.textContent||'').toLowerCase();
+    const show=(active==='all'||card.dataset.program===active)&&(!q||text.includes(q));
+    card.hidden=!show;card.style.display=show?'':'none';if(show)visible++;
+   }
+   empty.hidden=visible!==0;return;
+  }
+  const matches=(D.publications||[]).filter(p=>(active==='all'||p.program===active)&&(!q||[p.title,p.subtitle,p.series,p.doi,...(p.domains||[])].join(' ').toLowerCase().includes(q)));
+  renderPubs(matches);
+ }
+ input.addEventListener('input',apply);
+ filters.forEach(b=>b.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));b.classList.add('active');active=b.dataset.filter;apply()}));
 }
 function renderProgram(){
  const el=$('#program-detail');if(!el||!D.programs)return;
