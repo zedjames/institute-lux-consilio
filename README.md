@@ -67,3 +67,14 @@ The `scripts/build-publication-pages.mjs` sitemap generator includes the URL,
 so daily Zenodo publication syncs cannot remove it. Manuscript-specific Lean,
 mathlib, source-commit, and declaration provenance belongs in each publication,
 not in the institution-wide disclosure.
+
+## Crawlable homepage and research discovery
+
+The homepage and research overview include catalog-derived static program indexes,
+so all series are visible even when the browser holds older research assets or
+JavaScript cannot execute. The homepage also pre-renders the four most recent
+papers. Run `node scripts/build-site-discovery.mjs` after catalog changes; the
+Zenodo workflow runs the same generator, and site verification rejects stale
+published navigation. The shared browser script leaves these generated lists
+untouched while continuing to handle interactive publication filters and other
+non-static sections.
