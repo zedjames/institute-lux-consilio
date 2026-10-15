@@ -9,6 +9,14 @@ for(const key of ["programs","themes","questions","publications","notes"]){
  assert.deepStrictEqual(catalog[key],data[key],key+" differs from canonical ILC source");
 }
 const root=new Set(fs.readdirSync("."));
+const concordia=fs.readFileSync("concordia/index.html","utf8");
+assert.ok(concordia.includes("ILC-CRD-001"),"Missing Concordia institutional disclosure identity");
+assert.ok(concordia.includes('<link rel="canonical" href="https://instituteluxconsilio.org/concordia/">'),"Missing permanent Concordia canonical URL");
+assert.ok(concordia.includes("<base href=\"/\">"),"Nested Concordia route must resolve root assets and links");
+for(const file of ["index.html","institute.html","governance.html","methods.html"]){
+ const linked=fs.readFileSync(file,"utf8");
+ assert.ok(linked.includes('href="concordia/"'),file+" must link to the standing Concordia disclosure");
+}
 for(const id of PROGRAM_IDS){
  const program=data.programs.find(x=>x.id===id);
  assert.ok(program && program.href, "Unknown program: "+id);
@@ -34,6 +42,7 @@ for(const p of data.publications){
  if(!p.localPage) assert.equal(html,generated.pages[page],"Generated publication record is out of sync: "+p.id);
 }
 assert.equal(fs.readFileSync("sitemap.xml","utf8"),generated.sitemap,"Generated sitemap is out of sync");
+assert.ok(generated.locs.includes("concordia/"),"Concordia URL must persist in regenerated sitemap");
 const archive=fs.readFileSync("publications.html","utf8"),start='<div id="publication-list" class="archive">',end='</div></div></section></main>';
 const ia=archive.indexOf(start),ib=archive.indexOf(end,ia+start.length);
 assert.ok(ia>=0&&ib>ia,"Archive markup missing");
