@@ -78,3 +78,15 @@ Zenodo workflow runs the same generator, and site verification rejects stale
 published navigation. The shared browser script leaves these generated lists
 untouched while continuing to handle interactive publication filters and other
 non-static sections.
+
+## Static-first publishing invariant
+
+Important public content (homepage, Research programs/questions/themes, publication
+index, series pages and paper records) must be present in delivered HTML without
+JavaScript. Browser scripts can enhance search and navigation but cannot replace
+scientific listings with cached catalog data. Search filters hide/show existing
+HTML cards; full-text links and citation identities remain server-published.
+CI enforces output consistency with the canonical research catalog, and the
+Zenodo sync regenerates all derived HTML. New programs or papers must pass
+static-content verification before deployment. This avoids the recurring
+stale-browser-JavaScript disappearance of recently published research.

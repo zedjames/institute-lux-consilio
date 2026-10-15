@@ -40,6 +40,10 @@ for(const htmlFile of ["index.html","research.html"]){
  assert.ok(html.includes('data-static="1"'),"Missing crawlable program index in "+htmlFile);
  assert.ok(html.includes("<!-- ILC_PROGRAM_INDEX_START -->\n"+programCards(data)+"\n<!-- ILC_PROGRAM_INDEX_END -->"),"Stale research-program list in "+htmlFile);
 }
+const researchPage=fs.readFileSync("research.html","utf8");
+assert.ok(researchPage.includes("<!-- ILC_QUESTION_INDEX_START -->\n"+questionCards(data)+"\n<!-- ILC_QUESTION_INDEX_END -->"),"Research questions must be present in static HTML");
+assert.ok(researchPage.includes("<!-- ILC_THEME_INDEX_START -->\n"+themeCards(data)+"\n<!-- ILC_THEME_INDEX_END -->"),"Research themes must be present in static HTML");
+assert.ok(researchPage.includes('id="question-grid" data-static="1"')&&researchPage.includes('id="theme-grid" class="theme-grid" data-static="1"'),"Research static visibility controls missing");
 const home=fs.readFileSync("index.html","utf8");
 assert.ok(home.includes("<!-- ILC_HOME_RECENT_START -->\n"+recentCards(data)+"\n<!-- ILC_HOME_RECENT_END -->"),"Stale homepage recent-publications list");
 assert.ok(home.includes('data-limit="4" data-static="1"'),"Homepage client script may overwrite current research");
@@ -58,10 +62,12 @@ for(const p of data.publications){
 }
 assert.equal(fs.readFileSync("sitemap.xml","utf8"),generated.sitemap,"Generated sitemap is out of sync");
 assert.ok(generated.locs.includes("concordia/"),"Concordia URL must persist in regenerated sitemap");
-const archive=fs.readFileSync("publications.html","utf8"),start='<div id="publication-list" class="archive">',end='</div></div></section></main>';
+const archive=fs.readFileSync("publications.html","utf8"),start='<div id="publication-list" class="archive" data-static="1">',end='</div></div></section></main>';
 const ia=archive.indexOf(start),ib=archive.indexOf(end,ia+start.length);
 assert.ok(ia>=0&&ib>ia,"Archive markup missing");
 assert.equal(archive.slice(ia+start.length,ib),"\n"+generated.archive+"\n","Crawlable archive index is out of sync");
+assert.ok(archive.includes('data-filter="kinetic"'),"Kinetic program filter missing");
+assert.equal((archive.match(/class="archive-item" data-program=/g)||[]).length,data.publications.length,"Publication list must expose all papers without JavaScript");
 for(const p of data.publications){
  assert.ok(archive.includes('href="'+publicationPath(p)+'"'),"Static archive missing "+p.id);
 }
@@ -69,7 +75,7 @@ for(const p of data.publications){
 import crypto from "node:crypto";
 import {makeArtifacts, publicationPath} from "./build-publication-pages.mjs";
 import {renderProgramContent, PROGRAM_IDS} from "./build-program-pages.mjs";
-import {programCards, recentCards, healthFullText} from "./build-site-discovery.mjs";
+import {programCards, recentCards, healthFullText, questionCards, themeCards} from "./build-site-discovery.mjs";
 const pdfManifest=JSON.parse(fs.readFileSync("research/site-pdfs.json","utf8"));
 const requiredPDFs=Object.fromEntries(pdfManifest.papers.map(p=>[
   p.recordPage.replace(/^publication-(hfd[0-9]+)\.html$/, "$1"),
