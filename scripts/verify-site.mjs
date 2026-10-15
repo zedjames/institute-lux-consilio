@@ -35,6 +35,15 @@ assert.equal(kineticSeries?.publishedCount,1,"Kinetic series registration missin
 assert.equal(kineticPaper?.conceptDoi,"10.5281/zenodo.23405912","Kinetic Paper I Zenodo family changed");
 assert.equal(kineticPaper?.program,"kinetic","Kinetic Paper I program link missing");
 assert.ok(data.programDetails.kinetic?.artifacts?.some(x=>x.href==="publication-kobf1.html"),"Kinetic series artifact missing");
+for(const htmlFile of ["index.html","research.html"]){
+ const html=fs.readFileSync(htmlFile,"utf8");
+ assert.ok(html.includes('data-static="1"'),"Missing crawlable program index in "+htmlFile);
+ assert.ok(html.includes("<!-- ILC_PROGRAM_INDEX_START -->\n"+programCards(data)+"\n<!-- ILC_PROGRAM_INDEX_END -->"),"Stale research-program list in "+htmlFile);
+}
+const home=fs.readFileSync("index.html","utf8");
+assert.ok(home.includes("<!-- ILC_HOME_RECENT_START -->\n"+recentCards(data)+"\n<!-- ILC_HOME_RECENT_END -->"),"Stale homepage recent-publications list");
+assert.ok(home.includes('data-limit="4" data-static="1"'),"Homepage client script may overwrite current research");
+assert.ok(home.includes("<!-- ILC_HEALTH_FULLTEXT_START -->\n"+healthFullText(data)+"\n<!-- ILC_HEALTH_FULLTEXT_END -->"),"Homepage locally hosted Health PDFs missing or stale");
 const generated=makeArtifacts(data);
 assert.equal(Object.keys(generated.pages).length, data.publications.length-3,
  "Every catalog publication without an existing dedicated page must have a generated static record");
@@ -60,6 +69,7 @@ for(const p of data.publications){
 import crypto from "node:crypto";
 import {makeArtifacts, publicationPath} from "./build-publication-pages.mjs";
 import {renderProgramContent, PROGRAM_IDS} from "./build-program-pages.mjs";
+import {programCards, recentCards, healthFullText} from "./build-site-discovery.mjs";
 const pdfManifest=JSON.parse(fs.readFileSync("research/site-pdfs.json","utf8"));
 const requiredPDFs=Object.fromEntries(pdfManifest.papers.map(p=>[
   p.recordPage.replace(/^publication-(hfd[0-9]+)\.html$/, "$1"),

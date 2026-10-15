@@ -20,7 +20,7 @@ function setRecordSeo(title,description,url){
 
 function programHref(p){return p?.href||('program.html?id='+encodeURIComponent(p?.id||''));}
 function renderPrograms(){
- const el=$('#program-list'); if(!el||!D.programs)return;
+ const el=$('#program-list'); if(!el||!D.programs||el.dataset.static==='1')return;
  el.innerHTML=D.programs.map((p,i)=>`<a class="orbit-program reveal" href="${programHref(p)}">
  <span class="orbit-program__n">${String(i+1).padStart(2,'0')}</span>
  <span class="orbit-program__domain">${esc(p.domain)}</span>
@@ -44,7 +44,7 @@ function pubHtml(p){
  return `<article class="archive-item" data-program="${esc(p.program)}"><div class="meta">${fmtDate(p.date)}</div><div><h3><a href="${esc(page)}" style="text-decoration:none">${esc(p.title)}</a></h3><p>${esc(p.series||'')}</p>${p.subtitle?`<p style="margin-top:6px">${esc(p.subtitle)}</p>`:''}<div class="archive-item__links">${links.join('')}</div></div><div class="archive-item__right">Paper ${p.order||''}<br>Preprint</div></article>`;
 }
 function renderPubs(list=D.publications){
- const el=$('#publication-list'); if(!el||!list)return;
+ const el=$('#publication-list'); if(!el||!list||el.dataset.static==='1')return;
  let view=[...list]; const limit=parseInt(el.dataset.limit||'0',10); if(limit>0)view=view.slice(0,limit);
  el.innerHTML=view.map(pubHtml).join('') || '<p class="muted">No publications match this view.</p>';
 }
