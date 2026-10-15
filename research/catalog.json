@@ -674,10 +674,10 @@
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 5,
-      "title": "Master-Action Ownership of a Self-Consistent Einstein–Scalar Quantum Sector",
-      "subtitle": "Symmetric-projective BV closure, Palatini descent, and quantum Ward/source exchange.",
+      "title": "A Classical Batalin–Vilkovisky Master Action for a Vacuum-Relative Einstein–Scalar Sector",
+      "subtitle": "Palatini gauge symmetry, local-functional closure, and Fock compatibility",
       "doi": "10.5281/zenodo.22846743",
-      "summary": "The completed Einstein–scalar sector is traced upstream to an intrinsic symmetric/projective Palatini BV theory whose classical projection binds back to the same native action, source, and clock.",
+      "summary": "Paper V constructs an intrinsic classical Batalin–Vilkovisky master action for Einstein gravity coupled to a real scalar with independent Palatini connection, diffeomorphism and projective gauge symmetries. The symmetric-projective local-functional master satisfies the classical master equation and generates a square-zero differential on the specified polynomial jet algebra, including antifield-dependent functionals. On Paper IV's nonlinear spherical branch, reduction identifies the same Fock Hamiltonian, closed operator domain, strong unitary evolution, boundary charge, and vacuum-relative source. The construction proves compatibility of the classical gauge law with the specified quantum observables; BV properness, a Fock-space BRST operator, and reference-independent renormalized stress are not established.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
