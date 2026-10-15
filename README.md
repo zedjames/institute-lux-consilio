@@ -55,3 +55,15 @@ browser-cached `research.js`. Run `node scripts/build-program-pages.mjs` after
 updating the catalog; the Zenodo workflow automatically runs it and stages
 `research-*.html` with the paper-record changes. The repository validation
 checks that every generated program page matches its source catalog.
+
+## Standing Concordia institutional disclosure
+
+The permanent public disclosure for the Institute's private Concordia scientific
+research repository is `https://instituteluxconsilio.org/concordia/`.
+The page is maintained at `concordia/index.html` (ILC-CRD-001; initial version
+1.0, October 15, 2026). The canonical URL is permanent: future revisions
+update the dated document and its revision history without changing this route.
+The `scripts/build-publication-pages.mjs` sitemap generator includes the URL,
+so daily Zenodo publication syncs cannot remove it. Manuscript-specific Lean,
+mathlib, source-commit, and declaration provenance belongs in each publication,
+not in the institution-wide disclosure.
