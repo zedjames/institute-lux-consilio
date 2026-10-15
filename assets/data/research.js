@@ -661,19 +661,22 @@ window.ILC_DATA={
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 5,
-      "title": "Master-Action Ownership of a Self-Consistent Einstein–Scalar Quantum Sector",
-      "subtitle": "Symmetric-projective BV closure, Palatini descent, and quantum Ward/source exchange.",
+      "title": "A Classical Batalin–Vilkovisky Master Action for a Vacuum-Relative Einstein–Scalar Sector",
+      "subtitle": "Palatini gauge symmetry, local-functional closure, and Fock compatibility",
       "doi": "10.5281/zenodo.22846743",
-      "summary": "The completed Einstein–scalar sector is traced upstream to an intrinsic symmetric/projective Palatini BV theory whose classical projection binds back to the same native action, source, and clock.",
+      "summary": "Constructs an intrinsic classical Batalin–Vilkovisky master action for Palatini Einstein gravity coupled to a real scalar, with diffeomorphism and projective gauge symmetries. The stationary connection is classified up to its projective Levi–Civita orbit, and an intrinsic symmetric-density cotangent bracket supports the classical master equation and a nilpotent differential on polynomial local functionals, including antifield-dependent expressions. On Paper IV's nonlinear spherical Einstein–scalar branch, the projected action recovers the same boundary-completed scalar Hamiltonian, closed Fock operator and strongly continuous unitary evolution with its finite phase. Coherent and Schwarzschild-matched superposition states give the specified vacuum-relative Hilbert stress and gauge-compatible Einstein-source residual. BV properness, a Fock-space BRST operator and reference-independent renormalized semiclassical gravity are not established.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
-        "Formal methods"
+        "Batalin–Vilkovisky geometry",
+        "Palatini gravity",
+        "Formal methods",
+        "Quantum field theory"
       ],
       "themes": [
         "formalization-proof",
         "invariance-identity",
-        "relational-organization"
+        "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-master-action-ownership-self-consistent-einstein-scalar-quantum-sector.html",
       "pdf": "https://fieldfluxbiosystems.com/research-master-action-ownership-self-consistent-einstein-scalar-quantum-sector.pdf",
