@@ -35,6 +35,7 @@ for label, record_id in RECORDS:
     result=dict(label=label,queried_record=record_id,record_id=doc.get("id"),
         doi=doc.get("doi"),conceptdoi=doc.get("conceptdoi"),conceptrecid=doc.get("conceptrecid"),
         parent=doc.get("parent"),title=meta.get("title"),
+        version=meta.get("version"),publication_date=meta.get("publication_date"),
         creators=[p.get("name") for p in meta.get("creators",[])],
         status=doc.get("status"),
         pdf_names=[p.get("key") or p.get("filename") for p in doc.get("files",[])
