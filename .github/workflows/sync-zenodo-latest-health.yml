@@ -13,6 +13,7 @@ on:
       - scripts/build-publication-pages.mjs
       - scripts/build-program-pages.mjs
       - scripts/build-site-discovery.mjs
+      - scripts/build-main-navigation.mjs
       - research/zenodo-concepts.json
       - .github/workflows/sync-zenodo-latest-health.yml
   pull_request:
@@ -22,6 +23,7 @@ on:
       - scripts/build-publication-pages.mjs
       - scripts/build-program-pages.mjs
       - scripts/build-site-discovery.mjs
+      - scripts/build-main-navigation.mjs
       - research/catalog.json
       - research/zenodo-concepts.json
       - research/site-pdfs.json
@@ -51,6 +53,7 @@ jobs:
           node scripts/build-publication-pages.mjs
           node scripts/build-program-pages.mjs
           node scripts/build-site-discovery.mjs
+          node scripts/build-main-navigation.mjs
       - name: Validate complete updated scholarly preview
         run: |
           node scripts/verify-site.mjs
@@ -70,6 +73,7 @@ jobs:
           node scripts/build-publication-pages.mjs
           node scripts/build-program-pages.mjs
           node scripts/build-site-discovery.mjs
+          node scripts/build-main-navigation.mjs
       - name: Validate complete updated scholarly state
         run: |
           node scripts/verify-site.mjs

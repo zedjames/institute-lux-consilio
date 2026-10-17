@@ -20,7 +20,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .site-logo__symbol,.brand img,.mast__brand img{width:42px;height:42px;flex:0 0 auto}
 .site-logo__text,.brand__text,.mast__brand span{font-size:13px;letter-spacing:.085em;text-transform:uppercase;font-weight:800;line-height:1.15;color:var(--ink)}
 .site-logo__text small{font-weight:500;letter-spacing:.08em;font-size:9px;display:block;margin-top:4px;color:#607580}
-.site-nav,.nav__links,.mast__nav{display:flex;gap:28px;margin-left:auto;align-items:center}
+.site-nav,.nav__links,.mast__nav{display:flex;gap:19px;margin-left:auto;align-items:center}
 .site-nav a,.nav__links a,.mast__nav a{font-size:13px;font-weight:650;text-decoration:none;color:#314557;white-space:nowrap}
 .site-nav a:hover,.nav__links a:hover,.mast__nav a:hover{color:var(--blue)}
 .site-nav a[aria-current=page]{color:var(--blue)}
@@ -249,3 +249,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .concordia-subscribe-fallback{font-size:13px;margin:15px 0 0}
 @media(max-width:950px){.concordia-subscribe-grid{grid-template-columns:1fr}}
 @media(max-width:530px){.concordia-form-row{flex-direction:column}.concordia-form-row button{width:100%}}
+
+/* Six-link institutional navigation: move to a menu before horizontal overflow. */
+@media(min-width:901px) and (max-width:1070px){
+ .site-header .nav__menu{display:block}
+ .site-header .nav__links{display:none;position:absolute;top:81px;left:0;right:0;background:white;padding:17px 24px 21px;border-bottom:1px solid var(--edge);flex-direction:column;align-items:flex-start;margin-left:0;gap:20px}
+ .site-header .nav__links.open{display:flex}
+}

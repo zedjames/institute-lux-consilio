@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
+import {renderMainNav} from "./build-main-navigation.mjs";
 function escapeHtml(t){return String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function publicationPath(p){if(p.localPage){if(!/^publication-[a-z0-9-]+\.html$/.test(p.localPage))throw Error("Invalid static publication route");return p.localPage;}if(!/^[a-z0-9-]+$/.test(p.id))throw Error("Invalid paper ID");return "publication-"+p.id+".html";}
 function makeArtifacts(data){
@@ -20,7 +21,7 @@ function makeArtifacts(data){
  (p.pdf&&!p.pdf.startsWith("http")?`<meta name="citation_pdf_url" content="${base+escapeHtml(p.pdf)}">`:"")+
  `<meta property="og:type" content="article"><meta property="og:site_name" content="Institute Lux Consilio"><meta property="og:title" content="${name}"><meta property="og:description" content="${short}"><meta property="og:url" content="${canonical}"><script type="application/ld+json">${JSON.stringify(schema).replace(/</g,"\\u003c")}</script>`;
  };
- const header=`<header class="site-header"><div class="wrap site-header__inner"><a class="site-logo" href="index.html"><img class="site-logo__symbol" src="assets/img/lux-mark.svg" alt=""><span class="site-logo__text">Institute Lux Consilio<small>Foundational Science &amp; Discovery</small></span></a><button class="nav__menu menu-toggle" type="button" aria-label="Toggle navigation">Menu</button><nav class="nav__links site-nav" aria-label="Main navigation"><a href="research.html">Research</a><a href="publications.html" aria-current="page">Publications</a><a href="methods.html">Methods</a><a href="institute.html">About</a><a href="collaborate.html">Collaborate</a></nav></div></header>`;
+ const header=`<header class="site-header"><div class="wrap site-header__inner"><a class="site-logo" href="index.html"><img class="site-logo__symbol" src="assets/img/lux-mark.svg" alt=""><span class="site-logo__text">Institute Lux Consilio<small>Foundational Science &amp; Discovery</small></span></a><button class="nav__menu menu-toggle" type="button" aria-label="Toggle navigation">Menu</button>${renderMainNav("publications")}</div></header>`;
  const footer=`<footer class="footer"><div class="wrap"><div class="footer__grid"><div><a class="site-logo" href="index.html"><img class="site-logo__symbol" src="assets/img/lux-mark.svg" alt=""><span class="site-logo__text">Institute Lux Consilio<small>Questions worth exploring</small></span></a><p style="font-size:13px;color:#b5c9d4;max-width:300px;margin-top:18px">Research into life, physical reality, and the structures that make them intelligible.</p></div><div><h3>Research</h3><a href="research.html">Programs</a><a href="publications.html">Publications</a></div><div><h3>Institute</h3><a href="institute.html">About ILC</a><a href="methods.html">Methods</a><a href="governance.html">Research integrity</a></div><div><h3>Get involved</h3><a href="collaborate.html">Collaborate</a><a href="translation.html">Discovery &amp; translation</a><a href="contact.html">Contact</a></div></div><div class="footer__fine"><span>© 2026 Institute Lux Consilio · Delaware nonprofit public charity</span><span>Science, curiosity, and discovery.</span></div></div></footer>`;
  for(const p of pubs){
   if(p.localPage)continue;
