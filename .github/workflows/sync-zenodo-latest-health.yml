@@ -64,7 +64,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Detect new Zenodo versions across all series and verify published PDF bytes
-        run: python3 scripts/zenodo_latest_sync.py --site ilc
+        run: python3 scripts/zenodo_latest_sync.py --site ilc --allow-partial
       - name: Refresh static scholarly records, archive links and sitemap from audited metadata
         run: |
           node scripts/build-publication-pages.mjs
@@ -83,6 +83,11 @@ jobs:
           git add -- papers/*.pdf 'publication-*.html' publications.html sitemap.xml index.html research.html research-*.html
           if git diff --cached --quiet; then
             echo "No newly published Zenodo versions."
+            if [ -s .zenodo-sync-failures ]; then
+              cat .zenodo-sync-failures
+              echo "::error::One or more Zenodo families failed verification."
+              exit 1
+            fi
             exit 0
           fi
           git commit -m "Sync latest published scholarly paper versions from Zenodo"
@@ -91,6 +96,11 @@ jobs:
             git rebase origin/main
             if git push origin HEAD:main; then
               echo "Published verified Zenodo versions on main."
+              if [ -s .zenodo-sync-failures ]; then
+                cat .zenodo-sync-failures
+                echo "::error::Some Zenodo families were quarantined; the verified papers were published."
+                exit 1
+              fi
               exit 0
             fi
             sleep 4

@@ -32,8 +32,10 @@ for(const id of PROGRAM_IDS){
 const kineticSeries=data.series.find(x=>x.id==="kinetic-organization-biological-function");
 const kineticPaper=data.publications.find(x=>x.id==="kobf1");
 assert.equal(kineticSeries?.publishedCount,1,"Kinetic series registration missing");
-assert.equal(kineticPaper?.conceptDoi,"10.5281/zenodo.23405912","Kinetic Paper I Zenodo family changed");
+assert.equal(kineticPaper?.conceptDoi,"10.5281/zenodo.23405911","Kinetic Paper I Zenodo family changed");
 assert.equal(kineticPaper?.program,"kinetic","Kinetic Paper I program link missing");
+assert.equal(kineticPaper?.doi,"10.5281/zenodo.23405912","Kinetic Paper I version DOI mismatch");
+assert.equal(data.publications.find(x=>x.id==="sqg7")?.title,"Finite Palatini BV Regulators for a Self-Consistent Einstein–Scalar Sector","QG Paper VII version title mismatch");
 assert.ok(data.programDetails.kinetic?.artifacts?.some(x=>x.href==="publication-kobf1.html"),"Kinetic series artifact missing");
 for(const htmlFile of ["index.html","research.html"]){
  const html=fs.readFileSync(htmlFile,"utf8");
