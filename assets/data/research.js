@@ -630,14 +630,14 @@ window.ILC_DATA={
     },
     {
       "id": "sqg8",
-      "date": "2026-09-24",
+      "date": "2026-10-17",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 8,
       "title": "Relational Quantum Gravity in a Self-Consistent Einstein–Scalar Sector",
       "subtitle": "Independent physical and gravitational quotients, nonlinear Einstein realization, and intrinsic gauge rigidity.",
-      "doi": "10.5281/zenodo.22939782",
-      "summary": "Physical-owner and gravity-visible equivalence relations are globally incomparable, while intrinsic curvature data rigidly recover the source parameter and represented geometry class on the fixed nonlinear family.",
+      "doi": "10.5281/zenodo.23442807",
+      "summary": "Paper VIII v2.0 classifies the represented physical quantum class, full tensor source and metric up to physical isometry. The quantum-class and tensor-source quotients are globally incomparable, while fixed-anchor full-source and physical-isometry equivalence agree. Source-germ reconstruction, curvature rigidity and an exact isometry classification coexist with a fixed-geometry bounded-stress obstruction.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -649,8 +649,9 @@ window.ILC_DATA={
         "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-relational-quantum-gravity-self-consistent-einstein-scalar-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-relational-quantum-gravity-self-consistent-einstein-scalar-sector.pdf",
-      "conceptDoi": "10.5281/zenodo.22939781"
+      "pdf": "https://zenodo.org/api/records/23442807/files/Relational%20Quantum%20Gravity%20in%20a%20Self-Consistent%20Einstein%20Scalar%20Sector%20v2.0.pdf/content",
+      "conceptDoi": "10.5281/zenodo.22939781",
+      "version": "2.0"
     },
     {
       "id": "sqg7",
@@ -1310,8 +1311,7 @@ window.ILC_DATA={
           "href": "concordia/",
           "kind": "Governance"
         }
-      ],
-      "editionNotice": "Paper VIII v2.0 is completed in the Concordia research manuscript record. The linked ILC Paper VIII publication record currently retains its earlier version-specific Zenodo DOI; the v2.0 DOI and PDF will be added only once their public deposit has been verified."
+      ]
     },
     "ns": {
       "question": "What structure must remain available for a strong solution to continue, and what exact geometry is forced when that continuation reserve disappears?",
