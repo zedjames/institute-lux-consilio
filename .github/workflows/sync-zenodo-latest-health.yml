@@ -9,6 +9,7 @@ on:
     branches: [main]
     paths:
       - scripts/zenodo_latest_sync.py
+      - scripts/audit-zenodo-families.py
       - scripts/build-publication-pages.mjs
       - scripts/build-program-pages.mjs
       - scripts/build-site-discovery.mjs
@@ -17,6 +18,7 @@ on:
   pull_request:
     paths:
       - scripts/zenodo_latest_sync.py
+      - scripts/audit-zenodo-families.py
       - scripts/build-publication-pages.mjs
       - scripts/build-program-pages.mjs
       - scripts/build-site-discovery.mjs
@@ -40,6 +42,8 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+      - name: Audit Zenodo DOI family metadata before full archive sync
+        run: python3 scripts/audit-zenodo-families.py
       - name: Preview published Zenodo PDF and citation updates for all indexed series without committing
         run: python3 scripts/zenodo_latest_sync.py --site ilc
       - name: Refresh static scholarly records, archive links and sitemap from audited metadata
