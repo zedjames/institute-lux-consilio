@@ -83,6 +83,56 @@ class ExternalPdfUpdateTest(unittest.TestCase):
             self.assertEqual(p["pdfSha256"], expected_hash)
             self.assertEqual(p["date"], "2026-10-14")
 
+    def test_quarantined_bad_family_does_not_block_verified_paper(self):
+        good_version = "10.5281/zenodo.23390000"
+        bad = {"id": "kobf1", "title": "From Kinetic Movement to Biological Function",
+               "doi": "10.5281/zenodo.23405912",
+               "conceptDoi": "10.5281/zenodo.23405911",
+               "date": "2026-10-16"}
+        catalog_path = self.root / "research" / "catalog.json"
+        browser_path = self.root / "assets" / "data" / "research.js"
+        pins_path = self.root / "research" / "zenodo-concepts.json"
+        items = json.loads(catalog_path.read_text())
+        items["publications"].append(bad)
+        catalog_path.write_text(json.dumps(items))
+        browser_path.write_text("window.ILC_DATA=" + json.dumps(items) + ";\n")
+        pins = json.loads(pins_path.read_text())
+        pins["papers"]["kobf1"] = {"concept_doi": bad["conceptDoi"]}
+        pins_path.write_text(json.dumps(pins))
+
+        def published(p, pin):
+            if p["id"] == "kobf1":
+                raise ValueError("corrupt family")
+            return {"doi": good_version,
+                    "metadata": {"publication_date": "2026-10-17", "version": "2.0"}}
+
+        fake_pdf = b"%PDF-1.7\nindependently verified source\n%%EOF"
+        with (patch.object(syncer, "ROOT", self.root),
+              patch.object(syncer, "published_record", side_effect=published),
+              patch.object(syncer, "verified_pdf", return_value=(fake_pdf, NEW_PDF)) as verify):
+            changed = syncer.sync("ilc", allow_partial=True)
+        self.assertTrue(changed)
+        verify.assert_called_once()
+        new_catalog = json.loads(catalog_path.read_text())["publications"]
+        good = next(p for p in new_catalog if p["id"] == "sqg3")
+        blocked = next(p for p in new_catalog if p["id"] == "kobf1")
+        self.assertEqual(good["doi"], good_version)
+        self.assertEqual(good["version"], "2.0")
+        self.assertEqual(blocked["doi"], bad["doi"])
+        report = (self.root / ".zenodo-sync-failures").read_text()
+        self.assertIn("kobf1: ValueError: corrupt family", report)
+
+    def test_strict_preflight_stops_before_mutating_on_bad_family(self):
+        # In strict mode a failed family remains an all-or-nothing preflight.
+        root = self.root
+        originals = (root / "research" / "catalog.json").read_bytes()
+        with (patch.object(syncer, "ROOT", root),
+              patch.object(syncer, "published_record", side_effect=ValueError("bad family"))):
+            with self.assertRaises(ValueError):
+                syncer.sync("ilc")
+        self.assertEqual((root / "research" / "catalog.json").read_bytes(), originals)
+        self.assertFalse((root / ".zenodo-sync-failures").exists())
+
     def test_unchanged_version_does_not_repoint_external_pdf(self):
         changed, verify, _ = self.exercise(OLD_DOI)
         self.assertFalse(changed)
