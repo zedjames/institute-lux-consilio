@@ -1,0 +1,26 @@
+{
+  "schema": "ilc.concordia.sourceInventory.v1",
+  "sourceRecord": "docs/LEAN_FULL_INVENTORY_2026-10-17.md",
+  "snapshots": [
+    {
+      "date": "2026-09-24",
+      "commit": "aa0ea3fff50643708114f49980044ecde4bfe822",
+      "files": 16911,
+      "lines": 3982645,
+      "theorems": 113630,
+      "lemmas": 4713
+    },
+    {
+      "date": "2026-10-17",
+      "commit": "b0054d4773b4e76a6efce3e0b998494bb770678a",
+      "files": 44808,
+      "lines": 18935259,
+      "theorems": 888350,
+      "lemmas": 4718,
+      "recordSha256": "c9ebb23099ace4ddd9804797dd33dcf84d524d5cca3294836bdcdae44e8a262e",
+      "tracked": true,
+      "leanTreeClean": true,
+      "fullLeanBuildRun": false
+    }
+  ]
+}

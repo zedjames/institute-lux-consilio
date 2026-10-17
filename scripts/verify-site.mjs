@@ -10,6 +10,28 @@ for(const key of ["programs","themes","questions","publications","notes"]){
 }
 const root=new Set(fs.readdirSync("."));
 const concordia=fs.readFileSync("concordia/index.html","utf8");
+const inv=JSON.parse(fs.readFileSync("concordia/inventory/snapshots.json","utf8"));
+const snap=inv.snapshots.at(-1);
+assert.deepStrictEqual({date:snap.date,commit:snap.commit,files:snap.files,lines:snap.lines,theorems:snap.theorems,lemmas:snap.lemmas,sha256:snap.recordSha256},
+ {date:"2026-10-17",commit:"b0054d4773b4e76a6efce3e0b998494bb770678a",files:44808,lines:18935259,theorems:888350,lemmas:4718,sha256:"c9ebb23099ace4ddd9804797dd33dcf84d524d5cca3294836bdcdae44e8a262e"},
+ "Concordia recorded inventory figures or provenance changed without review");
+for(const [route,description] of [["inventory","formal source inventory"],["runtime","governed inquiry"]]){
+ const p=fs.readFileSync("concordia/"+route+"/index.html","utf8");
+ assert.ok(p.includes('<base href="/">'),"Concordia nested page missing base: "+route);
+ assert.ok(p.includes('<link rel="canonical" href="https://instituteluxconsilio.org/concordia/'+route+'/">'),"Concordia nested page missing canonical: "+route);
+ assert.ok(p.includes('href="concordia/"'),"Concordia nested page missing standing disclosure link: "+route);
+ assert.ok(!p.includes('src="assets/data/research.js'),"Concordia science must not depend on JavaScript catalogs");
+}
+const inventoryHtml=fs.readFileSync("concordia/inventory/index.html","utf8");
+for(const number of ["44,808","18,935,259","888,350","4,718",snap.commit,snap.recordSha256]) assert.ok(inventoryHtml.includes(number),"Concordia inventory missing "+number);
+assert.ok(inventoryHtml.includes("No full Lean build"),"Concordia inventory missing build qualification");
+const runtimeHtml=fs.readFileSync("concordia/runtime/index.html","utf8");
+assert.ok(runtimeHtml.includes("Cognition and scientific authority remain distinct")&&runtimeHtml.includes("Research collaboration by arrangement"),"Runtime scientific authority or scholarly access missing");
+assert.ok(data.programDetails.formal.artifacts.some(x=>x.href==="concordia/inventory/"),"Formal program missing institutional source inventory");
+assert.ok(!data.programDetails.formal.artifacts.some(x=>x.href.includes("fieldfluxbiosystems.com/lean-inventory")), "Outdated FFB inventory owner link remains");
+assert.ok(concordia.includes('href="concordia/inventory/"')&&concordia.includes('href="concordia/runtime/"'),"Standing disclosure missing inventory/runtime navigation");
+assert.ok(concordia.includes("Owner and steward")&&concordia.includes("ILC-CRD-001"),"Concordia provenance and ownership missing");
+
 assert.ok(concordia.includes("ILC-CRD-001"),"Missing Concordia institutional disclosure identity");
 assert.ok(concordia.includes('<link rel="canonical" href="https://instituteluxconsilio.org/concordia/">'),"Missing permanent Concordia canonical URL");
 assert.ok(concordia.includes("<base href=\"/\">"),"Nested Concordia route must resolve root assets and links");
@@ -64,6 +86,7 @@ for(const p of data.publications){
 }
 assert.equal(fs.readFileSync("sitemap.xml","utf8"),generated.sitemap,"Generated sitemap is out of sync");
 assert.ok(generated.locs.includes("concordia/"),"Concordia URL must persist in regenerated sitemap");
+for(const route of ["concordia/inventory/","concordia/runtime/"])assert.ok(generated.locs.includes(route),"Missing Concordia sitemap entry "+route);
 const archive=fs.readFileSync("publications.html","utf8"),start='<div id="publication-list" class="archive" data-static="1">',end='</div></div></section></main>';
 const ia=archive.indexOf(start),ib=archive.indexOf(end,ia+start.length);
 assert.ok(ia>=0&&ib>ia,"Archive markup missing");
