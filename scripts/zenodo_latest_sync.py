@@ -194,6 +194,8 @@ def sync(site,probe=False,allow_partial=False):
             source=None
             if is_local or needs_public_pdf_link:
                 raw,source=verified_pdf(doc)
+            if raw is not None:
+                print(f"VERIFIED_ZENODO_PDF {ident} {source} sha256={hashlib.sha256(raw).hexdigest()}",flush=True)
             if is_local:
                 if local not in mirrors:
                     raise ValueError(f"{ident}: hosted PDF has no registered checksum")
