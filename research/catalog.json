@@ -656,7 +656,8 @@
       "legacyPage": "https://fieldfluxbiosystems.com/research-relational-quantum-gravity-self-consistent-einstein-scalar-sector.html",
       "pdf": "https://zenodo.org/api/records/23442807/files/Relational%20Quantum%20Gravity%20in%20a%20Self-Consistent%20Einstein%20Scalar%20Sector%20v2.0.pdf/content",
       "conceptDoi": "10.5281/zenodo.22939781",
-      "version": "2.0"
+      "version": "2.0",
+      "pdfSha256": "399e608a4e7d676a6a9b71c0d67f5fa02e153fe96fffd59468c8989a4d943a4a"
     },
     {
       "id": "sqg7",
