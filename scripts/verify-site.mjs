@@ -77,6 +77,17 @@ for(const id of PROGRAM_IDS){
  assert.equal(html.slice(a+start.length,b),renderProgramContent(data,id),"Static program page out of sync: "+id);
 }
 
+const qgSequenceDescription="A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction.";
+const qgSeries=data.series.find(x=>x.id==="schwarzschild-qg");
+assert.ok(qgSeries?.description.startsWith(qgSequenceDescription),
+ "QG series description must retain its through-line about the quantum scalar excitation");
+assert.equal(data.programDetails.qg?.narrative?.[0],qgSequenceDescription,
+ "QG landing page must open with the exact scientific series framing");
+const qgPage=fs.readFileSync("research-relational-quantum-gravity.html","utf8");
+assert.ok(qgPage.includes("<p>"+qgSequenceDescription+"</p>"),
+ "QG series statement must be present in rendered HTML, independently of JavaScript");
+assert.ok(qgPage.includes('name="description" content="'+qgSequenceDescription+'"'),
+ "QG search description must match its current series framing");
 const kineticSeries=data.series.find(x=>x.id==="kinetic-organization-biological-function");
 const kineticPaper=data.publications.find(x=>x.id==="kobf1");
 assert.equal(kineticSeries?.publishedCount,1,"Kinetic series registration missing");

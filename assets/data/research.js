@@ -83,7 +83,7 @@ window.ILC_DATA={
       "id": "schwarzschild-qg",
       "label": "Schwarzschild Quantum Gravity",
       "domain": "Quantum gravity",
-      "description": "A self-consistent Einstein–real-scalar quantum sector from operator selection through BV/BRST, regulated quantization, and relational gravity.",
+      "description": "A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction. A self-consistent Einstein–real-scalar quantum sector from operator selection through BV/BRST, regulated quantization, and relational gravity.",
       "status": "Current published sequence: 8 papers",
       "publishedCount": 8
     },
@@ -1269,6 +1269,7 @@ window.ILC_DATA={
     "qg": {
       "question": "When a quantum matter sector backreacts on geometry, which structures genuinely belong to the same physical owner, and which equivalences are visible only to gravity?",
       "narrative": [
+        "A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction.",
         "The public sequence constructs a self-consistent Einstein–real-scalar quantum sector from singular radial operator selection through quantum dynamics, local matter, master-action ownership, gauge structure, regulated quantization, and relational gravitational visibility.",
         "The first papers propagate the Friedrichs-selected Schwarzschild scalar law into continuum Fock dynamics and action-derived local quantum matter, then require geometry to own that same matter law self-consistently within the constructed sector.",
         "The middle papers move upstream into Palatini master-action and BRST/BV structure. The regulated quantum program exposes both compatible finite quantum complexes and explicit obstruction surfaces. Paper VIII then separates physical ownership from gravitational visibility: the corresponding quotient relations are globally incomparable, while intrinsic curvature data rigidly recover the source parameter on the realized nonlinear family."
