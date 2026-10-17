@@ -83,7 +83,7 @@ window.ILC_DATA={
       "id": "schwarzschild-qg",
       "label": "Schwarzschild Quantum Gravity",
       "domain": "Quantum gravity",
-      "description": "A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction. A self-consistent Einstein–real-scalar quantum sector from operator selection through BV/BRST, regulated quantization, and relational gravity.",
+      "description": "A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction. The v2.0 development through Paper VIII constructs a same-geometry Einstein–real-scalar quantum sector, tests classical BV and operator BRST descriptions, identifies finite-regulator obstructions and a surviving restricted physical sector, and classifies physical quantum, complete tensor-source and geometric-isometry equivalences.",
       "status": "Current published sequence: 8 papers",
       "publishedCount": 8
     },
@@ -660,7 +660,7 @@ window.ILC_DATA={
       "order": 7,
       "title": "Finite Palatini BV Regulators for a Self-Consistent Einstein–Scalar Sector",
       "doi": "10.5281/zenodo.23441095",
-      "summary": "Finite BV regulators support genuine quantum complexes, while Gaussian refinement exposes a first-shell Hamiltonian descent obstruction and canonically leaves a greatest compatible restricted physical complex.",
+      "summary": "Genuine finite BV regulators have explicit projected-master and Gaussian-shell obstructions. Exact kernels retain a restricted physical complex, original Fock evolution and Einstein source, without a renormalized quantum-master solution.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -686,7 +686,7 @@ window.ILC_DATA={
       "title": "Quantum Gauge Structure of a Self-Consistent Einstein–Scalar Sector",
       "subtitle": "Operator BRST representation, a retracted physical Hilbert sector, and projective gauge reduction.",
       "doi": "10.5281/zenodo.23429368",
-      "summary": "A square-zero BRST charge realizes physical cohomology, embeds the native scalar Fock space faithfully, descends native evolution, and removes the Palatini projective quartet cohomologically.",
+      "summary": "A closed-graph square-zero BRST charge preserves an isometrically represented native scalar Fock summand, its Hamiltonian domain, unitary dynamics and sourced Einstein branch; the full degree-zero cohomology need not be exhausted.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -738,7 +738,7 @@ window.ILC_DATA={
       "title": "A Self-Consistent Einstein–Scalar Quantum Sector",
       "subtitle": "Friedrichs selection, native quantum evolution, and exact gravitational matter.",
       "doi": "10.5281/zenodo.23381184",
-      "summary": "The changed nonlinear geometry owns its own selected quantum law, Fock/Cauchy dynamics, conserved stress, and exact quantum-source branches satisfying Einstein's equation on that same geometry.",
+      "summary": "An exact positive-coupling, same-geometry Einstein–scalar quantum sector owns its nonlinear metric, two-ended Friedrichs law, signed-mode Fock evolution and conserved sources from completed coherent and one-occupation states, with matched original-data Schwarzschild continuity.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -753,7 +753,8 @@ window.ILC_DATA={
       "legacyPage": "https://fieldfluxbiosystems.com/research-self-consistent-einstein-scalar-quantum-sector.html",
       "pdf": "https://zenodo.org/api/records/23381184/files/A%20Self%20Consistent%20Einstein%20Scalar%20Quantum%20Sector%20v2.0.pdf/content",
       "conceptDoi": "10.5281/zenodo.22834304",
-      "pdfSha256": "2f75be0e6438a73c730c7658f86d60f62eeafc9ff84a401cde0c442a11afb2b5"
+      "pdfSha256": "2f75be0e6438a73c730c7658f86d60f62eeafc9ff84a401cde0c442a11afb2b5",
+      "version": "2.0"
     },
     {
       "id": "sqg3",
@@ -764,7 +765,7 @@ window.ILC_DATA={
       "title": "Friedrichs-Selected Schwarzschild Quantum Matter",
       "subtitle": "A machine-checked real-scalar stress theory, physical-clock coherence, and regulator-independent sources.",
       "doi": "10.5281/zenodo.23376915",
-      "summary": "The selected scalar is promoted from quantum dynamics to local spacetime matter through action-derived stress, coherent Fock moments, regulator removal, and explicit quantum sources.",
+      "summary": "Action-derived real-scalar local stress includes normal and anomalous quantum contributions, vacuum-relative subtraction, physical-clock covariance, a regular all-mode source domain and explicitly nonzero anomalous-stress witnesses.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -779,7 +780,8 @@ window.ILC_DATA={
       "legacyPage": "https://fieldfluxbiosystems.com/research-friedrichs-selected-schwarzschild-quantum-matter.html",
       "pdf": "https://zenodo.org/api/records/23376915/files/Friedrichs%20Selected%20Schwarzchild%20Quantum%20Matter%20v2.0.pdf/content",
       "conceptDoi": "10.5281/zenodo.22819416",
-      "pdfSha256": "e86e6de413a27c65050a724be2b08f2fc0325264b351e6366ae7719f7234bf32"
+      "pdfSha256": "e86e6de413a27c65050a724be2b08f2fc0325264b351e6366ae7719f7234bf32",
+      "version": "2.0"
     },
     {
       "id": "gps3",
@@ -1270,40 +1272,46 @@ window.ILC_DATA={
       "question": "When a quantum matter sector backreacts on geometry, which structures genuinely belong to the same physical owner, and which equivalences are visible only to gravity?",
       "narrative": [
         "A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction.",
-        "The public sequence constructs a self-consistent Einstein–real-scalar quantum sector from singular radial operator selection through quantum dynamics, local matter, master-action ownership, gauge structure, regulated quantization, and relational gravitational visibility.",
-        "The first papers propagate the Friedrichs-selected Schwarzschild scalar law into continuum Fock dynamics and action-derived local quantum matter, then require geometry to own that same matter law self-consistently within the constructed sector.",
-        "The middle papers move upstream into Palatini master-action and BRST/BV structure. The regulated quantum program exposes both compatible finite quantum complexes and explicit obstruction surfaces. Paper VIII then separates physical ownership from gravitational visibility: the corresponding quotient relations are globally incomparable, while intrinsic curvature data rigidly recover the source parameter on the realized nonlinear family."
+        "Papers I–II establish a critical Schwarzschild scalar with multiple terminal self-adjoint laws and the no-log Friedrichs selection. The selected scalar is carried into continuum Fock quantum dynamics and a physical action-derived Cauchy theory retaining all signed spatial modes and a strong, unitary physical clock.",
+        "Paper III v2.0 derives local quantum matter directly from the same real-scalar action: Hilbert stress, real-field polarization, normal and anomalous Fock sectors, selected-vacuum subtraction, and covariance under joint physical-clock transport. The analysis provides a dense regular all-mode stress domain and explicit nonvanishing anomalous source witnesses.",
+        "Paper IV v2.0 completes the positive-coupling same-geometry Einstein–scalar realization. The nonlinear geometry determines the selected two-ended radial law, the exact signed-mode Cauchy and Fock evolution, and its own conserved vacuum-relative tensor source. Completed coherent and one-occupation states give separate, nonempty source branches. The expanded analysis establishes matched original-data continuity and precisely scoped curvature and propagator endpoint obstructions.",
+        "Paper V v2.0 constructs the classical Palatini BV master action for that owned physical matter sector, including diffeomorphism/projective gauge structure, the classical master equation and compatibility with the native Hamiltonian and source. Paper VI v2.0 gives a closed-graph, square-zero BRST representation and a faithfully embedded scalar Fock summand in degree-zero cohomology, with the original unitary dynamics and Einstein source preserved but no assertion that the full cohomology is exhausted.",
+        "Paper VII v2.0 constructs finite BV odd Laplacians while exhibiting an obstruction to the projected classical master and explicit nonzero Gaussian-shell density-transport and Hamiltonian traces. The retained exact kernel and restricted physical complex preserve the original Fock evolution and a positive-coupling Einstein source. They do not establish an unrestricted renormalized quantum master equation.",
+        "Paper VIII v2.0 classifies the resulting relational geometry. The represented quantum class, the full tensor source on its physical domain, and the metric up to physical isometry are different carriers of information. Physical-quantum and tensor-source quotients are globally incomparable; at a fixed geometric anchor, full-source equivalence coincides with physical-isometry equivalence. Exact stress calculation, source-germ recovery, curvature-image rigidity and global isometry classification establish this result. A fixed-geometry bounded-stress obstruction and the continued classical character of the metric delimit its interpretation."
       ],
-      "frontier": "The public endpoint is relational: it identifies what the constructed geometry can recover and which equivalences remain outside its present ownership. Further progress can build from the proved operator and gauge structure, regulated quantum complexes, and nonlinear gravitational realization toward stronger global quantum-gravitational statements.",
+      "frontier": "The v2.0 research sequence through Paper VIII identifies a self-consistent Einstein–real-scalar quantum sector and its precise relational identifiability, together with a nontrivial restricted physical quantum theory and explicit regulator obstructions. Further gravitational continuation, physical interfaces, quantum-master constructions and global or asymptotic statements require independent work on their own physical and mathematical carriers.",
       "methods": [
-        "Critical Schwarzschild operator analysis",
-        "Continuum Fock and local quantum matter",
-        "Palatini master action and BRST/BV structure",
-        "Regulated quantum complexes and relational quotient analysis"
+        "Critical radial domains, deficiency indices and Friedrichs selection",
+        "Action-derived real-scalar Cauchy/Fock dynamics and local quantum stress",
+        "Positive-coupling Einstein realization, two-ended selection and original-data continuity",
+        "Palatini BV master action, square-zero BRST and controlled graph cohomology",
+        "Finite odd BV Laplacians, Gaussian obstructions and restricted quantum complexes",
+        "Tensor-source reconstruction, curvature rigidity and physical isometry classification"
       ],
       "openQuestions": [
-        "How far can the regulated quantum construction be extended while preserving a controlled physical complex?",
-        "Which boundary data belong to the physical sector, and which become visible through gravity?",
-        "What additional structure is required to connect the current relational geometry to stronger dynamical or asymptotic claims?",
-        "Which obstructions are removable technical gaps and which are intrinsic mathematical boundaries?"
+        "What physical interfaces and boundary data admit another lawful continuation of the same Einstein–scalar sector?",
+        "Which extended quantum-master or regulator constructions survive the explicit first-shell and projected-master obstructions?",
+        "How do tensor-source and physical-isometry equivalences behave when the geometric anchor varies?",
+        "Which dynamical, scattering, asymptotic or global claims can be established beyond the realized nonlinear families?"
       ],
       "artifacts": [
         {
-          "label": "Eight-paper public sequence",
-          "href": "program.html?id=qg",
+          "label": "Schwarzschild Quantum Gravity — Eight-paper series",
+          "href": "research-relational-quantum-gravity.html",
           "kind": "Series"
         },
         {
-          "label": "Relational Quantum Gravity — Paper VIII",
-          "href": "publication.html?id=sqg8",
+          "label": "Paper VIII — Current Zenodo publication record",
+          "href": "publication-sqg8.html",
           "kind": "Publication"
         },
         {
-          "label": "Formal verification scope",
-          "href": "https://fieldfluxbiosystems.com/verification.txt",
-          "kind": "Verification"
+          "label": "Concordia institutional disclosure and verification framework",
+          "href": "concordia/",
+          "kind": "Governance"
         }
-      ]
+      ],
+      "editionNotice": "Paper VIII v2.0 is completed in the Concordia research manuscript record. The linked ILC Paper VIII publication record currently retains its earlier version-specific Zenodo DOI; the v2.0 DOI and PDF will be added only once their public deposit has been verified."
     },
     "ns": {
       "question": "What structure must remain available for a strong solution to continue, and what exact geometry is forced when that continuation reserve disappears?",

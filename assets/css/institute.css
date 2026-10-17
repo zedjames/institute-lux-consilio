@@ -256,3 +256,5 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
  .site-header .nav__links{display:none;position:absolute;top:81px;left:0;right:0;background:white;padding:17px 24px 21px;border-bottom:1px solid var(--edge);flex-direction:column;align-items:flex-start;margin-left:0;gap:20px}
  .site-header .nav__links.open{display:flex}
 }
+
+.series-edition-note{margin:10px 0 26px;padding:16px 21px;background:#eef4f6;border-left:3px solid var(--blue);font-size:13px;line-height:1.72;color:var(--body)}

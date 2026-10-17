@@ -77,6 +77,15 @@ for(const id of PROGRAM_IDS){
  assert.equal(html.slice(a+start.length,b),renderProgramContent(data,id),"Static program page out of sync: "+id);
 }
 
+const qgPapersV2=data.publications.filter(x=>x.program==="qg");
+assert.equal(qgPapersV2.length,8,"QG must retain the eight-paper sequence");
+for(const id of ["sqg3","sqg4","sqg5","sqg6","sqg7"])assert.equal(qgPapersV2.find(p=>p.id===id)?.version,"2.0","QG v2 published edition marker missing: "+id);
+assert.ok(data.programDetails.qg.narrative.some(s=>s.startsWith("Paper VIII v2.0 classifies")),"Paper VIII v2.0 scientific result is missing");
+assert.ok(data.programDetails.qg.editionNotice.includes("Paper VIII v2.0 is completed"),"Paper VIII edition provenance boundary missing");
+const qgVIII=qgPapersV2.find(p=>p.id==="sqg8");
+assert.equal(qgVIII?.doi,"10.5281/zenodo.22939782","Do not fabricate an unverified VIII DOI");
+assert.ok(!qgVIII?.version,"Do not assert Zenodo VIII v2 before validation");
+assert.ok(fs.readFileSync("research-relational-quantum-gravity.html","utf8").includes("Paper VIII v2.0 is completed"),"Edition notice must be visible in static HTML");
 const qgSequenceDescription="A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction.";
 const qgSeries=data.series.find(x=>x.id==="schwarzschild-qg");
 assert.ok(qgSeries?.description.startsWith(qgSequenceDescription),
