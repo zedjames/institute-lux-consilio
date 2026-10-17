@@ -146,7 +146,7 @@ def update_pages(files,old,new,concept,legacy_partner,old_date,new_date):
         if updated!=original:
             path.write_text(updated,encoding="utf-8")
 
-def sync(site,probe=False):
+def sync(site,probe=False,allow_partial=False):
     ffb=site=="ffb"
     catalogfile=ROOT/"research/catalog.json"
     catalog=json.loads(catalogfile.read_text(encoding="utf-8"))
@@ -160,46 +160,60 @@ def sync(site,probe=False):
     mirrors={e["pdf"]:e for e in manifest["papers"]}
     changes=[]
     # Preflight the whole catalog and all pending new PDFs before mutating files.
+    failures=[]
+    report=ROOT/".zenodo-sync-failures"
+    if allow_partial and report.exists(): report.unlink()
     for ident in sorted(pins):
-        p=pubs[ident]
-        pin=pins[ident]
-        concept=pin["concept_doi"]
-        doc=published_record(p,pin)
-        new=doc["doi"]
-        old=p["doi"]
-        prior=p.get("concept_doi") if ffb else p.get("conceptDoi")
-        legacy=old==concept and new!=old
-        if prior and prior!=concept and (not legacy or prior!=new):
-            raise ValueError(f"{ident}: mismatched historical DOI partner")
-        local=p.get("pdf") or (next((x["pdf"] for x in manifest["papers"] if x.get("doi")==old),None) if ffb else None)
-        is_local=bool(local and not local.startswith(("https://","http://")))
-        externally_hosted=bool(local and local.startswith(("https://","http://")))
-        lacks_pdf=not bool(local)
-        # A new Zenodo version must not retain an earlier FFB-hosted PDF.
-        # ILC replaces only this external pointer with a freshly verified
-        # published-version Zenodo URL. On-site mirrored PDFs retain their
-        # existing byte-for-byte manifest verification and update path.
-        refresh_external=not ffb and externally_hosted and new!=old
-        needs_public_pdf_link=not ffb and (lacks_pdf or refresh_external)
-        needs_change=(new!=old or prior!=concept or needs_public_pdf_link)
-        if probe:
-            print(f"{ident}: stored={old}, latest={new}, family={concept}, local={bool(is_local)}, needs_update={needs_change}",flush=True)
-            # The actual PR preview tests the full transaction, not this shortcut.
-        if not needs_change: continue
-        raw=None
-        source=None
-        if is_local or needs_public_pdf_link:
-            raw,source=verified_pdf(doc)
-        if is_local:
-            if local not in mirrors:
-                raise ValueError(f"{ident}: hosted PDF has no registered checksum")
-            file=ROOT/local
-            if not file.is_file() or hashlib.sha256(file.read_bytes()).hexdigest()!=mirrors[local]["sha256"]:
-                raise ValueError(f"{ident}: old local PDF fails registered checksum")
-        changes.append(dict(id=ident,old=old,new=new,concept=concept,old_date=p.get("date",""),
-            date=(doc.get("metadata") or {}).get("publication_date") or p.get("date"),
-            local=local,is_local=is_local,needs_public_pdf_link=needs_public_pdf_link,content=raw,
-            source=source,legacy_partner=(prior or new) if legacy else None))
+        try:
+            p=pubs[ident]
+            pin=pins[ident]
+            concept=pin["concept_doi"]
+            doc=published_record(p,pin)
+            new=doc["doi"]
+            old=p["doi"]
+            prior=p.get("concept_doi") if ffb else p.get("conceptDoi")
+            legacy=old==concept and new!=old
+            if prior and prior!=concept and (not legacy or prior!=new):
+                raise ValueError(f"{ident}: mismatched historical DOI partner")
+            local=p.get("pdf") or (next((x["pdf"] for x in manifest["papers"] if x.get("doi")==old),None) if ffb else None)
+            is_local=bool(local and not local.startswith(("https://","http://")))
+            externally_hosted=bool(local and local.startswith(("https://","http://")))
+            lacks_pdf=not bool(local)
+            # A new Zenodo version must not retain an earlier FFB-hosted PDF.
+            # ILC replaces only this external pointer with a freshly verified
+            # published-version Zenodo URL. On-site mirrored PDFs retain their
+            # existing byte-for-byte manifest verification and update path.
+            refresh_external=not ffb and externally_hosted and new!=old
+            needs_public_pdf_link=not ffb and (lacks_pdf or refresh_external)
+            needs_change=(new!=old or prior!=concept or needs_public_pdf_link)
+            if probe:
+                print(f"{ident}: stored={old}, latest={new}, family={concept}, local={bool(is_local)}, needs_update={needs_change}",flush=True)
+                # The actual PR preview tests the full transaction, not this shortcut.
+            if not needs_change: continue
+            raw=None
+            source=None
+            if is_local or needs_public_pdf_link:
+                raw,source=verified_pdf(doc)
+            if raw is not None:
+                print(f"VERIFIED_ZENODO_PDF {ident} {source} sha256={hashlib.sha256(raw).hexdigest()}",flush=True)
+            if is_local:
+                if local not in mirrors:
+                    raise ValueError(f"{ident}: hosted PDF has no registered checksum")
+                file=ROOT/local
+                if not file.is_file() or hashlib.sha256(file.read_bytes()).hexdigest()!=mirrors[local]["sha256"]:
+                    raise ValueError(f"{ident}: old local PDF fails registered checksum")
+            changes.append(dict(id=ident,old=old,new=new,concept=concept,old_date=p.get("date",""),
+                date=(doc.get("metadata") or {}).get("publication_date") or p.get("date"),
+                local=local,is_local=is_local,needs_public_pdf_link=needs_public_pdf_link,content=raw,
+                source=source,legacy_partner=(prior or new) if legacy else None,
+                version=(doc.get("metadata") or {}).get("version")))
+        except Exception as exc:
+            if not allow_partial: raise
+            failures.append(f"{ident}: {type(exc).__name__}: {exc}")
+            print("SYNC_QUARANTINED "+failures[-1],flush=True)
+    if failures:
+        report.write_text("\n".join(failures)+"\n",encoding="utf-8")
+        print(f"SYNC_PARTIAL_FAILURES={len(failures)}",flush=True)
     if probe:
         print(f"Published-version inspection completed for {len(pubs)} pinned paper families",flush=True)
         return bool(changes)
@@ -210,6 +224,8 @@ def sync(site,probe=False):
         p=pubs[item["id"]]
         p["doi"]=item["new"]
         p["date"]=item["date"]
+        v=str(item.get("version") or "").strip()
+        if re.fullmatch(r"v?[0-9]+(?:\.[0-9]+){0,3}",v): p["version"]=v.lstrip("v")
         p["concept_doi" if ffb else "conceptDoi"]=item["concept"]
         if item["is_local"]:
             file=ROOT/item["local"]
@@ -237,7 +253,7 @@ def sync(site,probe=False):
         for pub in browser["publications"]:
             if pub["id"] in pubs:
                 authoritative=pubs[pub["id"]]
-                for key in ("doi","conceptDoi","date","pdf","pdfSha256"):
+                for key in ("doi","conceptDoi","date","pdf","pdfSha256","version"):
                     if key in authoritative: pub[key]=authoritative[key]
         assetfile.write_text(pre+json.dumps(browser,ensure_ascii=False,indent=2)+";\n",encoding="utf-8")
     pages=([ROOT/"research.html",ROOT/"research-series-health-formally-defined.html"]
@@ -254,5 +270,7 @@ if __name__=="__main__":
     ap=argparse.ArgumentParser()
     ap.add_argument("--site",choices=("ffb","ilc"),required=True)
     ap.add_argument("--probe",action="store_true")
+    ap.add_argument("--allow-partial",action="store_true")
     args=ap.parse_args()
-    sync(args.site,probe=args.probe)
+    if args.probe and args.allow_partial: ap.error("--probe and --allow-partial cannot be combined")
+    sync(args.site,probe=args.probe,allow_partial=args.allow_partial)

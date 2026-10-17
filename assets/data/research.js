@@ -171,8 +171,8 @@ window.ILC_DATA={
       "order": 1,
       "title": "From Kinetic Movement to Biological Function",
       "subtitle": "Functional descent, historical energy, and certified observation in coupled transport processes",
-      "doi": "10.5281/zenodo.23405911",
-      "conceptDoi": "10.5281/zenodo.23405912",
+      "doi": "10.5281/zenodo.23405912",
+      "conceptDoi": "10.5281/zenodo.23405911",
       "summary": "A synthetic reversible four-phase, single-ion mechanochemical transporter connects continuous mechanical motion to conformational jumps, chemical reservoirs, and signed ionic release. Equal observed phase and kinetic energy need not determine future function: at nonzero coupling two mechanical preparations have initial outside-release rates differing by a factor of approximately 1.35. Conditioning on transition histories yields a measure-valued predictive state. For specified finite windows, source-derived backward bounds certify signed transport and outside-edge event probability. Exact caloric path identities link endpoint phase, signed ion transport, and energy accounting. Results concern a specified synthetic source rather than a calibrated protein or a general physical definition of qi.",
       "program": "kinetic",
       "domains": [
@@ -187,7 +187,10 @@ window.ILC_DATA={
         "continuation-stability",
         "formalization-proof",
         "invariance-identity"
-      ]
+      ],
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23405912/files/From%20Kinetic%20Movement%20to%20Biological%20Function%20v1.0.pdf/content",
+      "pdfSha256": "8904d5f3680f037f2e1d6628334036a2ae4bbaa01ceee3eafa7dc62b7ba9b176"
     },
     {
       "id": "ns4",
@@ -651,13 +654,12 @@ window.ILC_DATA={
     },
     {
       "id": "sqg7",
-      "date": "2026-09-22",
+      "date": "2026-10-17",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 7,
-      "title": "Regulated Palatini BV Quantization of a Self-Consistent Einstein–Scalar Sector",
-      "subtitle": "Quantum-master obstructions, finite Gaussian BV pushforwards, and restricted physical cohomology.",
-      "doi": "10.5281/zenodo.22904031",
+      "title": "Finite Palatini BV Regulators for a Self-Consistent Einstein–Scalar Sector",
+      "doi": "10.5281/zenodo.23441095",
       "summary": "Finite BV regulators support genuine quantum complexes, while Gaussian refinement exposes a first-shell Hamiltonian descent obstruction and canonically leaves a greatest compatible restricted physical complex.",
       "program": "qg",
       "domains": [
@@ -670,18 +672,20 @@ window.ILC_DATA={
         "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-regulated-palatini-bv-quantization-self-consistent-einstein-scalar-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-regulated-palatini-bv-quantization-self-consistent-einstein-scalar-sector.pdf",
-      "conceptDoi": "10.5281/zenodo.22904030"
+      "pdf": "https://zenodo.org/api/records/23441095/files/Finite%20Palatini%20BV%20Regulators%20for%20a%20Self-Consistent%20Einstein%20Scalar%20Sector%20v2.0.pdf/content",
+      "conceptDoi": "10.5281/zenodo.22904030",
+      "version": "2.0",
+      "pdfSha256": "7b73628874ba12915c0626085333702d8ad94b8634e6eb5e5cc94d1876330f61"
     },
     {
       "id": "sqg6",
-      "date": "2026-09-20",
+      "date": "2026-10-17",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 6,
       "title": "Quantum Gauge Structure of a Self-Consistent Einstein–Scalar Sector",
       "subtitle": "Operator BRST representation, a retracted physical Hilbert sector, and projective gauge reduction.",
-      "doi": "10.5281/zenodo.22859436",
+      "doi": "10.5281/zenodo.23429368",
       "summary": "A square-zero BRST charge realizes physical cohomology, embeds the native scalar Fock space faithfully, descends native evolution, and removes the Palatini projective quartet cohomologically.",
       "program": "qg",
       "domains": [
@@ -694,18 +698,20 @@ window.ILC_DATA={
         "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-quantum-gauge-structure-self-consistent-einstein-scalar-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-quantum-gauge-structure-self-consistent-einstein-scalar-sector.pdf",
-      "conceptDoi": "10.5281/zenodo.22859435"
+      "pdf": "https://zenodo.org/api/records/23429368/files/Quantum%20Gauge%20Structure%20of%20a%20Self-Consistent%20Einstein%20Scalar%20Sector%20v2.0.pdf/content",
+      "conceptDoi": "10.5281/zenodo.22859435",
+      "version": "2.0",
+      "pdfSha256": "061c89f75928f836439498d38692b4f4c0a4a131516bafe1a71f11e26d11cfa7"
     },
     {
       "id": "sqg5",
-      "date": "2026-09-19",
+      "date": "2026-10-15",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 5,
       "title": "A Classical Batalin–Vilkovisky Master Action for a Vacuum-Relative Einstein–Scalar Sector",
       "subtitle": "Palatini gauge symmetry, local-functional closure, and Fock compatibility",
-      "doi": "10.5281/zenodo.22846743",
+      "doi": "10.5281/zenodo.23404955",
       "summary": "Paper V constructs an intrinsic classical Batalin–Vilkovisky master action for Einstein gravity coupled to a real scalar with independent Palatini connection, diffeomorphism and projective gauge symmetries. The symmetric-projective local-functional master satisfies the classical master equation and generates a square-zero differential on the specified polynomial jet algebra, including antifield-dependent functionals. On Paper IV's nonlinear spherical branch, reduction identifies the same Fock Hamiltonian, closed operator domain, strong unitary evolution, boundary charge, and vacuum-relative source. The construction proves compatibility of the classical gauge law with the specified quantum observables; BV properness, a Fock-space BRST operator, and reference-independent renormalized stress are not established.",
       "program": "qg",
       "domains": [
@@ -718,8 +724,10 @@ window.ILC_DATA={
         "relational-organization"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-master-action-ownership-self-consistent-einstein-scalar-quantum-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-master-action-ownership-self-consistent-einstein-scalar-quantum-sector.pdf",
-      "conceptDoi": "10.5281/zenodo.22846742"
+      "pdf": "https://zenodo.org/api/records/23404955/files/A%20Classical%20BV%20Master%20Action%20for%20a%20Vacuum%20Relative%20Einstein%20Scalar%20Sector.pdf/content",
+      "conceptDoi": "10.5281/zenodo.22846742",
+      "version": "2.0",
+      "pdfSha256": "349ad191f9dba71a950d1c9e031b058a76fb72e78206b71cc49e3c97c5781e81"
     },
     {
       "id": "sqg4",
