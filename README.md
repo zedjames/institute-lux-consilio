@@ -90,3 +90,16 @@ CI enforces output consistency with the canonical research catalog, and the
 Zenodo sync regenerates all derived HTML. New programs or papers must pass
 static-content verification before deployment. This avoids the recurring
 stale-browser-JavaScript disappearance of recently published research.
+
+## DOI-family validation and partial progress
+
+Kinetic Paper I is published as version DOI `10.5281/zenodo.23405912`
+under concept DOI `10.5281/zenodo.23405911`. The earlier two IDs
+had been reversed in the catalog and prevented every Zenodo sync run.
+Use `python3 scripts/audit-zenodo-families.py` for read-only Zenodo
+metadata inspection. On scheduled or push runs, a failed publication family
+is quarantined while other independently checksum-verified updates proceed.
+The Action reports failure after committing any valid changes, never claiming
+that a skipped manuscript was successfully updated. PR preflights stay strict.
+Each paper's displayed version is derived from published Zenodo metadata
+when that field is present, not from filename guesses.
