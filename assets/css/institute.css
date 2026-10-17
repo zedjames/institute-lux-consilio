@@ -226,3 +226,26 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
 .concordia-paths a{display:flex;flex-direction:column;gap:10px;background:#143a4e;border:1px solid #477180;padding:24px;color:#fff;text-decoration:none;min-height:158px}.concordia-paths a:hover{border-color:#c7b48a}.concordia-paths small{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:#b9d8e1}.concordia-paths strong{font-size:24px;line-height:1.2}.concordia-paths span{color:#c8dce2;font-size:14px}.concordia-paths--light a{background:#f1f6f6;color:var(--ink);border-color:var(--edge)}.concordia-paths--light small,.concordia-paths--light span{color:var(--body)}
 .concordia-three,.concordia-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin:24px 0}.concordia-stages{grid-template-columns:repeat(5,minmax(0,1fr))}.concordia-stages article{padding:17px 13px;border-top:3px solid var(--blue);border-left:1px solid var(--edge);border-right:1px solid var(--edge);border-bottom:1px solid var(--edge);background:#fff}.concordia-stages span{font-weight:800;color:var(--blue);font-size:12px}.concordia-stages h3{font-size:17px}.concordia-stages p,.concordia-three p{font-size:14px;line-height:1.65}
 @media(max-width:950px){.concordia-metrics,.concordia-stages{grid-template-columns:repeat(2,minmax(0,1fr))}.concordia-three{grid-template-columns:1fr}}@media(max-width:650px){.concordia-metrics,.concordia-panels,.concordia-paths,.concordia-stages{grid-template-columns:1fr}}
+
+/* Concordia: alpha program and native, JavaScript-independent Buttondown signup. */
+.concordia-alpha-pill{display:inline-block;margin:18px 0 0;padding:9px 13px;border:1px solid rgba(220,234,239,.5);background:rgba(255,255,255,.09);font-size:14px;line-height:1.55;color:#eff4f5}
+.concordia-subscribe{background:#edf4f5;border-top:1px solid var(--edge);border-bottom:1px solid var(--edge)}
+.concordia-subscribe-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(22px,4vw,64px);align-items:start}
+.concordia-subscribe-intro{min-width:0}.concordia-subscribe-intro h2{font-size:clamp(25px,3vw,38px);max-width:570px;margin:12px 0 16px;line-height:1.17}
+.concordia-subscribe-intro>p{max-width:590px;line-height:1.75}
+.concordia-alpha-detail{margin-top:24px;padding:19px 23px;border-left:3px solid #b99b67;background:#fff;line-height:1.65}
+.concordia-alpha-detail strong{display:block;font-size:15px;margin-bottom:6px}.concordia-alpha-detail span{font-size:14px;color:var(--body)}.concordia-alpha-detail span strong{display:inline;font-size:inherit}
+.concordia-subscribe-card{background:#fff;border:1px solid var(--edge);padding:clamp(19px,3vw,32px);min-width:0}
+.concordia-subscribe-card h3{margin:0 0 22px;font-size:20px;line-height:1.3}
+.concordia-subscribe-form>label:first-child{font-weight:700;font-size:13px;display:block;margin-bottom:10px}
+.concordia-form-row{display:flex;gap:9px;align-items:stretch}
+.concordia-form-row input[type=email]{flex:1 1 auto;min-width:0;min-height:46px;padding:10px 13px;border:1px solid #aebec7;background:#fff;color:var(--ink);font:inherit;font-size:15px;border-radius:3px}
+.concordia-form-row input[type=email]:focus-visible,.concordia-beta-option input:focus-visible{outline:3px solid #61a4c5;outline-offset:2px}
+.concordia-form-row button{min-height:46px;white-space:nowrap;padding:10px 18px;background:var(--blue-deep);color:#fff;border:1px solid var(--blue-deep);border-radius:3px;font:inherit;font-size:14px;font-weight:750;cursor:pointer}
+.concordia-form-row button:hover{background:#155c7c}.concordia-form-row button:focus-visible{outline:3px solid #61a4c5;outline-offset:2px}
+.concordia-beta-option{display:flex;align-items:flex-start;gap:11px;margin:21px 0 0;line-height:1.5;font-size:14px;font-weight:600;cursor:pointer}
+.concordia-beta-option input{flex:0 0 auto;width:18px;height:18px;margin:2px 0 0;accent-color:var(--blue)}
+.concordia-subscribe-detail{font-size:12px;line-height:1.7;color:var(--body);margin-top:21px}
+.concordia-subscribe-fallback{font-size:13px;margin:15px 0 0}
+@media(max-width:950px){.concordia-subscribe-grid{grid-template-columns:1fr}}
+@media(max-width:530px){.concordia-form-row{flex-direction:column}.concordia-form-row button{width:100%}}

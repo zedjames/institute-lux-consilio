@@ -118,3 +118,22 @@ supplied SHA-256 and scoped lexical totals are published without suggesting
 that a full Lean build was run. Update the inventory page, formal-program
 metrics and snapshot JSON together; the integrity checker asserts the exact
 current snapshot figures. Future reports may extend historical snapshots.
+
+## Concordia updates and beta interest (Buttondown)
+
+Concordia overview and Runtime include one static HTML Buttondown signup
+form each, posting directly to `https://buttondown.com/api/emails/embed-subscribe/institute-lux-consilio`.
+The form works without JavaScript and sends no subscriber data to the GitHub
+Pages repository. The optional checkbox submits the `sub_tag_1wmcktkxm58d2sdeaj4z1cfvkf`
+tag, so newsletter updates can remain distinct from a request to be considered
+for the planned closed beta. **Buttondown tagging requires a plan with tags
+(Basic or above)**; activate/verify the feature in Buttondown before relying
+on segmented beta-interest subscriptions. Do not advertise beta admission as
+automatic. The hosted newsletter URL is
+`https://buttondown.com/institute-lux-consilio` and is linked as fallback.
+
+Runtime status copy is Alpha Testing with a **target**, not guarantee, of an
+invitation-only closed beta in Q2 2027. Changing the schedule means updating
+both forms, the Runtime status line and the Collaboration reference together;
+`scripts/verify-site.mjs` guards the shared assertions.
+The beta-interest tag ID is pinned to the existing Buttondown tag, not its potentially changing display name. An embedded `name=tag` checkbox sends that ID only when opted in; ensure the created tag is the intended beta-interest tag before publishing.
