@@ -83,9 +83,16 @@ for(const id of ["sqg3","sqg4","sqg5","sqg6","sqg7"])assert.equal(qgPapersV2.fin
 assert.ok(data.programDetails.qg.narrative.some(s=>s.startsWith("Paper VIII v2.0 classifies")),"Paper VIII v2.0 scientific result is missing");
 assert.ok(data.programDetails.qg.editionNotice.includes("Paper VIII v2.0 is completed"),"Paper VIII edition provenance boundary missing");
 const qgVIII=qgPapersV2.find(p=>p.id==="sqg8");
-assert.equal(qgVIII?.doi,"10.5281/zenodo.22939782","Do not fabricate an unverified VIII DOI");
-assert.ok(!qgVIII?.version,"Do not assert Zenodo VIII v2 before validation");
-assert.ok(fs.readFileSync("research-relational-quantum-gravity.html","utf8").includes("Paper VIII v2.0 is completed"),"Edition notice must be visible in static HTML");
+const isVIIIv2=Number.parseFloat(String(qgVIII?.version||"").replace(/^v/,""))>=2;
+assert.equal(qgVIII?.conceptDoi,"10.5281/zenodo.22939781","Paper VIII DOI family must remain stable");
+if(isVIIIv2){
+ assert.notEqual(qgVIII?.doi,"10.5281/zenodo.22939782","New Paper VIII version requires a distinct verified DOI");
+ assert.ok(qgVIII?.pdf?.startsWith("https://zenodo.org/"),"Published VIII v2 must link a verified Zenodo PDF");
+}else{
+ assert.equal(qgVIII?.doi,"10.5281/zenodo.22939782","Do not fabricate an unverified Paper VIII version DOI");
+}
+assert.equal(fs.readFileSync("research-relational-quantum-gravity.html","utf8").includes("Paper VIII v2.0 is completed"),!isVIIIv2,
+ "The manuscript/deposit notice must disappear automatically when Zenodo v2 is verified");
 const qgSequenceDescription="A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction.";
 const qgSeries=data.series.find(x=>x.id==="schwarzschild-qg");
 assert.ok(qgSeries?.description.startsWith(qgSequenceDescription),

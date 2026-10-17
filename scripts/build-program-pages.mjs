@@ -20,7 +20,9 @@ function renderProgramContent(d,id){
  const methods=(detail.methods||[]).map(t=>`<li>${htmlSafe(t)}</li>`).join("");
  const paperCard=(x,i)=>`<article class="paper-stage"><div class="paper-stage__num">${String(x.order||i+1).padStart(2,"0")}</div><div><p class="meta">${htmlSafe(usDate(x.date))}${x.version?" · v"+htmlSafe(String(x.version).replace(/^v/,"")):""}</p><h3><a href="${htmlSafe(pubPath(x))}">${htmlSafe(x.title)}</a></h3>${x.subtitle?`<p class="paper-stage__subtitle">${htmlSafe(x.subtitle)}</p>`:""}<p>${htmlSafe(x.summary)}</p><div class="archive-item__links"><a href="${htmlSafe(pubPath(x))}">ILC record →</a>${x.doi?`<a href="https://doi.org/${encodeURIComponent(x.doi)}" target="_blank" rel="noopener">DOI ↗</a>`:""}</div></div></article>`;
  const status=series.length?htmlSafe(series.map(s=>s.status).join(" · ")):"The public sequence is maintained as part of ILC’s scholarly archive.";
- const editionNote=detail.editionNotice?`<p class="series-edition-note">${htmlSafe(detail.editionNotice)}</p>`:"";
+ const paperVIII=id==="qg"?pubs.find(x=>x.id==="sqg8"):null;
+ const hasVIIIv2=paperVIII && Number.parseFloat(String(paperVIII.version||"").replace(/^v/,""))>=2;
+ const editionNote=detail.editionNotice && !hasVIIIv2?`<p class="series-edition-note">${htmlSafe(detail.editionNotice)}</p>`:"";
  return `
 <section class="program-hero"><div class="wrap"><p class="eyebrow">${htmlSafe(p.domain)} · ${htmlSafe(p.status)}</p><h1>${htmlSafe(p.title)}</h1><p class="lede">${htmlSafe(p.desc)}</p>${detail.question?`<div class="program-question"><span>Guiding question</span><p>${htmlSafe(detail.question)}</p></div>`:""}</div></section>
 <section class="section"><div class="wrap program-layout"><article class="program-main"><p class="eyebrow">Program</p><h2>Research trajectory</h2><div class="program-narrative">${narrative||"<p>Public research program details are being consolidated.</p>"}</div></article><aside class="program-aside"><p class="eyebrow">Methods</p><ul class="method-list">${methods}</ul></aside></div></section>
