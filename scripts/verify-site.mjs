@@ -32,7 +32,7 @@ for(const [where,html] of [["overview",concordia],["runtime",runtimeHtml]]){
  assert.equal((html.match(/<form class="concordia-subscribe-form"/g)||[]).length,1,"Must publish one native HTML signup on "+where);
  assert.ok(html.includes('action="'+buttondownEndpoint+'" method="post"'),"Buttondown native POST endpoint missing on "+where);
  assert.ok(html.includes('type="email" name="email"')&&html.includes('name="embed" value="1"'),"Buttondown email/form fields missing on "+where);
- assert.ok(html.includes('type="checkbox"')&&html.includes('name="tag" value="concordia-runtime-beta-interest"'),"Explicit opt-in tagging missing on "+where);
+ assert.ok(html.includes('type="checkbox"')&&html.includes('name="tag" value="sub_tag_1wmcktkxm58d2sdeaj4z1cfvkf"'),"Explicit opt-in tagging missing on "+where);
  assert.ok(html.includes('href="https://buttondown.com/'+signupName+'"'),"Hosted signup fallback missing on "+where);
  assert.ok(html.includes("Q2 2027")&&html.includes("Alpha Testing"),"Alpha/beta timing not stated on "+where);
  assert.ok(html.includes("not a beta invitation"),"Do not imply beta inclusion on "+where);

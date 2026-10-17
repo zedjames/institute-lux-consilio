@@ -124,7 +124,7 @@ current snapshot figures. Future reports may extend historical snapshots.
 Concordia overview and Runtime include one static HTML Buttondown signup
 form each, posting directly to `https://buttondown.com/api/emails/embed-subscribe/institute-lux-consilio`.
 The form works without JavaScript and sends no subscriber data to the GitHub
-Pages repository. The optional checkbox submits the `concordia-runtime-beta-interest`
+Pages repository. The optional checkbox submits the `sub_tag_1wmcktkxm58d2sdeaj4z1cfvkf`
 tag, so newsletter updates can remain distinct from a request to be considered
 for the planned closed beta. **Buttondown tagging requires a plan with tags
 (Basic or above)**; activate/verify the feature in Buttondown before relying
@@ -136,3 +136,4 @@ Runtime status copy is Alpha Testing with a **target**, not guarantee, of an
 invitation-only closed beta in Q2 2027. Changing the schedule means updating
 both forms, the Runtime status line and the Collaboration reference together;
 `scripts/verify-site.mjs` guards the shared assertions.
+The beta-interest tag ID is pinned to the existing Buttondown tag, not its potentially changing display name. An embedded `name=tag` checkbox sends that ID only when opted in; ensure the created tag is the intended beta-interest tag before publishing.
