@@ -1353,7 +1353,7 @@ window.ILC_DATA={
       "question": "How can machine-checked structure be connected to scientific authority while keeping source presence, compilation, theorem truth, interpretation, and empirical realization legible?",
       "narrative": [
         "ILC's formal scientific infrastructure supports multiple research programs with a large Lean 4 corpus, machine-checkable definitions and proofs, targeted verification surfaces, computational research, and explicit provenance records.",
-        "The latest public source-level inventory measured 16,911 tracked Lean files, 3,982,645 physical source lines, 113,630 theorem declarations, and 4,713 lemma declarations at a clean main-branch snapshot on September 24, 2026. Those counts record source presence; compilation targets and theorem authority are tracked as separate verification layers.",
+        "The October 17, 2026 recursive source inventory records 44,808 tracked Lean files, 18,935,259 physical lines, 888,350 lexical theorem declarations and 4,718 lexical lemma declarations at a clean Lean-tree snapshot. This is a source census rather than a compilation or proof-verification result; no full Lean build was run for the inventory. Formal World admission, theorem authority and scientific validity are separately qualified.",
         "The verification framework tracks source presence, import reachability, canonical theorem-surface membership, successful compilation of specified targets, mathematical establishment under stated hypotheses and axioms, scientific interpretation, and empirical realization as distinct layers of the scientific record."
       ],
       "frontier": "The institute's formal-methods frontier is publication-grade traceability: connecting papers to exact theorem statements, dependency surfaces, build targets, axiom audits, frozen artifacts, and cryptographic provenance, with public verification material designed for independent review and focused on the scientific surface under examination.",
@@ -1371,14 +1371,19 @@ window.ILC_DATA={
       ],
       "artifacts": [
         {
-          "label": "Public Lean source inventory",
-          "href": "https://fieldfluxbiosystems.com/lean-inventory.html",
+          "label": "Concordia Formal World — Scientific asset inventory",
+          "href": "concordia/inventory/",
           "kind": "Inventory"
         },
         {
-          "label": "Formal verification statement",
-          "href": "https://fieldfluxbiosystems.com/verification.txt",
-          "kind": "Verification"
+          "label": "Concordia Runtime — Governed scientific inquiry",
+          "href": "concordia/runtime/",
+          "kind": "Research environment"
+        },
+        {
+          "label": "Concordia Research Disclosure (ILC-CRD-001)",
+          "href": "concordia/",
+          "kind": "Institutional disclosure"
         },
         {
           "label": "Relational Morphogenesis verification repository",
@@ -1388,20 +1393,20 @@ window.ILC_DATA={
       ],
       "metrics": [
         {
-          "value": "16,911",
+          "value": "44,808",
           "label": "Tracked Lean files"
         },
         {
-          "value": "3,982,645",
+          "value": "18,935,259",
           "label": "Physical source lines"
         },
         {
-          "value": "118,343",
-          "label": "Theorem + lemma declarations"
+          "value": "893,068",
+          "label": "Lexical theorem + lemma declarations"
         },
         {
-          "value": "2026-09-24",
-          "label": "Measured snapshot"
+          "value": "2026-10-17",
+          "label": "Recorded inventory snapshot"
         }
       ]
     },

@@ -103,3 +103,18 @@ The Action reports failure after committing any valid changes, never claiming
 that a skipped manuscript was successfully updated. PR preflights stay strict.
 Each paper's displayed version is derived from published Zenodo metadata
 when that field is present, not from filename guesses.
+
+## Concordia institutional research environment
+
+The canonical Concordia institutional disclosure remains `/concordia/` and
+identifies ILC-CRD-001. It links to the dated source inventory at
+`/concordia/inventory/` and the governed research Runtime explanation at
+`/concordia/runtime/`. Both are static HTML and indexable without JavaScript.
+
+The public inventory source is the sanitized snapshot metadata JSON at
+`concordia/inventory/snapshots.json`. The private 2026-10-17 Markdown source
+record was not copied into the public repository. Its Git source pin, user-
+supplied SHA-256 and scoped lexical totals are published without suggesting
+that a full Lean build was run. Update the inventory page, formal-program
+metrics and snapshot JSON together; the integrity checker asserts the exact
+current snapshot figures. Future reports may extend historical snapshots.
