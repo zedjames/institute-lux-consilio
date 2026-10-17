@@ -137,3 +137,17 @@ invitation-only closed beta in Q2 2027. Changing the schedule means updating
 both forms, the Runtime status line and the Collaboration reference together;
 `scripts/verify-site.mjs` guards the shared assertions.
 The beta-interest tag ID is pinned to the existing Buttondown tag, not its potentially changing display name. An embedded `name=tag` checkbox sends that ID only when opted in; ensure the created tag is the intended beta-interest tag before publishing.
+
+## Canonical institutional navigation
+
+The primary header is authored once by `scripts/build-main-navigation.mjs`:
+**Research · Publications · Concordia · Methods · About · Collaborate**.
+This is pre-rendered HTML rather than dynamically injected browser JavaScript.
+Run `node scripts/build-main-navigation.mjs` after adding a new public page;
+publication records also import this renderer in their static page generator.
+The Zenodo regeneration workflow runs the canonical navigation builder after
+all other page generators, and the scholarly integrity check asserts identical
+navigation and correct `aria-current` state on every published HTML page,
+including all three nested Concordia routes. The historical unpublished
+preview file is intentionally excluded. The six-link header collapses to the
+existing accessible menu on smaller screens.

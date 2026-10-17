@@ -9,6 +9,17 @@ for(const key of ["programs","themes","questions","publications","notes"]){
  assert.deepStrictEqual(catalog[key],data[key],key+" differs from canonical ILC source");
 }
 const root=new Set(fs.readdirSync("."));
+const navPages=[...root].filter(p=>p.endsWith(".html")&&!p.startsWith("preview-")).sort()
+ .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html"]);
+for(const page of navPages){
+ const html=fs.readFileSync(page,"utf8");
+ const matches=[...html.matchAll(/<nav class="nav__links site-nav" aria-label="Main navigation">[\s\S]*?<\/nav>/g)];
+ assert.equal(matches.length,1,"Missing unique static site navigation in "+page);
+ assert.equal(matches[0][0],renderMainNav(activeForPage(page)),"Inconsistent site navigation / active section in "+page);
+}
+assert.ok(renderMainNav("concordia").includes('<a href="publications.html">Publications</a><a href="concordia/" aria-current="page">Concordia</a>'),
+ "Concordia navigation must follow Publications and indicate its section.");
+
 const concordia=fs.readFileSync("concordia/index.html","utf8");
 const inv=JSON.parse(fs.readFileSync("concordia/inventory/snapshots.json","utf8"));
 const snap=inv.snapshots.at(-1);
@@ -114,6 +125,7 @@ for(const p of data.publications){
 
 import crypto from "node:crypto";
 import {makeArtifacts, publicationPath} from "./build-publication-pages.mjs";
+import {activeForPage,renderMainNav} from "./build-main-navigation.mjs";
 import {renderProgramContent, PROGRAM_IDS} from "./build-program-pages.mjs";
 import {programCards, recentCards, healthFullText, questionCards, themeCards} from "./build-site-discovery.mjs";
 const pdfManifest=JSON.parse(fs.readFileSync("research/site-pdfs.json","utf8"));
