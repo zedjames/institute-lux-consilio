@@ -635,14 +635,14 @@
     },
     {
       "id": "sqg8",
-      "date": "2026-09-24",
+      "date": "2026-10-17",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 8,
       "title": "Relational Quantum Gravity in a Self-Consistent Einstein–Scalar Sector",
       "subtitle": "Independent physical and gravitational quotients, nonlinear Einstein realization, and intrinsic gauge rigidity.",
-      "doi": "10.5281/zenodo.22939782",
-      "summary": "Physical-owner and gravity-visible equivalence relations are globally incomparable, while intrinsic curvature data rigidly recover the source parameter and represented geometry class on the fixed nonlinear family.",
+      "doi": "10.5281/zenodo.23442807",
+      "summary": "Paper VIII v2.0 classifies the represented physical quantum class, full tensor source and metric up to physical isometry. The quantum-class and tensor-source quotients are globally incomparable, while fixed-anchor full-source and physical-isometry equivalence agree. Source-germ reconstruction, curvature rigidity and an exact isometry classification coexist with a fixed-geometry bounded-stress obstruction.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -654,8 +654,10 @@
         "representation-reconstruction"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-relational-quantum-gravity-self-consistent-einstein-scalar-sector.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-relational-quantum-gravity-self-consistent-einstein-scalar-sector.pdf",
-      "conceptDoi": "10.5281/zenodo.22939781"
+      "pdf": "https://zenodo.org/api/records/23442807/files/Relational%20Quantum%20Gravity%20in%20a%20Self-Consistent%20Einstein%20Scalar%20Sector%20v2.0.pdf/content",
+      "conceptDoi": "10.5281/zenodo.22939781",
+      "version": "2.0",
+      "pdfSha256": "399e608a4e7d676a6a9b71c0d67f5fa02e153fe96fffd59468c8989a4d943a4a"
     },
     {
       "id": "sqg7",
@@ -665,7 +667,7 @@
       "order": 7,
       "title": "Finite Palatini BV Regulators for a Self-Consistent Einstein–Scalar Sector",
       "doi": "10.5281/zenodo.23441095",
-      "summary": "Finite BV regulators support genuine quantum complexes, while Gaussian refinement exposes a first-shell Hamiltonian descent obstruction and canonically leaves a greatest compatible restricted physical complex.",
+      "summary": "Genuine finite BV regulators have explicit projected-master and Gaussian-shell obstructions. Exact kernels retain a restricted physical complex, original Fock evolution and Einstein source, without a renormalized quantum-master solution.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -691,7 +693,7 @@
       "title": "Quantum Gauge Structure of a Self-Consistent Einstein–Scalar Sector",
       "subtitle": "Operator BRST representation, a retracted physical Hilbert sector, and projective gauge reduction.",
       "doi": "10.5281/zenodo.23429368",
-      "summary": "A square-zero BRST charge realizes physical cohomology, embeds the native scalar Fock space faithfully, descends native evolution, and removes the Palatini projective quartet cohomologically.",
+      "summary": "A closed-graph square-zero BRST charge preserves an isometrically represented native scalar Fock summand, its Hamiltonian domain, unitary dynamics and sourced Einstein branch; the full degree-zero cohomology need not be exhausted.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -743,7 +745,7 @@
       "title": "A Self-Consistent Einstein–Scalar Quantum Sector",
       "subtitle": "Friedrichs selection, native quantum evolution, and exact gravitational matter.",
       "doi": "10.5281/zenodo.23381184",
-      "summary": "The changed nonlinear geometry owns its own selected quantum law, Fock/Cauchy dynamics, conserved stress, and exact quantum-source branches satisfying Einstein's equation on that same geometry.",
+      "summary": "An exact positive-coupling, same-geometry Einstein–scalar quantum sector owns its nonlinear metric, two-ended Friedrichs law, signed-mode Fock evolution and conserved sources from completed coherent and one-occupation states, with matched original-data Schwarzschild continuity.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -758,7 +760,8 @@
       "legacyPage": "https://fieldfluxbiosystems.com/research-self-consistent-einstein-scalar-quantum-sector.html",
       "pdf": "https://zenodo.org/api/records/23381184/files/A%20Self%20Consistent%20Einstein%20Scalar%20Quantum%20Sector%20v2.0.pdf/content",
       "conceptDoi": "10.5281/zenodo.22834304",
-      "pdfSha256": "2f75be0e6438a73c730c7658f86d60f62eeafc9ff84a401cde0c442a11afb2b5"
+      "pdfSha256": "2f75be0e6438a73c730c7658f86d60f62eeafc9ff84a401cde0c442a11afb2b5",
+      "version": "2.0"
     },
     {
       "id": "sqg3",
@@ -769,7 +772,7 @@
       "title": "Friedrichs-Selected Schwarzschild Quantum Matter",
       "subtitle": "A machine-checked real-scalar stress theory, physical-clock coherence, and regulator-independent sources.",
       "doi": "10.5281/zenodo.23376915",
-      "summary": "The selected scalar is promoted from quantum dynamics to local spacetime matter through action-derived stress, coherent Fock moments, regulator removal, and explicit quantum sources.",
+      "summary": "Action-derived real-scalar local stress includes normal and anomalous quantum contributions, vacuum-relative subtraction, physical-clock covariance, a regular all-mode source domain and explicitly nonzero anomalous-stress witnesses.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -784,7 +787,8 @@
       "legacyPage": "https://fieldfluxbiosystems.com/research-friedrichs-selected-schwarzschild-quantum-matter.html",
       "pdf": "https://zenodo.org/api/records/23376915/files/Friedrichs%20Selected%20Schwarzchild%20Quantum%20Matter%20v2.0.pdf/content",
       "conceptDoi": "10.5281/zenodo.22819416",
-      "pdfSha256": "e86e6de413a27c65050a724be2b08f2fc0325264b351e6366ae7719f7234bf32"
+      "pdfSha256": "e86e6de413a27c65050a724be2b08f2fc0325264b351e6366ae7719f7234bf32",
+      "version": "2.0"
     },
     {
       "id": "gps3",
