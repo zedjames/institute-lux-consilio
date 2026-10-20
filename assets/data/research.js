@@ -502,7 +502,9 @@ window.ILC_DATA={
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-physical-celestial-clebsch-gordan-transform-radiative-bose-pair.html",
       "conceptDoi": "10.5281/zenodo.23108945",
-      "version": "2.0"
+      "version": "2.0",
+      "pdf": "https://zenodo.org/api/records/23509540/files/The%20Physical%20Celestial%20Clebsch-Gordan%20Transform%20of%20a%20Radiative%20Bose%20Pair%20v2.0.pdf/content",
+      "pdfSha256": "25be3ac96af3b7ec7a9f1ea0048d7ebe8c08b4c0b72d77a123fecf7f0575ce75"
     },
     {
       "id": "bio2",
@@ -978,7 +980,9 @@ window.ILC_DATA={
         "formalization-proof",
         "invariance-identity"
       ],
-      "version": "1.0"
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23512025/files/Coupled%20Kinetic%20Processes%20and%20the%20Maintenance%20of%20Biological%20Function%20v1.0.pdf/content",
+      "pdfSha256": "5db48f0a04a49657501ec1b324c7df33717b80d6c236f7f5490bbaf3f7562f4f"
     }
   ],
   "notes": [
