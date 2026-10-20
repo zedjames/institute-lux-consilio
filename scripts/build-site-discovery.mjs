@@ -72,7 +72,7 @@ function updateDiscovery(data,home,research){
  for(const [o,n] of [
   ["assets/data/research.js?v=20261011-hfd6","assets/data/research.js?v=20261016-kinetic"],
   ["assets/js/site.js?v=20261008-rmmo3","assets/js/site.js?v=20261016-discovery"]])newResearch=newResearch.replace(o,n);
- if(!newHome.includes("Kinetic Organization and Biological Function")||!newHome.includes("From Kinetic Movement to Biological Function")||!newResearch.includes("Kinetic Organization and Biological Function"))throw Error("Site discovery build missing new series/paper");
+ if(!newHome.includes("Kinetic Organization and Biological Function")||!newResearch.includes("Kinetic Organization and Biological Function")||!["kobf1","kobf2"].every(id=>data.publications.some(p=>p.id===id)))throw Error("Site discovery build missing Kinetic series or published paper catalog");
  return {home:newHome,research:newResearch};
 }
 export {programCards,recentCards,healthFullText,questionCards,themeCards,updateDiscovery};

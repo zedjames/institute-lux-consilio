@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-10-16",
+  "updated": "2026-10-20",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -486,14 +486,14 @@
     },
     {
       "id": "gps6",
-      "date": "2026-10-02",
+      "date": "2026-10-20",
       "seriesId": "gaussian",
       "series": "Gaussian Physical States and Celestial Representation",
       "order": 6,
       "title": "The Physical Celestial Clebsch–Gordan Transform of a Radiative Bose Pair",
-      "subtitle": "Direct-integral completion, source-Weyl geometry, and all-label uniqueness on the intrinsic physical source range.",
-      "doi": "10.5281/zenodo.23108946",
-      "summary": "On the intrinsic physical source range, the cross-ratio and full signed principal-series transforms are injective for every physical external-label pair, while the retained bounded completion remains conditional on one explicit uniform core estimate.",
+      "subtitle": "Intrinsic source faithfulness, direct-integral geometry, and the obstruction to uniform Hilbert completion",
+      "doi": "10.5281/zenodo.23509540",
+      "summary": "The normalized physical celestial Clebsch–Gordan kernel distinguishes intrinsic radiative Bose-pair sources: the cross-ratio shape transform and full signed principal-series continuation are injective for every physical external-label pair. An explicit bounded-energy opposite-helicity source sequence nevertheless has divergent retained-output norm, disproving the uniform source-Hilbert completion estimate and excluding a common decomposable almost-everywhere bound. The source-Weyl geometry survives, but the retained coefficient requires a closed linear-relation/quotient treatment; closability, a natural replacement operator domain, and retained-sector injectivity remain open. The construction is noninteracting and establishes no scattering amplitude.",
       "program": "celestial",
       "domains": [
         "Mathematical physics",
@@ -506,8 +506,10 @@
         "formalization-proof"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-physical-celestial-clebsch-gordan-transform-radiative-bose-pair.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-physical-celestial-clebsch-gordan-transform-radiative-bose-pair.pdf",
-      "conceptDoi": "10.5281/zenodo.23108945"
+      "conceptDoi": "10.5281/zenodo.23108945",
+      "version": "2.0",
+      "pdf": "https://zenodo.org/api/records/23509540/files/The%20Physical%20Celestial%20Clebsch-Gordan%20Transform%20of%20a%20Radiative%20Bose%20Pair%20v2.0.pdf/content",
+      "pdfSha256": "25be3ac96af3b7ec7a9f1ea0048d7ebe8c08b4c0b72d77a123fecf7f0575ce75"
     },
     {
       "id": "bio2",
@@ -957,6 +959,35 @@
       "legacyPage": "https://fieldfluxbiosystems.com/research-continuation-anatomy-navier-stokes.html",
       "pdf": "https://fieldfluxbiosystems.com/research-continuation-anatomy-navier-stokes.pdf",
       "conceptDoi": "10.5281/zenodo.22737977"
+    },
+    {
+      "id": "kobf2",
+      "date": "2026-10-20",
+      "seriesId": "kinetic-organization-biological-function",
+      "series": "Kinetic Organization and Biological Function",
+      "order": 2,
+      "title": "Coupled Kinetic Processes and the Maintenance of Biological Function",
+      "subtitle": "Shared finite reservoirs, sustained nonequilibrium circulation, and selected charge-band persistence",
+      "doi": "10.5281/zenodo.23512025",
+      "conceptDoi": "10.5281/zenodo.23512024",
+      "summary": "Extending Paper I from prescribed boundaries to dynamically shared resources, this study constructs a momentum-bearing four-phase ion transporter coupled to passive return, finite ionic and chemical inventories, and an inventory-derived membrane capacitor. Exact pathwise conservation and separate caloric/free-energy accounts support a complete hybrid generator with unique invariant kinetic laws. Closed chemistry gives reversible Gibbs equilibrium; maintained regeneration produces strictly positive pump–leak circulation and entropy production even with zero mean charge drift. Source-wide bounds distinguish stationary charge-band occupancy, exit flux, uninterrupted survival and extreme-charge recovery. These results describe a synthetic, explicitly normalized source rather than a calibrated physiological homeostasis threshold.",
+      "program": "kinetic",
+      "domains": [
+        "Biophysics",
+        "Mathematical biology",
+        "Stochastic thermodynamics",
+        "Mechanochemical transport",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "formalization-proof",
+        "invariance-identity"
+      ],
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23512025/files/Coupled%20Kinetic%20Processes%20and%20the%20Maintenance%20of%20Biological%20Function%20v1.0.pdf/content",
+      "pdfSha256": "5db48f0a04a49657501ec1b324c7df33717b80d6c236f7f5490bbaf3f7562f4f"
     }
   ],
   "notes": [

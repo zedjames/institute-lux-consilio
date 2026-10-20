@@ -75,9 +75,9 @@ window.ILC_DATA={
       "id": "kinetic-organization-biological-function",
       "label": "Kinetic Organization and Biological Function",
       "domain": "Biophysics and mathematical biology",
-      "description": "A research series examining how mechanochemical dynamics, material transport, energy exchange, and observation determine specific biological functions.",
-      "status": "New series; Paper I published",
-      "publishedCount": 1
+      "description": "A research series investigating how momentum-bearing mechanochemical movement, material exchange, shared finite resources, energetic transformations, and partial observation support or limit selected biological functions.",
+      "status": "Active series; Papers I–II published",
+      "publishedCount": 2
     },
     {
       "id": "schwarzschild-qg",
@@ -91,7 +91,7 @@ window.ILC_DATA={
       "id": "gaussian",
       "label": "Gaussian Physical States and Celestial Representation",
       "domain": "Mathematical physics",
-      "description": "An ongoing series studying how physical information survives successive changes of mathematical representation, from constrained Gaussian gauge-field states through radiative multiparticle structure and source-aware celestial decomposition to the stability of action-generated gravitational response.",
+      "description": "A research series tracing physical information through constrained Gaussian states, radiative Bose-pair response and celestial principal-series representations, including source faithfulness, the failure of retained Hilbert completion, and conditional finite-regulator gravitational response.",
       "status": "Ongoing series; Papers I–VII published; further work in development",
       "publishedCount": 7
     },
@@ -481,14 +481,14 @@ window.ILC_DATA={
     },
     {
       "id": "gps6",
-      "date": "2026-10-02",
+      "date": "2026-10-20",
       "seriesId": "gaussian",
       "series": "Gaussian Physical States and Celestial Representation",
       "order": 6,
       "title": "The Physical Celestial Clebsch–Gordan Transform of a Radiative Bose Pair",
-      "subtitle": "Direct-integral completion, source-Weyl geometry, and all-label uniqueness on the intrinsic physical source range.",
-      "doi": "10.5281/zenodo.23108946",
-      "summary": "On the intrinsic physical source range, the cross-ratio and full signed principal-series transforms are injective for every physical external-label pair, while the retained bounded completion remains conditional on one explicit uniform core estimate.",
+      "subtitle": "Intrinsic source faithfulness, direct-integral geometry, and the obstruction to uniform Hilbert completion",
+      "doi": "10.5281/zenodo.23509540",
+      "summary": "The normalized physical celestial Clebsch–Gordan kernel distinguishes intrinsic radiative Bose-pair sources: the cross-ratio shape transform and full signed principal-series continuation are injective for every physical external-label pair. An explicit bounded-energy opposite-helicity source sequence nevertheless has divergent retained-output norm, disproving the uniform source-Hilbert completion estimate and excluding a common decomposable almost-everywhere bound. The source-Weyl geometry survives, but the retained coefficient requires a closed linear-relation/quotient treatment; closability, a natural replacement operator domain, and retained-sector injectivity remain open. The construction is noninteracting and establishes no scattering amplitude.",
       "program": "celestial",
       "domains": [
         "Mathematical physics",
@@ -501,8 +501,10 @@ window.ILC_DATA={
         "formalization-proof"
       ],
       "legacyPage": "https://fieldfluxbiosystems.com/research-physical-celestial-clebsch-gordan-transform-radiative-bose-pair.html",
-      "pdf": "https://fieldfluxbiosystems.com/research-physical-celestial-clebsch-gordan-transform-radiative-bose-pair.pdf",
-      "conceptDoi": "10.5281/zenodo.23108945"
+      "conceptDoi": "10.5281/zenodo.23108945",
+      "version": "2.0",
+      "pdf": "https://zenodo.org/api/records/23509540/files/The%20Physical%20Celestial%20Clebsch-Gordan%20Transform%20of%20a%20Radiative%20Bose%20Pair%20v2.0.pdf/content",
+      "pdfSha256": "25be3ac96af3b7ec7a9f1ea0048d7ebe8c08b4c0b72d77a123fecf7f0575ce75"
     },
     {
       "id": "bio2",
@@ -952,6 +954,35 @@ window.ILC_DATA={
       "legacyPage": "https://fieldfluxbiosystems.com/research-continuation-anatomy-navier-stokes.html",
       "pdf": "https://fieldfluxbiosystems.com/research-continuation-anatomy-navier-stokes.pdf",
       "conceptDoi": "10.5281/zenodo.22737977"
+    },
+    {
+      "id": "kobf2",
+      "date": "2026-10-20",
+      "seriesId": "kinetic-organization-biological-function",
+      "series": "Kinetic Organization and Biological Function",
+      "order": 2,
+      "title": "Coupled Kinetic Processes and the Maintenance of Biological Function",
+      "subtitle": "Shared finite reservoirs, sustained nonequilibrium circulation, and selected charge-band persistence",
+      "doi": "10.5281/zenodo.23512025",
+      "conceptDoi": "10.5281/zenodo.23512024",
+      "summary": "Extending Paper I from prescribed boundaries to dynamically shared resources, this study constructs a momentum-bearing four-phase ion transporter coupled to passive return, finite ionic and chemical inventories, and an inventory-derived membrane capacitor. Exact pathwise conservation and separate caloric/free-energy accounts support a complete hybrid generator with unique invariant kinetic laws. Closed chemistry gives reversible Gibbs equilibrium; maintained regeneration produces strictly positive pump–leak circulation and entropy production even with zero mean charge drift. Source-wide bounds distinguish stationary charge-band occupancy, exit flux, uninterrupted survival and extreme-charge recovery. These results describe a synthetic, explicitly normalized source rather than a calibrated physiological homeostasis threshold.",
+      "program": "kinetic",
+      "domains": [
+        "Biophysics",
+        "Mathematical biology",
+        "Stochastic thermodynamics",
+        "Mechanochemical transport",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "formalization-proof",
+        "invariance-identity"
+      ],
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23512025/files/Coupled%20Kinetic%20Processes%20and%20the%20Maintenance%20of%20Biological%20Function%20v1.0.pdf/content",
+      "pdfSha256": "5db48f0a04a49657501ec1b324c7df33717b80d6c236f7f5490bbaf3f7562f4f"
     }
   ],
   "notes": [
@@ -1235,22 +1266,22 @@ window.ILC_DATA={
       "narrative": [
         "The sequence follows physical information through successive changes of representation. It begins with an exactly solvable Gaussian sector under a closed matter-current constraint, where nonzero current-physical states require an all-orders completion even though a finite two-particle seed can remain faithful to the Gaussian modulus.",
         "The middle of the series separates representation-theoretic existence from physical particle semantics, then follows the same pair geometry into radiative response. Different response maps retain different parts of the original provenance, making information compression an explicit theorem of the construction.",
-        "Papers V and VI carry the radiative Bose pair into celestial principal-series data. Fixed-source Weyl isometry fails; the correct structure is source-aware. On the intrinsic physical source range, the cross-ratio and full signed principal-series transforms are injective for every physical external-label pair, while the retained bounded completion remains explicitly conditional on one uniform core estimate.",
-        "Paper VII introduces the first finite-regulator action-generated gravitational cubic on the completed physical Bose carrier. Under the explicit retained-completion estimate, the map remains injective, yet the cubic lies outside the retained adjoint range: exact state determination and stable recovery of this interaction response require different analytic control. Equivalent retained Hilbert norms preserve the obstruction, and arbitrarily accurate retained-data approximations require diverging reconstruction norms."
+        "Papers V and VI develop the source-aware celestial Clebsch–Gordan representation of the radiative Bose pair. Fixed-source Weyl isometry fails, but the intrinsic cross-ratio and full signed transforms are source-faithful at every physical external-label pair. Paper VI v2.0 settles the previously conditional retained Hilbert-completion question negatively: bounded-energy physical sources can have divergent retained output, and no common almost-everywhere decomposable bound holds in the declared norms.",
+        "Paper VII studies a finite-regulator action-generated gravitational cubic and its retained adjoint-range obstruction under an explicit uniform-completion hypothesis. Paper VI v2.0 now disproves that hypothesis for the original physical retained transform; accordingly the conditional Paper VII completion conclusions must not be presented as unconditional assertions for the actual source. The unresolved task is a physically appropriate operator domain or changed topology supporting interaction observables."
       ],
-      "frontier": "Paper VII identifies a concrete interaction-topology obstruction for the selected finite-regulator physical packet bank. The next tasks are to resolve the retained-completion estimate, identify a physically natural topology controlling gravitational response, test persistence under smoothing and regulator refinement, and build the additional constructions required for continuum scattering, celestial OPEs, soft currents, and Ward identities.",
+      "frontier": "Paper VI v2.0 identifies a sharp analytic boundary: intrinsic source identifiability holds, while uniform bounded completion on the original retained Hilbert carrier fails. The next task is to resolve closability, the vertical ambiguity fiber and a suitable domain/topology for gravitational interaction observables. Paper VII’s conditional interaction estimates require reinterpretation under that replacement, followed by tests of smoothing, regulator limits, scattering, celestial OPEs and soft/Ward structures.",
       "methods": [
-        "Machine-checked constrained gauge-field models",
-        "Completed Bose/Fock and Poincaré representation",
-        "Variational and radiative response maps",
-        "Source-aware Weyl reduction and principal-series transforms",
-        "Finite-regulator action cubic, Hilbert adjoint range, and logarithmic translation regularity"
+        "Machine-checked constrained gauge-field and Bose/Fock constructions",
+        "Source-aware celestial Weyl and physical principal-series transforms",
+        "Cross-ratio coarea, shifted Mellin factorization and Fourier uniqueness",
+        "Explicit physical counterexamples to uniform retained Hilbert completion",
+        "Closed linear relations, graph domains and conditional action-generated cubic analysis"
       ],
       "openQuestions": [
-        "Can the uniform core estimate required for bounded retained completion be proved?",
-        "What intrinsic celestial interaction topology controls the gravitational cubic response?",
-        "Does the finite-cell face-jump obstruction persist under smoothing and regulator refinement?",
-        "How do the finite-regulator covariance diagnostics extend to scattering, OPE, soft structure, and Ward identities?"
+        "Is the retained physical Clebsch–Gordan relation closable on a natural dense source domain, or does its vertical ambiguity fiber remain nontrivial?",
+        "Can an interaction-compatible graph norm, quotient or other changed carrier retain physically meaningful state and cubic-response observations?",
+        "Which conditional results from Paper VII persist for the corrected domain or topology after failure of the original uniform-completion bound?",
+        "How do finite-regulator and source-aware results extend to interacting scattering, OPEs, soft currents and Ward identities?"
       ],
       "artifacts": [
         {
@@ -1264,8 +1295,13 @@ window.ILC_DATA={
           "kind": "DOI"
         },
         {
-          "label": "Formal verification scope",
-          "href": "https://fieldfluxbiosystems.com/verification.txt",
+          "label": "Paper VI v2.0 — version DOI",
+          "href": "https://doi.org/10.5281/zenodo.23509540",
+          "kind": "DOI"
+        },
+        {
+          "label": "Concordia verification disclosure",
+          "href": "concordia/",
           "kind": "Verification"
         }
       ]
@@ -1421,30 +1457,36 @@ window.ILC_DATA={
       ]
     },
     "kinetic": {
-      "question": "Which organized microscopic movements determine a specified physical function, and what can an observer recover from incomplete histories?",
+      "question": "How can coupled kinetic mechanisms sharing finite matter and energy sustain a selected function, and what can partial observation establish about that operation?",
       "narrative": [
-        "Paper I constructs a reversible four-phase, single-ion mechanochemical transporter. Continuous position and momentum interact with conformational changes and maintained chemical reservoirs. Signed outside-edge events measure accomplished ion redistribution, while source caloric labels and mechanical energy distinguish functional transport from energy exchange.",
-        "The coupled generator gives an explicit obstruction to universal phase-only Markov dynamics. Two microscopic preparations can share the visible conformation and zero momentum while having different immediate outside-release rates. Complete observed phase histories instead determine a conditional measure over hidden mechanics, whose survival and event updates support source-faithful future prediction.",
-        "For the nominal positive-coupling model, robust rate envelopes and backward recursion give certified finite-window bounds on expected signed release and the probability of outside-edge events. A separate rare-history calculation encloses the conditional mean of initial energy. The four-phase graph yields an exact caloric path identity, while negative examples identify the information lost under coarse observation and some numerical approximations. The established Chinese medical distinction between qìjī (organized movement) and qìhuà (functional transformation) motivates the question without assigning a modern microscopic identity to qi."
+        "Paper I develops a momentum-bearing mechanochemical transporter under prescribed chemical and ionic boundaries. Its hybrid Langevin–jump generator separates hidden mechanical state from recorded phase and ionic transport histories, with function-specific inference and finite-window certification.",
+        "Paper II lets active ion transport, passive return and external regeneration act on the same finite ionic and chemical inventories and an inventory-derived membrane capacitor. Every event changes the conditions and feasible rates of later events. Exact conservation, local detailed balance and separate free-energy and caloric accounts specify the complete coupled source.",
+        "For the actual nonzero-coupling kinetic model, the second paper establishes unique invariant laws. Closed chemistry has a reversible Gibbs equilibrium with zero signed stationary currents, while maintained regeneration sustains strictly positive pump–leak circulation and entropy production despite zero net mean charge accumulation. Certified intervals quantify charge-band occupancy, exit flux and two stationary survival horizons; a passive-assisted theorem controls recovery from extreme charge.",
+        "These selected functionals differ from permanent confinement: almost every trajectory eventually leaves the designated charge band. The band and all energetic parameters belong to a synthetic, not experimentally calibrated, model. The distinction between qìjī (organized movement) and qìhuà (transformation) supplies historical motivation rather than a physical identity claim about qi."
       ],
-      "frontier": "The completed first paper gives source-specific physical and mathematical results for a synthetic transporter. Future studies may examine interacting transport networks, pump–leak feedback, finite reservoirs, collective functional stability, and stronger history-dependent observation while maintaining explicit conservation and verification requirements. These remain research directions rather than results of Paper I.",
+      "frontier": "Papers I–II establish function-specific observation, exact coupled finite-resource kinetics, unique invariant laws and sustained nonequilibrium circulation for a declared synthetic source. The next questions concern multiple interacting transporters, the sufficiency of experimentally accessible observations, replacement of synthetic labels with calibrated physical mechanisms, and extension of the preservation/recovery criteria without assuming indefinite confinement.",
       "methods": [
-        "Hybrid Langevin–jump mechanochemical generators and physically marked transport events",
-        "Conditional mechanical laws under complete and partial phase observation",
-        "Stochastic energetic and exact finite-cycle caloric identities",
-        "Verified finite-graph algebra and source-specific numerical enclosures",
-        "Deterministic outward rational arithmetic and explicit rare-history bounds"
+        "Hybrid momentum-bearing Langevin–jump transport and shared guarded finite inventories",
+        "Local detailed balance, pathwise conservation, electrical/capacitive and caloric accounting",
+        "Kinetic Lyapunov bounds, accessible graph minorization and Harris invariant laws",
+        "Path-reversal entropy production and stationary pump–leak current identities",
+        "Outward interval rate envelopes, killed survival recursions and bounded stationary correctors"
       ],
       "openQuestions": [
-        "Which observation variables are sufficient to recover a declared function without reconstructing the complete microscopic state?",
-        "How do coupled mechanical configurations prevent autonomous coarse evolution, and which history-conditioned states restore predictive sufficiency?",
-        "When do rate-envelope certificates remain informative under stronger coupling, additional hidden cycles, or changing reservoirs?",
-        "How can collective transport regulation be derived from shared conservation laws in experimentally characterized systems?"
+        "How do shared finite reservoirs organize multiple transporters and collective chemical/ionic regulation?",
+        "Which measurements distinguish active circulation and energetic consumption when mean membrane charge drift vanishes?",
+        "Which function-specific occupancy, survival, exit and recovery properties persist under measured protein-specific physical parameters?",
+        "Can experimental observations validate the proposed mechanism-resolved functional and thermodynamic relationships?"
       ],
       "artifacts": [
         {
           "label": "From Kinetic Movement to Biological Function — Paper I",
           "href": "publication-kobf1.html",
+          "kind": "Publication"
+        },
+        {
+          "label": "Coupled Kinetic Processes and the Maintenance of Biological Function — Paper II",
+          "href": "publication-kobf2.html",
           "kind": "Publication"
         }
       ]
