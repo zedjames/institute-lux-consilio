@@ -114,8 +114,8 @@ const kineticSeries=data.series.find(x=>x.id==="kinetic-organization-biological-
 const kineticPaper=data.publications.find(x=>x.id==="kobf1");
 assert.equal(kineticSeries?.publishedCount,2,"Kinetic Papers I–II registration missing");
 const kineticII=data.publications.find(x=>x.id==="kobf2");
-assert.equal(kineticII?.doi,"10.5281/zenodo.23512024","Kinetic Paper II published version DOI mismatch");
-assert.equal(kineticII?.conceptDoi,"10.5281/zenodo.23512025","Kinetic Paper II all-version DOI mismatch");
+assert.equal(kineticII?.doi,"10.5281/zenodo.23512025","Kinetic Paper II published version DOI mismatch");
+assert.equal(kineticII?.conceptDoi,"10.5281/zenodo.23512024","Kinetic Paper II all-version DOI mismatch");
 assert.equal(kineticII?.seriesId,kineticPaper.seriesId);
 assert.equal(kineticII?.order,2);
 assert.ok(data.programDetails.kinetic.narrative.join(" ").includes("Paper II"),"Kinetic Paper II trajectory not updated");
