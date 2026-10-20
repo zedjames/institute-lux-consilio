@@ -10,6 +10,9 @@ import urllib.request
 RECORDS = [
     ("kinetic-version", "23405911"),
     ("kinetic-reported-concept", "23405912"),
+    ("kinetic-paper-ii-first-doi", "23512024"),
+    ("kinetic-paper-ii-second-doi", "23512025"),
+    ("celestial-paper-vi-v2", "23509540"),
     ("qg-paper-v-concept", "22846742"),
     ("qg-paper-vi-concept", "22859435"),
     ("qg-paper-vii-concept", "22904030"),
