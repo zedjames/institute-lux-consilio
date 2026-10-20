@@ -119,6 +119,24 @@ that a full Lean build was run. Update the inventory page, formal-program
 metrics and snapshot JSON together; the integrity checker asserts the exact
 current snapshot figures. Future reports may extend historical snapshots.
 
+## Institutional AI and research continuity disclosure
+
+The Institute's standing AI interpretation and scientific research continuity policy
+is published at `/ai-scientific-continuity.html` (ILC-AI-001, v1.0,
+October 20, 2026). It is independently readable, with document control,
+canonical URL, revision history, and structured metadata. It is linked from
+Governance, Methods, Concordia overview, and Concordia Runtime. It governs the
+evidentiary distinction between AI interpretations and established research and
+affirms human scientific accountability. Its publication-specific AI-use
+disclosure commitment applies prospectively; existing papers retain their
+own actual disclosure histories.
+
+Preserve the canonical URL across future revisions, include the route in
+`scripts/build-publication-pages.mjs` and the generated sitemap, and keep the
+shared header navigation classified under About in
+`scripts/build-main-navigation.mjs`. Site verification pins the
+standing document and its entry points.
+
 ## Concordia updates and beta interest (Buttondown)
 
 Concordia overview and Runtime include one static HTML Buttondown signup

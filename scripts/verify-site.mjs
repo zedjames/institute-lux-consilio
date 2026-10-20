@@ -20,6 +20,15 @@ for(const page of navPages){
 assert.ok(renderMainNav("concordia").includes('<a href="publications.html">Publications</a><a href="concordia/" aria-current="page">Concordia</a>'),
  "Concordia navigation must follow Publications and indicate its section.");
 
+const aiDoc=fs.readFileSync("ai-scientific-continuity.html","utf8");
+assert.ok(aiDoc.includes('href="https://instituteluxconsilio.org/ai-scientific-continuity.html"'),"AI disclosure missing canonical URL");
+assert.ok(aiDoc.includes('"identifier":"ILC-AI-001"')&&aiDoc.includes('"version":"1.0"'),"AI disclosure version/identifier metadata missing");
+for(const phrase of ["Scientific history and negative results","Scientific accountability remains with the human authors","Earlier publications retain their publication-specific disclosure histories","AI-generated explanations, reconstructions, and extensions","underlying materials remains subject","October 20, 2026"]){
+ assert.ok(aiDoc.includes(phrase),"AI disclosure missing substantive or control language: "+phrase);
+}
+for(const linked of ["governance.html","methods.html","concordia/index.html","concordia/runtime/index.html"]){
+ assert.ok(fs.readFileSync(linked,"utf8").includes('href="ai-scientific-continuity.html"'),"Institutional AI disclosure link missing from "+linked);
+}
 const concordia=fs.readFileSync("concordia/index.html","utf8");
 const inv=JSON.parse(fs.readFileSync("concordia/inventory/snapshots.json","utf8"));
 const snap=inv.snapshots.at(-1);
