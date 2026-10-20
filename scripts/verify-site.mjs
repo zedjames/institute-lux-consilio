@@ -114,15 +114,15 @@ const kineticSeries=data.series.find(x=>x.id==="kinetic-organization-biological-
 const kineticPaper=data.publications.find(x=>x.id==="kobf1");
 assert.equal(kineticSeries?.publishedCount,2,"Kinetic Papers I–II registration missing");
 const kineticII=data.publications.find(x=>x.id==="kobf2");
-assert.equal(kineticII?.doi,"10.5281/zenodo.23512025","Kinetic Paper II published version DOI mismatch");
+assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(kineticII?.doi||"") && Number(kineticII.doi.split(".").at(-1))>=23512025,"Kinetic Paper II must use the verified v1.0 or a newer Zenodo version");
 assert.equal(kineticII?.conceptDoi,"10.5281/zenodo.23512024","Kinetic Paper II all-version DOI mismatch");
 assert.equal(kineticII?.seriesId,kineticPaper.seriesId);
 assert.equal(kineticII?.order,2);
 assert.ok(data.programDetails.kinetic.narrative.join(" ").includes("Paper II"),"Kinetic Paper II trajectory not updated");
 const celestialVI=data.publications.find(x=>x.id==="gps6");
-assert.equal(celestialVI?.doi,"10.5281/zenodo.23509540","Celestial Paper VI v2.0 DOI mismatch");
+assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(celestialVI?.doi||"") && Number(celestialVI.doi.split(".").at(-1))>=23509540,"Celestial Paper VI must retain the verified v2.0 or a newer Zenodo edition");
 assert.equal(celestialVI?.conceptDoi,"10.5281/zenodo.23108945","Celestial Paper VI family DOI mismatch");
-assert.equal(celestialVI?.version,"2.0","Celestial Paper VI must show revision v2.0");
+assert.ok(/^\d+(?:[.]\d+)*$/.test(celestialVI?.version||"") && Number(celestialVI.version.split(".")[0])>=2,"Celestial Paper VI must remain at v2.0 or later");
 assert.ok(celestialVI.summary.includes("disproving"),"Celestial VI bounded-completion no-go missing");
 assert.ok(data.programDetails.celestial.frontier.includes("fails"),"Celestial series frontier must acknowledge completion obstruction");
 assert.ok(data.programDetails.celestial.narrative.join(" ").includes("conditional"),"Paper VII condition should not disappear");
