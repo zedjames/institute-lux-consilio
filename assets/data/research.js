@@ -961,8 +961,8 @@ window.ILC_DATA={
       "order": 2,
       "title": "Coupled Kinetic Processes and the Maintenance of Biological Function",
       "subtitle": "Shared finite reservoirs, sustained nonequilibrium circulation, and selected charge-band persistence",
-      "doi": "10.5281/zenodo.23512024",
-      "conceptDoi": "10.5281/zenodo.23512025",
+      "doi": "10.5281/zenodo.23512025",
+      "conceptDoi": "10.5281/zenodo.23512024",
       "summary": "Extending Paper I from prescribed boundaries to dynamically shared resources, this study constructs a momentum-bearing four-phase ion transporter coupled to passive return, finite ionic and chemical inventories, and an inventory-derived membrane capacitor. Exact pathwise conservation and separate caloric/free-energy accounts support a complete hybrid generator with unique invariant kinetic laws. Closed chemistry gives reversible Gibbs equilibrium; maintained regeneration produces strictly positive pump–leak circulation and entropy production even with zero mean charge drift. Source-wide bounds distinguish stationary charge-band occupancy, exit flux, uninterrupted survival and extreme-charge recovery. These results describe a synthetic, explicitly normalized source rather than a calibrated physiological homeostasis threshold.",
       "program": "kinetic",
       "domains": [
