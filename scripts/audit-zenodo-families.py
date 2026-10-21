@@ -13,11 +13,20 @@ RECORDS = [
     ("kinetic-paper-ii-first-doi", "23512024"),
     ("kinetic-paper-ii-second-doi", "23512025"),
     ("celestial-paper-vi-v2", "23509540"),
+    ("celestial-paper-vii-v2", "23545548"),
+    ("kinetic-paper-iii-cited-doi", "23547074"),
+    ("kinetic-paper-iii-neighbor", "23547073"),
     ("qg-paper-v-concept", "22846742"),
     ("qg-paper-vi-concept", "22859435"),
     ("qg-paper-vii-concept", "22904030"),
     ("qg-paper-viii-concept", "22939781"),
 ]
+# Check the immutable first-published versions against author-supplied PDFs.
+# Existing record IDs are immutable, so later versions remain independently discoverable.
+PDF_MD5 = {
+    "23545548": "a2ead8799eb8454121aa091034aa32a1",
+    "23547074": "2cc2e7a07e3d554d9fbcde8030ba7463",
+}
 for label, record_id in RECORDS:
     u = "https://zenodo.org/api/records/" + record_id
     doc = None
@@ -34,6 +43,14 @@ for label, record_id in RECORDS:
     if doc is None:
         print("DIAGNOSTIC_UNAVAILABLE",label,record_id,flush=True)
         continue
+    if record_id in PDF_MD5:
+        pdfs=[p for p in doc.get("files", []) if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")]
+        if len(pdfs)!=1:
+            raise ValueError("Expected one Zenodo PDF for "+label)
+        actual=str(pdfs[0].get("checksum") or "").removeprefix("md5:").lower()
+        if actual != PDF_MD5[record_id]:
+            raise ValueError("Zenodo PDF checksum differs from author-uploaded file: "+label+" "+actual)
+        print("ZENODO_PDF_MD5_MATCH",label,actual,flush=True)
     meta=doc.get("metadata") or {}
     result=dict(label=label,queried_record=record_id,record_id=doc.get("id"),
         doi=doc.get("doi"),conceptdoi=doc.get("conceptdoi"),conceptrecid=doc.get("conceptrecid"),

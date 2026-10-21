@@ -75,9 +75,9 @@ window.ILC_DATA={
       "id": "kinetic-organization-biological-function",
       "label": "Kinetic Organization and Biological Function",
       "domain": "Biophysics and mathematical biology",
-      "description": "A research series investigating how momentum-bearing mechanochemical movement, material exchange, shared finite resources, energetic transformations, and partial observation support or limit selected biological functions.",
-      "status": "Active series; Papers I–II published",
-      "publishedCount": 2
+      "description": "A mathematical and physical investigation of individual mechanochemical motion, shared finite-resource transport, and collective kinetic function, with explicit energetic accounting, limits of coarse observation, and controlled finite-time predictions.",
+      "status": "Active series; Papers I–III published",
+      "publishedCount": 3
     },
     {
       "id": "schwarzschild-qg",
@@ -91,8 +91,8 @@ window.ILC_DATA={
       "id": "gaussian",
       "label": "Gaussian Physical States and Celestial Representation",
       "domain": "Mathematical physics",
-      "description": "A research series tracing physical information through constrained Gaussian states, radiative Bose-pair response and celestial principal-series representations, including source faithfulness, the failure of retained Hilbert completion, and conditional finite-regulator gravitational response.",
-      "status": "Ongoing series; Papers I–VII published; further work in development",
+      "description": "A foundational study of the physical states, symmetries, operator domains and limits required to justify celestial representations, from Gaussian field states to a faithful but unbounded retained Bose-pair coefficient and an action-generated gravitational response discontinuous in its inherited celestial Hilbert norm.",
+      "status": "Papers I–VII published; Paper VIII in preparation",
       "publishedCount": 7
     },
     {
@@ -311,15 +311,15 @@ window.ILC_DATA={
     },
     {
       "id": "gps7",
-      "date": "2026-10-08",
+      "date": "2026-10-21",
       "seriesId": "gaussian",
       "series": "Gaussian Physical States and Celestial Representation",
       "order": 7,
       "title": "Dynamical Ill-Conditioning of a Faithful Celestial Representation",
       "subtitle": "Cubic gravitational response and an adjoint-range obstruction in the physical radiative Bose sector",
-      "doi": "10.5281/zenodo.23246260",
+      "doi": "10.5281/zenodo.23545548",
       "conceptDoi": "10.5281/zenodo.23246259",
-      "summary": "Under an explicit uniform completion estimate, the completed retained celestial representation determines physical radiative Bose states uniquely, while the Riesz vector of a nonzero finite-regulator gravitational cubic lies outside the retained transform's adjoint range. The exact-range cubic is discontinuous in the retained Hilbert norm; it can be approximated on the physical unit ball only with necessarily diverging retained-space reconstruction norms.",
+      "summary": "For the original normalized retained celestial coefficient on a dense admissible physical Bose-pair domain, this paper proves injectivity and exact algebraic determination of a nonzero finite-regulator, complete-action gravitational cubic. The cubic's Riesz vector is outside the true partial Hilbert adjoint range, so no finite bound controls its response by the inherited retained-output Hilbert norm. Explicit admitted states have gravitational response equal to one while their retained coefficients tend to zero. The theorem does not assume the bounded completion disproved in Paper VI; forward closability, global adjoint-domain density and continuum scattering remain unresolved.",
       "program": "celestial",
       "domains": [
         "Mathematical physics",
@@ -333,8 +333,9 @@ window.ILC_DATA={
         "invariance-identity",
         "formalization-proof"
       ],
-      "pdf": "https://zenodo.org/api/records/23246260/files/Dynamical%20Ill-Conditioning%20of%20a%20Faithful%20Celestial%20Representation.pdf/content",
-      "pdfSha256": "2ab03b01f84b82c11b3d5abf594df48576d9396315c2bd3ca1f501ad5c27f57c"
+      "version": "2.0",
+      "pdf": "https://zenodo.org/api/records/23545548/files/Dynamical%20Ill-Conditioning%20of%20a%20Faithful%20Celestial%20Representation%20v2.0.pdf/content",
+      "pdfSha256": "0d37b3e201236466e8b275eb32d944c67308952040011f62530562447eae3239"
     },
     {
       "id": "bio4",
@@ -983,6 +984,35 @@ window.ILC_DATA={
       "version": "1.0",
       "pdf": "https://zenodo.org/api/records/23512025/files/Coupled%20Kinetic%20Processes%20and%20the%20Maintenance%20of%20Biological%20Function%20v1.0.pdf/content",
       "pdfSha256": "5db48f0a04a49657501ec1b324c7df33717b80d6c236f7f5490bbaf3f7562f4f"
+    },
+    {
+      "id": "kobf3",
+      "date": "2026-10-21",
+      "seriesId": "kinetic-organization-biological-function",
+      "series": "Kinetic Organization and Biological Function",
+      "order": 3,
+      "title": "From Individual Transport to Collective Kinetic Function",
+      "subtitle": "Nonlinear population limits, kinetic observability, and collective functional prediction",
+      "doi": "10.5281/zenodo.23547074",
+      "summary": "A synthetic population of momentum-bearing transporters interacts through shared finite ionic and chemical reservoirs and an inventory-derived membrane capacitor. The exact diffusion–jump source yields a well-posed nonlinear kinetic–chemical–electrical population law, finite-time convergence under specified positive-resource preparations, conditional propagation of chaos and selected Gaussian fluctuations with shared-event covariations. Explicit equal-energy preparations demonstrate distinct currents despite matching concentrations, phase fractions and energy, and the loaded-current observable has no invariant finite polynomial-momentum generator dictionary. A residual-controlled maintained-source projection certifies 1.8932060449 < χ(0.05) < 1.9954528308 < χ(0) = 2 for a prescribed matched preparation; thermodynamic, entropy and charge-band results retain their declared conditions. These results are finite-time and synthetic, not calibrated claims about a biological population.",
+      "program": "kinetic",
+      "domains": [
+        "Biophysics",
+        "Mathematical biology",
+        "Nonlinear kinetic theory",
+        "Stochastic processes",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "invariance-identity",
+        "formalization-proof"
+      ],
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23547074/files/From%20Individual%20Transport%20to%20Collective%20Kinetic%20Function%20v1.0.pdf/content",
+      "pdfSha256": "28e6a7d7fa19a20ca3af00b196729f36b700c26dc88da4c11f0bd5cb39ef450d",
+      "conceptDoi": "10.5281/zenodo.23547073"
     }
   ],
   "notes": [
@@ -1267,32 +1297,27 @@ window.ILC_DATA={
         "The sequence follows physical information through successive changes of representation. It begins with an exactly solvable Gaussian sector under a closed matter-current constraint, where nonzero current-physical states require an all-orders completion even though a finite two-particle seed can remain faithful to the Gaussian modulus.",
         "The middle of the series separates representation-theoretic existence from physical particle semantics, then follows the same pair geometry into radiative response. Different response maps retain different parts of the original provenance, making information compression an explicit theorem of the construction.",
         "Papers V and VI develop the source-aware celestial Clebsch–Gordan representation of the radiative Bose pair. Fixed-source Weyl isometry fails, but the intrinsic cross-ratio and full signed transforms are source-faithful at every physical external-label pair. Paper VI v2.0 settles the previously conditional retained Hilbert-completion question negatively: bounded-energy physical sources can have divergent retained output, and no common almost-everywhere decomposable bound holds in the declared norms.",
-        "Paper VII studies a finite-regulator action-generated gravitational cubic and its retained adjoint-range obstruction under an explicit uniform-completion hypothesis. Paper VI v2.0 now disproves that hypothesis for the original physical retained transform; accordingly the conditional Paper VII completion conclusions must not be presented as unconditional assertions for the actual source. The unresolved task is a physically appropriate operator domain or changed topology supporting interaction observables."
+        "Paper VII v2.0 uses the original normalized retained coefficient on a dense physical Bose-pair domain, without restoring the bounded completion disproved by Paper VI. For a finite-regulator cubic generated by ordered third variations of the complete action, it establishes exact source identification and an exact-range gravitational response, but proves that response is discontinuous in the retained-output Hilbert norm: the cubic Riesz vector lies outside the true partial-adjoint range. A response-normalized family has fixed nonzero cubic output and vanishing retained coefficient."
       ],
-      "frontier": "Paper VI v2.0 identifies a sharp analytic boundary: intrinsic source identifiability holds, while uniform bounded completion on the original retained Hilbert carrier fails. The next task is to resolve closability, the vertical ambiguity fiber and a suitable domain/topology for gravitational interaction observables. Paper VII’s conditional interaction estimates require reinterpretation under that replacement, followed by tests of smoothing, regulator limits, scattering, celestial OPEs and soft/Ward structures.",
+      "frontier": "Papers VI–VII have resolved two distinct questions for the specified physical construction: the original retained coefficient does not admit uniform bounded Hilbert completion, and on an explicit dense admissible domain its action-generated gravitational response is not continuous in the inherited retained-output norm. Paper VIII is being drafted to examine the next scientific boundary; it is not yet part of the published sequence. Further questions include closability, a physically natural interaction-compatible domain or topology, covariance under refinement and smoothing, and the independent steps needed for scattering, celestial OPEs, soft currents and Ward identities.",
       "methods": [
-        "Machine-checked constrained gauge-field and Bose/Fock constructions",
-        "Source-aware celestial Weyl and physical principal-series transforms",
-        "Cross-ratio coarea, shifted Mellin factorization and Fourier uniqueness",
-        "Explicit physical counterexamples to uniform retained Hilbert completion",
-        "Closed linear relations, graph domains and conditional action-generated cubic analysis"
+        "Machine-checked constrained gauge-field models and completed radiative Bose/Fock carriers",
+        "Physical source-aware Weyl and celestial Clebsch–Gordan representation",
+        "Intrinsic source identification and explicit failure of bounded retained completion",
+        "Dense literal operator domains, genuine partial Hilbert adjoints and uncut two-branch synthesis",
+        "Complete-action finite-regulator gravitational cubic and analytic source-face obstruction"
       ],
       "openQuestions": [
-        "Is the retained physical Clebsch–Gordan relation closable on a natural dense source domain, or does its vertical ambiguity fiber remain nontrivial?",
-        "Can an interaction-compatible graph norm, quotient or other changed carrier retain physically meaningful state and cubic-response observations?",
-        "Which conditional results from Paper VII persist for the corrected domain or topology after failure of the original uniform-completion bound?",
-        "How do finite-regulator and source-aware results extend to interacting scattering, OPEs, soft currents and Ward identities?"
+        "Is the original retained celestial coefficient closable on a natural dense physical source domain, and what can be established about its adjoint-domain density?",
+        "Which physically meaningful interaction-compatible topology controls the action-generated gravitational cubic while preserving required symmetries?",
+        "How do the finite-regulator face-jump and dynamical discontinuity behave under smoothing and regulator refinement?",
+        "What further asymptotic and factorization constructions justify scattering, celestial OPEs, soft currents and interacting Ward identities?"
       ],
       "artifacts": [
         {
           "label": "Gaussian / Celestial publication sequence",
           "href": "program.html?id=celestial",
           "kind": "Series"
-        },
-        {
-          "label": "Paper VII DOI record",
-          "href": "https://doi.org/10.5281/zenodo.23246259",
-          "kind": "DOI"
         },
         {
           "label": "Paper VI v2.0 — version DOI",
@@ -1303,8 +1328,22 @@ window.ILC_DATA={
           "label": "Concordia verification disclosure",
           "href": "concordia/",
           "kind": "Verification"
+        },
+        {
+          "label": "Paper VII v2.0 — published DOI",
+          "href": "https://doi.org/10.5281/zenodo.23545548",
+          "kind": "DOI"
         }
-      ]
+      ],
+      "foundation": {
+        "title": "The physical foundations of celestial representation",
+        "paragraphs": [
+          "A celestial representation acquires physical authority through the construction and verification of the states, operators, domains, symmetries, and limits on which it depends. The mathematical existence of celestial amplitudes or conformal structures does not, by itself, establish a complete interacting gravitational correspondence. Conclusions dependent upon assumptions not yet verified for a particular physical realization remain conditional; when such assumptions fail, the corresponding conclusions require independent justification.",
+          "The Gaussian Physical States and Celestial Representation program investigates these requirements through explicit mathematical constructions, formal verification, and physical counterexamples. Its results identify structures that remain faithful under changes of representation, assumptions that fail for specified physical carriers, and analytic obstructions encountered when gravitational observables enter the construction.",
+          "The guiding question extends beyond how gravitational processes might be expressed in celestial variables. It asks what must be established about the underlying physical states and their mathematical representations for that description to be physically justified.",
+          "This investigation provides a foundational perspective complementary to amplitude-based celestial holography, while respecting the validity and scope of results established within their own perturbative, distributional, and mathematical frameworks."
+        ]
+      }
     },
     "qg": {
       "question": "When a quantum matter sector backreacts on geometry, which structures genuinely belong to the same physical owner, and which equivalences are visible only to gravity?",
@@ -1457,26 +1496,26 @@ window.ILC_DATA={
       ]
     },
     "kinetic": {
-      "question": "How can coupled kinetic mechanisms sharing finite matter and energy sustain a selected function, and what can partial observation establish about that operation?",
+      "question": "How does mechanochemical transport generate selected function through shared resources, and which kinetic information survives the passage from individual processes to collective dynamics?",
       "narrative": [
-        "Paper I develops a momentum-bearing mechanochemical transporter under prescribed chemical and ionic boundaries. Its hybrid Langevin–jump generator separates hidden mechanical state from recorded phase and ionic transport histories, with function-specific inference and finite-window certification.",
-        "Paper II lets active ion transport, passive return and external regeneration act on the same finite ionic and chemical inventories and an inventory-derived membrane capacitor. Every event changes the conditions and feasible rates of later events. Exact conservation, local detailed balance and separate free-energy and caloric accounts specify the complete coupled source.",
-        "For the actual nonzero-coupling kinetic model, the second paper establishes unique invariant laws. Closed chemistry has a reversible Gibbs equilibrium with zero signed stationary currents, while maintained regeneration sustains strictly positive pump–leak circulation and entropy production despite zero net mean charge accumulation. Certified intervals quantify charge-band occupancy, exit flux and two stationary survival horizons; a passive-assisted theorem controls recovery from extreme charge.",
-        "These selected functionals differ from permanent confinement: almost every trajectory eventually leaves the designated charge band. The band and all energetic parameters belong to a synthetic, not experimentally calibrated, model. The distinction between qìjī (organized movement) and qìhuà (transformation) supplies historical motivation rather than a physical identity claim about qi."
+        "Paper I establishes a reversible momentum-bearing mechanochemical transporter under prescribed chemical and ionic boundaries. Its hybrid physical generator identifies information lost under coarse phase/energy observation and gives certified function-specific transport and caloric results.",
+        "Paper II couples active transport, passive ionic return, chemical regeneration, finite shared inventories and membrane charge. A full kinetic invariant analysis distinguishes closed reversible Gibbs equilibrium from maintained nonequilibrium circulation with positive entropy production and zero mean net charge drift; its selected charge-band functionals quantify persistence, exit and recovery.",
+        "Paper III moves to populations of momentum-bearing transporters interacting through common ionic and chemical resources and an inventory-derived capacitor. Finite-population generators converge on stated positive finite windows to a nonlinear measure-valued kinetic–chemical–electrical law, with conditional propagation of chaos and selected fluctuation laws preserving physical shared-event covariance.",
+        "Collective prediction remains function-specific. Equal-energy population preparations with identical concentrations, phase fractions and voltage can produce different transport currents, and the actual loaded-rate generator has no invariant finite polynomial-momentum dictionary. A maintained Boltzmann-template projection retains an explicit discarded-kinetic residual, giving a reproducible strict finite-time charge-decrease certificate for a specified matched preparation. The series remains based on declared synthetic mechanisms; qìjī and qìhuà provide historical motivation without a claimed microscopic identification."
       ],
-      "frontier": "Papers I–II establish function-specific observation, exact coupled finite-resource kinetics, unique invariant laws and sustained nonequilibrium circulation for a declared synthetic source. The next questions concern multiple interacting transporters, the sufficiency of experimentally accessible observations, replacement of synthetic labels with calibrated physical mechanisms, and extension of the preservation/recovery criteria without assuming indefinite confinement.",
+      "frontier": "Papers I–III now connect source-specific movement, finite-resource maintained circulation and finite-time collective kinetic organization. The next investigations concern stationary nonlinear collective laws, long-time limits and their interchange with population limits, experimentally calibrated mechanisms, and measurement designs that retain function-relevant hidden kinetic structure. The finite-time population results do not by themselves establish population stationary attraction or organism-level health.",
       "methods": [
-        "Hybrid momentum-bearing Langevin–jump transport and shared guarded finite inventories",
-        "Local detailed balance, pathwise conservation, electrical/capacitive and caloric accounting",
-        "Kinetic Lyapunov bounds, accessible graph minorization and Harris invariant laws",
-        "Path-reversal entropy production and stationary pump–leak current identities",
-        "Outward interval rate envelopes, killed survival recursions and bounded stationary correctors"
+        "Momentum-bearing hybrid Langevin–jump transport with guarded shared inventories",
+        "Eventwise conservation, electrical/capacitive work and pathwise energetic accounting",
+        "Invariant kinetic laws and nonequilibrium circulation for the one-transporter source",
+        "Nonlinear empirical-measure limits, kinetic martingales, conditional chaos and selected fluctuations",
+        "Observation-fiber nonclosure and residual-controlled finite-time collective predictions"
       ],
       "openQuestions": [
-        "How do shared finite reservoirs organize multiple transporters and collective chemical/ionic regulation?",
-        "Which measurements distinguish active circulation and energetic consumption when mean membrane charge drift vanishes?",
-        "Which function-specific occupancy, survival, exit and recovery properties persist under measured protein-specific physical parameters?",
-        "Can experimental observations validate the proposed mechanism-resolved functional and thermodynamic relationships?"
+        "Under which conditions does the nonlinear collective kinetic–resource law admit attracting invariant organizations and sustained stationary population currents?",
+        "How do the population limit and long-time limit interact for charge-band persistence and energetic turnover?",
+        "Which source-aware measurements distinguish kinetic preparations with identical coarse concentrations and energy but different functional transport?",
+        "How do the mathematical certificates carry over to experimentally identified mechanisms and calibrated physical populations?"
       ],
       "artifacts": [
         {
@@ -1487,6 +1526,11 @@ window.ILC_DATA={
         {
           "label": "Coupled Kinetic Processes and the Maintenance of Biological Function — Paper II",
           "href": "publication-kobf2.html",
+          "kind": "Publication"
+        },
+        {
+          "label": "From Individual Transport to Collective Kinetic Function — Paper III",
+          "href": "publication-kobf3.html",
           "kind": "Publication"
         }
       ]
