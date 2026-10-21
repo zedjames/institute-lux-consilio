@@ -338,7 +338,9 @@
         "invariance-identity",
         "formalization-proof"
       ],
-      "version": "2.0"
+      "version": "2.0",
+      "pdf": "https://zenodo.org/api/records/23545548/files/Dynamical%20Ill-Conditioning%20of%20a%20Faithful%20Celestial%20Representation%20v2.0.pdf/content",
+      "pdfSha256": "0d37b3e201236466e8b275eb32d944c67308952040011f62530562447eae3239"
     },
     {
       "id": "bio4",
@@ -1012,7 +1014,10 @@
         "invariance-identity",
         "formalization-proof"
       ],
-      "version": "1.0"
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23547074/files/From%20Individual%20Transport%20to%20Collective%20Kinetic%20Function%20v1.0.pdf/content",
+      "pdfSha256": "28e6a7d7fa19a20ca3af00b196729f36b700c26dc88da4c11f0bd5cb39ef450d",
+      "conceptDoi": "10.5281/zenodo.23547073"
     }
   ],
   "notes": [
