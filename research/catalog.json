@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -316,15 +316,15 @@
     },
     {
       "id": "gps7",
-      "date": "2026-10-08",
+      "date": "2026-10-21",
       "seriesId": "gaussian",
       "series": "Gaussian Physical States and Celestial Representation",
       "order": 7,
       "title": "Dynamical Ill-Conditioning of a Faithful Celestial Representation",
       "subtitle": "Cubic gravitational response and an adjoint-range obstruction in the physical radiative Bose sector",
-      "doi": "10.5281/zenodo.23246260",
+      "doi": "10.5281/zenodo.23545548",
       "conceptDoi": "10.5281/zenodo.23246259",
-      "summary": "Under an explicit uniform completion estimate, the completed retained celestial representation determines physical radiative Bose states uniquely, while the Riesz vector of a nonzero finite-regulator gravitational cubic lies outside the retained transform's adjoint range. The exact-range cubic is discontinuous in the retained Hilbert norm; it can be approximated on the physical unit ball only with necessarily diverging retained-space reconstruction norms.",
+      "summary": "For the original normalized retained celestial coefficient on a dense admissible physical Bose-pair domain, this paper proves injectivity and exact algebraic determination of a nonzero finite-regulator, complete-action gravitational cubic. The cubic's Riesz vector is outside the true partial Hilbert adjoint range, so no finite bound controls its response by the inherited retained-output Hilbert norm. Explicit admitted states have gravitational response equal to one while their retained coefficients tend to zero. The theorem does not assume the bounded completion disproved in Paper VI; forward closability, global adjoint-domain density and continuum scattering remain unresolved.",
       "program": "celestial",
       "domains": [
         "Mathematical physics",
@@ -338,8 +338,7 @@
         "invariance-identity",
         "formalization-proof"
       ],
-      "pdf": "https://zenodo.org/api/records/23246260/files/Dynamical%20Ill-Conditioning%20of%20a%20Faithful%20Celestial%20Representation.pdf/content",
-      "pdfSha256": "2ab03b01f84b82c11b3d5abf594df48576d9396315c2bd3ca1f501ad5c27f57c"
+      "version": "2.0"
     },
     {
       "id": "bio4",
@@ -988,6 +987,32 @@
       "version": "1.0",
       "pdf": "https://zenodo.org/api/records/23512025/files/Coupled%20Kinetic%20Processes%20and%20the%20Maintenance%20of%20Biological%20Function%20v1.0.pdf/content",
       "pdfSha256": "5db48f0a04a49657501ec1b324c7df33717b80d6c236f7f5490bbaf3f7562f4f"
+    },
+    {
+      "id": "kobf3",
+      "date": "2026-10-21",
+      "seriesId": "kinetic-organization-biological-function",
+      "series": "Kinetic Organization and Biological Function",
+      "order": 3,
+      "title": "From Individual Transport to Collective Kinetic Function",
+      "subtitle": "Nonlinear population limits, kinetic observability, and collective functional prediction",
+      "doi": "10.5281/zenodo.23547074",
+      "summary": "A synthetic population of momentum-bearing transporters interacts through shared finite ionic and chemical reservoirs and an inventory-derived membrane capacitor. The exact diffusion–jump source yields a well-posed nonlinear kinetic–chemical–electrical population law, finite-time convergence under specified positive-resource preparations, conditional propagation of chaos and selected Gaussian fluctuations with shared-event covariations. Explicit equal-energy preparations demonstrate distinct currents despite matching concentrations, phase fractions and energy, and the loaded-current observable has no invariant finite polynomial-momentum generator dictionary. A residual-controlled maintained-source projection certifies 1.8932060449 < χ(0.05) < 1.9954528308 < χ(0) = 2 for a prescribed matched preparation; thermodynamic, entropy and charge-band results retain their declared conditions. These results are finite-time and synthetic, not calibrated claims about a biological population.",
+      "program": "kinetic",
+      "domains": [
+        "Biophysics",
+        "Mathematical biology",
+        "Nonlinear kinetic theory",
+        "Stochastic processes",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "invariance-identity",
+        "formalization-proof"
+      ],
+      "version": "1.0"
     }
   ],
   "notes": [
