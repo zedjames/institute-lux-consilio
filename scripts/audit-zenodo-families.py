@@ -56,6 +56,18 @@ for label, record_id in RECORDS:
             raise ValueError("Zenodo PDF checksum differs from author-uploaded file: "+label+" "+actual)
         print("ZENODO_PDF_MD5_MATCH",label,actual,flush=True)
     meta=doc.get("metadata") or {}
+    if label == "kinetic-paper-iv-v1":
+        if (doc.get("doi") != "10.5281/zenodo.23604748"
+                or doc.get("conceptdoi") != "10.5281/zenodo.23604747"
+                or meta.get("title") != "Stationary Organization and Functional Persistence in Collective Kinetic Systems"
+                or meta.get("publication_date") != "2026-10-23"
+                or str(meta.get("version") or "").lstrip("v") != "1.0"
+                or str(doc.get("status") or "") != "published"):
+            raise ValueError("Kinetic IV published Zenodo metadata differs from author-supplied citation")
+        if [p.get("key") or p.get("filename") for p in doc.get("files", [])
+                if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
+                "Stationary Organization and Functional Persistence in Collective Kinetic Systems v1.0.pdf"]:
+            raise ValueError("Kinetic IV PDF filename differs from the verified deposit")
     if label == "qg-paper-ix-v1":
         if (doc.get("doi") != "10.5281/zenodo.23604372"
                 or doc.get("conceptdoi") != "10.5281/zenodo.23604371"
