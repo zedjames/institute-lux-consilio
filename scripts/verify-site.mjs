@@ -62,6 +62,8 @@ assert.ok(betaCollaboration.includes('href="concordia/runtime/#beta-interest"'),
 assert.ok(fs.readFileSync("concordia/inventory/index.html","utf8").includes('href="concordia/runtime/#beta-interest"'),"Inventory omitted beta-interest route");
 
 assert.ok(runtimeHtml.includes("Cognition and scientific authority remain distinct")&&runtimeHtml.includes("Research collaboration by arrangement"),"Runtime scientific authority or scholarly access missing");
+assert.ok(!/workbench/i.test(runtimeHtml),"Do not present Runtime and Workbench as separate public products");
+assert.ok(runtimeHtml.includes("integrated research interface"),"Runtime must be presented as one integrated research environment");
 const aboutMission=fs.readFileSync("institute.html","utf8");
 assert.ok(aboutMission.includes("generational horizon")&&aboutMission.includes("Research across generations")&&aboutMission.includes("counterexamples, corrections, and unresolved questions"),"ILC generational mission or research continuity absent");
 assert.ok(fs.readFileSync("index.html","utf8").includes("generational horizon"),"Homepage disconnected from institute mission");
