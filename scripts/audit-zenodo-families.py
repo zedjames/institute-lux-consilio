@@ -54,6 +54,18 @@ for label, record_id in RECORDS:
             raise ValueError("Zenodo PDF checksum differs from author-uploaded file: "+label+" "+actual)
         print("ZENODO_PDF_MD5_MATCH",label,actual,flush=True)
     meta=doc.get("metadata") or {}
+    if label == "qg-paper-ix-v1":
+        if (doc.get("doi") != "10.5281/zenodo.23604372"
+                or doc.get("conceptdoi") != "10.5281/zenodo.23604371"
+                or meta.get("title") != "Causal Exterior Ownership for a Moving Einstein–Scalar Quantum Sector"
+                or meta.get("publication_date") != "2026-10-23"
+                or str(meta.get("version") or "").lstrip("v") != "1.0"
+                or str(doc.get("status") or "") != "published"):
+            raise ValueError("Paper IX published Zenodo metadata differs from author citation")
+        if [p.get("key") or p.get("filename") for p in doc.get("files", [])
+                if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
+                "Causal Exterior Ownership for a Moving Einstein Scalar Quantum Sector.pdf"]:
+            raise ValueError("Paper IX deposited PDF filename changed")
     result=dict(label=label,queried_record=record_id,record_id=doc.get("id"),
         doi=doc.get("doi"),conceptdoi=doc.get("conceptdoi"),conceptrecid=doc.get("conceptrecid"),
         parent=doc.get("parent"),title=meta.get("title"),
