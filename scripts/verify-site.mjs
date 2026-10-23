@@ -17,6 +17,29 @@ for(const page of navPages){
  assert.equal(matches.length,1,"Missing unique static site navigation in "+page);
  assert.equal(matches[0][0],renderMainNav(activeForPage(page)),"Inconsistent site navigation / active section in "+page);
 }
+// Public correspondence must be available in static HTML, without client JavaScript.
+const generalEmail='mailto:contact@instituteluxconsilio.org';
+const researchEmail='mailto:research@instituteluxconsilio.org';
+const contactPage=fs.readFileSync("contact.html","utf8");
+const collaborationPage=fs.readFileSync("collaborate.html","utf8");
+for(const address of [generalEmail,researchEmail]){
+ assert.ok(contactPage.includes('href="'+address+'"'),"Contact page missing accessible public mailbox: "+address);
+}
+assert.ok(!contactPage.includes("will be added when the ILC domain is launched"),"Outdated ILC contact placeholder remains");
+assert.ok(collaborationPage.includes('href="'+researchEmail+'"'),"Scholarly collaboration must offer direct research correspondence");
+const siteSitemap=fs.readFileSync("sitemap.xml","utf8");
+const sitePageRoutes=[...siteSitemap.matchAll(/<loc>https:\/\/instituteluxconsilio[.]org\/([^<]*)<\/loc>/g)]
+ .map(m=>m[1]).filter(route=>!route.endsWith(".pdf"))
+ .map(route=>route===""?"index.html":route.endsWith("/")?route+"index.html":route)
+ .filter(route=>route.endsWith(".html"));
+for(const route of sitePageRoutes){
+ const markup=fs.readFileSync(route,"utf8");
+ assert.ok(markup.includes('<a href="'+generalEmail+'">Email ILC</a>'),
+  "Static footer lacks visible general email entry: "+route);
+}
+assert.ok(fs.readFileSync("scripts/build-publication-pages.mjs","utf8").includes('<a href="'+generalEmail+'">Email ILC</a>'),
+ "Publication generator would erase the sitewide email footer");
+
 assert.ok(renderMainNav("concordia").includes('<a href="publications.html">Publications</a><a href="concordia/" aria-current="page">Concordia</a>'),
  "Concordia navigation must follow Publications and indicate its section.");
 
