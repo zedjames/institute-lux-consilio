@@ -106,7 +106,8 @@ for(const id of PROGRAM_IDS){
 }
 
 const qgPapersV2=data.publications.filter(x=>x.program==="qg");
-assert.equal(qgPapersV2.length,8,"QG must retain the eight-paper sequence");
+assert.equal(qgPapersV2.length,9,"QG must retain the nine-paper sequence");
+assert.deepStrictEqual(qgPapersV2.map(p=>p.order).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8,9],"Schwarzschild Paper IX must extend the complete sequence");
 for(const id of ["sqg3","sqg4","sqg5","sqg6","sqg7"])assert.equal(qgPapersV2.find(p=>p.id===id)?.version,"2.0","QG v2 published edition marker missing: "+id);
 assert.ok(data.programDetails.qg.narrative.some(s=>s.startsWith("Paper VIII v2.0 classifies")),"Paper VIII v2.0 scientific result is missing");
 const qgVIII=qgPapersV2.find(p=>p.id==="sqg8");
@@ -115,6 +116,22 @@ assert.ok(Number.parseFloat(String(qgVIII?.version||"").replace(/^v/,""))>=2,"Pa
 assert.notEqual(qgVIII?.doi,"10.5281/zenodo.22939782","Paper VIII reverted to its earlier Zenodo edition");
 assert.ok(qgVIII?.pdf?.startsWith("https://zenodo.org/"),"Paper VIII must link a Zenodo-verifiable PDF");
 assert.ok(!data.programDetails.qg.editionNotice,"Published v2.0 must not retain a stale manuscript/deposit warning");
+const qgIX=qgPapersV2.find(p=>p.id==="sqg9");
+assert.ok(qgIX&&qgIX.order===9&&qgIX.seriesId==="schwarzschild-qg","Schwarzschild IX sequence registration missing");
+assert.equal(qgIX.doi,"10.5281/zenodo.23604372","Paper IX version DOI changed");
+assert.equal(qgIX.conceptDoi,"10.5281/zenodo.23604371","Paper IX Zenodo concept DOI changed");
+assert.equal(qgIX.date,"2026-10-23");
+assert.equal(qgIX.version,"1.0");
+assert.equal(qgIX.title,"Causal Exterior Ownership for a Moving Einstein–Scalar Quantum Sector");
+assert.equal(qgIX.pdfSha256,"e91a078739fbc566e277146f13d71f70e60ecc66433ba3a686144e52ed39bb23","Published IX PDF checksum differs from author-uploaded bytes");
+assert.equal(qgIX.pdf,"https://zenodo.org/api/records/23604372/files/Causal%20Exterior%20Ownership%20for%20a%20Moving%20Einstein%20Scalar%20Quantum%20Sector.pdf/content");
+assert.ok(qgIX.summary.includes("negative proper-time surface energy")&&qgIX.summary.includes("Global exterior continuation"),"Paper IX scientific result or physical scope missing");
+assert.ok(data.programDetails.qg.narrative.some(p=>p.startsWith("Paper IX v1.0 continues")),"Paper IX research trajectory missing");
+assert.equal(data.series.find(x=>x.id==="schwarzschild-qg")?.publishedCount,9,"QG series published count incorrect");
+const qgIXPage=fs.readFileSync("publication-sqg9.html","utf8");
+assert.ok(qgIXPage.includes('name="citation_doi" content="10.5281/zenodo.23604372"')&&qgIXPage.includes(qgIX.pdf),"Paper IX static page missing scholarly DOI or PDF");
+assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-sqg9.html"'),"Homepage omitted newest Schwarzschild paper");
+
 const qgCurrentPage=fs.readFileSync("research-relational-quantum-gravity.html","utf8");
 assert.ok(!qgCurrentPage.includes("earlier version-specific Zenodo DOI"),"Stale Paper VIII publication warning remains");
 assert.ok(qgCurrentPage.includes("Paper VIII v2.0 classifies"),"Paper VIII v2.0 scientific conclusion must be explicit");
