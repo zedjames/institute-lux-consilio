@@ -62,6 +62,15 @@ assert.ok(betaCollaboration.includes('href="concordia/runtime/#beta-interest"'),
 assert.ok(fs.readFileSync("concordia/inventory/index.html","utf8").includes('href="concordia/runtime/#beta-interest"'),"Inventory omitted beta-interest route");
 
 assert.ok(runtimeHtml.includes("Cognition and scientific authority remain distinct")&&runtimeHtml.includes("Research collaboration by arrangement"),"Runtime scientific authority or scholarly access missing");
+const aboutMission=fs.readFileSync("institute.html","utf8");
+assert.ok(aboutMission.includes("generational horizon")&&aboutMission.includes("Research across generations")&&aboutMission.includes("counterexamples, corrections, and unresolved questions"),"ILC generational mission or research continuity absent");
+assert.ok(fs.readFileSync("index.html","utf8").includes("generational horizon"),"Homepage disconnected from institute mission");
+for(const phrase of ["professional interface between the Formal World","inhabited digital scientific laboratory","digital scientific staff","Evidence without a full-corpus checkout","claim-scoped, source-bound review","Alpha Testing"]){
+ assert.ok(runtimeHtml.includes(phrase),"Concordia laboratory or qualification missing: "+phrase);
+}
+assert.ok(concordia.includes('"version":"1.2"')&&concordia.includes("Version 1.2 — Professional Runtime interface"),"ILC-CRD-001 version and history disagree");
+assert.ok(concordia.includes("a complete local fork is not the ordinary prerequisite")&&concordia.includes("scoped source access or rerunnable checks"),"Concordia review scope or reproducibility caveat missing");
+
 assert.ok(data.programDetails.formal.artifacts.some(x=>x.href==="concordia/inventory/"),"Formal program missing institutional source inventory");
 assert.ok(!data.programDetails.formal.artifacts.some(x=>x.href.includes("fieldfluxbiosystems.com/lean-inventory")), "Outdated FFB inventory owner link remains");
 assert.ok(concordia.includes('href="concordia/inventory/"')&&concordia.includes('href="concordia/runtime/"'),"Standing disclosure missing inventory/runtime navigation");
