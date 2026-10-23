@@ -20,12 +20,14 @@ RECORDS = [
     ("qg-paper-vi-concept", "22859435"),
     ("qg-paper-vii-concept", "22904030"),
     ("qg-paper-viii-concept", "22939781"),
+    ("qg-paper-ix-v1", "23604372"),
 ]
 # Check the immutable first-published versions against author-supplied PDFs.
 # Existing record IDs are immutable, so later versions remain independently discoverable.
 PDF_MD5 = {
     "23545548": "a2ead8799eb8454121aa091034aa32a1",
     "23547074": "2cc2e7a07e3d554d9fbcde8030ba7463",
+    "23604372": "ae730b9465a87ff166ae48579b3e8dde",
 }
 for label, record_id in RECORDS:
     u = "https://zenodo.org/api/records/" + record_id
