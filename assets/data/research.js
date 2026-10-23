@@ -75,9 +75,9 @@ window.ILC_DATA={
       "id": "kinetic-organization-biological-function",
       "label": "Kinetic Organization and Biological Function",
       "domain": "Biophysics and mathematical biology",
-      "description": "A mathematical and physical investigation of individual mechanochemical motion, shared finite-resource transport, and collective kinetic function, with explicit energetic accounting, limits of coarse observation, and controlled finite-time predictions.",
-      "status": "Active series; Papers I–III published",
-      "publishedCount": 3
+      "description": "A mathematical and physical investigation of individual mechanochemical movement, shared finite-resource transport, collective kinetics, and the stationary and persistent functions supported by maintained circulation. The series distinguishes kinetic organization, coarse-observation limits, local stability, long-time recurrence, and finite-population survival under explicit synthetic source laws.",
+      "status": "Active series; Papers I–IV published",
+      "publishedCount": 4
     },
     {
       "id": "schwarzschild-qg",
@@ -1038,6 +1038,31 @@ window.ILC_DATA={
       "pdf": "https://zenodo.org/api/records/23547074/files/From%20Individual%20Transport%20to%20Collective%20Kinetic%20Function%20v1.0.pdf/content",
       "pdfSha256": "28e6a7d7fa19a20ca3af00b196729f36b700c26dc88da4c11f0bd5cb39ef450d",
       "conceptDoi": "10.5281/zenodo.23547073"
+    },
+    {
+      "id": "kobf4",
+      "date": "2026-10-23",
+      "seriesId": "kinetic-organization-biological-function",
+      "series": "Kinetic Organization and Biological Function",
+      "order": 4,
+      "title": "Stationary Organization and Functional Persistence in Collective Kinetic Systems",
+      "subtitle": "Full kinetic stationary classification, local stability, and persistent physical function",
+      "doi": "10.5281/zenodo.23604748",
+      "conceptDoi": "10.5281/zenodo.23604747",
+      "summary": "Paper IV studies stationary organization and long-time function in the synthetic collective kinetic–chemical–electrical transporter source of Papers I–III. The complete position–momentum–phase kinetic response gives exactly one maintained positive stationary organization with ongoing pump, passive-return and regeneration circulation, charge within the prescribed [1, 3] band, phase–position correlation, and non-Gaussian momentum structure. The full kinetic–resource linearization and nonlinear estimates establish an explicit local attracting neighborhood, while a separate compact attracting set supports strictly positive invariant-mean circulation and quantitative long-time charge-band recurrence. Native finite-population event paths eventually exit the band with probability one for each fixed population, whereas the stationary collective limit remains in-band over every fixed finite horizon; the resulting population/time survival limits do not commute. The work does not establish global point selection or identify the compact attractor with the stationary state; these remain for Paper V.",
+      "program": "kinetic",
+      "domains": [
+        "Mathematical biophysics",
+        "Stochastic kinetic systems"
+      ],
+      "themes": [
+        "stationarity",
+        "persistence",
+        "organization"
+      ],
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23604748/files/Stationary%20Organization%20and%20Functional%20Persistence%20in%20Collective%20Kinetic%20Systems%20v1.0.pdf/content",
+      "pdfSha256": "5a7008a00996473159ae9b0d433e9a34956606dfaa281d29acf179f48063a2c5"
     }
   ],
   "notes": [
@@ -1527,19 +1552,21 @@ window.ILC_DATA={
         "Paper I establishes a reversible momentum-bearing mechanochemical transporter under prescribed chemical and ionic boundaries. Its hybrid physical generator identifies information lost under coarse phase/energy observation and gives certified function-specific transport and caloric results.",
         "Paper II couples active transport, passive ionic return, chemical regeneration, finite shared inventories and membrane charge. A full kinetic invariant analysis distinguishes closed reversible Gibbs equilibrium from maintained nonequilibrium circulation with positive entropy production and zero mean net charge drift; its selected charge-band functionals quantify persistence, exit and recovery.",
         "Paper III moves to populations of momentum-bearing transporters interacting through common ionic and chemical resources and an inventory-derived capacitor. Finite-population generators converge on stated positive finite windows to a nonlinear measure-valued kinetic–chemical–electrical law, with conditional propagation of chaos and selected fluctuation laws preserving physical shared-event covariance.",
-        "Collective prediction remains function-specific. Equal-energy population preparations with identical concentrations, phase fractions and voltage can produce different transport currents, and the actual loaded-rate generator has no invariant finite polynomial-momentum dictionary. A maintained Boltzmann-template projection retains an explicit discarded-kinetic residual, giving a reproducible strict finite-time charge-decrease certificate for a specified matched preparation. The series remains based on declared synthetic mechanisms; qìjī and qìhuà provide historical motivation without a claimed microscopic identification."
+        "Collective prediction remains function-specific. Equal-energy population preparations with identical concentrations, phase fractions and voltage can produce different transport currents, and the actual loaded-rate generator has no invariant finite polynomial-momentum dictionary. A maintained Boltzmann-template projection retains an explicit discarded-kinetic residual, giving a reproducible strict finite-time charge-decrease certificate for a specified matched preparation. The series remains based on declared synthetic mechanisms; qìjī and qìhuà provide historical motivation without a claimed microscopic identification.",
+        "Paper IV examines the long-time organization of the same full kinetic source. Exact stationary reduction and rigorous source-specific interval enclosures identify one maintained stationary law with sustained ionic/chemical circulation, nontrivial phase–mechanical correlations and an in-band capacitor charge. It distinguishes closed Gibbs equilibrium from maintained organization, proves full-kinetic local attraction, and establishes a compact long-time attracting set supporting positive invariant-mean currents and recurring charge-band occupation. The finite-population indefinite-survival probability vanishes for each fixed population while the stationary collective limit stays in-band over every fixed horizon. The research retains the interpretive distinction between 氣機 (qìjī, organized movement) and 氣化 (qìhuà, material transformation) without claiming a calibrated biological realization."
       ],
-      "frontier": "Papers I–III now connect source-specific movement, finite-resource maintained circulation and finite-time collective kinetic organization. The next investigations concern stationary nonlinear collective laws, long-time limits and their interchange with population limits, experimentally calibrated mechanisms, and measurement designs that retain function-relevant hidden kinetic structure. The finite-time population results do not by themselves establish population stationary attraction or organism-level health.",
+      "frontier": "Papers I–IV now advance from individual mechanochemical motion through collective finite-resource transport to source-specific stationary organization and persistent physical function. Paper IV establishes one maintained positive stationary state, an explicit local attracting basin, a compact long-time attractor, invariant-mean circulation and charge-band recurrence, while distinguishing finite-population exit from collective stationary survival. It does not classify every maintained complete trajectory or prove that the global compact attractor is a singleton. Global point selection is the separate question developed in Paper V; calibration to measured biological mechanisms and observation protocols also remains open.",
       "methods": [
         "Momentum-bearing hybrid Langevin–jump transport with guarded shared inventories",
         "Eventwise conservation, electrical/capacitive work and pathwise energetic accounting",
         "Invariant kinetic laws and nonequilibrium circulation for the one-transporter source",
         "Nonlinear empirical-measure limits, kinetic martingales, conditional chaos and selected fluctuations",
-        "Observation-fiber nonclosure and residual-controlled finite-time collective predictions"
+        "Observation-fiber nonclosure and residual-controlled finite-time collective predictions",
+        "Full kinetic stationary-response enclosures, semigroup stability, Hellinger dissipation, compact attractors and finite-population first-exit controls"
       ],
       "openQuestions": [
-        "Under which conditions does the nonlinear collective kinetic–resource law admit attracting invariant organizations and sustained stationary population currents?",
-        "How do the population limit and long-time limit interact for charge-band persistence and energetic turnover?",
+        "Does every admissible maintained collective trajectory select the unique stationary organization, and is the compact global attractor a singleton? (Paper V)",
+        "How do global selection and the population/time limits refine the distinction between long-time charge-band occupation and uninterrupted finite-population survival?",
         "Which source-aware measurements distinguish kinetic preparations with identical coarse concentrations and energy but different functional transport?",
         "How do the mathematical certificates carry over to experimentally identified mechanisms and calibrated physical populations?"
       ],
@@ -1557,6 +1584,11 @@ window.ILC_DATA={
         {
           "label": "From Individual Transport to Collective Kinetic Function — Paper III",
           "href": "publication-kobf3.html",
+          "kind": "Publication"
+        },
+        {
+          "label": "Stationary Organization and Functional Persistence in Collective Kinetic Systems — Paper IV",
+          "href": "publication-kobf4.html",
           "kind": "Publication"
         }
       ]

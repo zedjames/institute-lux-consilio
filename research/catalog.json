@@ -1043,6 +1043,31 @@
       "pdf": "https://zenodo.org/api/records/23547074/files/From%20Individual%20Transport%20to%20Collective%20Kinetic%20Function%20v1.0.pdf/content",
       "pdfSha256": "28e6a7d7fa19a20ca3af00b196729f36b700c26dc88da4c11f0bd5cb39ef450d",
       "conceptDoi": "10.5281/zenodo.23547073"
+    },
+    {
+      "id": "kobf4",
+      "date": "2026-10-23",
+      "seriesId": "kinetic-organization-biological-function",
+      "series": "Kinetic Organization and Biological Function",
+      "order": 4,
+      "title": "Stationary Organization and Functional Persistence in Collective Kinetic Systems",
+      "subtitle": "Full kinetic stationary classification, local stability, and persistent physical function",
+      "doi": "10.5281/zenodo.23604748",
+      "conceptDoi": "10.5281/zenodo.23604747",
+      "summary": "Paper IV studies stationary organization and long-time function in the synthetic collective kinetic–chemical–electrical transporter source of Papers I–III. The complete position–momentum–phase kinetic response gives exactly one maintained positive stationary organization with ongoing pump, passive-return and regeneration circulation, charge within the prescribed [1, 3] band, phase–position correlation, and non-Gaussian momentum structure. The full kinetic–resource linearization and nonlinear estimates establish an explicit local attracting neighborhood, while a separate compact attracting set supports strictly positive invariant-mean circulation and quantitative long-time charge-band recurrence. Native finite-population event paths eventually exit the band with probability one for each fixed population, whereas the stationary collective limit remains in-band over every fixed finite horizon; the resulting population/time survival limits do not commute. The work does not establish global point selection or identify the compact attractor with the stationary state; these remain for Paper V.",
+      "program": "kinetic",
+      "domains": [
+        "Mathematical biophysics",
+        "Stochastic kinetic systems"
+      ],
+      "themes": [
+        "stationarity",
+        "persistence",
+        "organization"
+      ],
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23604748/files/Stationary%20Organization%20and%20Functional%20Persistence%20in%20Collective%20Kinetic%20Systems%20v1.0.pdf/content",
+      "pdfSha256": "5a7008a00996473159ae9b0d433e9a34956606dfaa281d29acf179f48063a2c5"
     }
   ],
   "notes": [
