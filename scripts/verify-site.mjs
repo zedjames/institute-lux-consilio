@@ -64,6 +64,14 @@ assert.ok(fs.readFileSync("concordia/inventory/index.html","utf8").includes('hre
 assert.ok(runtimeHtml.includes("Cognition and scientific authority remain distinct")&&runtimeHtml.includes("Research collaboration by arrangement"),"Runtime scientific authority or scholarly access missing");
 assert.ok(!/workbench/i.test(runtimeHtml),"Do not present Runtime and Workbench as separate public products");
 assert.ok(runtimeHtml.includes("integrated research interface"),"Runtime must be presented as one integrated research environment");
+
+assert.ok(runtimeHtml.includes("Formal and Source Worlds")&&runtimeHtml.includes("Research inhabitants")&&runtimeHtml.includes("Intended review record"),
+ "Runtime must distinguish the corpus, inhabitants and claim-scoped scientific review");
+assert.ok(!runtimeHtml.includes('<p class="eyebrow">Research architecture</p>')&&!runtimeHtml.includes('<h2>Worlds, inhabitants and continuity</h2>'),
+ "A second architecture overview duplicates the scientific laboratory section");
+assert.equal((runtimeHtml.match(/<div class="concordia-stages">/g)||[]).length,1,
+ "Keep one research-process diagram alongside the unified architecture explanation");
+
 const aboutMission=fs.readFileSync("institute.html","utf8");
 assert.ok(aboutMission.includes("generational horizon")&&aboutMission.includes("Research across generations")&&aboutMission.includes("counterexamples, corrections, and unresolved questions"),"ILC generational mission or research continuity absent");
 assert.ok(fs.readFileSync("index.html","utf8").includes("generational horizon"),"Homepage disconnected from institute mission");
