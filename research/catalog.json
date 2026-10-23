@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-10-21",
+  "updated": "2026-10-23",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -635,6 +635,31 @@
       "legacyPage": "https://fieldfluxbiosystems.com/research-endpoint-rigidity-periodic-navier-stokes-flow.html",
       "pdf": "https://fieldfluxbiosystems.com/research-endpoint-rigidity-periodic-navier-stokes-flow.pdf",
       "conceptDoi": "10.5281/zenodo.22943387"
+    },
+    {
+      "id": "sqg9",
+      "date": "2026-10-23",
+      "seriesId": "schwarzschild-qg",
+      "series": "Schwarzschild Quantum Gravity",
+      "order": 9,
+      "title": "Causal Exterior Ownership for a Moving Einstein–Scalar Quantum Sector",
+      "subtitle": "Local retarded Einstein–scalar development, thin-shell junctions, and moving-interface stationarity",
+      "doi": "10.5281/zenodo.23604372",
+      "summary": "Paper IX constructs a local C² retarded Einstein–real-scalar exterior from the physically inherited coherent-source interface data and verifies the complete nonlinear Einstein–scalar equations on a nonempty open region. The matched moving worldtube has a nontrivial distributional junction, with negative proper-time surface energy and positive angular pressure on the selected outward branch. An effective local scalar surface action reproduces the junction stress. The complete finite-collar action has zero first right-sided shape variation for every admitted edge-flat height, while joint metric–scalar first-order stationarity holds for a selected height and specified independent tests. Global exterior continuation, maximal physical history, free-edge stationarity and dynamical stability remain unproved.",
+      "program": "qg",
+      "domains": [
+        "Quantum gravity",
+        "Mathematical physics"
+      ],
+      "themes": [
+        "boundary",
+        "identity",
+        "continuation"
+      ],
+      "pdf": "https://zenodo.org/api/records/23604372/files/Causal%20Exterior%20Ownership%20for%20a%20Moving%20Einstein%20Scalar%20Quantum%20Sector.pdf/content",
+      "conceptDoi": "10.5281/zenodo.23604371",
+      "version": "1.0",
+      "pdfSha256": "e91a078739fbc566e277146f13d71f70e60ecc66433ba3a686144e52ed39bb23"
     },
     {
       "id": "sqg8",

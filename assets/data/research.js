@@ -83,9 +83,9 @@ window.ILC_DATA={
       "id": "schwarzschild-qg",
       "label": "Schwarzschild Quantum Gravity",
       "domain": "Quantum gravity",
-      "description": "A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction. The v2.0 development through Paper VIII constructs a same-geometry Einstein–real-scalar quantum sector, tests classical BV and operator BRST descriptions, identifies finite-regulator obstructions and a surviving restricted physical sector, and classifies physical quantum, complete tensor-source and geometric-isometry equivalences.",
-      "status": "Current published sequence: 8 papers",
-      "publishedCount": 8
+      "description": "A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction. The sequence through Paper IX constructs a same-geometry Einstein–real-scalar quantum sector, tests classical BV and operator BRST descriptions, identifies finite-regulator obstructions and a surviving restricted physical sector, classifies physical quantum, complete tensor-source and geometric-isometry equivalences, and establishes a local retarded Einstein–scalar exterior with a moving junction and scoped complete-action stationarity.",
+      "status": "Current published sequence: 9 papers",
+      "publishedCount": 9
     },
     {
       "id": "gaussian",
@@ -630,6 +630,31 @@ window.ILC_DATA={
       "legacyPage": "https://fieldfluxbiosystems.com/research-endpoint-rigidity-periodic-navier-stokes-flow.html",
       "pdf": "https://fieldfluxbiosystems.com/research-endpoint-rigidity-periodic-navier-stokes-flow.pdf",
       "conceptDoi": "10.5281/zenodo.22943387"
+    },
+    {
+      "id": "sqg9",
+      "date": "2026-10-23",
+      "seriesId": "schwarzschild-qg",
+      "series": "Schwarzschild Quantum Gravity",
+      "order": 9,
+      "title": "Causal Exterior Ownership for a Moving Einstein–Scalar Quantum Sector",
+      "subtitle": "Local retarded Einstein–scalar development, thin-shell junctions, and moving-interface stationarity",
+      "doi": "10.5281/zenodo.23604372",
+      "summary": "Paper IX constructs a local C² retarded Einstein–real-scalar exterior from the physically inherited coherent-source interface data and verifies the complete nonlinear Einstein–scalar equations on a nonempty open region. The matched moving worldtube has a nontrivial distributional junction, with negative proper-time surface energy and positive angular pressure on the selected outward branch. An effective local scalar surface action reproduces the junction stress. The complete finite-collar action has zero first right-sided shape variation for every admitted edge-flat height, while joint metric–scalar first-order stationarity holds for a selected height and specified independent tests. Global exterior continuation, maximal physical history, free-edge stationarity and dynamical stability remain unproved.",
+      "program": "qg",
+      "domains": [
+        "Quantum gravity",
+        "Mathematical physics"
+      ],
+      "themes": [
+        "boundary",
+        "identity",
+        "continuation"
+      ],
+      "pdf": "https://zenodo.org/api/records/23604372/files/Causal%20Exterior%20Ownership%20for%20a%20Moving%20Einstein%20Scalar%20Quantum%20Sector.pdf/content",
+      "conceptDoi": "10.5281/zenodo.23604371",
+      "version": "1.0",
+      "pdfSha256": "e91a078739fbc566e277146f13d71f70e60ecc66433ba3a686144e52ed39bb23"
     },
     {
       "id": "sqg8",
@@ -1354,9 +1379,10 @@ window.ILC_DATA={
         "Paper IV v2.0 completes the positive-coupling same-geometry Einstein–scalar realization. The nonlinear geometry determines the selected two-ended radial law, the exact signed-mode Cauchy and Fock evolution, and its own conserved vacuum-relative tensor source. Completed coherent and one-occupation states give separate, nonempty source branches. The expanded analysis establishes matched original-data continuity and precisely scoped curvature and propagator endpoint obstructions.",
         "Paper V v2.0 constructs the classical Palatini BV master action for that owned physical matter sector, including diffeomorphism/projective gauge structure, the classical master equation and compatibility with the native Hamiltonian and source. Paper VI v2.0 gives a closed-graph, square-zero BRST representation and a faithfully embedded scalar Fock summand in degree-zero cohomology, with the original unitary dynamics and Einstein source preserved but no assertion that the full cohomology is exhausted.",
         "Paper VII v2.0 constructs finite BV odd Laplacians while exhibiting an obstruction to the projected classical master and explicit nonzero Gaussian-shell density-transport and Hamiltonian traces. The retained exact kernel and restricted physical complex preserve the original Fock evolution and a positive-coupling Einstein source. They do not establish an unrestricted renormalized quantum master equation.",
-        "Paper VIII v2.0 classifies the resulting relational geometry. The represented quantum class, the full tensor source on its physical domain, and the metric up to physical isometry are different carriers of information. Physical-quantum and tensor-source quotients are globally incomparable; at a fixed geometric anchor, full-source equivalence coincides with physical-isometry equivalence. Exact stress calculation, source-germ recovery, curvature-image rigidity and global isometry classification establish this result. A fixed-geometry bounded-stress obstruction and the continued classical character of the metric delimit its interpretation."
+        "Paper VIII v2.0 classifies the resulting relational geometry. The represented quantum class, the full tensor source on its physical domain, and the metric up to physical isometry are different carriers of information. Physical-quantum and tensor-source quotients are globally incomparable; at a fixed geometric anchor, full-source equivalence coincides with physical-isometry equivalence. Exact stress calculation, source-germ recovery, curvature-image rigidity and global isometry classification establish this result. A fixed-geometry bounded-stress obstruction and the continued classical character of the metric delimit its interpretation.",
+        "Paper IX v1.0 continues the coherent positive-coupling Einstein–real-scalar owner from Papers IV and VIII into a constructed local retarded exterior and a moving timelike junction. The same physical scalar source determines the transmitted boundary data, the nontrivial effective surface stress, and the complete two-region action. The selected outward branch has negative proper-time surface energy and positive angular pressure. On a specified finite collar, every admitted edge-flat height has vanishing first right-sided shape derivative; independent metric–scalar joint first-order stationarity is proved for a selected height. Neither result supplies a global exterior or maximal physical history."
       ],
-      "frontier": "The v2.0 research sequence through Paper VIII identifies a self-consistent Einstein–real-scalar quantum sector and its precise relational identifiability, together with a nontrivial restricted physical quantum theory and explicit regulator obstructions. Further gravitational continuation, physical interfaces, quantum-master constructions and global or asymptotic statements require independent work on their own physical and mathematical carriers.",
+      "frontier": "The public sequence through Paper IX reaches a source-owned local retarded Einstein–scalar exterior, a nontrivial weak junction, and carefully scoped complete-action first-order stationarity. The exterior exists on a selected finite region, and the joint variational theorem has a specified test and boundary class. Extending compatible local exteriors into a maximal physical history, controlling distant or asymptotic boundaries, and determining any eventual terminal endpoint remain open, alongside the previously identified quantum-regulator obstructions.",
       "methods": [
         "Critical radial domains, deficiency indices and Friedrichs selection",
         "Action-derived real-scalar Cauchy/Fock dynamics and local quantum stress",
@@ -1366,7 +1392,7 @@ window.ILC_DATA={
         "Tensor-source reconstruction, curvature rigidity and physical isometry classification"
       ],
       "openQuestions": [
-        "What physical interfaces and boundary data admit another lawful continuation of the same Einstein–scalar sector?",
+        "Under what conditions do the locally constructed, source-owned Einstein–scalar exteriors admit compatible overlap maps and a longer or maximal physical history?",
         "Which extended quantum-master or regulator constructions survive the explicit first-shell and projected-master obstructions?",
         "How do tensor-source and physical-isometry equivalences behave when the geometric anchor varies?",
         "Which dynamical, scattering, asymptotic or global claims can be established beyond the realized nonlinear families?"
@@ -1378,8 +1404,8 @@ window.ILC_DATA={
           "kind": "Series"
         },
         {
-          "label": "Paper VIII — Current Zenodo publication record",
-          "href": "publication-sqg8.html",
+          "label": "Paper IX — Current Zenodo publication record",
+          "href": "publication-sqg9.html",
           "kind": "Publication"
         },
         {
@@ -1597,5 +1623,6 @@ window.ILC_DATA={
         "health"
       ]
     }
-  ]
+  ],
+  "updated": "2026-10-23"
 };
