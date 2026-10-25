@@ -1386,12 +1386,13 @@ window.ILC_DATA={
         }
       ],
       "foundation": {
-        "title": "The physical foundations of celestial representation",
+        "title": "From Celestial Data to Physical Correspondence",
         "paragraphs": [
-          "A celestial representation acquires physical authority through the construction and verification of the states, operators, domains, symmetries, and limits on which it depends. The mathematical existence of celestial amplitudes or conformal structures does not, by itself, establish a complete interacting gravitational correspondence. Conclusions dependent upon assumptions not yet verified for a particular physical realization remain conditional; when such assumptions fail, the corresponding conclusions require independent justification.",
-          "The Gaussian Physical States and Celestial Representation program investigates these requirements through explicit mathematical constructions, formal verification, and physical counterexamples. Its results identify structures that remain faithful under changes of representation, assumptions that fail for specified physical carriers, and analytic obstructions encountered when gravitational observables enter the construction.",
-          "The guiding question extends beyond how gravitational processes might be expressed in celestial variables. It asks what must be established about the underlying physical states and their mathematical representations for that description to be physically justified.",
-          "This investigation provides a foundational perspective complementary to amplitude-based celestial holography, while respecting the validity and scope of results established within their own perturbative, distributional, and mathematical frameworks."
+          "Celestial scattering amplitudes can exhibit conformal transformation laws, operator-product structures, and Ward identities derived from the soft and collinear behavior of scattering processes. These relationships provide powerful mathematical information about the underlying theory.",
+          "But what establishes the physical and mathematical correspondence required to interpret such structures as the operators, interactions, and symmetries of an interacting celestial theory? Which conclusions follow from an established scattering construction, and which require additional assumptions about the proposed celestial realization?",
+          "The Gaussian Physical States and Celestial Representation program investigates these questions from the foundations of the physical construction. It develops the relevant states, operators, domains, symmetries, and representation geometry, then examines what information survives representation, which gravitational observables remain continuous, and how those structures behave under changes of regulator and physical realization.",
+          "The resulting papers trace a continuing investigation through Gaussian physical states, multiparticle structure, radiative representation, source faithfulness, Hilbert-space obstructions, and gravitational interaction. Each result determines what has been established within its mathematical setting, where additional structure is required, and which further questions have become accessible.",
+          "The program's objective is to develop the physical and mathematical foundations through which an interacting celestial correspondence can be investigated and tested. Its findings complement amplitude-based celestial holography while preserving the distinction between established scattering identities and the additional requirements of a physically realized celestial theory."
         ]
       }
     },
