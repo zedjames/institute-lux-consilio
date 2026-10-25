@@ -14,6 +14,7 @@ RECORDS = [
     ("kinetic-paper-ii-second-doi", "23512025"),
     ("celestial-paper-vi-v2", "23509540"),
     ("celestial-paper-vii-v2", "23545548"),
+    ("celestial-paper-viii-v1", "23651438"),
     ("kinetic-paper-iii-cited-doi", "23547074"),
     ("kinetic-paper-iii-neighbor", "23547073"),
     ("qg-paper-v-concept", "22846742"),
@@ -27,6 +28,7 @@ RECORDS = [
 # Existing record IDs are immutable, so later versions remain independently discoverable.
 PDF_MD5 = {
     "23545548": "a2ead8799eb8454121aa091034aa32a1",
+    "23651438": "81d5c976b82f79f319f7bba9dc1a6ab1",
     "23547074": "2cc2e7a07e3d554d9fbcde8030ba7463",
     "23604372": "ae730b9465a87ff166ae48579b3e8dde",
     "23604748": "6d520c35c71b0ecd2232a4aa23182eac",
