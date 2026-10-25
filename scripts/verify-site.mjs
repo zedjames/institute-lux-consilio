@@ -193,11 +193,17 @@ assert.ok(Number(celestialVII?.doi?.split(".").at(-1))>=23545548,"Celestial VII 
 assert.ok(Number(celestialVII?.version?.split(".")[0])>=2,"Celestial VII must show v2.0 or later");
 assert.ok(celestialVII?.summary?.includes("true partial Hilbert adjoint range"),"Celestial Paper VII v2.0 scope missing");
 assert.ok(celestialVII?.pdf?.includes("/api/records/")&&/^[0-9a-f]{64}$/.test(celestialVII.pdfSha256||""),"Celestial VII current published PDF must be checksum-verified");
-assert.equal(data.programDetails.celestial.foundation?.title,"The physical foundations of celestial representation");
-assert.equal(data.programDetails.celestial.foundation?.paragraphs?.length,4);
+assert.equal(data.programDetails.celestial.foundation?.title,"From Celestial Data to Physical Correspondence");
+assert.equal(data.programDetails.celestial.foundation?.paragraphs?.length,5);
 const celestialPage=fs.readFileSync("research-gaussian-celestial.html","utf8");
-assert.ok(celestialPage.indexOf("The physical foundations of celestial representation")<celestialPage.indexOf("Research trajectory"),"Foundational section missing or misplaced");
-assert.ok(celestialPage.includes("amplitude-based celestial holography"),"Respect for distinct celestial research frameworks missing");
+assert.ok(celestialPage.includes("<h2>From Celestial Data to Physical Correspondence</h2>"),"Celestial scientific purpose heading missing");
+assert.ok(celestialPage.indexOf("From Celestial Data to Physical Correspondence")<celestialPage.indexOf("Research trajectory"),"Foundational framing must precede trajectory");
+assert.equal((celestialPage.match(/<p class="eyebrow">Scientific purpose<\/p>/g)||[]).length,1,"Do not duplicate the Celestial scientific purpose");
+for(const phrase of ["Which conclusions follow from an established scattering construction","what information survives representation","additional requirements of a physically realized celestial theory"]){
+ assert.ok(data.programDetails.celestial.foundation.paragraphs.some(p=>p.includes(phrase)), "Celestial physical-correspondence boundary missing: "+phrase);
+ assert.ok(celestialPage.includes(phrase),"Celestial source framing not rendered statically: "+phrase);
+}
+assert.ok(celestialPage.includes("complement amplitude-based celestial holography"),"Respect for distinct celestial research frameworks missing");
 assert.ok(data.programDetails.celestial.frontier.includes("Paper VIII is being drafted"),"Paper VIII draft status not explicit");
 assert.ok(!data.publications.some(p=>p.seriesId==="gaussian"&&p.order===8),"Paper VIII draft must not be represented as published");
 const kineticIII=data.publications.find(x=>x.id==="kobf3");
