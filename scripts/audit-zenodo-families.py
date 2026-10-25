@@ -58,6 +58,18 @@ for label, record_id in RECORDS:
             raise ValueError("Zenodo PDF checksum differs from author-uploaded file: "+label+" "+actual)
         print("ZENODO_PDF_MD5_MATCH",label,actual,flush=True)
     meta=doc.get("metadata") or {}
+    if label == "celestial-paper-viii-v1":
+        if (doc.get("doi") != "10.5281/zenodo.23651438"
+                or doc.get("conceptdoi") != "10.5281/zenodo.23651437"
+                or meta.get("title") != "Interaction Topologies of Celestial Radiative States"
+                or meta.get("publication_date") != "2026-10-25"
+                or str(meta.get("version") or "").lstrip("v") != "1.0"
+                or str(doc.get("status") or "") != "published"):
+            raise ValueError("Celestial VIII published Zenodo metadata differs from supplied manuscript")
+        if [p.get("key") or p.get("filename") for p in doc.get("files", [])
+                if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
+                "Interaction Topologies of Celestial Radiative States v1.0.pdf"]:
+            raise ValueError("Celestial VIII deposited PDF filename changed")
     if label == "kinetic-paper-iv-v1":
         if (doc.get("doi") != "10.5281/zenodo.23604748"
                 or doc.get("conceptdoi") != "10.5281/zenodo.23604747"
