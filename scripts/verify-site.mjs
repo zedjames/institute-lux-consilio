@@ -204,8 +204,26 @@ for(const phrase of ["Which conclusions follow from an established scattering co
  assert.ok(celestialPage.includes(phrase),"Celestial source framing not rendered statically: "+phrase);
 }
 assert.ok(celestialPage.includes("complement amplitude-based celestial holography"),"Respect for distinct celestial research frameworks missing");
-assert.ok(data.programDetails.celestial.frontier.includes("Paper VIII is being drafted"),"Paper VIII draft status not explicit");
-assert.ok(!data.publications.some(p=>p.seriesId==="gaussian"&&p.order===8),"Paper VIII draft must not be represented as published");
+const celestialVIII=data.publications.find(x=>x.id==="gps8");
+assert.ok(celestialVIII&&celestialVIII.order===8&&celestialVIII.program==="celestial","Celestial VIII published entry missing");
+assert.equal(celestialVIII.title,"Interaction Topologies of Celestial Radiative States");
+assert.equal(celestialVIII.doi,"10.5281/zenodo.23651438");
+assert.equal(celestialVIII.conceptDoi,"10.5281/zenodo.23651437");
+assert.equal(celestialVIII.date,"2026-10-25");
+assert.equal(celestialVIII.version,"1.0");
+assert.equal(celestialVIII.pdfSha256,"5fe05c3e4e650b57f1708db9ace645aba02b29ede9043c06dbcc0a8dc50fdc10","Celestial VIII PDF differs from author-supplied v1.0");
+assert.equal(celestialVIII.pdf,"https://zenodo.org/api/records/23651438/files/Interaction%20Topologies%20of%20Celestial%20Radiative%20States%20v1.0.pdf/content");
+assert.ok(celestialVIII.summary.includes("entire admissible cubic span")&&celestialVIII.summary.includes("No continuum scattering operator"),"Celestial VIII must preserve topology and scattering scope");
+assert.ok(data.programDetails.celestial.narrative.some(x=>x.startsWith("Paper VIII v1.0 proves")),"Celestial VIII trajectory missing");
+assert.ok(data.programDetails.celestial.frontier.includes("Papers VI–VIII")&&!data.programDetails.celestial.frontier.includes("being drafted"),"Celestial VIII must be a published result, not a draft");
+assert.equal(data.series.find(s=>s.id==="gaussian")?.publishedCount,8,"Celestial published sequence must include VIII");
+assert.equal(data.series.find(s=>s.id==="gaussian")?.status,"Papers I–VIII published");
+assert.ok(data.programDetails.celestial.artifacts.some(x=>x.href==="publication-gps8.html"),"Celestial VIII scholarly artifact missing");
+const celestialVIIIHtml=fs.readFileSync("publication-gps8.html","utf8");
+assert.ok(celestialVIIIHtml.includes('name="citation_doi" content="10.5281/zenodo.23651438"')&&celestialVIIIHtml.includes(celestialVIII.pdf),"Celestial VIII indexed publication must expose version DOI and deposited PDF");
+assert.ok(fs.readFileSync("publication-gps7.html","utf8").includes('href="publication-gps8.html"'),"Celestial VII must link to next published paper");
+assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-gps8.html"'),"Celestial VIII missing from homepage");
+assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-gps8.html"),"Celestial VIII missing from static sitemap");
 const kineticIII=data.publications.find(x=>x.id==="kobf3");
 assert.equal(kineticIII?.conceptDoi,"10.5281/zenodo.23547073","Kinetic Paper III DOI family changed");
 assert.ok(Number(kineticIII?.doi?.split(".").at(-1))>=23547074,"Kinetic Paper III must remain at v1.0 or later");
@@ -345,7 +363,7 @@ assert.equal(nsIV?.title,"Faithful Terminal Descent of Autonomous Histories in P
 assert.equal(nsIV?.conceptDoi,"10.5281/zenodo.23378028");
 assert.equal(nsIV?.program,"ns");
 const gaussianPapers=data.publications.filter(p=>p.seriesId==="gaussian").sort((a,b)=>a.order-b.order);
-assert.deepStrictEqual(gaussianPapers.map(p=>p.order),[1,2,3,4,5,6,7],"Gaussian/Celestial sequence must contain Papers I–VII");
+assert.deepStrictEqual(gaussianPapers.map(p=>p.order),[1,2,3,4,5,6,7,8],"Gaussian/Celestial sequence must contain Papers I–VIII");
 const pins=JSON.parse(fs.readFileSync("research/zenodo-concepts.json","utf8")).papers;
 assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.map(p=>p.id).sort(),"All ILC publications must be backed by audited Zenodo families");
 for(const pub of data.publications){

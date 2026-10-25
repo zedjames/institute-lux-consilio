@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-10-23",
+  "updated": "2026-10-25",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -313,6 +313,34 @@
       ],
       "localPage": "publication-hfd4.html",
       "pdf": "papers/health-formally-defined-paper-iv.pdf"
+    },
+    {
+      "id": "gps8",
+      "date": "2026-10-25",
+      "seriesId": "gaussian",
+      "series": "Gaussian Physical States and Celestial Representation",
+      "order": 8,
+      "title": "Interaction Topologies of Celestial Radiative States",
+      "subtitle": "Cubic and quartic continuity on the physical retained image",
+      "doi": "10.5281/zenodo.23651438",
+      "conceptDoi": "10.5281/zenodo.23651437",
+      "summary": "Paper VIII classifies the physical retained celestial Clebsch–Gordan operator on its dense radiative Bose-pair domain as injective, unbounded and closable, with a canonical closed realization on a proper dense source domain. On the exact retained image it establishes two strict interaction-continuity refinements, τret ⊊ τ3 ⊊ τ3,4, for the complete-action gravitational cubic and fixed-action-leg quartic families. The quartic obstruction excludes a physical Riesz vector from the genuine partial-adjoint range plus the entire admissible cubic span, with a seven-row complete-action packet certificate and exact bounds on five polarization moments. Native regulator tests establish compatible null-face quartic decay on a specified scalar-vacuum branch, a nonzero occupied-to-null-face defect, and selected mesh and radius-child transport obstructions. A stronger source-recovering carrier offers a distinct continuous topology. No continuum scattering operator, universal interacting celestial OPE, or regulator-uniform nonlinear action equivalence is constructed.",
+      "program": "celestial",
+      "domains": [
+        "Mathematical physics",
+        "Celestial holography",
+        "Representation theory",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "invariance-identity",
+        "formalization-proof"
+      ],
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23651438/files/Interaction%20Topologies%20of%20Celestial%20Radiative%20States%20v1.0.pdf/content",
+      "pdfSha256": "5fe05c3e4e650b57f1708db9ace645aba02b29ede9043c06dbcc0a8dc50fdc10"
     },
     {
       "id": "gps7",
