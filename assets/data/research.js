@@ -91,9 +91,9 @@ window.ILC_DATA={
       "id": "gaussian",
       "label": "Gaussian Physical States and Celestial Representation",
       "domain": "Mathematical physics",
-      "description": "A foundational study of the physical states, symmetries, operator domains and limits required to justify celestial representations, from Gaussian field states to a faithful but unbounded retained Bose-pair coefficient and an action-generated gravitational response discontinuous in its inherited celestial Hilbert norm.",
-      "status": "Papers I–VII published; Paper VIII in preparation",
-      "publishedCount": 7
+      "description": "A foundational investigation of the physical carriers, symmetries, operator domains, information retention and interaction continuity required for celestial representation. The published sequence proceeds from Gaussian states to radiative Bose-pair source faithfulness, failure of bounded retained Hilbert completion, a gravitational cubic adjoint-range obstruction, and strict cubic–quartic interaction-topology refinements on the actual physical retained image.",
+      "status": "Papers I–VIII published",
+      "publishedCount": 8
     },
     {
       "id": "relational-cell-fate",
@@ -308,6 +308,34 @@ window.ILC_DATA={
       ],
       "localPage": "publication-hfd4.html",
       "pdf": "papers/health-formally-defined-paper-iv.pdf"
+    },
+    {
+      "id": "gps8",
+      "date": "2026-10-25",
+      "seriesId": "gaussian",
+      "series": "Gaussian Physical States and Celestial Representation",
+      "order": 8,
+      "title": "Interaction Topologies of Celestial Radiative States",
+      "subtitle": "Cubic and quartic continuity on the physical retained image",
+      "doi": "10.5281/zenodo.23651438",
+      "conceptDoi": "10.5281/zenodo.23651437",
+      "summary": "Paper VIII classifies the physical retained celestial Clebsch–Gordan operator on its dense radiative Bose-pair domain as injective, unbounded and closable, with a canonical closed realization on a proper dense source domain. On the exact retained image it establishes two strict interaction-continuity refinements, τret ⊊ τ3 ⊊ τ3,4, for the complete-action gravitational cubic and fixed-action-leg quartic families. The quartic obstruction excludes a physical Riesz vector from the genuine partial-adjoint range plus the entire admissible cubic span, with a seven-row complete-action packet certificate and exact bounds on five polarization moments. Native regulator tests establish compatible null-face quartic decay on a specified scalar-vacuum branch, a nonzero occupied-to-null-face defect, and selected mesh and radius-child transport obstructions. A stronger source-recovering carrier offers a distinct continuous topology. No continuum scattering operator, universal interacting celestial OPE, or regulator-uniform nonlinear action equivalence is constructed.",
+      "program": "celestial",
+      "domains": [
+        "Mathematical physics",
+        "Celestial holography",
+        "Representation theory",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "invariance-identity",
+        "formalization-proof"
+      ],
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23651438/files/Interaction%20Topologies%20of%20Celestial%20Radiative%20States%20v1.0.pdf/content",
+      "pdfSha256": "5fe05c3e4e650b57f1708db9ace645aba02b29ede9043c06dbcc0a8dc50fdc10"
     },
     {
       "id": "gps7",
@@ -1347,21 +1375,24 @@ window.ILC_DATA={
         "The sequence follows physical information through successive changes of representation. It begins with an exactly solvable Gaussian sector under a closed matter-current constraint, where nonzero current-physical states require an all-orders completion even though a finite two-particle seed can remain faithful to the Gaussian modulus.",
         "The middle of the series separates representation-theoretic existence from physical particle semantics, then follows the same pair geometry into radiative response. Different response maps retain different parts of the original provenance, making information compression an explicit theorem of the construction.",
         "Papers V and VI develop the source-aware celestial Clebsch–Gordan representation of the radiative Bose pair. Fixed-source Weyl isometry fails, but the intrinsic cross-ratio and full signed transforms are source-faithful at every physical external-label pair. Paper VI v2.0 settles the previously conditional retained Hilbert-completion question negatively: bounded-energy physical sources can have divergent retained output, and no common almost-everywhere decomposable bound holds in the declared norms.",
-        "Paper VII v2.0 uses the original normalized retained coefficient on a dense physical Bose-pair domain, without restoring the bounded completion disproved by Paper VI. For a finite-regulator cubic generated by ordered third variations of the complete action, it establishes exact source identification and an exact-range gravitational response, but proves that response is discontinuous in the retained-output Hilbert norm: the cubic Riesz vector lies outside the true partial-adjoint range. A response-normalized family has fixed nonzero cubic output and vanishing retained coefficient."
+        "Paper VII v2.0 uses the original normalized retained coefficient on a dense physical Bose-pair domain, without restoring the bounded completion disproved by Paper VI. For a finite-regulator cubic generated by ordered third variations of the complete action, it establishes exact source identification and an exact-range gravitational response, but proves that response is discontinuous in the retained-output Hilbert norm: the cubic Riesz vector lies outside the true partial-adjoint range. A response-normalized family has fixed nonzero cubic output and vanishing retained coefficient.",
+        "Paper VIII v1.0 proves that the original physical retained Clebsch–Gordan map is densely defined, injective, unbounded and closable, with a canonical closed source realization on a proper dense domain. On its exact retained image the complete-action cubic and fixed-action-leg quartic impose successive strict topological refinements, τret ⊊ τ3 ⊊ τ3,4. A true partial-adjoint and full-cubic-family obstruction, grounded in a seven-row physical action certificate, establishes the new quartic step. Regulator results distinguish compatible native null-face decay from occupied-to-null-face and static-transport obstructions; a source-recovering projective carrier offers a separate continuity framework. These claims do not construct scattering amplitudes or celestial OPEs."
       ],
-      "frontier": "Papers VI–VII have resolved two distinct questions for the specified physical construction: the original retained coefficient does not admit uniform bounded Hilbert completion, and on an explicit dense admissible domain its action-generated gravitational response is not continuous in the inherited retained-output norm. Paper VIII is being drafted to examine the next scientific boundary; it is not yet part of the published sequence. Further questions include closability, a physically natural interaction-compatible domain or topology, covariance under refinement and smoothing, and the independent steps needed for scattering, celestial OPEs, soft currents and Ward identities.",
+      "frontier": "Papers VI–VIII now distinguish three source-specific boundaries: the retained coefficient does not admit uniform bounded Hilbert completion in the stated norms; the complete-action cubic gravitational response fails continuity in the inherited retained-output topology; and the additional physical fixed-leg quartic requires a further strict refinement on the same exact retained image. Paper VIII establishes a canonical closed partial realization and regulator-conditional compatibility and obstruction tests, but it does not establish action-independent transport, a continuum scattering operator, or interacting celestial operator products. The next frontier is to construct scattering-compatible asymptotic domains, physical evolution and regulator-transferred complete actions before testing connected amplitudes, factorization, crossing, soft-charge relations, celestial OPEs and Ward identities.",
       "methods": [
         "Machine-checked constrained gauge-field models and completed radiative Bose/Fock carriers",
         "Physical source-aware Weyl and celestial Clebsch–Gordan representation",
         "Intrinsic source identification and explicit failure of bounded retained completion",
         "Dense literal operator domains, genuine partial Hilbert adjoints and uncut two-branch synthesis",
-        "Complete-action finite-regulator gravitational cubic and analytic source-face obstruction"
+        "Complete-action finite-regulator gravitational cubic and analytic source-face obstruction",
+        "Closability and genuine partial-adjoint domains; full cubic–quartic interaction-topology refinements on the exact retained image",
+        "Complete-action seven-row augmented-minor certificates; rational polarization-moment enclosures and native regulator transport tests"
       ],
       "openQuestions": [
-        "Is the original retained celestial coefficient closable on a natural dense physical source domain, and what can be established about its adjoint-domain density?",
-        "Which physically meaningful interaction-compatible topology controls the action-generated gravitational cubic while preserving required symmetries?",
-        "How do the finite-regulator face-jump and dynamical discontinuity behave under smoothing and regulator refinement?",
-        "What further asymptotic and factorization constructions justify scattering, celestial OPEs, soft currents and interacting Ward identities?"
+        "Can the source-recovering projective carrier and the canonical closed retained graph be connected by physically justified changed-kernel output and interaction laws?",
+        "Which regulator transfers produce compatible complete cubic and quartic action observables across physically meaningful meshes, radii and anchors?",
+        "Does the named temporal Bochner source enter the global canonical closed domain, and can outstanding complete contact-polynomial and nonlinear transport questions be resolved?",
+        "Which asymptotic state domains, propagation and connected transition amplitudes establish a scattering construction that supports factorization, soft charges, celestial OPEs and interacting Ward identities?"
       ],
       "artifacts": [
         {
@@ -1383,6 +1414,11 @@ window.ILC_DATA={
           "label": "Paper VII v2.0 — published DOI",
           "href": "https://doi.org/10.5281/zenodo.23545548",
           "kind": "DOI"
+        },
+        {
+          "label": "Paper VIII v1.0 — published interaction topologies",
+          "href": "publication-gps8.html",
+          "kind": "Publication"
         }
       ],
       "foundation": {
@@ -1657,5 +1693,5 @@ window.ILC_DATA={
       ]
     }
   ],
-  "updated": "2026-10-23"
+  "updated": "2026-10-25"
 };
