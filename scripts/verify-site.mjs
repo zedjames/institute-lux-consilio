@@ -171,8 +171,8 @@ assert.ok(qgPage.includes('name="description" content="'+qgSequenceDescription+'
  "QG search description must match its current series framing");
 const kineticSeries=data.series.find(x=>x.id==="kinetic-organization-biological-function");
 const kineticPaper=data.publications.find(x=>x.id==="kobf1");
-assert.equal(kineticSeries?.publishedCount,4,"Kinetic Papers I–IV registration missing");
-assert.deepStrictEqual(data.publications.filter(x=>x.program==="kinetic").map(x=>x.order).sort((a,b)=>a-b),[1,2,3,4],"Kinetic series order must be complete");
+assert.equal(kineticSeries?.publishedCount,5,"Kinetic Papers I–V registration missing");
+assert.deepStrictEqual(data.publications.filter(x=>x.program==="kinetic").map(x=>x.order).sort((a,b)=>a-b),[1,2,3,4,5],"Kinetic series order must be complete");
 const kineticII=data.publications.find(x=>x.id==="kobf2");
 assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(kineticII?.doi||"") && Number(kineticII.doi.split(".").at(-1))>=23512025,"Kinetic Paper II must use the verified v1.0 or a newer Zenodo version");
 assert.equal(kineticII?.conceptDoi,"10.5281/zenodo.23512024","Kinetic Paper II all-version DOI mismatch");
@@ -246,6 +246,27 @@ assert.ok(kineticIV.summary.includes("limits do not commute"),"Kinetic IV finite
 assert.ok(data.programDetails.kinetic.narrative.some(x=>x.startsWith("Paper IV examines")),"Kinetic IV trajectory absent");
 assert.ok(data.programDetails.kinetic.frontier.includes("Global point selection")&&data.programDetails.kinetic.frontier.includes("Paper V"),"Kinetic V future scope missing");
 assert.ok(data.programDetails.kinetic.artifacts.some(x=>x.href==="publication-kobf4.html"),"Kinetic IV artifact link absent");
+const kineticV=data.publications.find(x=>x.id==="kobf5");
+assert.ok(kineticV&&kineticV.order===5&&kineticV.program==="kinetic","Kinetic V publication not registered");
+assert.equal(kineticV.title,"Global Selection of Collective Kinetic Organization");
+assert.equal(kineticV.doi,"10.5281/zenodo.23676336");
+assert.equal(kineticV.conceptDoi,"10.5281/zenodo.23676335");
+assert.equal(kineticV.date,"2026-10-26");
+assert.equal(kineticV.version,"1.0");
+assert.equal(kineticV.pdfSha256,"adf034173bf0ca0a4f4635e251e708161026049009f4063d07039e38ad2fe7b1");
+assert.equal(kineticV.pdf,"https://zenodo.org/api/records/23676336/files/Global%20Selection%20of%20Collective%20Kinetic%20Organization%20v1.0.pdf/content");
+assert.ok(kineticV.summary.includes("singleton {X*}")&&kineticV.summary.includes("uninterrupted charge-band survival"),"Global singleton and finite population/path limits missing");
+assert.ok(kineticV.summary.includes("no universal numerical convergence rate")||kineticV.summary.includes("a universal convergence rate"),"Paper V qualitative convergence limitation missing");
+assert.ok(data.programDetails.kinetic.narrative.some(x=>x.startsWith("Paper V completes")),"Paper V trajectory missing");
+assert.ok(data.programDetails.kinetic.frontier.includes("A = {X*}")&&data.programDetails.kinetic.frontier.includes("do not provide a universal numerical convergence rate"),"Paper V mathematical scope missing from frontier");
+assert.ok(data.programDetails.kinetic.artifacts.some(x=>x.href==="publication-kobf5.html"),"Paper V scientific artifact link missing");
+assert.equal(kineticSeries?.status,"Papers I–V published; global-selection arc complete");
+const kineticVHtml=fs.readFileSync("publication-kobf5.html","utf8");
+assert.ok(kineticVHtml.includes('name="citation_doi" content="10.5281/zenodo.23676336"')&&kineticVHtml.includes(kineticV.pdf),"Paper V scholarly metadata or PDF link missing");
+assert.ok(fs.readFileSync("publication-kobf4.html","utf8").includes('href="publication-kobf5.html"'),"Paper IV must link to Paper V");
+assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-kobf5.html"'),"Homepage missing Kinetic Paper V");
+assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-kobf5.html"),"Sitemap missing Kinetic Paper V");
+
 const kineticIVHtml=fs.readFileSync("publication-kobf4.html","utf8");
 assert.ok(kineticIVHtml.includes('name="citation_doi" content="10.5281/zenodo.23604748"')&&kineticIVHtml.includes(kineticIV.pdf),"Kinetic IV publication record not indexed with its PDF and DOI");
 assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-kobf4.html"'),"Homepage missing new Kinetic IV");
