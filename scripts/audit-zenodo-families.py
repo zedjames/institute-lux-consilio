@@ -72,6 +72,18 @@ for label, record_id in RECORDS:
                 if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
                 "Interaction Topologies of Celestial Radiative States v1.0.pdf"]:
             raise ValueError("Celestial VIII deposited PDF filename changed")
+    if label == "kinetic-paper-v-v1":
+        if (doc.get("doi") != "10.5281/zenodo.23676336"
+                or doc.get("conceptdoi") != "10.5281/zenodo.23676335"
+                or meta.get("title") != "Global Selection of Collective Kinetic Organization"
+                or meta.get("publication_date") != "2026-10-26"
+                or str(meta.get("version") or "").lstrip("v") != "1.0"
+                or str(doc.get("status") or "") != "published"):
+            raise ValueError("Kinetic V published Zenodo metadata differs from author manuscript")
+        if [p.get("key") or p.get("filename") for p in doc.get("files", [])
+                if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
+                "Global Selection of Collective Kinetic Organization v1.0.pdf"]:
+            raise ValueError("Kinetic V deposited PDF filename differs from supplied manuscript")
     if label == "kinetic-paper-iv-v1":
         if (doc.get("doi") != "10.5281/zenodo.23604748"
                 or doc.get("conceptdoi") != "10.5281/zenodo.23604747"
