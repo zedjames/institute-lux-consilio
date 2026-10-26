@@ -244,7 +244,7 @@ assert.equal(kineticIV.pdf,"https://zenodo.org/api/records/23604748/files/Statio
 assert.ok(kineticIV.summary.includes("compact attracting set")&&kineticIV.summary.includes("does not establish global point selection"),"Kinetic IV must retain local vs global stability boundary");
 assert.ok(kineticIV.summary.includes("limits do not commute"),"Kinetic IV finite/collective survival boundary missing");
 assert.ok(data.programDetails.kinetic.narrative.some(x=>x.startsWith("Paper IV examines")),"Kinetic IV trajectory absent");
-assert.ok(data.programDetails.kinetic.frontier.includes("Global point selection")&&data.programDetails.kinetic.frontier.includes("Paper V"),"Kinetic V future scope missing");
+assert.ok(data.programDetails.kinetic.frontier.includes("Paper V proves A = {X*}")&&data.programDetails.kinetic.frontier.includes("Further work may investigate regenerative response"),"Kinetic V published frontier missing");
 assert.ok(data.programDetails.kinetic.artifacts.some(x=>x.href==="publication-kobf4.html"),"Kinetic IV artifact link absent");
 const kineticV=data.publications.find(x=>x.id==="kobf5");
 assert.ok(kineticV&&kineticV.order===5&&kineticV.program==="kinetic","Kinetic V publication not registered");
