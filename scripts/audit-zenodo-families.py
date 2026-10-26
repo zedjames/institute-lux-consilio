@@ -23,6 +23,7 @@ RECORDS = [
     ("qg-paper-viii-concept", "22939781"),
     ("qg-paper-ix-v1", "23604372"),
     ("kinetic-paper-iv-v1", "23604748"),
+    ("kinetic-paper-v-v1", "23676336"),
 ]
 # Check the immutable first-published versions against author-supplied PDFs.
 # Existing record IDs are immutable, so later versions remain independently discoverable.
@@ -32,6 +33,7 @@ PDF_MD5 = {
     "23547074": "2cc2e7a07e3d554d9fbcde8030ba7463",
     "23604372": "ae730b9465a87ff166ae48579b3e8dde",
     "23604748": "6d520c35c71b0ecd2232a4aa23182eac",
+    "23676336": "0230261f84ba89abdbf1ea96c08a016a",
 }
 for label, record_id in RECORDS:
     u = "https://zenodo.org/api/records/" + record_id
@@ -70,6 +72,18 @@ for label, record_id in RECORDS:
                 if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
                 "Interaction Topologies of Celestial Radiative States v1.0.pdf"]:
             raise ValueError("Celestial VIII deposited PDF filename changed")
+    if label == "kinetic-paper-v-v1":
+        if (doc.get("doi") != "10.5281/zenodo.23676336"
+                or doc.get("conceptdoi") != "10.5281/zenodo.23676335"
+                or meta.get("title") != "Global Selection of Collective Kinetic Organization"
+                or meta.get("publication_date") != "2026-10-26"
+                or str(meta.get("version") or "").lstrip("v") != "1.0"
+                or str(doc.get("status") or "") != "published"):
+            raise ValueError("Kinetic V published Zenodo metadata differs from author manuscript")
+        if [p.get("key") or p.get("filename") for p in doc.get("files", [])
+                if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
+                "Global Selection of Collective Kinetic Organization v1.0.pdf"]:
+            raise ValueError("Kinetic V deposited PDF filename differs from supplied manuscript")
     if label == "kinetic-paper-iv-v1":
         if (doc.get("doi") != "10.5281/zenodo.23604748"
                 or doc.get("conceptdoi") != "10.5281/zenodo.23604747"
