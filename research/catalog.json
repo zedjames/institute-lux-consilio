@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -663,6 +663,31 @@
       "legacyPage": "https://fieldfluxbiosystems.com/research-endpoint-rigidity-periodic-navier-stokes-flow.html",
       "pdf": "https://fieldfluxbiosystems.com/research-endpoint-rigidity-periodic-navier-stokes-flow.pdf",
       "conceptDoi": "10.5281/zenodo.22943387"
+    },
+    {
+      "id": "sqg10",
+      "date": "2026-10-27",
+      "seriesId": "schwarzschild-qg",
+      "series": "Schwarzschild Quantum Gravity",
+      "order": 10,
+      "title": "Global Coherence of a Quantum-Sourced Einstein–Scalar History",
+      "subtitle": "Reanchored retarded exteriors, nonlinear overlap uniqueness, and complete-action descent",
+      "doi": "10.5281/zenodo.23700768",
+      "conceptDoi": "10.5281/zenodo.23700767",
+      "summary": "Paper X constructs one coherent physical-past Einstein–real-scalar history from independently reanchored retarded exteriors of the positive-coupling quantum source. Exact boundary-mass transport and nonlinear two-arrival overlap uniqueness identify the metric and scalar across the full common equation-certified earned domains, yielding a Hausdorff physical-past carrier with globally defined C² Einstein–scalar fields on the clock interval (Lphys, t0]. The complete two-region Einstein–Hilbert/scalar, interface, Gibbons–Hawking–York, wall, cap and corner action descends consistently to finite source-earned collars; equality also holds under admitted graph shapes and independent regional metric–scalar perturbations, with first-variation predicates transported. On the selected positive-mass turning-clock branch a unique transverse first marginal boundary satisfies 2M=R at positive radius, and a sign-flexible nonlinear construction gives a regular local C² Einstein–scalar crossing. This is not a maximal physical history: identifying the crossing with the global owner, extending the complete action beyond the seed boundary, and free-boundary evolution remain open.",
+      "program": "qg",
+      "domains": [
+        "Quantum gravity",
+        "Mathematical physics"
+      ],
+      "themes": [
+        "boundary",
+        "identity",
+        "continuation"
+      ],
+      "version": "1.0",
+      "pdf": "https://zenodo.org/api/records/23700768/files/Global%20Coherence%20of%20a%20Quantum-Sourced%20Einstein%20Scalar%20History%20v1.0.pdf/content",
+      "pdfSha256": "a0b4a0684b92d69021f4e2d2b5f54e765b88bc1be9e9e592770b29d4103cadea"
     },
     {
       "id": "sqg9",
