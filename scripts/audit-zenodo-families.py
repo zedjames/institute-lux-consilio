@@ -98,6 +98,18 @@ for label, record_id in RECORDS:
                 if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
                 "Stationary Organization and Functional Persistence in Collective Kinetic Systems v1.0.pdf"]:
             raise ValueError("Kinetic IV PDF filename differs from the verified deposit")
+    if label == "qg-paper-x-v1":
+        if (doc.get("doi") != "10.5281/zenodo.23700768"
+                or doc.get("conceptdoi") != "10.5281/zenodo.23700767"
+                or meta.get("title") != "Global Coherence of a Quantum-Sourced Einstein–Scalar History"
+                or meta.get("publication_date") != "2026-10-27"
+                or str(meta.get("version") or "").lstrip("v") != "1.0"
+                or str(doc.get("status") or "") != "published"):
+            raise ValueError("Paper X published Zenodo metadata differs from supplied manuscript")
+        if [p.get("key") or p.get("filename") for p in doc.get("files", [])
+                if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
+                "Global Coherence of a Quantum-Sourced Einstein Scalar History v1.0.pdf"]:
+            raise ValueError("Paper X deposited PDF filename changed")
     if label == "qg-paper-ix-v1":
         if (doc.get("doi") != "10.5281/zenodo.23604372"
                 or doc.get("conceptdoi") != "10.5281/zenodo.23604371"
