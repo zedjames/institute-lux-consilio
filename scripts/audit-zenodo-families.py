@@ -22,6 +22,7 @@ RECORDS = [
     ("qg-paper-vii-concept", "22904030"),
     ("qg-paper-viii-concept", "22939781"),
     ("qg-paper-ix-v1", "23604372"),
+    ("qg-paper-x-v1", "23700768"),
     ("kinetic-paper-iv-v1", "23604748"),
     ("kinetic-paper-v-v1", "23676336"),
 ]
@@ -32,6 +33,7 @@ PDF_MD5 = {
     "23651438": "81d5c976b82f79f319f7bba9dc1a6ab1",
     "23547074": "2cc2e7a07e3d554d9fbcde8030ba7463",
     "23604372": "ae730b9465a87ff166ae48579b3e8dde",
+    "23700768": "cd8b00ea7a75470dee074b329c079480",
     "23604748": "6d520c35c71b0ecd2232a4aa23182eac",
     "23676336": "0230261f84ba89abdbf1ea96c08a016a",
 }
