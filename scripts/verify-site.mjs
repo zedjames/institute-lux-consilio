@@ -288,7 +288,7 @@ assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-kobf5.html
 
 const kineticIVHtml=fs.readFileSync("publication-kobf4.html","utf8");
 assert.ok(kineticIVHtml.includes('name="citation_doi" content="10.5281/zenodo.23604748"')&&kineticIVHtml.includes(kineticIV.pdf),"Kinetic IV publication record not indexed with its PDF and DOI");
-assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-kobf4.html"'),"Homepage missing new Kinetic IV");
+assert.ok(fs.readFileSync("publications.html","utf8").includes('href="publication-kobf4.html"'),"Kinetic IV must remain in the full scholarly archive");
 
 assert.equal(kineticPaper?.conceptDoi,"10.5281/zenodo.23405911","Kinetic Paper I Zenodo family changed");
 assert.equal(kineticPaper?.program,"kinetic","Kinetic Paper I program link missing");
