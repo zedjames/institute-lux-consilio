@@ -22,6 +22,7 @@ RECORDS = [
     ("qg-paper-vii-concept", "22904030"),
     ("qg-paper-viii-concept", "22939781"),
     ("qg-paper-ix-v1", "23604372"),
+    ("qg-paper-x-v1", "23700768"),
     ("kinetic-paper-iv-v1", "23604748"),
     ("kinetic-paper-v-v1", "23676336"),
 ]
@@ -32,6 +33,7 @@ PDF_MD5 = {
     "23651438": "81d5c976b82f79f319f7bba9dc1a6ab1",
     "23547074": "2cc2e7a07e3d554d9fbcde8030ba7463",
     "23604372": "ae730b9465a87ff166ae48579b3e8dde",
+    "23700768": "cd8b00ea7a75470dee074b329c079480",
     "23604748": "6d520c35c71b0ecd2232a4aa23182eac",
     "23676336": "0230261f84ba89abdbf1ea96c08a016a",
 }
@@ -96,6 +98,18 @@ for label, record_id in RECORDS:
                 if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
                 "Stationary Organization and Functional Persistence in Collective Kinetic Systems v1.0.pdf"]:
             raise ValueError("Kinetic IV PDF filename differs from the verified deposit")
+    if label == "qg-paper-x-v1":
+        if (doc.get("doi") != "10.5281/zenodo.23700768"
+                or doc.get("conceptdoi") != "10.5281/zenodo.23700767"
+                or meta.get("title") != "Global Coherence of a Quantum-Sourced Einstein–Scalar History"
+                or meta.get("publication_date") != "2026-10-27"
+                or str(meta.get("version") or "").lstrip("v") != "1.0"
+                or str(doc.get("status") or "") != "published"):
+            raise ValueError("Paper X published Zenodo metadata differs from supplied manuscript")
+        if [p.get("key") or p.get("filename") for p in doc.get("files", [])
+                if str(p.get("key") or p.get("filename") or "").lower().endswith(".pdf")] != [
+                "Global Coherence of a Quantum-Sourced Einstein Scalar History v1.0.pdf"]:
+            raise ValueError("Paper X deposited PDF filename changed")
     if label == "qg-paper-ix-v1":
         if (doc.get("doi") != "10.5281/zenodo.23604372"
                 or doc.get("conceptdoi") != "10.5281/zenodo.23604371"

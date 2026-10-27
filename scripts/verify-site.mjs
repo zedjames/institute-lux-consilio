@@ -129,8 +129,8 @@ for(const id of PROGRAM_IDS){
 }
 
 const qgPapersV2=data.publications.filter(x=>x.program==="qg");
-assert.equal(qgPapersV2.length,9,"QG must retain the nine-paper sequence");
-assert.deepStrictEqual(qgPapersV2.map(p=>p.order).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8,9],"Schwarzschild Paper IX must extend the complete sequence");
+assert.equal(qgPapersV2.length,10,"QG must retain the ten-paper sequence");
+assert.deepStrictEqual(qgPapersV2.map(p=>p.order).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8,9,10],"Schwarzschild Paper X must extend the complete sequence");
 for(const id of ["sqg3","sqg4","sqg5","sqg6","sqg7"])assert.equal(qgPapersV2.find(p=>p.id===id)?.version,"2.0","QG v2 published edition marker missing: "+id);
 assert.ok(data.programDetails.qg.narrative.some(s=>s.startsWith("Paper VIII v2.0 classifies")),"Paper VIII v2.0 scientific result is missing");
 const qgVIII=qgPapersV2.find(p=>p.id==="sqg8");
@@ -150,11 +150,30 @@ assert.equal(qgIX.pdfSha256,"e91a078739fbc566e277146f13d71f70e60ecc66433ba3a6861
 assert.equal(qgIX.pdf,"https://zenodo.org/api/records/23604372/files/Causal%20Exterior%20Ownership%20for%20a%20Moving%20Einstein%20Scalar%20Quantum%20Sector.pdf/content");
 assert.ok(qgIX.summary.includes("negative proper-time surface energy")&&qgIX.summary.includes("Global exterior continuation"),"Paper IX scientific result or physical scope missing");
 assert.ok(data.programDetails.qg.narrative.some(p=>p.startsWith("Paper IX v1.0 continues")),"Paper IX research trajectory missing");
-assert.equal(data.series.find(x=>x.id==="schwarzschild-qg")?.publishedCount,9,"QG series published count incorrect");
+assert.equal(data.series.find(x=>x.id==="schwarzschild-qg")?.publishedCount,10,"QG series published count incorrect");
 const qgIXPage=fs.readFileSync("publication-sqg9.html","utf8");
 assert.ok(qgIXPage.includes('name="citation_doi" content="10.5281/zenodo.23604372"')&&qgIXPage.includes(qgIX.pdf),"Paper IX static page missing scholarly DOI or PDF");
-assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-sqg9.html"'),"Homepage omitted newest Schwarzschild paper");
+assert.ok(fs.readFileSync("publications.html","utf8").includes('href="publication-sqg9.html"'),"Schwarzschild IX must remain discoverable in archive");
 
+const qgX=qgPapersV2.find(p=>p.id==="sqg10");
+assert.ok(qgX&&qgX.order===10&&qgX.seriesId==="schwarzschild-qg","Schwarzschild X publication registration missing");
+assert.equal(qgX.title,"Global Coherence of a Quantum-Sourced Einstein–Scalar History");
+assert.equal(qgX.doi,"10.5281/zenodo.23700768");
+assert.equal(qgX.conceptDoi,"10.5281/zenodo.23700767");
+assert.equal(qgX.date,"2026-10-27");
+assert.equal(qgX.version,"1.0");
+assert.equal(qgX.pdfSha256,"a0b4a0684b92d69021f4e2d2b5f54e765b88bc1be9e9e592770b29d4103cadea");
+assert.equal(qgX.pdf,"https://zenodo.org/api/records/23700768/files/Global%20Coherence%20of%20a%20Quantum-Sourced%20Einstein%20Scalar%20History%20v1.0.pdf/content");
+assert.ok(qgX.summary.includes("Hausdorff physical-past carrier")&&qgX.summary.includes("not a maximal physical history"),"Paper X earned-global and maximal-continuation scope missing");
+assert.ok(qgX.summary.includes("local C² Einstein–scalar crossing")&&qgX.summary.includes("complete two-region"),"Paper X scientific scope incomplete");
+assert.ok(data.programDetails.qg.narrative.some(x=>x.startsWith("Paper X v1.0 transports")),"Paper X QG trajectory missing");
+assert.ok(data.programDetails.qg.frontier.includes("Paper X")&&data.programDetails.qg.frontier.includes("free-boundary dynamics"),"Paper X frontier or unresolved work missing");
+assert.ok(data.programDetails.qg.artifacts.some(x=>x.href==="publication-sqg10.html"),"Paper X scholarly artifact missing");
+const qgXHtml=fs.readFileSync("publication-sqg10.html","utf8");
+assert.ok(qgXHtml.includes('name="citation_doi" content="10.5281/zenodo.23700768"')&&qgXHtml.includes(qgX.pdf),"Paper X static record missing published DOI or PDF");
+assert.ok(fs.readFileSync("publication-sqg9.html","utf8").includes('href="publication-sqg10.html"'),"Paper IX must link forward to X");
+assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-sqg10.html"'),"Newest Schwarzschild X missing from homepage");
+assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-sqg10.html"),"Schwarzschild X missing from sitemap");
 const qgCurrentPage=fs.readFileSync("research-relational-quantum-gravity.html","utf8");
 assert.ok(!qgCurrentPage.includes("earlier version-specific Zenodo DOI"),"Stale Paper VIII publication warning remains");
 assert.ok(qgCurrentPage.includes("Paper VIII v2.0 classifies"),"Paper VIII v2.0 scientific conclusion must be explicit");
@@ -269,7 +288,7 @@ assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-kobf5.html
 
 const kineticIVHtml=fs.readFileSync("publication-kobf4.html","utf8");
 assert.ok(kineticIVHtml.includes('name="citation_doi" content="10.5281/zenodo.23604748"')&&kineticIVHtml.includes(kineticIV.pdf),"Kinetic IV publication record not indexed with its PDF and DOI");
-assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-kobf4.html"'),"Homepage missing new Kinetic IV");
+assert.ok(fs.readFileSync("publications.html","utf8").includes('href="publication-kobf4.html"'),"Kinetic IV must remain in the full scholarly archive");
 
 assert.equal(kineticPaper?.conceptDoi,"10.5281/zenodo.23405911","Kinetic Paper I Zenodo family changed");
 assert.equal(kineticPaper?.program,"kinetic","Kinetic Paper I program link missing");
