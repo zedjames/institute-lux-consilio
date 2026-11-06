@@ -1,0 +1,104 @@
+name: Publish complete latest-edition paper series ZIPs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/build_series_downloads.py
+      - research/catalog.json
+      - research/zenodo-concepts.json
+      - research/site-pdfs.json
+      - assets/data/research.js
+      - .github/workflows/publish-series-downloads.yml
+  pull_request:
+    paths:
+      - scripts/build_series_downloads.py
+      - scripts/build-program-pages.mjs
+      - scripts/verify-site.mjs
+      - research/catalog.json
+      - research-health-formally-defined.html
+      - .github/workflows/publish-series-downloads.yml
+  schedule:
+    # Follow the 07:15 UTC Zenodo version synchronizer with a separate
+    # verification/packaging run. GitHub-token commits do not trigger push jobs.
+    - cron: '45 08 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ilc-series-release-latest
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Python archive generator and deterministic series index
+        run: |
+          python3 -m py_compile scripts/build_series_downloads.py
+          python3 scripts/build_series_downloads.py --output /tmp/ilc-series-preview --index-only
+          python3 -m unittest discover -s tests -p 'test_series_downloads.py'
+      - name: Build and verify a representative complete series ZIP
+        run: |
+          python3 scripts/build_series_downloads.py --output /tmp/ilc-series-preview --program kinetic
+          python3 - <<'PY'
+          import json,zipfile
+          from pathlib import Path
+          z=Path('/tmp/ilc-series-preview/ilc-kinetic-organization-biological-function-latest.zip')
+          with zipfile.ZipFile(z) as f:
+              assert f.testzip() is None
+              manifest=json.loads(f.read('manifest.json'))
+              assert len(manifest['papers'])==5
+              assert sum(x.endswith('.pdf') for x in f.namelist())==5
+          print('Verified complete current Kinetic series download.')
+          PY
+
+  publish:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare permanent release container and prior edition index
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! gh release view series-latest >/dev/null 2>&1; then
+            gh release create series-latest --target main \
+              --title "ILC research series — complete latest published editions" \
+              --notes "Version-aware PDF collections of published ILC scientific series. Each archive includes the original papers, DOI links, and a SHA-256 manifest. The latest editions are verified from Zenodo before publication."
+          fi
+          mkdir -p /tmp/ilc-series-previous /tmp/ilc-series-out
+          gh release download series-latest --pattern series-index.json \
+            --dir /tmp/ilc-series-previous || true
+          gh release view series-latest --json assets --jq '.assets[].name' \
+            > /tmp/ilc-series-previous/available-assets.txt
+      - name: Build only changed series with verified Zenodo PDF checksums
+        run: |
+          python3 scripts/build_series_downloads.py \
+            --output /tmp/ilc-series-out \
+            --previous-index /tmp/ilc-series-previous/series-index.json \
+            --available-assets /tmp/ilc-series-previous/available-assets.txt
+      - name: Publish ZIP assets and index under stable download URLs
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          archives=(/tmp/ilc-series-out/*.zip)
+          if (( ${#archives[@]} > 0 )); then
+            gh release upload series-latest "${archives[@]}" --clobber
+          else
+            echo "All series ZIPs already match current verified publication editions."
+          fi
+          # Upload this last: only advertise the new release state when all
+          # changed series archives are successfully published.
+          gh release upload series-latest /tmp/ilc-series-out/series-index.json --clobber
+          echo "Complete series ZIPs available from the stable series-latest release."
