@@ -1372,7 +1372,19 @@ window.ILC_DATA={
           "href": "https://fieldfluxbiosystems.com/verification.txt",
           "kind": "Verification"
         }
-      ]
+      ],
+      "inquiry": {
+        "eyebrow": "Why this inquiry develops as a series",
+        "heading": "What makes health a property we can actually identify?",
+        "intro": "Health concerns what a living system can do in the conditions it encounters, including its capacity to respond, adapt, and continue. Defining that capacity and measuring it are connected scientific problems.",
+        "paragraphs": [
+          "The Health, Formally Defined series begins by specifying prospective health through present constitution, future continuation, contexts, and requirements. Each succeeding investigation asks what information must remain available for that proposition to be well-defined and observable.",
+          "Changes of representation may preserve some health-relevant distinctions and discard others. An observation may reveal a state while altering it. A measurement therefore participates in the relationship between a living system, its circumstances, and the claims we can make about its future.",
+          "The sequence moves from definitions and representation sufficiency through provenance, declared empirical specifications, and constitutive observability. Its papers follow the obligations that arise when a mathematically meaningful health concept becomes a physically meaningful observation question."
+        ],
+        "centralQuestion": "What must a measurement preserve about a changing living system to tell us something reliable about its future capacity?",
+        "closing": "Each stage makes the conditions for interpretation explicit. The resulting investigation provides a foundation for future physical measurements, prospective predictions, and independent empirical tests."
+      }
     },
     "rmmo": {
       "question": "Which relationships across developing biological systems remain informative as comparison context, molecular representation, and the scale of local correspondence change?",
@@ -1418,7 +1430,19 @@ window.ILC_DATA={
           "href": "https://doi.org/10.5281/zenodo.23225034",
           "kind": "Publication"
         }
-      ]
+      ],
+      "inquiry": {
+        "eyebrow": "Why this inquiry develops as a series",
+        "heading": "How does biological identity arise through relationship?",
+        "intro": "Cells develop in surroundings that change with them. Their identity and direction of development may become intelligible only through the relations among cells, molecular states, lineages, and comparison contexts.",
+        "paragraphs": [
+          "The Relational Morphogenesis and Multicellular Organization series asks what remains informative as biological development is viewed through different observations and scales. A cell's measured properties are understood within developmental relationships, rather than as an isolated list of intrinsic features.",
+          "Beginning with directional organization during organogenesis, the series examines the information carried by measured molecular state and the local correspondences that remain supportable as context and representation change.",
+          "Each paper introduces a further requirement on comparability. The investigation asks which relationships persist across the observations and which depend upon the way the biological system is sampled or represented."
+        ],
+        "centralQuestion": "What remains of developmental identity when the relationships through which we observe a living system change?",
+        "closing": "The results arise from the declared experimental data and comparison designs. Subsequent investigations can test which relational structures persist across new embryos, developmental horizons, and independently sampled systems."
+      }
     },
     "celestial": {
       "question": "What exists, what is represented, what is identified, what is lost, and what remains reconstructible at each physical transition?",
@@ -1481,6 +1505,18 @@ window.ILC_DATA={
           "The resulting papers trace a continuing investigation through Gaussian physical states, multiparticle structure, radiative representation, source faithfulness, Hilbert-space obstructions, and gravitational interaction. Each result determines what has been established within its mathematical setting, where additional structure is required, and which further questions have become accessible.",
           "The program's objective is to develop the physical and mathematical foundations through which an interacting celestial correspondence can be investigated and tested. Its findings complement amplitude-based celestial holography while preserving the distinction between established scattering identities and the additional requirements of a physically realized celestial theory."
         ]
+      },
+      "inquiry": {
+        "eyebrow": "Why this inquiry develops as a series",
+        "heading": "What survives when physical information changes representation?",
+        "intro": "A physical state can be described in more than one mathematical language. Each representation opens new possibilities for analysis and raises a consequential question: which features of the original physical system remain accessible?",
+        "paragraphs": [
+          "The Gaussian Physical States and Celestial Representation series follows particular states, operators, and source data through changes of mathematical representation. It examines the relationships between the physical source, radiative response, and the celestial descriptions built from them.",
+          "An admissible mathematical representation must carry specific physical information. Some maps compress distinctions; some domains require careful selection; and gravitational interaction places stronger continuity demands on structures already established in earlier stages.",
+          "That is why the sequence proceeds from Gaussian physical states and particle semantics to radiative information, reconstruction, operator domains, and cubic and quartic interaction topologies. The emerging conditions are themselves the subjects of inquiry."
+        ],
+        "centralQuestion": "When a physical description changes, what must be preserved for the resulting representation to remain faithful to the physics?",
+        "closing": "The series examines physical correspondence step by step. Each result determines what information is carried forward, what mathematical structure an interaction requires, and which further questions arise on the path toward scattering."
       }
     },
     "qg": {
@@ -1536,7 +1572,21 @@ window.ILC_DATA={
           "href": "publication-sqg10.html",
           "kind": "Publication"
         }
-      ]
+      ],
+      "inquiry": {
+        "eyebrow": "The question behind the series",
+        "heading": "What if the relationship comes first?",
+        "intro": "We are questioning whether our habit of defining objects first and studying their interactions second is itself part of the problem.",
+        "paragraphs": [
+          "Consider quantum matter and spacetime geometry. We can describe quantum states mathematically and gravitational fields geometrically. What happens at the physical and mathematical boundaries where quantum descriptions, matter observables, gravitational sources, and spacetime geometry become mutually constraining?",
+          "What remains identifiable when we pass between these descriptions? Which properties survive their exchanges? Which change? Which become apparent only through the relationships themselves?",
+          "An object may be better understood not merely as a collection of intrinsic properties, but as a relatively stable organization of relationships and exchanges. Its physical identity can depend on what is maintained, transmitted, and transformed through those relationships.",
+          "Perhaps the object of investigation is not quantum gravity as a finished entity, but the processes through which quantum and gravitational properties become mutually defined, constrained, and transformed.",
+          "The Schwarzschild Quantum Gravity series follows one selected quantum scalar excitation through these questions. Operator-domain selection leads to quantum dynamics; quantum matter becomes a gravitational source; gauge structure, physical equivalence and moving interfaces add further demands; and independently constructed exteriors are tested for their ability to form one coherent classical spacetime history. Each stage inherits the mathematical construction developed earlier. The papers show what each new relationship establishes and where the next question begins."
+        ],
+        "centralQuestion": "What if the properties we call \"matter\" and \"geometry\" are not fully independent ingredients of the world, but two distinguishable descriptions of relationships that become apparent through their exchanges?",
+        "closing": "We ask this question openly and investigate its consequences through explicit mathematics. The papers establish the structures, correspondences, and constraints that can be demonstrated at each stage, giving the wider inquiry a growing scientific foundation."
+      }
     },
     "ns": {
       "question": "What structure must remain available for a strong solution to continue, and what exact geometry is forced when that continuation reserve disappears?",
@@ -1581,7 +1631,19 @@ window.ILC_DATA={
           "href": "publication-ns4.html",
           "kind": "Publication"
         }
-      ]
+      ],
+      "inquiry": {
+        "eyebrow": "Why this inquiry develops as a series",
+        "heading": "What makes continuation possible?",
+        "intro": "A fluid may retain bounded kinetic energy while the mathematical conditions supporting a strong solution become increasingly difficult to control. What is changing in the organization of the flow?",
+        "paragraphs": [
+          "The Fluid Dynamics and Navier–Stokes series follows continuation through energy, regularity, nonlinear transfer, and scale. Each paper examines a new relationship among the quantities that govern whether the constructed solution can continue.",
+          "The investigations distinguish a bound on total energy from the finer information needed to control derivatives and spectral organization. They then examine endpoint conditions and what can be identified from finite observations of a changing flow.",
+          "Following the same continuation problem allows apparent breakdowns to be classified precisely: a loss of a particular estimate, an escape of regularity beyond controlled scales, or an obstruction to identifying future dynamics from a limited observation."
+        ],
+        "centralQuestion": "Which relationships among energy, scale, and nonlinear transport must remain available for a fluid solution to continue?",
+        "closing": "The sequence develops the mathematics needed to distinguish these outcomes. The continuing question is which constraints on the actual evolving flow provide the next step toward understanding continuation and breakdown."
+      }
     },
     "formal": {
       "question": "How can machine-checked structure be connected to scientific authority while keeping source presence, compilation, theorem truth, interpretation, and empirical realization legible?",
@@ -1697,7 +1759,19 @@ window.ILC_DATA={
           "href": "publication-kobf5.html",
           "kind": "Publication"
         }
-      ]
+      ],
+      "inquiry": {
+        "eyebrow": "Why this inquiry develops as a series",
+        "heading": "How can organized movement become function?",
+        "intro": "A molecule can move. Many molecules can exchange matter, energy, and information. Under what conditions does their movement become an organization capable of sustaining a physical function?",
+        "paragraphs": [
+          "The Kinetic Organization and Biological Function series follows a specified mechanochemical transporter from its individual dynamics into coupling through finite shared resources, electrical feedback, and chemical regeneration. Each new relationship changes the question that can be asked of the system.",
+          "Individual transport reveals current and energetic consequences. Coupled transport asks how those consequences persist when the surroundings respond. Populations introduce new collective dynamics and the limits of coarse observations. Stationary circulation and global selection then ask what organization is maintained through continuing microscopic movement.",
+          "These papers follow the exchanges that sustain the system. A stationary collective state can remain physically active; different kinetic preparations can share coarse energy descriptions while supporting different currents. Each step makes the relation between movement and accomplished transformation more precise."
+        ],
+        "centralQuestion": "What makes a system's organization persist while matter and energy continue moving through it?",
+        "closing": "The historical questions of qìjī (organized movement) and qìhuà (transformation through movement) motivate this inquiry. The mathematical conclusions are established for the declared physical model, with their assumptions and opportunities for further investigation preserved."
+      }
     }
   },
   "questions": [
