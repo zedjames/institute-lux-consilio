@@ -63,7 +63,7 @@ jobs:
           node scripts/verify-site.mjs
           python3 -m unittest discover -s tests -p "test_series_archives.py"
           python3 scripts/build_series_archives.py --manifest-only --output-dir "$RUNNER_TEMP/ilc-series-preview"
-          python3 scripts/build_series_archives.py --series relational-cell-fate --output-dir "$RUNNER_TEMP/ilc-series-smoke"
+          python3 scripts/build_series_archives.py --output-dir "$RUNNER_TEMP/ilc-series-smoke"
 
   update:
     if: github.event_name != 'pull_request'
