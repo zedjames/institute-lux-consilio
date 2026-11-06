@@ -6,6 +6,11 @@ import {fileURLToPath} from "node:url";
 function htmlSafe(t){return String(t??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));}
 function pubPath(x){return x.localPage || "publication-"+x.id+".html";}
 function usDate(s){return new Date(s+"T12:00:00Z").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric",timeZone:"UTC"});}
+function renderResearchInquiry(detail){
+ return detail&&detail.heading
+  ? `<section class="section section--mist" aria-label="The inquiry behind this research series"><div class="wrap statement"><div><p class="eyebrow">${htmlSafe(detail.eyebrow||"Foundational inquiry")}</p><h2>${htmlSafe(detail.heading)}</h2></div><div class="statement__body"><p><strong>${htmlSafe(detail.intro||"")}</strong></p>${(detail.paragraphs||[]).map(x=>`<p>${htmlSafe(x)}</p>`).join("")}${detail.centralQuestion?`<blockquote style="margin:26px 0;padding:0 0 0 20px;border-left:3px solid currentColor;font-size:1.15em;line-height:1.55"><strong>${htmlSafe(detail.centralQuestion)}</strong></blockquote>`:""}${detail.closing?`<p>${htmlSafe(detail.closing)}</p>`:""}</div></div></section>\n`
+  : "";
+}
 function renderProgramContent(d,id){
  const p=d.programs.find(x=>x.id===id);if(!p)throw Error("Unknown program: "+id);
  const detail=(d.programDetails||{})[id]||{};
@@ -17,9 +22,7 @@ function renderProgramContent(d,id){
  const artifacts=(detail.artifacts||[]).map(a=>`<a class="artifact-row" href="${htmlSafe(a.href)}"><span class="artifact-row__kind">${htmlSafe(a.kind)}</span><strong>${htmlSafe(a.label)}</strong><span class="artifact-row__arrow">↗</span></a>`).join("");
  const questions=(detail.openQuestions||[]).map((q,i)=>`<li><span>${String(i+1).padStart(2,"0")}</span><p>${htmlSafe(q)}</p></li>`).join("");
  const narrative=(detail.narrative||[]).map(t=>`<p>${htmlSafe(t)}</p>`).join("");
- const inquiry=detail.inquiry&&detail.inquiry.heading
-  ? `<section class="section section--mist" aria-label="The inquiry behind this research series"><div class="wrap statement"><div><p class="eyebrow">${htmlSafe(detail.inquiry.eyebrow||"Foundational inquiry")}</p><h2>${htmlSafe(detail.inquiry.heading)}</h2></div><div class="statement__body"><p><strong>${htmlSafe(detail.inquiry.intro||"")}</strong></p>${(detail.inquiry.paragraphs||[]).map(x=>`<p>${htmlSafe(x)}</p>`).join("")}${detail.inquiry.centralQuestion?`<blockquote style="margin:26px 0;padding:0 0 0 20px;border-left:3px solid currentColor;font-size:1.15em;line-height:1.55"><strong>${htmlSafe(detail.inquiry.centralQuestion)}</strong></blockquote>`:""}${detail.inquiry.closing?`<p>${htmlSafe(detail.inquiry.closing)}</p>`:""}</div></div></section>\n`
-  : "";
+ const inquiry=renderResearchInquiry(detail.inquiry);
  const foundation=detail.foundation&&Array.isArray(detail.foundation.paragraphs)?`<section class="section section--mist"><div class="wrap"><article class="prose" style="max-width:880px"><p class="eyebrow">Scientific purpose</p><h2>${htmlSafe(detail.foundation.title)}</h2>${detail.foundation.paragraphs.map(x=>`<p>${htmlSafe(x)}</p>`).join("")}</article></div></section>\n`:"";
  const methods=(detail.methods||[]).map(t=>`<li>${htmlSafe(t)}</li>`).join("");
  const paperCard=(x,i)=>`<article class="paper-stage"><div class="paper-stage__num">${String(x.order||i+1).padStart(2,"0")}</div><div><p class="meta">${htmlSafe(usDate(x.date))}${x.version?" · v"+htmlSafe(String(x.version).replace(/^v/,"")):""}</p><h3><a href="${htmlSafe(pubPath(x))}">${htmlSafe(x.title)}</a></h3>${x.subtitle?`<p class="paper-stage__subtitle">${htmlSafe(x.subtitle)}</p>`:""}<p>${htmlSafe(x.summary)}</p><div class="archive-item__links"><a href="${htmlSafe(pubPath(x))}">ILC record →</a>${x.doi?`<a href="https://doi.org/${encodeURIComponent(x.doi)}" target="_blank" rel="noopener">DOI ↗</a>`:""}</div></div></article>`;
@@ -56,7 +59,7 @@ function rewriteProgramPage(html, d, programId){
  out=out.replace(matcher,"");
  return out;
 }
-export {PROGRAM_IDS, renderProgramContent};
+export {PROGRAM_IDS, renderProgramContent, renderResearchInquiry};
 export function updateFiles(root=process.cwd()){
  const raw=fs.readFileSync(path.join(root,"assets/data/research.js"),"utf8").trim();
  if(!raw.startsWith("window.ILC_DATA="))throw Error("Unknown catalog format");
@@ -74,6 +77,14 @@ export function updateFiles(root=process.cwd()){
   if(output.includes('id="program-detail"'))throw Error("Client-side program route remains");
   fs.writeFileSync(file,output);
  }
+ const healthFile=path.join(root,"research-health-formally-defined.html");
+ const healthHtml=fs.readFileSync(healthFile,"utf8");
+ const healthStart="<!-- ILC_HEALTH_INQUIRY_START -->",healthEnd="<!-- ILC_HEALTH_INQUIRY_END -->";
+ const i=healthHtml.indexOf(healthStart),j=healthHtml.indexOf(healthEnd,i+healthStart.length);
+ if(i<0||j<i)throw Error("Health page inquiry markers missing");
+ const rendered=renderResearchInquiry(data.programDetails.health.inquiry);
+ const healthOut=healthHtml.slice(0,i+healthStart.length)+"\n"+rendered+healthHtml.slice(j);
+ fs.writeFileSync(healthFile,healthOut);
  console.log("Updated "+PROGRAM_IDS.length+" static scientific program pages.");
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))updateFiles();
