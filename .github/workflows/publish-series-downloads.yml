@@ -35,7 +35,7 @@ jobs:
   preview:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - name: Check Python archive generator and deterministic series index
@@ -43,19 +43,24 @@ jobs:
           python3 -m py_compile scripts/build_series_downloads.py
           python3 scripts/build_series_downloads.py --output /tmp/ilc-series-preview --index-only
           python3 -m unittest discover -s tests -p 'test_series_downloads.py'
-      - name: Build and verify a representative complete series ZIP
+      - name: Build and verify every published series ZIP from Zenodo
         run: |
-          python3 scripts/build_series_downloads.py --output /tmp/ilc-series-preview --program kinetic
+          python3 scripts/build_series_downloads.py --output /tmp/ilc-series-preview
           python3 - <<'PY'
-          import json,zipfile
+          import json,zipfile,hashlib
           from pathlib import Path
-          z=Path('/tmp/ilc-series-preview/ilc-kinetic-organization-biological-function-latest.zip')
-          with zipfile.ZipFile(z) as f:
-              assert f.testzip() is None
-              manifest=json.loads(f.read('manifest.json'))
-              assert len(manifest['papers'])==5
-              assert sum(x.endswith('.pdf') for x in f.namelist())==5
-          print('Verified complete current Kinetic series download.')
+          root=Path('/tmp/ilc-series-preview')
+          index=json.loads((root/'series-index.json').read_text())
+          assert len(index['series'])==6
+          for program,info in index['series'].items():
+              with zipfile.ZipFile(root/info['filename']) as f:
+                  assert f.testzip() is None
+                  manifest=json.loads(f.read('manifest.json'))
+                  assert len(manifest['papers'])==info['count']
+                  assert sum(name.endswith('.pdf') for name in f.namelist())==info['count']
+                  for p in manifest['papers']:
+                      assert hashlib.sha256(f.read(p['filename'])).hexdigest()==p['sha256']
+                  print('Verified',program,info['count'],'published PDFs')
           PY
 
   publish:
