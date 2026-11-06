@@ -177,6 +177,48 @@ for(const [program,[page,seriesId,count]] of Object.entries(completeSeriesDownlo
 assert.ok(!fs.readFileSync("research-formal-infrastructure.html","utf8").includes("Download complete series (ZIP)"),
  "Formal infrastructure program has no published paper sequence to download");
 
+// ILC's research purpose is expressed through source-grounded inquiries,
+// with each program retaining its own mathematical and physical scope.
+const inquiryProgramPages={
+ qg:"research-relational-quantum-gravity.html",
+ celestial:"research-gaussian-celestial.html",
+ kinetic:"research-kinetic-organization-biological-function.html",
+ ns:"research-navier-stokes.html",
+ rmmo:"research-relational-morphogenesis.html",
+ health:"research-health-formally-defined.html"
+};
+for(const [program,page] of Object.entries(inquiryProgramPages)){
+ const inquiry=data.programDetails[program]?.inquiry;
+ assert.ok(inquiry&&inquiry.intro&&(inquiry.paragraphs||[]).length>=2&&inquiry.centralQuestion,
+  "Missing authored continuing-inquiry statement for "+program);
+ const html=fs.readFileSync(page,"utf8");
+ assert.equal((html.match(/aria-label="The inquiry behind this research series"/g)||[]).length,1,
+  "Expected exactly one visible inquiry introduction: "+page);
+ assert.ok(html.includes(inquiry.heading)&&html.includes(escapeHtmlForInquiryTest(inquiry.centralQuestion)),
+  "Page omits its authored research question: "+page);
+}
+function escapeHtmlForInquiryTest(value){
+ return String(value).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+}
+const fundamentalQuestion="What if the properties we call \"matter\" and \"geometry\" are not fully independent ingredients of the world, but two distinguishable descriptions of relationships that become apparent through their exchanges?";
+assert.equal(data.programDetails.qg.inquiry.centralQuestion,fundamentalQuestion,
+ "Keep the direct matter/geometry foundational inquiry");
+assert.ok(data.programDetails.qg.inquiry.intro.startsWith("We are questioning whether our habit of defining objects first"),
+ "Schwarzschild QG inquiry must retain its direct question of object-first assumptions");
+const methodsContent=fs.readFileSync("methods.html","utf8");
+for(const phrase of ["Objects, relationships, and physical exchange",
+ "Follow the question through its consequences.",
+ "An individual paper can establish a particular mathematical or physical relationship.",
+ "To discover what governs a physical system"]){
+ assert.ok(methodsContent.includes(phrase),"ILC Methods page omitted foundational research rationale: "+phrase);
+}
+const healthInquiryHtml=fs.readFileSync(inquiryProgramPages.health,"utf8");
+const healthInquiryStart="<!-- ILC_HEALTH_INQUIRY_START -->",healthInquiryEnd="<!-- ILC_HEALTH_INQUIRY_END -->";
+const hi=healthInquiryHtml.indexOf(healthInquiryStart),hj=healthInquiryHtml.indexOf(healthInquiryEnd,hi+healthInquiryStart.length);
+assert.ok(hi>=0&&hj>hi,"Health inquiry must remain regenerable");
+assert.equal(healthInquiryHtml.slice(hi+healthInquiryStart.length,hj),"\n"+renderResearchInquiry(data.programDetails.health.inquiry),
+ "Health series inquiry differs from canonical research data");
+
 const qgPapersV2=data.publications.filter(x=>x.program==="qg");
 assert.equal(qgPapersV2.length,10,"QG must retain the ten-paper sequence");
 assert.deepStrictEqual(qgPapersV2.map(p=>p.order).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8,9,10],"Schwarzschild Paper X must extend the complete sequence");
@@ -360,7 +402,7 @@ for(const p of data.publications){
 import crypto from "node:crypto";
 import {makeArtifacts, publicationPath} from "./build-publication-pages.mjs";
 import {activeForPage,renderMainNav} from "./build-main-navigation.mjs";
-import {renderProgramContent, PROGRAM_IDS} from "./build-program-pages.mjs";
+import {renderProgramContent, renderResearchInquiry, PROGRAM_IDS} from "./build-program-pages.mjs";
 import {programCards, recentCards, healthFullText, questionCards, themeCards} from "./build-site-discovery.mjs";
 const pdfManifest=JSON.parse(fs.readFileSync("research/site-pdfs.json","utf8"));
 const requiredPDFs=Object.fromEntries(pdfManifest.papers.map(p=>[
