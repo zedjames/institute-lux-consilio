@@ -152,8 +152,33 @@ for(const id of PROGRAM_IDS){
  const a=html.indexOf(start), b=html.indexOf(end,a+start.length);
  assert.ok(a>=0 && b>a,"Static program record missing: "+id);
  assert.equal(html.slice(a+start.length,b),renderProgramContent(data,id),"Static program page out of sync: "+id);
+ // Series ZIPs are direct static Release downloads, not client-side fetches.
+ const seriesPapers=data.publications.filter(x=>x.program===id && (id!=="rmmo"||x.seriesId==="rmmo"));
+ if(seriesPapers.length){
+  const sid=seriesPapers[0].seriesId;
+  assert.ok(seriesPapers.every(x=>x.seriesId===sid),"Mixed series archive must not omit papers: "+id);
+  const href="https://github.com/zedjames/institute-lux-consilio/releases/download/ilc-series-current/ilc-series-"+sid+".zip";
+  assert.ok(html.includes('href="'+href+'"'),"Complete-series ZIP download missing: "+id);
+  assert.ok(html.includes("Download complete series ("+seriesPapers.length+" PDFs"),"Series archive count missing: "+id);
+ }else{
+  assert.ok(!html.includes("Download complete series ("),"Series without papers should have no ZIP link: "+id);
+ }
+
 }
 
+const healthZip="https://github.com/zedjames/institute-lux-consilio/releases/download/ilc-series-current/ilc-series-health-formally-defined.zip";
+const healthPapersForBundle=data.publications.filter(x=>x.seriesId==="health-formally-defined");
+const healthSeriesPage=fs.readFileSync("research-health-formally-defined.html","utf8");
+assert.ok(healthSeriesPage.includes('href="'+healthZip+'"'),"Health series missing one-click PDF archive");
+assert.ok(healthSeriesPage.includes("Download complete series ("+healthPapersForBundle.length+" PDFs"),"Health series bundle paper count incorrect");
+const expectedArchiveURLs=[
+ "schwarzschild-qg","gaussian","health-formally-defined",
+ "kinetic-organization-biological-function","navier-stokes","rmmo"
+].map(sid=>"ilc-series-"+sid+".zip");
+for(const name of expectedArchiveURLs){
+ assert.ok(name.endsWith(".zip"),"Series archive must be a ZIP");
+}
+assert.ok(fs.readFileSync("scripts/publish_series_archives.py","utf8").includes("SERIES_ARCHIVES_REFRESH"),"Automated series publisher missing");
 const qgPapersV2=data.publications.filter(x=>x.program==="qg");
 assert.equal(qgPapersV2.length,10,"QG must retain the ten-paper sequence");
 assert.deepStrictEqual(qgPapersV2.map(p=>p.order).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8,9,10],"Schwarzschild Paper X must extend the complete sequence");
