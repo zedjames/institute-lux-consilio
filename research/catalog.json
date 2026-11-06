@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-10-27",
+  "updated": "2026-11-05",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -666,15 +666,15 @@
     },
     {
       "id": "sqg10",
-      "date": "2026-10-27",
+      "date": "2026-11-05",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 10,
       "title": "Global Coherence of a Quantum-Sourced Einstein–Scalar History",
-      "subtitle": "Reanchored retarded exteriors, nonlinear overlap uniqueness, and complete-action descent",
-      "doi": "10.5281/zenodo.23700768",
+      "subtitle": "Nonlinear overlap uniqueness, pre-turning Einstein–scalar continuation, and finite-region gravitational action",
+      "doi": "10.5281/zenodo.23990050",
       "conceptDoi": "10.5281/zenodo.23700767",
-      "summary": "Paper X constructs one coherent physical-past Einstein–real-scalar history from independently reanchored retarded exteriors of the positive-coupling quantum source. Exact boundary-mass transport and nonlinear two-arrival overlap uniqueness identify the metric and scalar across the full common equation-certified earned domains, yielding a Hausdorff physical-past carrier with globally defined C² Einstein–scalar fields on the clock interval (Lphys, t0]. The complete two-region Einstein–Hilbert/scalar, interface, Gibbons–Hawking–York, wall, cap and corner action descends consistently to finite source-earned collars; equality also holds under admitted graph shapes and independent regional metric–scalar perturbations, with first-variation predicates transported. On the selected positive-mass turning-clock branch a unique transverse first marginal boundary satisfies 2M=R at positive radius, and a sign-flexible nonlinear construction gives a regular local C² Einstein–scalar crossing. This is not a maximal physical history: identifying the crossing with the global owner, extending the complete action beyond the seed boundary, and free-boundary evolution remain open.",
+      "summary": "Paper X v2.0 establishes a coherent source-normalized Einstein–real-scalar history through independent characteristic developments and advances that history across its first positive-radius marginal seed boundary. Exact mass reanchoring and two-arrival nonlinear overlap uniqueness produce a C² physical-past Einstein–scalar spacetime; the complete finite-region two-sided gravitational action, including interface, Gibbons–Hawking–York, exterior-wall and corner terms, descends consistently with admitted first variations. The local sign-flexible crossing is identified with the physical-past solution throughout their common earned domains. A conserved positive discriminant extends the physical retarded clock through the pre-turning interval; source-owned local pre-turning exteriors are glued and joined through a proven open equality collar to yield a time-oriented, nondegenerate C² Einstein–scalar history strictly extending the selected post-edge domain. On this joined geometry a conserved real scalar-wave current yields a normalized, nondegenerate alternating pairing on an explicitly represented two-dimensional real on-shell wave subspace, with lateral-wall flux retained. This is a constructive classical continuation on the stated domains, not a maximal history, complete quantum-state transport, a global Fock representation, or a completed free-edge variational theory.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -685,9 +685,9 @@
         "identity",
         "continuation"
       ],
-      "version": "1.0",
-      "pdf": "https://zenodo.org/api/records/23700768/files/Global%20Coherence%20of%20a%20Quantum-Sourced%20Einstein%20Scalar%20History%20v1.0.pdf/content",
-      "pdfSha256": "a0b4a0684b92d69021f4e2d2b5f54e765b88bc1be9e9e592770b29d4103cadea"
+      "version": "2.0",
+      "pdf": "https://zenodo.org/api/records/23990050/files/Global%20Coherence%20of%20a%20Quantum%20Sourced%20Einstein-Scalar%20History%20v2.0.pdf/content",
+      "pdfSha256": "0dc53bf409f12382da4c98a58e18abe1d8f3eba5ebbfbbe0a0951b886fa48016"
     },
     {
       "id": "sqg9",
