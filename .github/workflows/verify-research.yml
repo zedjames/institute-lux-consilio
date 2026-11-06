@@ -13,3 +13,5 @@ jobs:
           node-version: '22'
       - run: node scripts/verify-site.mjs
       - run: python3 -m unittest discover -s tests -p "test_zenodo_sync_*.py"
+      - run: python3 -m unittest discover -s tests -p "test_series_archives.py"
+      - run: python3 scripts/build_series_archives.py --manifest-only
