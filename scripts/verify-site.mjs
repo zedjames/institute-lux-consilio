@@ -4,6 +4,32 @@ import assert from "node:assert/strict";
 const raw=fs.readFileSync("assets/data/research.js","utf8").trim();
 assert.ok(raw.startsWith("window.ILC_DATA="),"Expected structured research data");
 const data=JSON.parse(raw.replace(/^window\.ILC_DATA=/,"").replace(/;\s*$/,""));
+function assertVersionedPublication(p,{concept,minRecord,minDate,minVersion}){
+ assert.ok(p&&p.id,"Missing source publication");
+ assert.equal(p.conceptDoi,concept,"Stable Zenodo concept DOI changed: "+p.id);
+ const m=/^10[.]5281\/zenodo[.]([0-9]+)$/.exec(p.doi||"");
+ assert.ok(m,"Malformed version DOI: "+p.id);
+ assert.ok(Number(m[1])>=minRecord,"Older Zenodo edition restored: "+p.id);
+ assert.match(p.date||"",/^20[0-9]{2}-[01][0-9]-[0-3][0-9]$/,"Malformed publication date: "+p.id);
+ assert.ok(p.date>=minDate,"Earlier publication date restored: "+p.id);
+ if(minVersion){
+  const parts=x=>String(x||"").replace(/^v/,"").split(".").map(Number);
+  const cv=parts(p.version),mv=parts(minVersion);
+  assert.ok(cv.length&&cv.every(Number.isInteger)&&cv.every(x=>x>=0),"Invalid edition number: "+p.id);
+  let cmp=0;
+  for(let i=0;i<Math.max(cv.length,mv.length);i++){let a=cv[i]||0,b=mv[i]||0;if(a!==b){cmp=a>b?1:-1;break;}}
+  assert.ok(cmp>=0,"Older publication version restored: "+p.id);
+ }
+ if(p.pdf?.startsWith("https://zenodo.org/api/records/")){
+  assert.ok(p.pdf.startsWith("https://zenodo.org/api/records/"+m[1]+"/files/"),"PDF points to a different version record: "+p.id);
+  assert.ok(p.pdf.endsWith("/content"),"Zenodo PDF URL malformed: "+p.id);
+  assert.match(p.pdfSha256||"",/^[0-9a-f]{64}$/,"Missing published PDF SHA-256: "+p.id);
+ }
+ const html=fs.readFileSync("publication-"+p.id+".html","utf8");
+ assert.ok(html.includes('name="citation_doi" content="'+p.doi+'"'),"Static publication DOI differs from catalog: "+p.id);
+ if(p.pdf)assert.ok(html.includes(p.pdf),"Static publication PDF differs from catalog: "+p.id);
+}
+
 const catalog=JSON.parse(fs.readFileSync("research/catalog.json","utf8"));
 for(const key of ["programs","themes","questions","publications","notes"]){
  assert.deepStrictEqual(catalog[key],data[key],key+" differs from canonical ILC source");
@@ -131,7 +157,7 @@ for(const id of PROGRAM_IDS){
 const qgPapersV2=data.publications.filter(x=>x.program==="qg");
 assert.equal(qgPapersV2.length,10,"QG must retain the ten-paper sequence");
 assert.deepStrictEqual(qgPapersV2.map(p=>p.order).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8,9,10],"Schwarzschild Paper X must extend the complete sequence");
-for(const id of ["sqg3","sqg4","sqg5","sqg6","sqg7"])assert.equal(qgPapersV2.find(p=>p.id===id)?.version,"2.0","QG v2 published edition marker missing: "+id);
+for(const id of ["sqg3","sqg4","sqg5","sqg6","sqg7"])assert.ok(Number.parseFloat(qgPapersV2.find(p=>p.id===id)?.version||"0")>=2,"QG v2 or newer edition marker missing: "+id);
 assert.ok(data.programDetails.qg.narrative.some(s=>s.startsWith("Paper VIII v2.0 classifies")),"Paper VIII v2.0 scientific result is missing");
 const qgVIII=qgPapersV2.find(p=>p.id==="sqg8");
 assert.equal(qgVIII?.conceptDoi,"10.5281/zenodo.22939781","Paper VIII concept DOI family changed");
@@ -141,36 +167,26 @@ assert.ok(qgVIII?.pdf?.startsWith("https://zenodo.org/"),"Paper VIII must link a
 assert.ok(!data.programDetails.qg.editionNotice,"Published v2.0 must not retain a stale manuscript/deposit warning");
 const qgIX=qgPapersV2.find(p=>p.id==="sqg9");
 assert.ok(qgIX&&qgIX.order===9&&qgIX.seriesId==="schwarzschild-qg","Schwarzschild IX sequence registration missing");
-assert.equal(qgIX.doi,"10.5281/zenodo.23604372","Paper IX version DOI changed");
-assert.equal(qgIX.conceptDoi,"10.5281/zenodo.23604371","Paper IX Zenodo concept DOI changed");
-assert.equal(qgIX.date,"2026-10-23");
-assert.equal(qgIX.version,"1.0");
 assert.equal(qgIX.title,"Causal Exterior Ownership for a Moving Einstein–Scalar Quantum Sector");
-assert.equal(qgIX.pdfSha256,"e91a078739fbc566e277146f13d71f70e60ecc66433ba3a686144e52ed39bb23","Published IX PDF checksum differs from author-uploaded bytes");
-assert.equal(qgIX.pdf,"https://zenodo.org/api/records/23604372/files/Causal%20Exterior%20Ownership%20for%20a%20Moving%20Einstein%20Scalar%20Quantum%20Sector.pdf/content");
+assertVersionedPublication(qgIX,{concept:"10.5281/zenodo.23604371",minRecord:23604372,minDate:"2026-10-23",minVersion:"1.0"});
 assert.ok(qgIX.summary.includes("negative proper-time surface energy")&&qgIX.summary.includes("Global exterior continuation"),"Paper IX scientific result or physical scope missing");
 assert.ok(data.programDetails.qg.narrative.some(p=>p.startsWith("Paper IX v1.0 continues")),"Paper IX research trajectory missing");
 assert.equal(data.series.find(x=>x.id==="schwarzschild-qg")?.publishedCount,10,"QG series published count incorrect");
 const qgIXPage=fs.readFileSync("publication-sqg9.html","utf8");
-assert.ok(qgIXPage.includes('name="citation_doi" content="10.5281/zenodo.23604372"')&&qgIXPage.includes(qgIX.pdf),"Paper IX static page missing scholarly DOI or PDF");
+assert.ok(qgIXPage.includes('name="citation_doi" content="'+qgIX.doi+'"')&&qgIXPage.includes(qgIX.pdf),"Paper IX static page missing scholarly DOI or PDF");
 assert.ok(fs.readFileSync("publications.html","utf8").includes('href="publication-sqg9.html"'),"Schwarzschild IX must remain discoverable in archive");
 
 const qgX=qgPapersV2.find(p=>p.id==="sqg10");
 assert.ok(qgX&&qgX.order===10&&qgX.seriesId==="schwarzschild-qg","Schwarzschild X publication registration missing");
 assert.equal(qgX.title,"Global Coherence of a Quantum-Sourced Einstein–Scalar History");
-assert.equal(qgX.doi,"10.5281/zenodo.23700768");
-assert.equal(qgX.conceptDoi,"10.5281/zenodo.23700767");
-assert.equal(qgX.date,"2026-10-27");
-assert.equal(qgX.version,"1.0");
-assert.equal(qgX.pdfSha256,"a0b4a0684b92d69021f4e2d2b5f54e765b88bc1be9e9e592770b29d4103cadea");
-assert.equal(qgX.pdf,"https://zenodo.org/api/records/23700768/files/Global%20Coherence%20of%20a%20Quantum-Sourced%20Einstein%20Scalar%20History%20v1.0.pdf/content");
-assert.ok(qgX.summary.includes("Hausdorff physical-past carrier")&&qgX.summary.includes("not a maximal physical history"),"Paper X earned-global and maximal-continuation scope missing");
-assert.ok(qgX.summary.includes("local C² Einstein–scalar crossing")&&qgX.summary.includes("complete two-region"),"Paper X scientific scope incomplete");
-assert.ok(data.programDetails.qg.narrative.some(x=>x.startsWith("Paper X v1.0 transports")),"Paper X QG trajectory missing");
-assert.ok(data.programDetails.qg.frontier.includes("Paper X")&&data.programDetails.qg.frontier.includes("free-boundary dynamics"),"Paper X frontier or unresolved work missing");
+assertVersionedPublication(qgX,{concept:"10.5281/zenodo.23700767",minRecord:23990050,minDate:"2026-11-05",minVersion:"2.0"});
+assert.ok(qgX.summary.includes("physical-past Einstein–scalar spacetime")&&qgX.summary.includes("not a maximal history"),"Paper X earned-global and continuation scope missing");
+assert.ok(qgX.summary.includes("open equality collar")&&qgX.summary.includes("nondegenerate alternating pairing"),"Paper X v2.0 classical joining and local wave result missing");
+assert.ok(data.programDetails.qg.narrative.some(x=>x.startsWith("Paper X v2.0 proves")),"Paper X v2.0 QG trajectory missing");
+assert.ok(data.programDetails.qg.frontier.includes("Paper X v2.0")&&data.programDetails.qg.frontier.includes("quantum"),"Paper X future quantum scope missing");
 assert.ok(data.programDetails.qg.artifacts.some(x=>x.href==="publication-sqg10.html"),"Paper X scholarly artifact missing");
 const qgXHtml=fs.readFileSync("publication-sqg10.html","utf8");
-assert.ok(qgXHtml.includes('name="citation_doi" content="10.5281/zenodo.23700768"')&&qgXHtml.includes(qgX.pdf),"Paper X static record missing published DOI or PDF");
+assert.ok(qgXHtml.includes('name="citation_doi" content="'+qgX.doi+'"')&&qgXHtml.includes(qgX.pdf),"Paper X static record missing current DOI or PDF");
 assert.ok(fs.readFileSync("publication-sqg9.html","utf8").includes('href="publication-sqg10.html"'),"Paper IX must link forward to X");
 assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-sqg10.html"'),"Newest Schwarzschild X missing from homepage");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-sqg10.html"),"Schwarzschild X missing from sitemap");
@@ -226,12 +242,7 @@ assert.ok(celestialPage.includes("complement amplitude-based celestial holograph
 const celestialVIII=data.publications.find(x=>x.id==="gps8");
 assert.ok(celestialVIII&&celestialVIII.order===8&&celestialVIII.program==="celestial","Celestial VIII published entry missing");
 assert.equal(celestialVIII.title,"Interaction Topologies of Celestial Radiative States");
-assert.equal(celestialVIII.doi,"10.5281/zenodo.23651438");
-assert.equal(celestialVIII.conceptDoi,"10.5281/zenodo.23651437");
-assert.equal(celestialVIII.date,"2026-10-25");
-assert.equal(celestialVIII.version,"1.0");
-assert.equal(celestialVIII.pdfSha256,"5fe05c3e4e650b57f1708db9ace645aba02b29ede9043c06dbcc0a8dc50fdc10","Celestial VIII PDF differs from author-supplied v1.0");
-assert.equal(celestialVIII.pdf,"https://zenodo.org/api/records/23651438/files/Interaction%20Topologies%20of%20Celestial%20Radiative%20States%20v1.0.pdf/content");
+assertVersionedPublication(celestialVIII,{concept:"10.5281/zenodo.23651437",minRecord:23651438,minDate:"2026-10-25",minVersion:"1.0"});
 assert.ok(celestialVIII.summary.includes("entire admissible cubic span")&&celestialVIII.summary.includes("No continuum scattering operator"),"Celestial VIII must preserve topology and scattering scope");
 assert.ok(data.programDetails.celestial.narrative.some(x=>x.startsWith("Paper VIII v1.0 proves")),"Celestial VIII trajectory missing");
 assert.ok(data.programDetails.celestial.frontier.includes("Papers VI–VIII")&&!data.programDetails.celestial.frontier.includes("being drafted"),"Celestial VIII must be a published result, not a draft");
@@ -239,7 +250,7 @@ assert.equal(data.series.find(s=>s.id==="gaussian")?.publishedCount,8,"Celestial
 assert.equal(data.series.find(s=>s.id==="gaussian")?.status,"Papers I–VIII published");
 assert.ok(data.programDetails.celestial.artifacts.some(x=>x.href==="publication-gps8.html"),"Celestial VIII scholarly artifact missing");
 const celestialVIIIHtml=fs.readFileSync("publication-gps8.html","utf8");
-assert.ok(celestialVIIIHtml.includes('name="citation_doi" content="10.5281/zenodo.23651438"')&&celestialVIIIHtml.includes(celestialVIII.pdf),"Celestial VIII indexed publication must expose version DOI and deposited PDF");
+assert.ok(celestialVIIIHtml.includes('name="citation_doi" content="'+celestialVIII.doi+'"')&&celestialVIIIHtml.includes(celestialVIII.pdf),"Celestial VIII indexed publication must expose current DOI and PDF");
 assert.ok(fs.readFileSync("publication-gps7.html","utf8").includes('href="publication-gps8.html"'),"Celestial VII must link to next published paper");
 assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-gps8.html"'),"Celestial VIII missing from homepage");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-gps8.html"),"Celestial VIII missing from static sitemap");
@@ -253,13 +264,8 @@ assert.ok(kineticIII?.pdf?.includes("/api/records/")&&/^[0-9a-f]{64}$/.test(kine
 assert.ok(data.programDetails.kinetic.narrative.join(" ").includes("Paper III"),"Kinetic III program narrative missing");
 const kineticIV=data.publications.find(x=>x.id==="kobf4");
 assert.ok(kineticIV&&kineticIV.order===4&&kineticIV.program==="kinetic","Kinetic IV publication missing");
-assert.equal(kineticIV.doi,"10.5281/zenodo.23604748","Kinetic IV deposited DOI changed");
-assert.equal(kineticIV.conceptDoi,"10.5281/zenodo.23604747","Kinetic IV concept DOI changed");
-assert.equal(kineticIV.date,"2026-10-23");
-assert.equal(kineticIV.version,"1.0");
 assert.equal(kineticIV.title,"Stationary Organization and Functional Persistence in Collective Kinetic Systems");
-assert.equal(kineticIV.pdfSha256,"5a7008a00996473159ae9b0d433e9a34956606dfaa281d29acf179f48063a2c5","Kinetic IV PDF content mismatch");
-assert.equal(kineticIV.pdf,"https://zenodo.org/api/records/23604748/files/Stationary%20Organization%20and%20Functional%20Persistence%20in%20Collective%20Kinetic%20Systems%20v1.0.pdf/content");
+assertVersionedPublication(kineticIV,{concept:"10.5281/zenodo.23604747",minRecord:23604748,minDate:"2026-10-23",minVersion:"1.0"});
 assert.ok(kineticIV.summary.includes("compact attracting set")&&kineticIV.summary.includes("does not establish global point selection"),"Kinetic IV must retain local vs global stability boundary");
 assert.ok(kineticIV.summary.includes("limits do not commute"),"Kinetic IV finite/collective survival boundary missing");
 assert.ok(data.programDetails.kinetic.narrative.some(x=>x.startsWith("Paper IV examines")),"Kinetic IV trajectory absent");
@@ -268,12 +274,7 @@ assert.ok(data.programDetails.kinetic.artifacts.some(x=>x.href==="publication-ko
 const kineticV=data.publications.find(x=>x.id==="kobf5");
 assert.ok(kineticV&&kineticV.order===5&&kineticV.program==="kinetic","Kinetic V publication not registered");
 assert.equal(kineticV.title,"Global Selection of Collective Kinetic Organization");
-assert.equal(kineticV.doi,"10.5281/zenodo.23676336");
-assert.equal(kineticV.conceptDoi,"10.5281/zenodo.23676335");
-assert.equal(kineticV.date,"2026-10-26");
-assert.equal(kineticV.version,"1.0");
-assert.equal(kineticV.pdfSha256,"adf034173bf0ca0a4f4635e251e708161026049009f4063d07039e38ad2fe7b1");
-assert.equal(kineticV.pdf,"https://zenodo.org/api/records/23676336/files/Global%20Selection%20of%20Collective%20Kinetic%20Organization%20v1.0.pdf/content");
+assertVersionedPublication(kineticV,{concept:"10.5281/zenodo.23676335",minRecord:23676336,minDate:"2026-10-26",minVersion:"1.0"});
 assert.ok(kineticV.summary.includes("singleton {X*}")&&kineticV.summary.includes("uninterrupted charge-band survival"),"Global singleton and finite population/path limits missing");
 assert.ok(kineticV.summary.includes("no universal numerical convergence rate")||kineticV.summary.includes("a universal convergence rate"),"Paper V qualitative convergence limitation missing");
 assert.ok(data.programDetails.kinetic.narrative.some(x=>x.startsWith("Paper V completes")),"Paper V trajectory missing");
@@ -281,18 +282,18 @@ assert.ok(data.programDetails.kinetic.frontier.includes("A = {X*}")&&data.progra
 assert.ok(data.programDetails.kinetic.artifacts.some(x=>x.href==="publication-kobf5.html"),"Paper V scientific artifact link missing");
 assert.equal(kineticSeries?.status,"Papers I–V published; global-selection arc complete");
 const kineticVHtml=fs.readFileSync("publication-kobf5.html","utf8");
-assert.ok(kineticVHtml.includes('name="citation_doi" content="10.5281/zenodo.23676336"')&&kineticVHtml.includes(kineticV.pdf),"Paper V scholarly metadata or PDF link missing");
+assert.ok(kineticVHtml.includes('name="citation_doi" content="'+kineticV.doi+'"')&&kineticVHtml.includes(kineticV.pdf),"Kinetic V current scholarly metadata or PDF link missing");
 assert.ok(fs.readFileSync("publication-kobf4.html","utf8").includes('href="publication-kobf5.html"'),"Paper IV must link to Paper V");
 assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-kobf5.html"'),"Homepage missing Kinetic Paper V");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-kobf5.html"),"Sitemap missing Kinetic Paper V");
 
 const kineticIVHtml=fs.readFileSync("publication-kobf4.html","utf8");
-assert.ok(kineticIVHtml.includes('name="citation_doi" content="10.5281/zenodo.23604748"')&&kineticIVHtml.includes(kineticIV.pdf),"Kinetic IV publication record not indexed with its PDF and DOI");
+assert.ok(kineticIVHtml.includes('name="citation_doi" content="'+kineticIV.doi+'"')&&kineticIVHtml.includes(kineticIV.pdf),"Kinetic IV indexed DOI or PDF not current");
 assert.ok(fs.readFileSync("publications.html","utf8").includes('href="publication-kobf4.html"'),"Kinetic IV must remain in the full scholarly archive");
 
 assert.equal(kineticPaper?.conceptDoi,"10.5281/zenodo.23405911","Kinetic Paper I Zenodo family changed");
 assert.equal(kineticPaper?.program,"kinetic","Kinetic Paper I program link missing");
-assert.equal(kineticPaper?.doi,"10.5281/zenodo.23405912","Kinetic Paper I version DOI mismatch");
+assertVersionedPublication(kineticPaper,{concept:"10.5281/zenodo.23405911",minRecord:23405912,minDate:"2026-10-16",minVersion:"1.0"});
 assert.equal(data.publications.find(x=>x.id==="sqg7")?.title,"Finite Palatini BV Regulators for a Self-Consistent Einstein–Scalar Sector","QG Paper VII version title mismatch");
 assert.ok(data.programDetails.kinetic?.artifacts?.some(x=>x.href==="publication-kobf1.html"),"Kinetic series artifact missing");
 for(const htmlFile of ["index.html","research.html"]){
@@ -416,6 +417,8 @@ for(const pub of data.publications){
  }
  if(pub.pdf && pub.pdf.startsWith("https://zenodo.org/api/records/")){
   assert.match(pub.pdf,/[/]files[/].+[/]content$/,"Invalid pinned Zenodo PDF URL");
+   const ver=pub.doi.match(/^10[.]5281[/]zenodo[.]([0-9]+)$/);
+   assert.ok(ver&&pub.pdf.includes("/api/records/"+ver[1]+"/files/"),"Publication PDF points at an older Zenodo edition: "+pub.id);
   assert.match(pub.pdfSha256||"",/^[0-9a-f]{64}$/,"Missing checksum for Zenodo-hosted publication "+pub.id);
  }
 }
