@@ -30,7 +30,7 @@ SCHEMA = "ilc-series-archive-v1"
 
 
 def slug(value: str, maximum: int = 75) -> str:
-    plain = unicodedata.normalize("NFKD", str(value or ""))
+    plain = unicodedata.normalize("NFKD", str(value or "").replace("–", "-").replace("—", "-").replace("−", "-"))
     plain = plain.encode("ascii", "ignore").decode("ascii").lower()
     out = re.sub(r"[^a-z0-9]+", "-", plain).strip("-")
     return out[:maximum].rstrip("-") or "untitled"
