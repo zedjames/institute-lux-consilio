@@ -154,6 +154,29 @@ for(const id of PROGRAM_IDS){
  assert.equal(html.slice(a+start.length,b),renderProgramContent(data,id),"Static program page out of sync: "+id);
 }
 
+// Stable one-click ZIP assets must be discoverable on every published series page.
+// The release publisher verifies actual PDF bytes against Zenodo and publishes the
+// archives separately; static site tests validate page-to-release identity.
+const completeSeriesDownloads={
+ health:["research-health-formally-defined.html","health-formally-defined",6],
+ kinetic:["research-kinetic-organization-biological-function.html","kinetic-organization-biological-function",5],
+ rmmo:["research-relational-morphogenesis.html","rmmo",3],
+ celestial:["research-gaussian-celestial.html","gaussian",8],
+ qg:["research-relational-quantum-gravity.html","schwarzschild-qg",10],
+ ns:["research-navier-stokes.html","navier-stokes",4],
+};
+for(const [program,[page,seriesId,count]] of Object.entries(completeSeriesDownloads)){
+ const papers=data.publications.filter(p=>p.program===program&&(program!=="rmmo"||p.seriesId==="rmmo"));
+ assert.equal(papers.length,count,"Series count or archive expectation changed: "+program);
+ const expected="https://github.com/zedjames/institute-lux-consilio/releases/download/series-latest/ilc-"+seriesId+"-latest.zip";
+ const html=fs.readFileSync(page,"utf8");
+ assert.ok(html.includes('href="'+expected+'"'),"Missing stable ZIP download on "+page);
+ assert.ok(html.includes("Download complete series (ZIP)"),"Missing direct download text on "+page);
+ assert.equal((html.match(/Download complete series \(ZIP\)/g)||[]).length,1,"Duplicated download control on "+page);
+}
+assert.ok(!fs.readFileSync("research-formal-infrastructure.html","utf8").includes("Download complete series (ZIP)"),
+ "Formal infrastructure program has no published paper sequence to download");
+
 const qgPapersV2=data.publications.filter(x=>x.program==="qg");
 assert.equal(qgPapersV2.length,10,"QG must retain the ten-paper sequence");
 assert.deepStrictEqual(qgPapersV2.map(p=>p.order).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8,9,10],"Schwarzschild Paper X must extend the complete sequence");
