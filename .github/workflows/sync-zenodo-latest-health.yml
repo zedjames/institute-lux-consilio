@@ -12,6 +12,8 @@ on:
       - scripts/audit-zenodo-families.py
       - scripts/build-publication-pages.mjs
       - scripts/build-program-pages.mjs
+      - scripts/build_series_archives.py
+      - scripts/publish_series_archives.py
       - scripts/build-site-discovery.mjs
       - scripts/build-main-navigation.mjs
       - research/zenodo-concepts.json
@@ -22,6 +24,8 @@ on:
       - scripts/audit-zenodo-families.py
       - scripts/build-publication-pages.mjs
       - scripts/build-program-pages.mjs
+      - scripts/build_series_archives.py
+      - scripts/publish_series_archives.py
       - scripts/build-site-discovery.mjs
       - scripts/build-main-navigation.mjs
       - research/catalog.json
@@ -57,6 +61,8 @@ jobs:
       - name: Validate complete updated scholarly preview
         run: |
           node scripts/verify-site.mjs
+          python3 -m unittest discover -s tests -p "test_series_archives.py"
+          python3 scripts/build_series_archives.py --manifest-only --output-dir "$RUNNER_TEMP/ilc-series-preview"
 
   update:
     if: github.event_name != 'pull_request'
@@ -111,3 +117,8 @@ jobs:
           done
           echo "Could not push the scholarly version update after three attempts."
           exit 1
+      - name: Publish verified complete-series ZIPs as downloadable release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/publish_series_archives.py
