@@ -83,7 +83,7 @@ window.ILC_DATA={
       "id": "schwarzschild-qg",
       "label": "Schwarzschild Quantum Gravity",
       "domain": "Quantum gravity",
-      "description": "A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction. Through Paper X the sequence develops selected Schwarzschild quantum dynamics, self-consistent real-scalar sourcing, BV and BRST gauge structures, relational gravitational identity, a moving quantum-sourced Einstein–scalar interface, and a coherent physical-past Einstein–scalar history assembled from source-compatible local exteriors, with a regular local crossing of its first marginal seed boundary.",
+      "description": "A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction. Through Paper X v2.0 the sequence develops Schwarzschild quantum dynamics, Einstein–real-scalar sourcing, BV and BRST structures, relational gravitational identity, a source-owned moving interface, and a coherent classical Einstein–scalar history continued across its first marginal seed boundary. The joined spacetime supports a nontrivial local scalar-wave pairing, while full quantum transport and free-edge evolution remain further problems.",
       "status": "Current published sequence: 10 papers",
       "publishedCount": 10
     },
@@ -661,15 +661,15 @@ window.ILC_DATA={
     },
     {
       "id": "sqg10",
-      "date": "2026-10-27",
+      "date": "2026-11-05",
       "seriesId": "schwarzschild-qg",
       "series": "Schwarzschild Quantum Gravity",
       "order": 10,
       "title": "Global Coherence of a Quantum-Sourced Einstein–Scalar History",
-      "subtitle": "Reanchored retarded exteriors, nonlinear overlap uniqueness, and complete-action descent",
-      "doi": "10.5281/zenodo.23700768",
+      "subtitle": "Nonlinear overlap uniqueness, pre-turning Einstein–scalar continuation, and finite-region gravitational action",
+      "doi": "10.5281/zenodo.23990050",
       "conceptDoi": "10.5281/zenodo.23700767",
-      "summary": "Paper X constructs one coherent physical-past Einstein–real-scalar history from independently reanchored retarded exteriors of the positive-coupling quantum source. Exact boundary-mass transport and nonlinear two-arrival overlap uniqueness identify the metric and scalar across the full common equation-certified earned domains, yielding a Hausdorff physical-past carrier with globally defined C² Einstein–scalar fields on the clock interval (Lphys, t0]. The complete two-region Einstein–Hilbert/scalar, interface, Gibbons–Hawking–York, wall, cap and corner action descends consistently to finite source-earned collars; equality also holds under admitted graph shapes and independent regional metric–scalar perturbations, with first-variation predicates transported. On the selected positive-mass turning-clock branch a unique transverse first marginal boundary satisfies 2M=R at positive radius, and a sign-flexible nonlinear construction gives a regular local C² Einstein–scalar crossing. This is not a maximal physical history: identifying the crossing with the global owner, extending the complete action beyond the seed boundary, and free-boundary evolution remain open.",
+      "summary": "Paper X v2.0 establishes a coherent source-normalized Einstein–real-scalar history through independent characteristic developments and advances that history across its first positive-radius marginal seed boundary. Exact mass reanchoring and two-arrival nonlinear overlap uniqueness produce a C² physical-past Einstein–scalar spacetime; the complete finite-region two-sided gravitational action, including interface, Gibbons–Hawking–York, exterior-wall and corner terms, descends consistently with admitted first variations. The local sign-flexible crossing is identified with the physical-past solution throughout their common earned domains. A conserved positive discriminant extends the physical retarded clock through the pre-turning interval; source-owned local pre-turning exteriors are glued and joined through a proven open equality collar to yield a time-oriented, nondegenerate C² Einstein–scalar history strictly extending the selected post-edge domain. On this joined geometry a conserved real scalar-wave current yields a normalized, nondegenerate alternating pairing on an explicitly represented two-dimensional real on-shell wave subspace, with lateral-wall flux retained. This is a constructive classical continuation on the stated domains, not a maximal history, complete quantum-state transport, a global Fock representation, or a completed free-edge variational theory.",
       "program": "qg",
       "domains": [
         "Quantum gravity",
@@ -680,9 +680,9 @@ window.ILC_DATA={
         "identity",
         "continuation"
       ],
-      "version": "1.0",
-      "pdf": "https://zenodo.org/api/records/23700768/files/Global%20Coherence%20of%20a%20Quantum-Sourced%20Einstein%20Scalar%20History%20v1.0.pdf/content",
-      "pdfSha256": "a0b4a0684b92d69021f4e2d2b5f54e765b88bc1be9e9e592770b29d4103cadea"
+      "version": "2.0",
+      "pdf": "https://zenodo.org/api/records/23990050/files/Global%20Coherence%20of%20a%20Quantum%20Sourced%20Einstein-Scalar%20History%20v2.0.pdf/content",
+      "pdfSha256": "0dc53bf409f12382da4c98a58e18abe1d8f3eba5ebbfbbe0a0951b886fa48016"
     },
     {
       "id": "sqg9",
@@ -1494,9 +1494,9 @@ window.ILC_DATA={
         "Paper VII v2.0 constructs finite BV odd Laplacians while exhibiting an obstruction to the projected classical master and explicit nonzero Gaussian-shell density-transport and Hamiltonian traces. The retained exact kernel and restricted physical complex preserve the original Fock evolution and a positive-coupling Einstein source. They do not establish an unrestricted renormalized quantum master equation.",
         "Paper VIII v2.0 classifies the resulting relational geometry. The represented quantum class, the full tensor source on its physical domain, and the metric up to physical isometry are different carriers of information. Physical-quantum and tensor-source quotients are globally incomparable; at a fixed geometric anchor, full-source equivalence coincides with physical-isometry equivalence. Exact stress calculation, source-germ recovery, curvature-image rigidity and global isometry classification establish this result. A fixed-geometry bounded-stress obstruction and the continued classical character of the metric delimit its interpretation.",
         "Paper IX v1.0 continues the coherent positive-coupling Einstein–real-scalar owner from Papers IV and VIII into a constructed local retarded exterior and a moving timelike junction. The same physical scalar source determines the transmitted boundary data, the nontrivial effective surface stress, and the complete two-region action. The selected outward branch has negative proper-time surface energy and positive angular pressure. On a specified finite collar, every admitted edge-flat height has vanishing first right-sided shape derivative; independent metric–scalar joint first-order stationarity is proved for a selected height. Neither result supplies a global exterior or maximal physical history.",
-        "Paper X v1.0 transports the quantum-source boundary mass between physical clocks and proves nonlinear agreement of independently reanchored local Einstein–scalar exteriors, including their distinct characteristic arrival maps and windows. Their equation-certified earned domains assemble into one Hausdorff physical-past spacetime with globally defined C² metric and scalar satisfying the full Einstein–real-scalar equations on the clock interval (Lphys, t0]. The complete two-region action descends to source-earned finite collars, preserving admitted graph and independent metric–scalar variation families. For the selected positive-mass turning-clock branch, the first past marginal seed edge is a unique transverse 2M=R event at positive radius, crossed by a separately constructed regular local Einstein–scalar solution. The global history has not yet been continued through this crossing; identification, complete-action extension and free-boundary dynamics remain open."
+        "Paper X v2.0 proves that independently reanchored, source-matched retarded Einstein–scalar exteriors agree on their complete common earned domains and assemble into a coherent C² physical-past spacetime. The complete two-region action and admitted independent metric–scalar variations agree on source-earned finite collars. A regular marginal crossing is identified with the past history on its full common existence domain. An exact positive discriminant transport law permits a physical clock through the pre-turning interval, where separately constructed Einstein–scalar exterior patches glue into a source-owned classical history. A restricted open equality collar joins these fields across the first positive-radius marginal clock, producing a time-oriented C² solution that strictly extends the selected post-edge history. The joined geometry also supports a conserved scalar-wave action current and a normalized nondegenerate alternating pairing on a specified two-dimensional real on-shell wave plane. These results are classical and source-scoped; full joined quantum-state transport, global one-particle/Fock structure, and terminal free-edge variation are separate inquiries."
       ],
-      "frontier": "The public sequence through Paper X establishes source-preserving mass reanchoring, full earned-overlap uniqueness of original nonlinear retarded exteriors, and a globally coherent C² Einstein–real-scalar history on the specified physical-past carrier with clock projection (Lphys, t0]. On every strict interior past clock, source-earned finite collars carry an owner-independent complete two-region action with admitted independent field-variation and first-derivative transport. For the selected turning-clock branch, the strict-untrapped seed ends at a unique positive-radius transverse marginal clock; a sign-flexible Einstein–scalar exterior crosses it locally. Identifying that crossing with the coherent global owner, extending the complete action across the clock boundary, classifying free-boundary dynamics, and constructing a maximal physical history remain future problems, alongside the separate quantum-regulator obstructions.",
+      "frontier": "Paper X v2.0 establishes a coherent, source-normalized physical-past Einstein–scalar history and an explicit classical continuation through its first transverse positive-radius marginal clock. The original crossing and past fields agree throughout their earned overlap; a globally constructed pre-turning exterior is joined through an open equality collar to yield a time-oriented C² Einstein–scalar history on the stated restricted domain. The joined metric supports a conserved real scalar-wave current and a nondegenerate alternating pairing on a two-dimensional represented on-shell wave plane. This is not a maximal spacetime continuation or a global quantum owner: establishing an admissible joined one-particle and Fock representation, physical quantum-state transport and stress, complete terminal free-edge variation, and any further global causal or endpoint classification remain distinct problems.",
       "methods": [
         "Critical radial domains, deficiency indices and Friedrichs selection",
         "Action-derived real-scalar Cauchy/Fock dynamics and local quantum stress",
@@ -1505,13 +1505,15 @@ window.ILC_DATA={
         "Finite odd BV Laplacians, Gaussian obstructions and restricted quantum complexes",
         "Tensor-source reconstruction, curvature rigidity and physical isometry classification",
         "Source-preserving Einstein mass transport, two-arrival nonlinear characteristic overlap uniqueness and global physical-past field gluing",
-        "Finite-collar complete-action descent, independent metric–scalar derivative transport and sign-flexible local marginal crossing"
+        "Finite-collar complete-action descent, independent metric–scalar derivative transport and sign-flexible local marginal crossing",
+        "Source-owned pre-turning characteristic continuation, discriminant transport, and restricted open-collar gluing",
+        "Conserved scalar-wave action current, compact spacelike wave pairing and explicit wall-flux balance"
       ],
       "openQuestions": [
-        "Can the locally regular first marginal crossing be identified with the globally coherent physical-past Einstein–scalar owner to continue the history across the boundary?",
-        "How can the complete two-region action, junction constitutive law and free-boundary equations be extended and varied beyond the strict-untrapped seed clock?",
-        "Which maximal continuations, causal or asymptotic boundaries, and possible terminal physical histories are actually selected by the inherited quantum source?",
-        "Which extended quantum-master or regulator constructions survive the finite BV obstructions, and how do their results relate to the gravitational history?"
+        "Which operator domains and quantum representations admit a physical one-particle space and unitary Fock transport on the joined classical Einstein–scalar spacetime?",
+        "How does the complete Einstein–scalar action, including interface, Gibbons–Hawking–York and corner terms, behave under admitted free-edge variation on the extended history?",
+        "Which further causal, asymptotic or endpoint structures arise from continuing the source-owned joined history beyond its present domain?",
+        "Which regulator, BRST and quantum-master constructions survive the known finite BV obstructions and remain compatible with the extended gravitational history?"
       ],
       "artifacts": [
         {
@@ -1530,7 +1532,7 @@ window.ILC_DATA={
           "kind": "Governance"
         },
         {
-          "label": "Paper X v1.0 — published coherent Einstein–scalar history",
+          "label": "Paper X v2.0 — coherent classical continuation and physical scalar-wave pairing",
           "href": "publication-sqg10.html",
           "kind": "Publication"
         }
@@ -1760,5 +1762,5 @@ window.ILC_DATA={
       ]
     }
   ],
-  "updated": "2026-10-27"
+  "updated": "2026-11-05"
 };
