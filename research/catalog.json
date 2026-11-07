@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-11-05",
+  "updated": "2026-11-07",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -1308,5 +1308,27 @@
     "url": "https://fieldfluxbiosystems.com/research/catalog.json",
     "source_schema": "fieldflux-research-catalog/v1",
     "last_updated": "2026-10-05"
-  }
+  },
+  "companionPublications": [
+    {
+      "id": "hfd-go",
+      "date": "2026-11-07",
+      "program": "health",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "companionTo": "health-formally-defined",
+      "version": "1.0",
+      "title": "Lawful Futures in Go",
+      "subtitle": "Dynamically Sufficient Observation, Historical Information, and Constitutive Health",
+      "doi": "10.5281/zenodo.24044494",
+      "summary": "A dynamically sufficient finite-horizon observer preserves history-sensitive lawful updates and complete viable-response capacities under stated constitutive conditions. Original Go provides exact dynamic-query refinements and a six-history one-bit necessity result; a protected exchange-and-repair model supplies a second realization.",
+      "domains": [
+        "Foundations of health",
+        "Game theory",
+        "Dynamical systems",
+        "Formal methods"
+      ],
+      "localPage": "publication-hfd-go.html"
+    }
+  ]
 }

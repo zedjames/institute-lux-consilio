@@ -405,7 +405,7 @@ const ia=archive.indexOf(start),ib=archive.indexOf(end,ia+start.length);
 assert.ok(ia>=0&&ib>ia,"Archive markup missing");
 assert.equal(archive.slice(ia+start.length,ib),"\n"+generated.archive+"\n","Crawlable archive index is out of sync");
 assert.ok(archive.includes('data-filter="kinetic"'),"Kinetic program filter missing");
-assert.equal((archive.match(/class="archive-item" data-program=/g)||[]).length,data.publications.length,"Publication list must expose all papers without JavaScript");
+assert.equal((archive.match(/class="archive-item" data-program=/g)||[]).length,data.publications.length+(data.companionPublications||[]).length,"Publication list must expose all numbered papers and companion research without JavaScript");
 for(const p of data.publications){
  assert.ok(archive.includes('href="'+publicationPath(p)+'"'),"Static archive missing "+p.id);
 }

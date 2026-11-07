@@ -1836,5 +1836,27 @@ window.ILC_DATA={
       ]
     }
   ],
-  "updated": "2026-11-05"
+  "updated": "2026-11-07",
+  "companionPublications": [
+    {
+      "id": "hfd-go",
+      "date": "2026-11-07",
+      "program": "health",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "companionTo": "health-formally-defined",
+      "version": "1.0",
+      "title": "Lawful Futures in Go",
+      "subtitle": "Dynamically Sufficient Observation, Historical Information, and Constitutive Health",
+      "doi": "10.5281/zenodo.24044494",
+      "summary": "A dynamically sufficient finite-horizon observer preserves history-sensitive lawful updates and complete viable-response capacities under stated constitutive conditions. Original Go provides exact dynamic-query refinements and a six-history one-bit necessity result; a protected exchange-and-repair model supplies a second realization.",
+      "domains": [
+        "Foundations of health",
+        "Game theory",
+        "Dynamical systems",
+        "Formal methods"
+      ],
+      "localPage": "publication-hfd-go.html"
+    }
+  ]
 };
