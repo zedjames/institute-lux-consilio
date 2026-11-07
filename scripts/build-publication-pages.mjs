@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
 import {renderMainNav} from "./build-main-navigation.mjs";
+import {CLOUDFLARE_WEB_ANALYTICS_BEACON} from "./cloudflare-analytics.mjs";
 function escapeHtml(t){return String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function publicationPath(p){if(p.localPage){if(!/^publication-[a-z0-9-]+\.html$/.test(p.localPage))throw Error("Invalid static publication route");return p.localPage;}if(!/^[a-z0-9-]+$/.test(p.id))throw Error("Invalid paper ID");return "publication-"+p.id+".html";}
 function makeArtifacts(data){
@@ -30,7 +31,7 @@ function makeArtifacts(data){
   const links=adjacent.length?`<section class="section section--mist"><div class="wrap"><div class="heading-row"><div><p class="eyebrow">In this series</p><h2>Adjacent papers</h2></div></div><div class="archive">${adjacent.map(x=>`<article class="archive-item"><div class="meta">Paper ${escapeHtml(x.order)}</div><div><h3><a href="${publicationPath(x)}">${escapeHtml(x.title)}</a></h3><p>${escapeHtml(x.series)}</p></div></article>`).join("")}</div></div></section>`:"";
   const other=(label,href,text)=>`<p><strong>${label}</strong><br><a href="${url(href)}" target="_blank" rel="noopener">${escapeHtml(text)} ↗</a></p>`;
   const pdfLink=p.pdf?`<a class="action action--light" style="background:#e5f1f7;color:#17364b" href="${url(p.pdf)}" target="_blank" rel="noopener">Full paper (PDF) ↗</a>`:"";
-  pages[page]=`<!doctype html>\n<html lang="en"><head>${meta(p,page)}</head><body><a class="skip" href="#main">Skip to content</a>${header}<main id="main">`+
+  pages[page]=`<!doctype html>\n<html lang="en"><head>${meta(p,page)}${CLOUDFLARE_WEB_ANALYTICS_BEACON}</head><body><a class="skip" href="#main">Skip to content</a>${header}<main id="main">`+
   `<section class="page-lead"><div class="wrap"><p class="kicker">${escapeHtml(p.series)} · Paper ${escapeHtml(p.order)} · ${date(p.date)}${p.version?" · "+escapeHtml(edition(p)):""}</p><h1>${escapeHtml(p.title)}</h1>${p.subtitle?`<p class="lede">${escapeHtml(p.subtitle)}</p>`:""}<p style="margin-top:18px">Zed James · <a href="https://doi.org/${escapeHtml(p.doi)}" target="_blank" rel="noopener">DOI ${escapeHtml(p.doi)} ↗</a></p></div></section>`+
   `<section class="section"><div class="wrap"><div class="grid grid-2" style="align-items:start"><article class="prose"><p class="eyebrow">Scholarly record</p><h2>Research summary</h2><p>${escapeHtml(p.summary||"See the official DOI record for the research summary.")}</p><p>This catalog summary is provided for orientation. Please consult the complete manuscript for its original abstract and mathematical results.</p><h2>Scientific context</h2><p>This paper belongs to the <a href="${url(prog?.href||"research.html")}">${escapeHtml(prog?.title||p.series)}</a> research program.</p><p><a class="arrow-link" href="publications.html">← All publications</a></p></article>`+
   `<aside class="card"><p class="eyebrow">Publication information</p><h3>${escapeHtml(p.series)}</h3><p><strong>Author</strong><br>Zed James</p><p><strong>Publication date</strong><br>${date(p.date)}</p>${p.version?`<p><strong>Version</strong><br>${escapeHtml(edition(p))}</p>`:""}`+

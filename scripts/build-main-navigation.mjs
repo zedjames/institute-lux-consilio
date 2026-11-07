@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
+import {ensureCloudflareAnalytics} from "./cloudflare-analytics.mjs";
 export const MAIN_NAV = Object.freeze([
  {id:"research",label:"Research",href:"research.html"},
  {id:"publications",label:"Publications",href:"publications.html"},
@@ -32,7 +33,7 @@ export function rewriteMainNav(html,p){
 export function updateFiles(root=process.cwd()){
  const pages=fs.readdirSync(root).filter(p=>p.endsWith(".html")&&!p.startsWith("preview-"))
   .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html"]);
- for(const p of pages){const filepath=path.join(root,p),old=fs.readFileSync(filepath,"utf8"),next=rewriteMainNav(old,p);
+ for(const p of pages){const filepath=path.join(root,p),old=fs.readFileSync(filepath,"utf8"),next=ensureCloudflareAnalytics(rewriteMainNav(old,p),p);
   if(old!==next)fs.writeFileSync(filepath,next);}
  console.log("Refreshed the canonical static main navigation on "+pages.length+" pages.");
 }

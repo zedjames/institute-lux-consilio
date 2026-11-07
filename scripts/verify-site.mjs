@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import assert from "node:assert/strict";
+import {CLOUDFLARE_WEB_ANALYTICS_BEACON} from "./cloudflare-analytics.mjs";
 
 const raw=fs.readFileSync("assets/data/research.js","utf8").trim();
 assert.ok(raw.startsWith("window.ILC_DATA="),"Expected structured research data");
@@ -37,6 +38,16 @@ for(const key of ["programs","themes","questions","publications","notes"]){
 const root=new Set(fs.readdirSync("."));
 const navPages=[...root].filter(p=>p.endsWith(".html")&&!p.startsWith("preview-")).sort()
  .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html"]);
+// Require the exact Cloudflare script, exactly once per published page.
+for(const page of navPages){
+ const html=fs.readFileSync(page,"utf8");
+ assert.equal(html.split(CLOUDFLARE_WEB_ANALYTICS_BEACON).length-1,1,
+  "Missing or duplicated canonical Cloudflare Web Analytics beacon: "+page);
+ assert.equal(html.split("static.cloudflareinsights.com/beacon.min.js").length-1,1,
+  "Unexpected number of Cloudflare analytics scripts: "+page);
+ assert.ok(html.indexOf(CLOUDFLARE_WEB_ANALYTICS_BEACON)<html.indexOf("</head>"),
+  "Cloudflare Web Analytics must appear inside the HTML head: "+page);
+}
 for(const page of navPages){
  const html=fs.readFileSync(page,"utf8");
  const matches=[...html.matchAll(/<nav class="nav__links site-nav" aria-label="Main navigation">[\s\S]*?<\/nav>/g)];
