@@ -169,7 +169,7 @@ for(const id of PROGRAM_IDS){
 // The release publisher verifies actual PDF bytes against Zenodo and publishes the
 // archives separately; static site tests validate page-to-release identity.
 const completeSeriesDownloads={
- health:["research-health-formally-defined.html","health-formally-defined",6],
+ health:["research-health-formally-defined.html","health-formally-defined",7],
  kinetic:["research-kinetic-organization-biological-function.html","kinetic-organization-biological-function",5],
  rmmo:["research-relational-morphogenesis.html","rmmo",3],
  celestial:["research-gaussian-celestial.html","gaussian",8],
@@ -386,7 +386,7 @@ assert.ok(home.includes("<!-- ILC_HOME_RECENT_START -->\n"+recentCards(data)+"\n
 assert.ok(home.includes('data-limit="4" data-static="1"'),"Homepage client script may overwrite current research");
 assert.ok(home.includes("<!-- ILC_HEALTH_FULLTEXT_START -->\n"+healthFullText(data)+"\n<!-- ILC_HEALTH_FULLTEXT_END -->"),"Homepage locally hosted Health PDFs missing or stale");
 const generated=makeArtifacts(data);
-assert.equal(Object.keys(generated.pages).length, data.publications.length-3,
+assert.equal(Object.keys(generated.pages).length, data.publications.filter(p=>!p.localPage).length,
  "Every catalog publication without an existing dedicated page must have a generated static record");
 for(const p of data.publications){
  const page=publicationPath(p);
@@ -450,8 +450,8 @@ const ids=(records,label)=>{
 };
 ids(data.programs,"program");ids(data.publications,"publication");ids(data.notes,"note");
 const healthPapers=data.publications.filter(p=>p.seriesId==="health-formally-defined").sort((a,b)=>a.order-b.order);
-assert.deepStrictEqual(healthPapers.map(p=>p.order),[1,2,3,4,5,6],"Health series sequence I–VI");
-assert.equal(data.series.find(s=>s.id==="health-formally-defined")?.publishedCount,6);
+assert.deepStrictEqual(healthPapers.map(p=>p.order),[1,2,3,4,5,6,7],"Health series sequence I–VII");
+assert.equal(data.series.find(s=>s.id==="health-formally-defined")?.publishedCount,7);
 for (const [id,conceptDoi] of [
   ["hfd4","10.5281/zenodo.23268802"],
   ["hfd5","10.5281/zenodo.23268986"],
@@ -482,10 +482,16 @@ assert.equal(nsIV?.program,"ns");
 const gaussianPapers=data.publications.filter(p=>p.seriesId==="gaussian").sort((a,b)=>a.order-b.order);
 assert.deepStrictEqual(gaussianPapers.map(p=>p.order),[1,2,3,4,5,6,7,8],"Gaussian/Celestial sequence must contain Papers I–VIII");
 const pins=JSON.parse(fs.readFileSync("research/zenodo-concepts.json","utf8")).papers;
-assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.map(p=>p.id).sort(),"All ILC publications must be backed by audited Zenodo families");
+assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.filter(p=>p.id!=="hfd7").map(p=>p.id).sort(),"Existing ILC publications must retain audited Zenodo families; Paper VII is temporarily version-DOI indexed");
 for(const pub of data.publications){
  const pin=pins[pub.id];
  assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(pub.doi),"Invalid version DOI "+pub.id);
+ if(pub.id==="hfd7"){
+   assert.equal(pub.doi,"10.5281/zenodo.24143821","Paper VII must cite its source record");
+   assert.equal(pub.localPage,"publication-hfd7.html");
+   assert.ok(!pub.conceptDoi && !pub.pdf,"Unverified concept DOI or PDF mirror must not be invented for Paper VII");
+   continue;
+ }
  assert.ok(pin.concept_doi.startsWith("10.5281/zenodo."),"Missing verified concept family "+pub.id);
  if(pub.conceptDoi && pub.conceptDoi!==pin.concept_doi){
   // Preexisting inverse DOI pair allowed only until the first auto-sync.

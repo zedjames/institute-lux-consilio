@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-11-07",
+  "updated": "2026-11-11",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -168,6 +168,30 @@
     }
   ],
   "publications": [
+    {
+      "id": "hfd7",
+      "date": "2026-11-11",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "program": "health",
+      "order": 7,
+      "version": "1.0",
+      "title": "Prospective Health in Organized Dynamical Systems",
+      "subtitle": "Lawful stochastic continuation and constitutive maintenance in interacting kinetic populations",
+      "doi": "10.5281/zenodo.24143821",
+      "summary": "Paper VII constructs a physical-time stochastic continuation law for finite populations of mechanochemical transporters with coupled Langevin motion, guarded reactions and shared resource inventories. Its prepared population realizes charge-band survival as an exact prospective Health capacity, and a completed transport cycle with ATP regeneration as a separate productive demand. The model establishes finite-horizon productive continuation, fixed-population lifetime bounds, and a preparation-supported observation obstruction: an even-in-momentum report loses the second-order likelihood contribution of signed kinetic direction. Ideal continuous position history recovers momentum, while transporter-label permutations preserve unlabeled future queries. Results are model-specific; clinical or physiological instrument validation is not claimed.",
+      "domains": [
+        "Foundations of health",
+        "Stochastic thermodynamics",
+        "Mathematical biophysics",
+        "Kinetic systems",
+        "Dynamical systems",
+        "Formal methods"
+      ],
+      "localPage": "publication-hfd7.html",
+      "fullTextDoi": "https://doi.org/10.5281/zenodo.24143821",
+      "fullTextHosting": "Zenodo DOI record"
+    },
     {
       "id": "kobf1",
       "date": "2026-10-16",
