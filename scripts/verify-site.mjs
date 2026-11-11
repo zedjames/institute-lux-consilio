@@ -169,7 +169,7 @@ for(const id of PROGRAM_IDS){
 // The release publisher verifies actual PDF bytes against Zenodo and publishes the
 // archives separately; static site tests validate page-to-release identity.
 const completeSeriesDownloads={
- health:["research-health-formally-defined.html","health-formally-defined",6],
+ health:["research-health-formally-defined.html","health-formally-defined",7],
  kinetic:["research-kinetic-organization-biological-function.html","kinetic-organization-biological-function",5],
  rmmo:["research-relational-morphogenesis.html","rmmo",3],
  celestial:["research-gaussian-celestial.html","gaussian",8],
@@ -450,8 +450,8 @@ const ids=(records,label)=>{
 };
 ids(data.programs,"program");ids(data.publications,"publication");ids(data.notes,"note");
 const healthPapers=data.publications.filter(p=>p.seriesId==="health-formally-defined").sort((a,b)=>a.order-b.order);
-assert.deepStrictEqual(healthPapers.map(p=>p.order),[1,2,3,4,5,6],"Health series sequence I–VI");
-assert.equal(data.series.find(s=>s.id==="health-formally-defined")?.publishedCount,6);
+assert.deepStrictEqual(healthPapers.map(p=>p.order),[1,2,3,4,5,6,7],"Health series sequence I–VII");
+assert.equal(data.series.find(s=>s.id==="health-formally-defined")?.publishedCount,7);
 for (const [id,conceptDoi] of [
   ["hfd4","10.5281/zenodo.23268802"],
   ["hfd5","10.5281/zenodo.23268986"],
