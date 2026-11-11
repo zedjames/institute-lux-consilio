@@ -155,7 +155,10 @@ def sync(site,probe=False,allow_partial=False):
     manifest=json.loads(manifestfile.read_text(encoding="utf-8"))
     records=catalog["items"] if ffb else catalog["publications"]
     pubs={x["id"]:x for x in records if (x.get("collection")=="publications" if ffb else True)}
-    if set(pubs)!=set(pins):
+    # Paper VII is DOI-indexed before its all-versions Zenodo family is independently audited.
+    # Preserve existing pinned mirror updates; never infer a concept DOI from a numeric neighbor.
+    pending={"hfd7": "10.5281/zenodo.24143821"} if not ffb else {}
+    if set(pubs)!=set(pins)|set(pending) or any(pubs[k].get("doi")!=v for k,v in pending.items()):
         raise ValueError("Publication registry and audited Zenodo families differ; reconcile before syncing")
     mirrors={e["pdf"]:e for e in manifest["papers"]}
     changes=[]
