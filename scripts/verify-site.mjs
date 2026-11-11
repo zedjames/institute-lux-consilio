@@ -386,7 +386,7 @@ assert.ok(home.includes("<!-- ILC_HOME_RECENT_START -->\n"+recentCards(data)+"\n
 assert.ok(home.includes('data-limit="4" data-static="1"'),"Homepage client script may overwrite current research");
 assert.ok(home.includes("<!-- ILC_HEALTH_FULLTEXT_START -->\n"+healthFullText(data)+"\n<!-- ILC_HEALTH_FULLTEXT_END -->"),"Homepage locally hosted Health PDFs missing or stale");
 const generated=makeArtifacts(data);
-assert.equal(Object.keys(generated.pages).length, data.publications.length-3,
+assert.equal(Object.keys(generated.pages).length, data.publications.filter(p=>!p.localPage).length,
  "Every catalog publication without an existing dedicated page must have a generated static record");
 for(const p of data.publications){
  const page=publicationPath(p);
