@@ -107,9 +107,9 @@ window.ILC_DATA={
       "id": "health-formally-defined",
       "label": "Health, Formally Defined",
       "domain": "Foundations of health",
-      "description": "A formal measurement-science program defining prospective Health through present organization and lawful continuation. Papers I–III establish the definition, context transport and query-relative representation theory; Paper IV tests finite information provenance and conservative enrichment; Paper V studies an empirical-synthetic forest measurement chain; Paper VI proves model-relative observability and prospective-verdict preservation under maintaining measurement interventions.",
-      "status": "Ongoing series; Papers I–VI published; physical state imaging and independent predictive validation remain open",
-      "publishedCount": 6
+      "description": "A formal measurement-science program defining prospective Health through present organization and lawful continuation. Papers I–III establish the definition, context transport and query-relative representation theory; Paper IV tests finite information provenance and conservative enrichment; Paper V studies an empirical-synthetic forest measurement chain; Paper VI proves model-relative observability and prospective-verdict preservation under maintaining measurement interventions. Paper VII instantiates prospective Health in a physical-time interacting stochastic transporter population, proving survival and productive-response bounds and characterizing momentum-sensitive observation.",
+      "status": "Ongoing series; Papers I–VII published; model-to-instrument validation remains future work",
+      "publishedCount": 7
     },
     {
       "id": "rmmo",
@@ -163,6 +163,30 @@ window.ILC_DATA={
     }
   ],
   "publications": [
+    {
+      "id": "hfd7",
+      "date": "2026-11-11",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "program": "health",
+      "order": 7,
+      "version": "1.0",
+      "title": "Prospective Health in Organized Dynamical Systems",
+      "subtitle": "Lawful stochastic continuation and constitutive maintenance in interacting kinetic populations",
+      "doi": "10.5281/zenodo.24143821",
+      "summary": "Paper VII constructs a physical-time stochastic continuation law for finite populations of mechanochemical transporters with coupled Langevin motion, guarded reactions and shared resource inventories. Its prepared population realizes charge-band survival as an exact prospective Health capacity, and a completed transport cycle with ATP regeneration as a separate productive demand. The model establishes finite-horizon productive continuation, fixed-population lifetime bounds, and a preparation-supported observation obstruction: an even-in-momentum report loses the second-order likelihood contribution of signed kinetic direction. Ideal continuous position history recovers momentum, while transporter-label permutations preserve unlabeled future queries. Results are model-specific; clinical or physiological instrument validation is not claimed.",
+      "domains": [
+        "Foundations of health",
+        "Stochastic thermodynamics",
+        "Mathematical biophysics",
+        "Kinetic systems",
+        "Dynamical systems",
+        "Formal methods"
+      ],
+      "localPage": "publication-hfd7.html",
+      "fullTextDoi": "https://doi.org/10.5281/zenodo.24143821",
+      "fullTextHosting": "Zenodo DOI record"
+    },
     {
       "id": "kobf1",
       "date": "2026-10-16",
@@ -1309,9 +1333,10 @@ window.ILC_DATA={
         "Paper III studies which representations preserve the distinctions required by a declared health-query language. It characterizes all sufficient representations as refinements of the canonical quotient, proves the least sufficient target for exact deterministic transport, and establishes the corresponding information threshold for a full state-level health observation. Control, viable cost, probability, route structure, and failure-aware robustness provide explicit response-grounded examples.",
         "Paper IV grounds the abstract theory in a machine-checked finite forest. Two equivalent placements of contextual lawfulness preserve viable capacity and Health. Exhaustive comparison of detailed response, coarse capacity, and declared Health pinpoints where information is erased or simply unused by the query; conservative enrichment supplies an exact backward-compatibility condition.",
         "Paper V develops the complementary empirical-synthetic measurement problem using longitudinal Harvard Forest observations. Its specified stochastic kernel and explicit original-law probability accounting support tests of reconstruction, information sufficiency, model discrepancy, and decision reliability. Later adult-mortality data reveal substantial hemlock-specific predictive miscalibration; incomplete ecological identification and limited near-boundary classification keep operational forest Health outside the established scope.",
-        "Paper VI follows the state-identification question left open by the forest study. In an exact two-site exchange model, indistinguishable baseline measurements can conceal opposite prospective viability under shared future forcing. Two informative procedures—heterogeneous flux readout and fixed-drive repeated cost—are proved maintaining and verdict-preserving under their specified assumptions and local uncertainty bounds. Sampled-to-continuous counterexamples sharpen the temporal authority boundary. Physical calibration and physiological state imaging remain empirical requirements."
+        "Paper VI follows the state-identification question left open by the forest study. In an exact two-site exchange model, indistinguishable baseline measurements can conceal opposite prospective viability under shared future forcing. Two informative procedures—heterogeneous flux readout and fixed-drive repeated cost—are proved maintaining and verdict-preserving under their specified assumptions and local uncertainty bounds. Sampled-to-continuous counterexamples sharpen the temporal authority boundary. Physical calibration and physiological state imaging remain empirical requirements.",
+        "Paper VII joins the formal Health program to an explicit physical-time interacting kinetic population. A prepared stationary-resource ensemble of reversible transporters supplies lawful stochastic futures, with charge-band survival and productive ATP-regeneration cycles as distinct demand-indexed capacities. Finite-population exit bounds and a second-order momentum-sign observation obstruction expose the role of physical time, functional activity and kinetic direction. The work establishes model-specific mathematical continuation and observability, while physiological measurement and empirical validation remain separate obligations."
       ],
-      "frontier": "Papers I–VI now connect prospective-Health definition, contextual licensing, representation sufficiency, exact provenance, an empirical-synthetic forest study, and the mathematics of constitutive observability under state-changing measurement. The newly established identification and preservation guarantees are conditional on a two-site exchange model and its declared observation channels. Generalizing the state representation, validating physical acquisition and measurement disturbance, and independently testing prospective physiological predictions remain open.",
+      "frontier": "Papers I–VII now connect the constitutive Health definition and observability architecture to a fully specified interacting mechanochemical jump–diffusion. The model establishes finite-horizon survival and productive continuation, fixed-population lifetime bounds, and temporal-information requirements. Physically calibrated sensing, nonideal observation noise, disturbance response, recovery and independent physiological prediction remain future research.",
       "methods": [
         "Machine-checked formal semantics",
         "Requirement-visible quotient and universal property",
@@ -1322,7 +1347,10 @@ window.ILC_DATA={
         "Longitudinal census reconstruction, simulated continuations and independent mortality calibration",
         "Exact observation-fiber reconstruction and target-relative observability",
         "Maintained intervention and prospective-verdict preservation under bounded uncertainty",
-        "Continuous-time sampled-versus-all-time maintenance counterexamples"
+        "Continuous-time sampled-versus-all-time maintenance counterexamples",
+        "Physical-time kinetic jump–diffusion with guarded mechanochemical reactions",
+        "Stopped-time future kernels, survival semigroups and productive-cycle probabilities",
+        "Momentum-sensitive observation fibers and label-symmetry quotient laws"
       ],
       "openQuestions": [
         "Which empirically observed variables and longitudinal measurements identify the viable-response law of an actual ecological or physiological organization?",
@@ -1360,6 +1388,11 @@ window.ILC_DATA={
         {
           "label": "Constitutive Observability and the Measurement of Prospective Health — Paper VI",
           "href": "publication-hfd6.html",
+          "kind": "Publication"
+        },
+        {
+          "label": "Prospective Health in Organized Dynamical Systems — Paper VII",
+          "href": "publication-hfd7.html",
           "kind": "Publication"
         },
         {
@@ -1836,7 +1869,7 @@ window.ILC_DATA={
       ]
     }
   ],
-  "updated": "2026-11-07",
+  "updated": "2026-11-11",
   "companionPublications": [
     {
       "id": "hfd-go",
