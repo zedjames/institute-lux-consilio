@@ -482,10 +482,16 @@ assert.equal(nsIV?.program,"ns");
 const gaussianPapers=data.publications.filter(p=>p.seriesId==="gaussian").sort((a,b)=>a.order-b.order);
 assert.deepStrictEqual(gaussianPapers.map(p=>p.order),[1,2,3,4,5,6,7,8],"Gaussian/Celestial sequence must contain Papers I–VIII");
 const pins=JSON.parse(fs.readFileSync("research/zenodo-concepts.json","utf8")).papers;
-assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.map(p=>p.id).sort(),"All ILC publications must be backed by audited Zenodo families");
+assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.filter(p=>p.id!=="hfd7").map(p=>p.id).sort(),"Existing ILC publications must retain audited Zenodo families; Paper VII is temporarily version-DOI indexed");
 for(const pub of data.publications){
  const pin=pins[pub.id];
  assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(pub.doi),"Invalid version DOI "+pub.id);
+ if(pub.id==="hfd7"){
+   assert.equal(pub.doi,"10.5281/zenodo.24143821","Paper VII must cite its source record");
+   assert.equal(pub.localPage,"publication-hfd7.html");
+   assert.ok(!pub.conceptDoi && !pub.pdf,"Unverified concept DOI or PDF mirror must not be invented for Paper VII");
+   continue;
+ }
  assert.ok(pin.concept_doi.startsWith("10.5281/zenodo."),"Missing verified concept family "+pub.id);
  if(pub.conceptDoi && pub.conceptDoi!==pin.concept_doi){
   // Preexisting inverse DOI pair allowed only until the first auto-sync.
