@@ -549,6 +549,19 @@ assert.ok(qgExhibit.includes('data-stage-title')&&qgExhibit.includes('data-stage
  "Scientific stage inspector is incomplete");
 assert.ok(qgExhibit.includes('Paper X')&&qgExhibit.includes('active investigations'),
  "QG exhibit must disclose the public-research frontier");
+
+const qgExhibitPath="/"+qgExhibitRoute;
+const qgAnchorTargets=["main","journey","demonstrations","formal-world","evidence"];
+for(const target of qgAnchorTargets){
+ assert.ok(qgExhibit.includes('id="'+target+'"'),"Missing exhibit anchor target: "+target);
+ assert.ok(qgExhibit.includes('href="'+qgExhibitPath+'#'+target+'"'),
+  "Exhibit link does not stay on the exhibit page: "+target);
+}
+assert.ok(!/href="#[A-Za-z]/.test(qgExhibit),
+ "Bare fragment href resolves to homepage because exhibit declares <base href=\"/\">");
+const qgExhibitJs=fs.readFileSync("assets/js/qg-exhibit.js","utf8");
+assert.ok(qgExhibitJs.includes('link:"'+qgExhibitPath+'#evidence"'),
+ "The research-frontier reader must link to the exhibit evidence section");
 assert.ok(fs.existsSync("assets/css/qg-exhibit.css")&&fs.existsSync("assets/js/qg-exhibit.js"),
  "QG exhibit assets missing");
 assert.ok(sitemap.includes("<loc>https://instituteluxconsilio.org/"+qgExhibitRoute+"</loc>"),

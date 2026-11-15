@@ -57,7 +57,7 @@
       inherited:"The joined classical Einstein–scalar history, known physical-domain restrictions, and the original complete-action structure.",
       demand:"Identify boundary and quantum-transmission requirements on the actual inherited carrier; prove compatibility or exhibit a scoped obstruction.",
       next:"Which new mathematical interface would make another physical extension possible?",
-      link:"#evidence", label:"See the standing of the research frontier →"
+      link:"/research/quantum-gravity-formal-lineage/#evidence", label:"See the standing of the research frontier →"
     }
   ];
 
