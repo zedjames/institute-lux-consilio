@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-11-11",
+  "updated": "2026-11-15",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -1353,6 +1353,64 @@
         "Formal methods"
       ],
       "localPage": "publication-hfd-go.html"
+    }
+  ],
+  "healthTranslations": [
+    {
+      "id": "hfd1",
+      "chinesePage": "publication-hfd1-zh.html",
+      "titleZh": "构成性延续能力",
+      "chineseDoi": "10.5281/zenodo.24226584",
+      "editionDate": "2026-11-13",
+      "editionStatus": "publication-candidate"
+    },
+    {
+      "id": "hfd2",
+      "chinesePage": "publication-hfd2-zh.html",
+      "titleZh": "跨评估上下文的前瞻性健康",
+      "chineseDoi": "10.5281/zenodo.24227909",
+      "editionDate": "2026-11-14",
+      "editionStatus": "published-edition"
+    },
+    {
+      "id": "hfd3",
+      "chinesePage": "publication-hfd3-zh.html",
+      "titleZh": "前瞻性健康中的表征充分性",
+      "chineseDoi": "10.5281/zenodo.24228916",
+      "editionDate": "2026-11-14",
+      "editionStatus": "published-edition"
+    },
+    {
+      "id": "hfd4",
+      "chinesePage": "publication-hfd4-zh.html",
+      "titleZh": "前瞻性健康中的信息溯源与保守增广",
+      "chineseDoi": "10.5281/zenodo.24230002",
+      "editionDate": "2026-11-14",
+      "editionStatus": "published-edition"
+    },
+    {
+      "id": "hfd5",
+      "chinesePage": "publication-hfd5-zh.html",
+      "titleZh": "已声明规约下的前瞻性健康",
+      "chineseDoi": "10.5281/zenodo.24231112",
+      "editionDate": "2026-11-14",
+      "editionStatus": "published-edition"
+    },
+    {
+      "id": "hfd6",
+      "chinesePage": "publication-hfd6-zh.html",
+      "titleZh": "构成性可观测性与前瞻性健康的测量",
+      "chineseDoi": "10.5281/zenodo.24231990",
+      "editionDate": "2026-11-14",
+      "editionStatus": "published-edition"
+    },
+    {
+      "id": "hfd7",
+      "chinesePage": "publication-hfd7-zh.html",
+      "titleZh": "组织化动力系统中的前瞻性健康",
+      "chineseDoi": "10.5281/zenodo.24252327",
+      "editionDate": "2026-11-14",
+      "editionStatus": "published-edition"
     }
   ]
 }

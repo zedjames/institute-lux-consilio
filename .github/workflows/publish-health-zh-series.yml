@@ -1,0 +1,59 @@
+name: Publish verified Simplified Chinese Health paper collection
+
+on:
+  pull_request:
+    paths:
+      - research/health-zh-editions.json
+      - scripts/build_health_zh_zip.py
+      - .github/workflows/publish-health-zh-series.yml
+  push:
+    branches: [main]
+    paths:
+      - research/health-zh-editions.json
+      - scripts/build_health_zh_zip.py
+      - .github/workflows/publish-health-zh-series.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Shares the release lock with the English series archive publisher.
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && 'ilc-health-zh-preview' || 'ilc-series-release-latest' }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Chinese collection builder
+        run: python3 -m py_compile scripts/build_health_zh_zip.py
+      - name: Verify original Zenodo PDFs and build seven-paper ZIP
+        run: python3 scripts/build_health_zh_zip.py --output /tmp/ilc-health-zh
+
+  publish:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify original Zenodo PDFs and build complete Chinese collection
+        run: python3 scripts/build_health_zh_zip.py --output /tmp/ilc-health-zh
+      - name: Publish verified Chinese collection at stable release URL
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! gh release view series-latest >/dev/null 2>&1; then
+            gh release create series-latest --target main \
+              --title "ILC research series — verified latest published editions" \
+              --notes "Version-aware, checksum-verified paper collections."
+          fi
+          gh release upload series-latest \
+            /tmp/ilc-health-zh/ilc-health-formally-defined-zh-latest.zip --clobber
+          echo "Published the Chinese collection with a DOI and SHA-256 manifest."
