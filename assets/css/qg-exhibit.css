@@ -1,6 +1,8 @@
 /* ILC curated research exhibit — bespoke editorial diagrams, November 2026.
    All figures are original schematic scientific diagrams; no external image service. */
-.qx-page{--qx-navy:#081e2f;--qx-teal:#417d85;--qx-blue:#0c5775;--qx-gold:#caa56b;--qx-line:#d8e1e4;--qx-cream:#f9f5ed;--qx-ink:#142e3d;overflow-x:hidden}
+/* Keep the document's vertical scroller intact for Safari fragment navigation. */
+html{scroll-behavior:auto}
+.qx-page{--qx-navy:#081e2f;--qx-teal:#417d85;--qx-blue:#0c5775;--qx-gold:#caa56b;--qx-line:#d8e1e4;--qx-cream:#f9f5ed;--qx-ink:#142e3d;overflow-x:clip}
 .qx-page .section{padding-block:clamp(58px,7vw,106px)}
 .qx-page h1,.qx-page h2,.qx-page h3{letter-spacing:-.035em}
 .qx-page h2{line-height:1.12}
@@ -28,7 +30,7 @@
 .qx-subnav{background:#f6f8f9;border-bottom:1px solid #dde5e8;position:sticky;top:81px;z-index:20}
 .qx-subnav .wrap{display:flex;gap:32px;overflow-x:auto;scrollbar-width:thin}
 .qx-subnav a{padding:16px 0;flex:0 0 auto;font-size:13px;font-weight:700;color:#48606e;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap}
-.qx-subnav a:hover,.qx-subnav a:focus-visible{color:var(--qx-blue);border-bottom-color:var(--qx-teal)}
+.qx-subnav a:hover,.qx-subnav a:focus-visible,.qx-subnav a.is-active{color:var(--qx-blue);border-bottom-color:var(--qx-teal)}
 .qx-page [id]{scroll-margin-top:155px}
 .qx-statement{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1fr);gap:clamp(35px,7vw,110px)}
 .qx-statement h2{font-size:clamp(35px,3.9vw,58px);max-width:490px;margin:12px 0}
