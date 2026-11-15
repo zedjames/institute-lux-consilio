@@ -1556,6 +1556,7 @@ window.ILC_DATA={
       "question": "When a quantum matter sector backreacts on geometry, which structures genuinely belong to the same physical owner, and which equivalences are visible only to gravity?",
       "narrative": [
         "A quantum scalar excitation is followed through a hierarchy of increasingly demanding mathematical and physical constraints, with each stage establishing what survives, what changes, what becomes identifiable, and what encounters an obstruction.",
+        "These publications are stages in one source-linked investigation, rather than independent starts. Earlier operator, field, action and gauge constructions are inherited under explicit mathematical hypotheses; later moving-boundary and causal-continuation problems test where those results remain applicable. Concordia retains their formal structures and dependencies so that each added physical demand becomes an inspectable mathematical question rather than an unexamined transfer of assumptions.",
         "Papers I–II establish a critical Schwarzschild scalar with multiple terminal self-adjoint laws and the no-log Friedrichs selection. The selected scalar is carried into continuum Fock quantum dynamics and a physical action-derived Cauchy theory retaining all signed spatial modes and a strong, unitary physical clock.",
         "Paper III v2.0 derives local quantum matter directly from the same real-scalar action: Hilbert stress, real-field polarization, normal and anomalous Fock sectors, selected-vacuum subtraction, and covariance under joint physical-clock transport. The analysis provides a dense regular all-mode stress domain and explicit nonvanishing anomalous source witnesses.",
         "Paper IV v2.0 completes the positive-coupling same-geometry Einstein–scalar realization. The nonlinear geometry determines the selected two-ended radial law, the exact signed-mode Cauchy and Fock evolution, and its own conserved vacuum-relative tensor source. Completed coherent and one-occupation states give separate, nonempty source branches. The expanded analysis establishes matched original-data continuity and precisely scoped curvature and propagator endpoint obstructions.",
@@ -1682,10 +1683,11 @@ window.ILC_DATA={
       "question": "How can machine-checked structure be connected to scientific authority while keeping source presence, compilation, theorem truth, interpretation, and empirical realization legible?",
       "narrative": [
         "ILC's formal scientific infrastructure supports multiple research programs with a large Lean 4 corpus, machine-checkable definitions and proofs, targeted verification surfaces, computational research, and explicit provenance records.",
+        "Concordia's Formal World is deliberately more than a catalog of machine-checked results. It is designed as a living, versioned mathematical environment in which typed inheritance, explicit adapters and bridges, recorded obstructions, and research-history standing make mathematical constructions available for further inquiry. Links between distinct physical domains require established compatibility and separate physical justification.",
         "The October 17, 2026 recursive source inventory records 44,808 tracked Lean files, 18,935,259 physical lines, 888,350 lexical theorem declarations and 4,718 lexical lemma declarations at a clean Lean-tree snapshot. This is a source census rather than a compilation or proof-verification result; no full Lean build was run for the inventory. Formal World admission, theorem authority and scientific validity are separately qualified.",
         "The verification framework tracks source presence, import reachability, canonical theorem-surface membership, successful compilation of specified targets, mathematical establishment under stated hypotheses and axioms, scientific interpretation, and empirical realization as distinct layers of the scientific record."
       ],
-      "frontier": "The institute's formal-methods frontier is publication-grade traceability: connecting papers to exact theorem statements, dependency surfaces, build targets, axiom audits, frozen artifacts, and cryptographic provenance, with public verification material designed for independent review and focused on the scientific surface under examination.",
+      "frontier": "The formal-methods frontier is both compositional and evidentiary: determining when deliberately compatible mathematical structures can support new investigations, while tracing each resulting claim to exact definitions, theorem dependencies, build targets, axiom audits, frozen artifacts and cryptographic provenance. The presence of a relation or a successful compile does not establish a new physical realization.",
       "methods": [
         "Lean 4 formalization",
         "Targeted build and theorem checks",
@@ -1696,7 +1698,8 @@ window.ILC_DATA={
         "How should theorem-level verification status be surfaced consistently across every publication?",
         "Which parts of the private formal corpus should receive frozen public verification artifacts?",
         "How can computational and empirical evidence be linked to formal claims while preserving the authority of each layer?",
-        "What is the right long-term archival format for reproducible proof, code, data, and publication provenance?"
+        "What is the right long-term archival format for reproducible proof, code, data, and publication provenance?",
+        "Under what conditions do intentionally compatible formal constructions enable new scientific questions or results across research programs?"
       ],
       "artifacts": [
         {
