@@ -532,4 +532,35 @@ for(const page of ["notes.html","note.html"]){
 }
 const sitemap=fs.readFileSync("sitemap.xml","utf8");
 assert.ok(!/\/(?:notes|note)\.html/.test(sitemap),"Paused note routes unexpectedly present in sitemap");
+// Curated QG exhibit must remain available to static visitors and to future generators.
+const qgExhibitRoute="research/quantum-gravity-formal-lineage/";
+const qgExhibit=fs.readFileSync(qgExhibitRoute+"index.html","utf8");
+assert.equal(data.programDetails.qg.exhibit.href,qgExhibitRoute,
+ "Canonical QG program data must point to the curated exhibit");
+assert.ok(qgExhibit.includes('<link rel="canonical" href="https://instituteluxconsilio.org/'+qgExhibitRoute+'">'),
+ "QG exhibit canonical URL missing");
+assert.ok(qgExhibit.includes('<a href="mailto:contact@instituteluxconsilio.org">Email ILC</a>'),
+ "QG exhibit must retain the ILC contact footer");
+assert.equal((qgExhibit.match(/class="qx-stage-btn\b/g)||[]).length,7,
+ "QG exhibit needs seven keyboard-selectable scientific chapters");
+assert.ok((qgExhibit.match(/<svg\b/g)||[]).length>=4,
+ "QG exhibit must retain explanatory original mathematical diagrams");
+assert.ok(qgExhibit.includes('data-stage-title')&&qgExhibit.includes('data-stage-demand'),
+ "Scientific stage inspector is incomplete");
+assert.ok(qgExhibit.includes('Paper X')&&qgExhibit.includes('active investigations'),
+ "QG exhibit must disclose the public-research frontier");
+assert.ok(fs.existsSync("assets/css/qg-exhibit.css")&&fs.existsSync("assets/js/qg-exhibit.js"),
+ "QG exhibit assets missing");
+assert.ok(sitemap.includes("<loc>https://instituteluxconsilio.org/"+qgExhibitRoute+"</loc>"),
+ "Curated exhibit must remain in the sitemap");
+for(const file of ["index.html","methods.html","concordia/index.html",
+ "collaborate.html","research.html","research-relational-quantum-gravity.html"]){
+ assert.ok(fs.readFileSync(file,"utf8").includes('href="'+qgExhibitRoute+'"'),
+  "Missing exhibit discovery link: "+file);
+}
+assert.ok(fs.readFileSync("scripts/build-program-pages.mjs","utf8").includes("const exhibit=detail.exhibit"),
+ "Program generator must retain curated exhibit feature");
+assert.ok(fs.readFileSync("scripts/build-publication-pages.mjs","utf8").includes('"'+qgExhibitRoute+'"'),
+ "Sitemap generator must retain the curated exhibit");
+
 console.log("ILC research integrity checks passed: "+data.programs.length+" programs, "+data.publications.length+" papers, "+data.notes.length+" notes.");
