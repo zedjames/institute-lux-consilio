@@ -1620,6 +1620,13 @@ window.ILC_DATA={
         ],
         "centralQuestion": "What if the properties we call \"matter\" and \"geometry\" are not fully independent ingredients of the world, but two distinguishable descriptions of relationships that become apparent through their exchanges?",
         "closing": "We ask this question openly and investigate its consequences through explicit mathematics. The papers establish the structures, correspondences, and constraints that can be demonstrated at each stage, giving the wider inquiry a growing scientific foundation."
+      },
+      "exhibit": {
+        "eyebrow": "Scientific case study",
+        "heading": "One Physical Question. An Expanding Mathematical World.",
+        "description": "An interactive exhibit follows the same Schwarzschild quantum-scalar inquiry from its operator foundations to Einstein sources, relational geometry, moving interfaces and physical history. Select source-specific theorem examples, trace the inherited mathematics, and distinguish proved results from active questions.",
+        "href": "research/quantum-gravity-formal-lineage/",
+        "label": "Explore the scientific exhibit →"
       }
     },
     "ns": {
