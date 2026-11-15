@@ -562,6 +562,19 @@ assert.ok(!/href="#[A-Za-z]/.test(qgExhibit),
 const qgExhibitJs=fs.readFileSync("assets/js/qg-exhibit.js","utf8");
 assert.ok(qgExhibitJs.includes('link:"'+qgExhibitPath+'#evidence"'),
  "The research-frontier reader must link to the exhibit evidence section");
+
+assert.ok(qgExhibitJs.includes("window.scrollTo({top,behavior:\"auto\"})"),
+ "Exhibit anchors must have explicit sticky-aware scrolling");
+assert.ok(qgExhibitJs.includes('window.history.pushState(null,"",window.location.pathname'),
+ "Exhibit anchor navigation must keep a shareable local fragment");
+assert.ok(qgExhibitJs.includes('document.addEventListener("click"'),
+ "Exhibit navigation must bind both hero and section links");
+const qgExhibitCss=fs.readFileSync("assets/css/qg-exhibit.css","utf8");
+assert.ok(qgExhibitCss.includes("overflow-x:clip")&&!qgExhibitCss.includes("overflow-x:hidden"),
+ "Exhibit body must not establish an unintended scrolling container");
+assert.ok(qgExhibit.includes('qg-exhibit.css?v=2')&&qgExhibit.includes('qg-exhibit.js?v=2'),
+ "Navigation fix assets need refreshed browser cache keys");
+
 assert.ok(fs.existsSync("assets/css/qg-exhibit.css")&&fs.existsSync("assets/js/qg-exhibit.js"),
  "QG exhibit assets missing");
 assert.ok(sitemap.includes("<loc>https://instituteluxconsilio.org/"+qgExhibitRoute+"</loc>"),
