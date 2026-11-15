@@ -107,3 +107,68 @@
     });
   });
 })();
+
+/* Explicit exhibit-local navigation for browsers that do not reliably scroll
+   a sticky two-header layout via native fragment navigation. */
+(() => {
+  "use strict";
+  const route="/research/quantum-gravity-formal-lineage/#";
+  const sections=new Set(["main","journey","demonstrations","formal-world","evidence"]);
+  const navigation=document.querySelector(".qx-subnav");
+  if (!navigation) return;
+  const tabs=Array.from(navigation.querySelectorAll('a[href]'));
+
+  function offset() {
+    const header=document.querySelector(".site-header");
+    const headerHeight=header?header.getBoundingClientRect().height:0;
+    const tabHeight=navigation.getBoundingClientRect().height;
+    return Math.ceil(headerHeight+tabHeight+14);
+  }
+  function navigate(id,{record=false,focus=false}={}) {
+    if (!sections.has(id)) return false;
+    const target=document.getElementById(id);
+    if (!target) return false;
+
+    // Scroll against the real viewport instead of relying on a base-URL
+    // fragment or the browser's anchor alignment under two sticky bars.
+    const current=window.scrollY||window.pageYOffset||0;
+    const top=Math.max(0,Math.round(current+target.getBoundingClientRect().top-offset()));
+    window.scrollTo({top,behavior:"auto"});
+
+    for (const tab of tabs) {
+      const active=tab.getAttribute("href")===route+id;
+      tab.classList.toggle("is-active",active);
+      if (active) tab.setAttribute("aria-current","location");
+      else tab.removeAttribute("aria-current");
+    }
+    if (record && window.location.hash!=="#"+id) {
+      window.history.pushState(null,"",window.location.pathname+window.location.search+"#"+id);
+    }
+    if (focus) {
+      if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex","-1");
+      target.focus({preventScroll:true});
+    }
+    return true;
+  }
+
+  document.addEventListener("click",event=>{
+    if (event.defaultPrevented || event.button!==0 ||
+        event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+    const anchor=event.target.closest?.("a[href]");
+    if (!anchor) return;
+    const href=anchor.getAttribute("href")||"";
+    if (!href.startsWith(route)) return;
+    const id=href.slice(route.length);
+    if (!sections.has(id)) return;
+    event.preventDefault();
+    navigate(id,{record:true,focus:event.detail===0||id==="main"});
+  });
+
+  function syncFromLocation() {
+    const id=decodeURIComponent(window.location.hash.slice(1));
+    if (sections.has(id)) navigate(id);
+  }
+  window.addEventListener("popstate",syncFromLocation);
+  window.addEventListener("hashchange",syncFromLocation);
+  window.addEventListener("load",syncFromLocation,{once:true});
+})();
