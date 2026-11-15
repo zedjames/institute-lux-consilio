@@ -19,7 +19,7 @@ permissions:
 
 # Shares the release lock with the English series archive publisher.
 concurrency:
-  group: ilc-series-release-latest
+  group: ${{ github.event_name == 'pull_request' && 'ilc-health-zh-preview' || 'ilc-series-release-latest' }}
   cancel-in-progress: false
 
 jobs:
