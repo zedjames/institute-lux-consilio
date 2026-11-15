@@ -49,7 +49,8 @@ def original_pdf(p: dict) -> tuple[bytes,str,str]:
     if len(files)!=1:
         raise ValueError(f"{p['id']}: expected exactly one original PDF, got {len(files)}")
     file=files[0]
-    url=(file.get("links") or {}).get("content")
+    links=file.get("links") or {}
+    url=links.get("content") or links.get("self")
     if not isinstance(url,str) or not url.startswith("https://"):
         raise ValueError(f"{p['id']}: missing secure Zenodo PDF content link")
     payload=download(url)
