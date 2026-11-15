@@ -66,6 +66,8 @@ def original_pdf(p: dict) -> tuple[bytes,str,str]:
         if hashlib.new(algorithm,payload).hexdigest().lower()!=digest.lower():
             raise ValueError(f"{p['id']}: provider checksum mismatch")
     sha=hashlib.sha256(payload).hexdigest()
+    if sha!=p.get("pdfSha256"):
+        raise ValueError(f"{p['id']}: published bytes differ from the author-supplied edition checksum")
     return payload,sha,record.get("conceptdoi") or ""
 
 def main():
