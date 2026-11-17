@@ -235,9 +235,10 @@ assert.ok(data.programDetails.qg.inquiry.intro.startsWith("We are questioning wh
  "Schwarzschild QG inquiry must retain its direct question of object-first assumptions");
 const methodsContent=fs.readFileSync("methods.html","utf8");
 for(const phrase of ["Objects, relationships, and physical exchange",
- "Follow the question through its consequences.",
- "An individual paper can establish a particular mathematical or physical relationship.",
- "To discover what governs a physical system"]){
+ "Follow the question through successive constructions.",
+ "A mathematical or physical finding can open new questions",
+ "A paper is a scientific contribution within its stated scope",
+ "Preserve the source. Constrain interpretation. Enable inquiry."]){
  assert.ok(methodsContent.includes(phrase),"ILC Methods page omitted foundational research rationale: "+phrase);
 }
 const healthInquiryHtml=fs.readFileSync(inquiryProgramPages.health,"utf8");
