@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-11-15",
+  "updated": "2026-11-17",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -1411,6 +1411,18 @@
       "chineseDoi": "10.5281/zenodo.24252327",
       "editionDate": "2026-11-14",
       "editionStatus": "published-edition"
+    }
+  ],
+  "emergingPrograms": [
+    {
+      "id": "essence-physical-constitution",
+      "title": "Essence and Physical Constitution",
+      "domain": "Foundational mathematical physics",
+      "status": "Initiative in formation",
+      "desc": "How elementary quantum properties and relational exchange become persistent physical organization.",
+      "href": "research-essence-physical-constitution.html",
+      "subtitle": "From Elementary Quantum Excitation to Organized Physical Form",
+      "launchDate": "2026-11-17"
     }
   ]
 }
