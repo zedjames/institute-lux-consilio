@@ -1626,7 +1626,11 @@ window.ILC_DATA={
         "heading": "One Physical Question. An Expanding Mathematical World.",
         "description": "An interactive exhibit follows the same Schwarzschild quantum-scalar inquiry from its operator foundations to Einstein sources, relational geometry, moving interfaces and physical history. Select source-specific theorem examples, trace the inherited mathematics, and distinguish proved results from active questions.",
         "href": "research/quantum-gravity-formal-lineage/",
-        "label": "Explore the scientific exhibit →"
+        "label": "Explore the scientific exhibit →",
+        "inquiry": {
+          "href": "research/quantum-gravity-formal-lineage/#inquiry",
+          "label": "Investigate a boundary question — interactive, source-scoped inquiry →"
+        }
       }
     },
     "ns": {

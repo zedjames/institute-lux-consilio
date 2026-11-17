@@ -113,7 +113,7 @@
 (() => {
   "use strict";
   const route="/research/quantum-gravity-formal-lineage/#";
-  const sections=new Set(["main","journey","demonstrations","formal-world","evidence"]);
+  const sections=new Set(["main","journey","demonstrations","formal-world","evidence","inquiry"]);
   const navigation=document.querySelector(".qx-subnav");
   if (!navigation) return;
   const tabs=Array.from(navigation.querySelectorAll('a[href]'));
