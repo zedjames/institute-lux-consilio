@@ -137,3 +137,54 @@ html{scroll-behavior:auto}
 @media(max-width:630px){.qx-page .section{padding-block:50px}.qx-hero{padding-top:50px}.qx-hero h1{font-size:clamp(36px,9.3vw,57px)}.qx-dek{font-size:16px}.qx-hero-figure svg{max-height:310px}.qx-hero-foot{gap:12px}.qx-hero-foot>span{width:100%}.qx-subnav .wrap{gap:22px}.qx-stage-reader{grid-template-columns:1fr}.qx-reader-index{padding:18px 22px;flex-direction:row;align-items:center;gap:16px}.qx-reader-rule,.qx-reader-caption{display:none}.qx-reader-index span:first-child{font-size:26px}.qx-reader-main{padding:25px 21px}.qx-chapter-index{grid-template-columns:repeat(2,1fr)}.qx-evidence-grid,.qx-standing{grid-template-columns:1fr}.qx-source-table{display:block}.qx-source-table>div{display:grid;grid-template-columns:1fr;gap:6px;padding:17px 8px}.qx-source-header{display:none!important}.qx-source-table code{font-size:12px}.qx-consequence{grid-template-columns:1fr;gap:5px}.qx-consequence-symbol{font-size:37px}.qx-button{width:100%}.qx-demo-art{padding:12px 9px}}
 @media(max-width:420px){.qx-chapter-index{grid-template-columns:1fr}.qx-reader-index{align-items:baseline;flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.qx-page *, .qx-page *:before,.qx-page *:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Curated Inquiry Explorer — fully authored source panels, progressive enhancements. */
+.qx-inquiry{background:#edf3f4;color:#193a4c}
+.qx-inquiry .qx-section-head{margin-bottom:22px}
+.qx-inquiry .qx-section-head h2{max-width:960px;font-size:clamp(32px,4.25vw,57px)}
+.qx-inquiry-context{max-width:1040px;padding:15px 20px;border-left:3px solid #a37b43;background:#fff7e8;font-size:14px;line-height:1.7;color:#4b5260;margin:16px 0 33px}
+.qx-inquiry-context a,.qx-inquiry-sources a{color:#15536f;text-decoration:underline;text-underline-offset:3px}
+.qx-inquiry-controls{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:0 0 23px}
+.qx-inquiry-controls[hidden],.qx-inquiry-live[hidden]{display:none!important}
+.qx-inquiry-control{min-width:0}
+.qx-inquiry-label{font-size:11px!important;letter-spacing:.075em;text-transform:uppercase;font-weight:800;color:#3f6778;margin:0 0 10px!important;line-height:1.5!important}
+.qx-inquiry-choices{display:flex;flex-wrap:wrap;gap:7px}
+.qx-inquiry-choice{cursor:pointer;display:inline-block;border:1px solid #a7c0cb;background:#fff;color:#24495d;padding:11px 14px;font:750 13px/1.35 inherit;font-family:inherit;font-size:13px;line-height:1.35;font-weight:700;min-height:44px;text-align:left;border-radius:3px}
+.qx-inquiry-choice:hover{border-color:#376b7a;background:#f3f9fa}
+.qx-inquiry-choice.is-active,.qx-inquiry-choice[aria-pressed=true]{background:#174b64;color:#fff;border-color:#174b64}
+.qx-inquiry-choice:focus-visible,.qx-propose button:focus-visible,.qx-propose select:focus-visible,.qx-propose textarea:focus-visible,.qx-inquiry a:focus-visible,.qx-outro a:focus-visible{outline:3px solid #5aa9cf;outline-offset:3px}
+.qx-inquiry-live{font-size:12px!important;color:#4b6877;margin:0 0 16px!important}
+.qx-inquiry-panel{padding:clamp(23px,4vw,46px);border:1px solid #cbdde5;background:#fff;margin:0 0 18px;min-width:0}
+.qx-inquiry-panel[hidden]{display:none!important}
+.qx-inquiry-position{font-size:12px!important;color:#6c7d85;text-transform:uppercase;letter-spacing:.075em;font-weight:700;margin:0 0 12px!important}
+.qx-inquiry-panel h3{font-size:clamp(24px,2.9vw,37px);line-height:1.21;max-width:980px;color:#173c51;margin:0 0 10px}
+.qx-inquiry-question{font-size:17px!important;color:#3c6477;font-weight:630;margin:0 0 20px!important}
+.qx-inquiry-body>p{max-width:1000px;font-size:16px;line-height:1.85}
+.qx-inquiry-equation{background:#102f42;color:#f1e6c7;border-left:4px solid #c9ad76;margin:22px 0;padding:18px 22px;overflow-x:auto}
+.qx-inquiry-equation code{font:550 clamp(13px,1.6vw,17px)/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.qx-inquiry-findings{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:23px 0}
+.qx-inquiry-findings>div{padding:21px;background:#f2f6f7;border-top:3px solid #54828d}
+.qx-inquiry-findings>div:nth-child(2){border-top-color:#be9b65;background:#faf6ec}
+.qx-inquiry-findings p:not(.qx-inquiry-label){font-size:14px;color:#435966;line-height:1.72;margin:0}
+.qx-inquiry-next{border-top:1px solid #cfdee4;padding:22px 0 0;margin:25px 0 0}
+.qx-inquiry-next p:last-child{font-size:17px;font-weight:720;color:#174c66;margin:5px 0}
+.qx-inquiry-scope{font-size:12px!important;color:#667e8c;margin:26px 0 0!important}
+.qx-inquiry-sources{border:1px solid #cad8dd;padding:22px 26px;background:#fff;max-width:1160px}
+.qx-inquiry-sources p{font-size:13px;line-height:1.77;color:#536775;margin:0 0 9px}
+.qx-inquiry-sources p:last-child{margin-bottom:0}
+.qx-propose{background:#fff;color:#1e3c4b}
+.qx-propose-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,5vw,70px)}
+.qx-propose h2{font-size:clamp(32px,3.5vw,50px);margin:9px 0 21px}
+.qx-propose p{font-size:15px;line-height:1.78}
+.qx-propose-form{padding:clamp(23px,3vw,35px);background:#f3f7f8;border:1px solid #c9d9e0}
+.qx-propose-form label{display:block;font-size:13px;font-weight:800;color:#21485c;margin:0 0 9px}
+.qx-propose-form label:not(:first-child){margin-top:24px}
+.qx-propose-form select,.qx-propose-form textarea{display:block;width:100%;font:inherit;line-height:1.5;padding:12px 14px;border:1px solid #9eb6c1;background:#fff;color:#163b4e;border-radius:3px}
+.qx-propose-form select{min-height:48px}
+.qx-propose-form textarea{min-height:142px;resize:vertical}
+.qx-propose-form .qx-form-help{font-size:13px;color:#526b79;line-height:1.65;margin:13px 0}
+.qx-propose-submit{cursor:pointer;margin-top:5px;min-height:47px;background:#153f58;color:#fff;border:1px solid #153f58;padding:12px 20px;font:750 14px/1.4 inherit;font-family:inherit;font-size:14px;font-weight:740}
+.qx-propose-submit:hover{background:#215974}
+.qx-propose-form .qx-form-feedback{color:#547080;font-size:12px;line-height:1.6;margin:15px 0 0}
+@media(max-width:890px){.qx-inquiry-controls,.qx-propose-grid{grid-template-columns:1fr}.qx-inquiry-findings{gap:10px}}
+@media(max-width:630px){.qx-inquiry-findings{grid-template-columns:1fr}.qx-inquiry-control{width:100%}.qx-inquiry-choices{gap:6px}.qx-inquiry-choice{flex:1 1 125px}.qx-inquiry-panel{padding:24px 19px}.qx-inquiry-sources{padding:19px}.qx-propose-form{padding:21px}}
