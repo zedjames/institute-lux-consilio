@@ -1879,7 +1879,7 @@ window.ILC_DATA={
       ]
     }
   ],
-  "updated": "2026-11-15",
+  "updated": "2026-11-17",
   "companionPublications": [
     {
       "id": "hfd-go",
@@ -1958,6 +1958,18 @@ window.ILC_DATA={
       "chineseDoi": "10.5281/zenodo.24252327",
       "editionDate": "2026-11-14",
       "editionStatus": "published-edition"
+    }
+  ],
+  "emergingPrograms": [
+    {
+      "id": "essence-physical-constitution",
+      "title": "Essence and Physical Constitution",
+      "domain": "Foundational mathematical physics",
+      "status": "Initiative in formation",
+      "desc": "How elementary quantum properties and relational exchange become persistent physical organization.",
+      "href": "research-essence-physical-constitution.html",
+      "subtitle": "From Elementary Quantum Excitation to Organized Physical Form",
+      "launchDate": "2026-11-17"
     }
   ]
 };

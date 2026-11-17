@@ -1,0 +1,96 @@
+{
+  "schema": "ilc-research-initiative/1",
+  "provenance": "Proposed research statement supplied by program initiator, November 17, 2026",
+  "id": "essence-physical-constitution",
+  "title": "Essence and Physical Constitution",
+  "subtitle": "From Elementary Quantum Excitation to Organized Physical Form",
+  "nameZh": "精",
+  "status": "Research initiative in formation",
+  "initiated": "2026-11-17",
+  "domain": "Foundational mathematical physics",
+  "href": "research-essence-physical-constitution.html",
+  "seriesStatus": "Proposed scientific series; no papers yet registered",
+  "description": "Investigating how elementary physical properties and relational exchange make organized physical form, identity and continuity possible.",
+  "foundationalStatement": "Essence is not simply the material from which a physical object is assembled. It is the elementary physical reality whose intrinsic and relational qualities make the constitution of physical form possible.",
+  "proposition": "Elementary physical constituents possess essential properties that determine their lawful possibilities of interaction. Through exchanges across physical boundaries, constituents develop additional relational qualities and participate in the constitution of larger organized forms. These forms acquire distinguishable properties and capacities that govern their subsequent interactions. Physical individuality and continuity arise through the persistence of such organizations within the interconnected dynamics of the larger physical system.",
+  "unifyingQuestion": "How do the essential properties of elementary physical constituents, together with the additional qualities generated through their relationships and exchanges, give rise to the distinguishable, persistent, and evolving physical forms that constitute the universe?",
+  "hypotheses": [
+    {
+      "number": 1,
+      "title": "Elementary Constitution and Essential Identity",
+      "statement": "Physical constituents possess fundamental characteristics that establish their elementary identity and determine their lawful possibilities of physical participation.",
+      "investigation": "Determine which properties are common to elementary physical constituents, which distinguish different constituent types, and which depend upon their representation or physical state.",
+      "methods": "Quantum representations, invariants, dynamical laws, and observable consequences"
+    },
+    {
+      "number": 2,
+      "title": "Differentiated Essential Qualities and Constitutive Possibility",
+      "statement": "Elementary physical constituents possess distinguishable essential qualities whose differences influence their interactions and the physical organizations they can constitute.",
+      "investigation": "Classify intrinsic, state-dependent and relationally generated qualities and determine how they change lawful interaction responses and subsequent physical possibilities.",
+      "methods": "Mass, spin, charge, spectral composition, modes, phase relationships, couplings and their theory-dependent roles"
+    },
+    {
+      "number": 3,
+      "title": "Boundary Exchange and Relational Physical Identity",
+      "statement": "The distinguishability and individuality of physical objects arise through structured boundaries of interaction and exchange within a larger connected physical system.",
+      "investigation": "Establish when gradients, interfaces and exchange laws support effective independence, coupling, transmission, and persistent physical continuity.",
+      "methods": "Boundary observables, fluxes, coupling conditions, exchange constraints and effective autonomy"
+    },
+    {
+      "number": 4,
+      "title": "Relational Generation of Essential Qualities",
+      "statement": "Interactions among elementary physical constituents can generate additional essential qualities that become defining properties of the resulting physical organization.",
+      "investigation": "Determine when coupled dynamics create new collective modes, correlations, conserved structures, response properties and stable configurations with constitutive significance.",
+      "methods": "Coupled systems, collective observables, response kernels, conservation structures and dynamical stability"
+    },
+    {
+      "number": 5,
+      "title": "Constitutive Continuity and the Development of Physical Form Across Scale",
+      "statement": "Physical organizations can acquire persistent constitutive identities through the continuing relationships and exchanges of their constituents, allowing organized forms to become effective constituents of larger physical systems.",
+      "investigation": "Determine criteria for inheritance, dynamical autonomy, transformation and loss of organized identity through changing configuration, exchange and scale.",
+      "methods": "Effective descriptions, multiscale mappings, invariant or stable organization, and counterexamples"
+    }
+  ],
+  "initialCarrier": "Represented quantum excitations with specified state spaces, quantum representations, physical observables, interactions and dynamics",
+  "prospectiveSystems": [
+    "Interacting quantum fields",
+    "Gravitating systems",
+    "Kinetic organizations",
+    "Collective and continuum physical descriptions"
+  ],
+  "scientificStatus": "Hypotheses proposed; definitions, test systems, physical interpretation and verification remain research tasks. No paper DOI has been assigned.",
+  "researchRelationships": [
+    {
+      "id": "celestial",
+      "label": "Gaussian Physical States & Celestial Representation",
+      "href": "research-gaussian-celestial.html"
+    },
+    {
+      "id": "qg",
+      "label": "Schwarzschild Quantum Gravity",
+      "href": "research-relational-quantum-gravity.html"
+    },
+    {
+      "id": "kinetic",
+      "label": "Kinetic Organization and Biological Function",
+      "href": "research-kinetic-organization-biological-function.html"
+    },
+    {
+      "id": "rmmo",
+      "label": "Relational Morphogenesis & Multicellular Organization",
+      "href": "research-relational-morphogenesis.html"
+    },
+    {
+      "id": "health",
+      "label": "Health, Formally Defined",
+      "href": "research-health-formally-defined.html"
+    },
+    {
+      "id": "formal",
+      "label": "Formal Scientific Infrastructure",
+      "href": "research-formal-infrastructure.html"
+    }
+  ],
+  "collaboration": "research@instituteluxconsilio.org",
+  "updates": "https://buttondown.com/institute-lux-consilio"
+}

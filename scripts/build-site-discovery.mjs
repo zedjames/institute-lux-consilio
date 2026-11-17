@@ -16,6 +16,9 @@ function setStatic(html,id,items,marker){
  return exact(html,old,`<div id="${id}"${id==="theme-grid"?' class="theme-grid"':""} data-static="1">${a}\n${items}\n${z}</div>`,id)
 }
 function programCards(data){return data.programs.map((p,i)=>`<a class="orbit-program reveal" href="${escHtml(p.href||"program.html?id="+encodeURIComponent(p.id))}"><span class="orbit-program__n">${String(i+1).padStart(2,"0")}</span><span class="orbit-program__domain">${escHtml(p.domain)}</span><div><strong>${escHtml(p.title)}</strong><p>${escHtml(p.desc)}</p></div><span class="orbit-program__status">${escHtml(p.status)}</span></a>`).join("\n");}
+function emergingCards(data){
+ return (data.emergingPrograms||[]).map(p=>`<a class="emerging-card" href="${escHtml(p.href)}"><span class="emerging-card__kicker">${escHtml(p.domain)} · ${escHtml(p.status)}</span><strong>${escHtml(p.title)}</strong><span class="emerging-card__subtitle">${escHtml(p.subtitle||"")}</span><span class="emerging-card__summary">${escHtml(p.desc)}</span><span class="emerging-card__link">Explore this research →</span></a>`).join("\n");
+}
 function recentCards(data){
  const list=[...data.publications].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);
  return list.map(p=>`<article class="archive-item"><div class="meta">${fmtDate(p.date)}</div><div><h3><a href="${escHtml(paperHref(p))}">${escHtml(p.title)}</a></h3><p>${escHtml(p.series)} · Paper ${escHtml(p.order)}</p><div class="archive-item__links"><a href="${escHtml(paperHref(p))}">Publication record →</a><a href="https://doi.org/${escHtml(p.doi)}" target="_blank" rel="noopener">Zenodo DOI ↗</a>${p.pdf?`<a href="${escHtml(p.pdf)}" target="_blank" rel="noopener">Read PDF ↗</a>`:""}</div></div><div class="archive-item__right">Paper ${escHtml(p.order)}<br>Preprint</div></article>`).join("\n");
@@ -60,6 +63,8 @@ function updateHealthFullText(html,block){
 function updateDiscovery(data,home,research){
  let newHome=updateProgramBlock(home,programCards(data));
  let newResearch=updateProgramBlock(research,programCards(data));
+ newHome=setStatic(newHome,'emerging-list',emergingCards(data),'ILC_EMERGING_INDEX');
+ newResearch=setStatic(newResearch,'emerging-list',emergingCards(data),'ILC_EMERGING_INDEX');
  newResearch=setStatic(newResearch,'question-grid',questionCards(data),'ILC_QUESTION_INDEX');
  newResearch=setStatic(newResearch,'theme-grid',themeCards(data),'ILC_THEME_INDEX');
  newHome=updateHomeRecent(newHome,recentCards(data));
@@ -75,7 +80,7 @@ function updateDiscovery(data,home,research){
  if(!newHome.includes("Kinetic Organization and Biological Function")||!newResearch.includes("Kinetic Organization and Biological Function")||!["kobf1","kobf2"].every(id=>data.publications.some(p=>p.id===id)))throw Error("Site discovery build missing Kinetic series or published paper catalog");
  return {home:newHome,research:newResearch};
 }
-export {programCards,recentCards,healthFullText,questionCards,themeCards,updateDiscovery};
+export {programCards,emergingCards,recentCards,healthFullText,questionCards,themeCards,updateDiscovery};
 export function updateSite(root=process.cwd()){
  const raw=fs.readFileSync(path.join(root,"assets/data/research.js"),"utf8").trim();
  if(!raw.startsWith("window.ILC_DATA="))throw Error("Unrecognized ILC catalog");

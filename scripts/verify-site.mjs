@@ -32,7 +32,7 @@ function assertVersionedPublication(p,{concept,minRecord,minDate,minVersion}){
 }
 
 const catalog=JSON.parse(fs.readFileSync("research/catalog.json","utf8"));
-for(const key of ["programs","themes","questions","publications","notes"]){
+for(const key of ["programs","emergingPrograms","themes","questions","publications","notes"]){
  assert.deepStrictEqual(catalog[key],data[key],key+" differs from canonical ILC source");
 }
 const root=new Set(fs.readdirSync("."));
@@ -377,6 +377,37 @@ for(const htmlFile of ["index.html","research.html"]){
  assert.ok(html.includes('data-static="1"'),"Missing crawlable program index in "+htmlFile);
  assert.ok(html.includes("<!-- ILC_PROGRAM_INDEX_START -->\n"+programCards(data)+"\n<!-- ILC_PROGRAM_INDEX_END -->"),"Stale research-program list in "+htmlFile);
 }
+// Emerging projects retain a separate research inventory and never enter the published-paper sequence.
+const emerging=data.emergingPrograms||[];
+assert.equal(emerging.length,1,"Expected the registered emerging research initiative");
+assert.equal(emerging[0].id,"essence-physical-constitution");
+assert.equal(emerging[0].href,"research-essence-physical-constitution.html");
+for(const page of ["index.html","research.html"]){
+ const markup=fs.readFileSync(page,"utf8");
+ assert.ok(markup.includes('id="emerging-list" class="emerging-research__grid" data-static="1"'),"Missing emerging-research static list in "+page);
+ assert.ok(markup.includes("<!-- ILC_EMERGING_INDEX_START -->\n"+emergingCards(data)+"\n<!-- ILC_EMERGING_INDEX_END -->"),"Emerging research cards differ from canonical catalog in "+page);
+}
+const essence=JSON.parse(fs.readFileSync("research/essence-physical-constitution.json","utf8"));
+const essencePage=fs.readFileSync(essence.href,"utf8");
+assert.equal(essence.id,emerging[0].id);
+assert.equal(essence.hypotheses.length,5);
+assert.deepStrictEqual(essence.hypotheses.map(h=>h.number),[1,2,3,4,5]);
+assert.equal(essence.seriesStatus,"Proposed scientific series; no papers yet registered");
+assert.ok(essencePage.includes(essence.foundationalStatement),"Foundational proposition absent from public initiative");
+assert.ok(essencePage.includes(essence.unifyingQuestion),"Unifying research question absent");
+for(const h of essence.hypotheses){
+ assert.ok(essencePage.includes('id="hypothesis-'+h.number+'"'),"Missing hypothesis anchor: "+h.number);
+ assert.ok(essencePage.includes(h.title),"Missing hypothesis title: "+h.number);
+ assert.ok(essencePage.includes(h.statement),"Missing proposition: "+h.number);
+}
+assert.ok(essencePage.includes('href="mailto:research@instituteluxconsilio.org?subject=Essence%20and%20Physical%20Constitution'),"Missing program collaboration route");
+assert.ok(essencePage.includes('action="https://buttondown.com/api/emails/embed-subscribe/institute-lux-consilio"'),"Missing functioning ILC newsletter signup");
+assert.ok(essencePage.includes('name="utm_campaign" value="essence-physical-constitution"'),"Missing initiative-attributed subscription campaign");
+assert.ok(essencePage.includes("Research initiative in formation")&&essencePage.includes("No paper has been announced as published"),"Initiative falsely presented as a published series");
+assert.ok(!/citation_doi|zenodo[.]org|10[.]5281/.test(essencePage),"Proposed initiative must not carry invented publication DOI");
+assert.ok(fs.readFileSync("collaborate.html","utf8").includes('id="essence-physical-constitution"'),"Dedicated collaboration entry missing");
+assert.ok(fs.readFileSync("sitemap.xml","utf8").includes('<loc>https://instituteluxconsilio.org/research-essence-physical-constitution.html</loc>'),"Emerging program is not indexed");
+
 const researchPage=fs.readFileSync("research.html","utf8");
 assert.ok(researchPage.includes("<!-- ILC_QUESTION_INDEX_START -->\n"+questionCards(data)+"\n<!-- ILC_QUESTION_INDEX_END -->"),"Research questions must be present in static HTML");
 assert.ok(researchPage.includes("<!-- ILC_THEME_INDEX_START -->\n"+themeCards(data)+"\n<!-- ILC_THEME_INDEX_END -->"),"Research themes must be present in static HTML");
@@ -414,7 +445,7 @@ import crypto from "node:crypto";
 import {makeArtifacts, publicationPath} from "./build-publication-pages.mjs";
 import {activeForPage,renderMainNav} from "./build-main-navigation.mjs";
 import {renderProgramContent, renderResearchInquiry, PROGRAM_IDS} from "./build-program-pages.mjs";
-import {programCards, recentCards, healthFullText, questionCards, themeCards} from "./build-site-discovery.mjs";
+import {programCards, emergingCards, recentCards, healthFullText, questionCards, themeCards} from "./build-site-discovery.mjs";
 const pdfManifest=JSON.parse(fs.readFileSync("research/site-pdfs.json","utf8"));
 const requiredPDFs=Object.fromEntries(pdfManifest.papers.map(p=>[
   p.recordPage.replace(/^publication-(hfd[0-9]+)\.html$/, "$1"),

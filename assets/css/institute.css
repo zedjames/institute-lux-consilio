@@ -256,3 +256,18 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(-
  .site-header .nav__links{display:none;position:absolute;top:81px;left:0;right:0;background:white;padding:17px 24px 21px;border-bottom:1px solid var(--edge);flex-direction:column;align-items:flex-start;margin-left:0;gap:20px}
  .site-header .nav__links.open{display:flex}
 }
+
+/* Emerging research: scalable discovery section, separate from published series. */
+.emerging-research{background:#f2f6f7;border-top:1px solid var(--edge);border-bottom:1px solid var(--edge)}
+.emerging-research .emerging-research__intro{max-width:860px;line-height:1.75;margin-top:11px}
+.emerging-research__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,370px),1fr));gap:20px;margin-top:30px}
+.emerging-card{display:flex;flex-direction:column;align-items:flex-start;min-height:240px;padding:clamp(25px,3.5vw,38px);background:linear-gradient(140deg,#103247 0%,#1f4a60 100%);border:1px solid #244e61;color:#e9f4f7;text-decoration:none;position:relative;overflow:hidden}
+.emerging-card:after{content:"";width:240px;height:240px;border:1px solid rgba(226,209,162,.3);border-radius:50%;position:absolute;right:-128px;top:-135px;box-shadow:0 0 0 32px rgba(224,238,242,.03);pointer-events:none}
+.emerging-card__kicker{position:relative;z-index:1;font-size:11px;color:#d4c8a8;font-weight:720;text-transform:uppercase;letter-spacing:.09em;line-height:1.6}
+.emerging-card strong{position:relative;z-index:1;font-size:clamp(1.35rem,2.2vw,1.95rem);line-height:1.3;letter-spacing:-.02em;margin:18px 0 4px}
+.emerging-card__subtitle{position:relative;z-index:1;font-size:14px;color:#c4dce7;line-height:1.6}
+.emerging-card__summary{position:relative;z-index:1;font-size:14px;line-height:1.65;margin:15px 0 18px;color:#e2edf1;max-width:630px}
+.emerging-card__link{position:relative;z-index:1;font-size:14px;font-weight:700;color:#f4d9a8;margin-top:auto}
+.emerging-card:hover{background:linear-gradient(140deg,#153e55 0%,#285974 100%);text-decoration:none;border-color:#527d95}
+.emerging-card:hover .emerging-card__link{text-decoration:underline;text-underline-offset:4px}
+.emerging-card:focus-visible{outline:3px solid #2b98ca;outline-offset:3px}
