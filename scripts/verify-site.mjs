@@ -82,13 +82,28 @@ assert.ok(renderMainNav("concordia").includes('<a href="publications.html">Publi
 
 const aiDoc=fs.readFileSync("ai-scientific-continuity.html","utf8");
 assert.ok(aiDoc.includes('href="https://instituteluxconsilio.org/ai-scientific-continuity.html"'),"AI disclosure missing canonical URL");
-assert.ok(aiDoc.includes('"identifier":"ILC-AI-001"')&&aiDoc.includes('"version":"1.0"'),"AI disclosure version/identifier metadata missing");
+assert.ok(aiDoc.includes('"identifier":"ILC-AI-001"')&&aiDoc.includes('"version":"1.1"')&&aiDoc.includes('"dateModified":"2026-11-17"'),"AI disclosure v1.1 identity or revision metadata missing");
 for(const phrase of ["Scientific history and negative results","Scientific accountability remains with the human authors","Earlier publications retain their publication-specific disclosure histories","AI-generated explanations, reconstructions, and extensions","underlying materials remains subject","October 20, 2026"]){
  assert.ok(aiDoc.includes(phrase),"AI disclosure missing substantive or control language: "+phrase);
 }
 for(const linked of ["governance.html","methods.html","concordia/index.html","concordia/runtime/index.html"]){
  assert.ok(fs.readFileSync(linked,"utf8").includes('href="ai-scientific-continuity.html"'),"Institutional AI disclosure link missing from "+linked);
 }
+// The seven-page editorial revision must preserve source-grounded interpretation
+// and distinguish a proposed explanation from its actual evidentiary authority.
+for(const [page,phrase] of [
+ ["index.html","Its coherence does not establish its scientific authority."],
+ ["institute.html","successful communication to the first audience"],
+ ["methods.html","sufficiently explicit to constrain interpretation"],
+ ["publications.html","constraining claims to the authority of its evidence"],
+ ["concordia/index.html","constrain subsequent interpretations to its evidentiary authority"],
+ ["concordia/runtime/index.html","without silently replacing missing evidence with a plausible reconstruction"],
+ ["ai-scientific-continuity.html","constrain interpretation to what the available evidence establishes"]
+]){
+ const markup=fs.readFileSync(page,"utf8");
+ assert.ok(markup.toLowerCase().includes(phrase.toLowerCase()),"Missing source-constrained scholarship principle in "+page);
+}
+assert.ok(aiDoc.includes("Version 1.1 — Source-constrained AI-mediated scientific inquiry")&&aiDoc.includes("Version 1.0 — Initial institutional statement"),"AI standing statement must preserve its amendment history");
 const concordia=fs.readFileSync("concordia/index.html","utf8");
 const inv=JSON.parse(fs.readFileSync("concordia/inventory/snapshots.json","utf8"));
 const snap=inv.snapshots.at(-1);
@@ -133,8 +148,10 @@ assert.equal((runtimeHtml.match(/<div class="concordia-stages">/g)||[]).length,1
  "Keep one research-process diagram alongside the unified architecture explanation");
 
 const aboutMission=fs.readFileSync("institute.html","utf8");
-assert.ok(aboutMission.includes("generational horizon")&&aboutMission.includes("Research across generations")&&aboutMission.includes("counterexamples, corrections, and unresolved questions"),"ILC generational mission or research continuity absent");
-assert.ok(fs.readFileSync("index.html","utf8").includes("generational horizon"),"Homepage disconnected from institute mission");
+assert.ok(aboutMission.includes("generational horizon")&&aboutMission.includes("Why Institute Lux Consilio exists.")&&aboutMission.includes("negative results, and unresolved questions"),"ILC generational purpose or research continuity absent");
+assert.ok(aboutMission.includes("The freedom to pursue science across generations."),"About page must state scientific independence and long-horizon purpose");
+const homeVision=fs.readFileSync("index.html","utf8");
+assert.ok(homeVision.includes("Scientific knowledge for questions not yet asked.")&&homeVision.includes("Why scientific scholarship must evolve."),"Homepage must introduce long-horizon scholarship and why it evolves");
 for(const phrase of ["professional interface between the Formal World","inhabited digital scientific laboratory","digital scientific staff","Evidence without a full-corpus checkout","claim-scoped, source-bound review","Alpha Testing"]){
  assert.ok(runtimeHtml.includes(phrase),"Concordia laboratory or qualification missing: "+phrase);
 }
@@ -218,9 +235,10 @@ assert.ok(data.programDetails.qg.inquiry.intro.startsWith("We are questioning wh
  "Schwarzschild QG inquiry must retain its direct question of object-first assumptions");
 const methodsContent=fs.readFileSync("methods.html","utf8");
 for(const phrase of ["Objects, relationships, and physical exchange",
- "Follow the question through its consequences.",
- "An individual paper can establish a particular mathematical or physical relationship.",
- "To discover what governs a physical system"]){
+ "Follow the question through successive constructions.",
+ "A mathematical or physical finding can open new questions",
+ "A paper is a scientific contribution within its stated scope",
+ "Preserve the source. Constrain interpretation. Enable inquiry."]){
  assert.ok(methodsContent.includes(phrase),"ILC Methods page omitted foundational research rationale: "+phrase);
 }
 const healthInquiryHtml=fs.readFileSync(inquiryProgramPages.health,"utf8");
