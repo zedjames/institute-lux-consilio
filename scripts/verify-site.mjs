@@ -600,7 +600,7 @@ assert.ok(qgExhibit.includes('Paper X')&&qgExhibit.includes('active investigatio
  "QG exhibit must disclose the public-research frontier");
 
 const qgExhibitPath="/"+qgExhibitRoute;
-const qgAnchorTargets=["main","journey","demonstrations","formal-world","evidence"];
+const qgAnchorTargets=["main","journey","demonstrations","formal-world","evidence","inquiry"];
 for(const target of qgAnchorTargets){
  assert.ok(qgExhibit.includes('id="'+target+'"'),"Missing exhibit anchor target: "+target);
  assert.ok(qgExhibit.includes('href="'+qgExhibitPath+'#'+target+'"'),
@@ -621,9 +621,58 @@ assert.ok(qgExhibitJs.includes('document.addEventListener("click"'),
 const qgExhibitCss=fs.readFileSync("assets/css/qg-exhibit.css","utf8");
 assert.ok(qgExhibitCss.includes("overflow-x:clip")&&!qgExhibitCss.includes("overflow-x:hidden"),
  "Exhibit body must not establish an unintended scrolling container");
-assert.ok(qgExhibit.includes('qg-exhibit.css?v=2')&&qgExhibit.includes('qg-exhibit.js?v=2'),
+assert.ok(qgExhibit.includes('qg-exhibit.css?v=3')&&qgExhibit.includes('qg-exhibit.js?v=3'),
  "Navigation fix assets need refreshed browser cache keys");
 
+// A public, source-constrained interactive experience must be readable without JavaScript,
+// and must not present in-progress Paper XI as a completed scholarly publication.
+assert.ok(qgExhibit.includes('id="qx-inquiry-panels"')&&qgExhibit.includes('id="qx-inquiry-controls"'),
+ "Curated inquiry reader and progressive enhancement controls are missing");
+assert.equal((qgExhibit.match(/class="qx-inquiry-panel" data-inquiry-path=/g)||[]).length,9,
+ "Each of three questions must offer three independently authored depths");
+for(const question of ["history","identity","scale"]){
+ for(const depth of ["idea","math","next"]){
+  assert.ok(qgExhibit.includes('data-inquiry-path="'+question+'" data-inquiry-depth="'+depth+'"'),
+   "Missing source-scoped inquiry question/depth: "+question+"/"+depth);
+ }
+ assert.ok(qgExhibit.includes('data-inquiry-path-select="'+question+'"'),
+  "Inquirer cannot choose the "+question+" question");
+}
+assert.equal((qgExhibit.match(/data-inquiry-depth-select=/g)||[]).length,3,
+ "Reader must offer conceptual, mathematical and forward research depth");
+assert.ok(qgExhibit.includes("Paper XI research notes in progress")&&
+ qgExhibit.includes("No Paper XI publication, DOI")&&
+ qgExhibit.includes("not yet a public scholarly publication"),
+ "In-progress Paper XI status is not explicit");
+assert.ok(qgExhibit.includes("https://doi.org/10.5281/zenodo.23990050"),
+ "Guided inquiry missing published Paper X reference");
+assert.ok(qgExhibit.includes('id="qx-propose-form"')&&
+ qgExhibit.includes('id="qx-propose-text"')&&
+ qgExhibit.includes('id="qx-propose-topic"')&&
+ qgExhibit.includes('mailto:research@instituteluxconsilio.org'),
+ "Propose-a-research-question composer must be functional with direct correspondence fallback");
+assert.ok(qgExhibit.includes("It does not submit data to the site")&&
+ qgExhibit.includes("your own email application"),
+ "Email compose action must not misrepresent submission or collect website data");
+assert.ok(qgExhibit.includes("Stage 2 · In development")&&
+ qgExhibit.includes("not a publicly available conversational service"),
+ "Stage-two capability must be clearly labeled in development");
+assert.ok(qgExhibit.includes("qg-inquiry.js?v=1"),
+ "Interactive controls require a versioned independently maintained client script");
+const inquiryJs=fs.readFileSync("assets/js/qg-inquiry.js","utf8");
+assert.ok(inquiryJs.includes('window.location.href=mailto')&&
+ inquiryJs.includes('encodeURIComponent(body)')&&
+ inquiryJs.includes('panels.length!==pathways.length*depths.length'),
+ "The inquiry module must support all authored combinations and prepare a user-controlled email");
+assert.ok(!/\bfetch\s*\(|\bXMLHttpRequest\b/.test(inquiryJs),
+ "The QG inquiry must not silently send research questions to a backend");
+assert.ok(qgExhibitJs.includes('"evidence","inquiry"'),
+ "New inquiry anchor must participate in existing two-header navigation");
+assert.ok(fs.readFileSync("research-relational-quantum-gravity.html","utf8").includes('href="'+qgExhibitRoute+'#inquiry"'),
+ "Main QG research series must directly invite curated inquiry");
+assert.ok(fs.readFileSync("concordia/runtime/index.html","utf8").includes('href="'+qgExhibitRoute+'#inquiry"')&&
+ fs.readFileSync("concordia/runtime/index.html","utf8").includes("AI-mediated scholarly inquiry"),
+ "Runtime development statement must reference the exhibit without claiming a live AI chat");
 assert.ok(fs.existsSync("assets/css/qg-exhibit.css")&&fs.existsSync("assets/js/qg-exhibit.js"),
  "QG exhibit assets missing");
 assert.ok(sitemap.includes("<loc>https://instituteluxconsilio.org/"+qgExhibitRoute+"</loc>"),
