@@ -11,6 +11,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: node --check assets/js/qg-exhibit.js
+      - run: node --check assets/js/qg-inquiry.js
       - run: node scripts/verify-site.mjs
       - run: python3 scripts/verify_health_zh.py
       - run: python3 -m unittest discover -s tests -p "test_zenodo_sync_*.py"
