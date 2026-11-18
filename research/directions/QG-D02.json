@@ -72,6 +72,15 @@
       "affects": [
         "relationships"
       ]
+    },
+    {
+      "id": "QG-D02-H0003",
+      "date": "2026-11-18",
+      "event": "editorial_review",
+      "summary": "Mapped approved public research claims and open obligations to the existing authored QG Inquiry Explorer without conferring new formal or experimental authority.",
+      "affects": [
+        "inquiries"
+      ]
     }
   ],
   "publication_status": "unpublished_direction",
@@ -80,5 +89,25 @@
   "display": {
     "featured": true,
     "order": 2
-  }
+  },
+  "inquiries": [
+    {
+      "path": "history",
+      "label": "Physical history",
+      "scope": "The published Paper X joined Einstein–scalar solution supports the local continuation question; free-clock stationarity remains a distinct developing research obligation.",
+      "basis_ids": [
+        "QG-D02-C01",
+        "QG-D02-O02"
+      ]
+    },
+    {
+      "path": "identity",
+      "label": "Physical identity",
+      "scope": "The continuing excitation's identity is an open research problem requiring justified quantum-state transport; the local classical continuation alone does not establish it.",
+      "basis_ids": [
+        "QG-D02-C02",
+        "QG-D02-O01"
+      ]
+    }
+  ]
 }

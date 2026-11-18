@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://instituteluxconsilio.org/research/directions/schema.json",
-  "title": "ILC public research direction v1 — RDA-03 scientific relationships",
+  "title": "ILC public research direction v1 — RDA-04 inquiry provenance",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -277,7 +277,8 @@
                 "publication_status",
                 "source_access",
                 "disclosure",
-                "display"
+                "display",
+                "inquiries"
               ]
             }
           }
@@ -321,6 +322,45 @@
         "order": {
           "type": "integer",
           "minimum": 1
+        }
+      }
+    },
+    "inquiries": {
+      "type": "array",
+      "uniqueItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "label",
+          "scope",
+          "basis_ids"
+        ],
+        "properties": {
+          "path": {
+            "enum": [
+              "history",
+              "identity",
+              "scale"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 9
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 9
+          },
+          "basis_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          }
         }
       }
     }

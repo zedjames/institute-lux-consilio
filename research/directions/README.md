@@ -79,6 +79,29 @@ RDA-03's four pilot connections all retain `research_question` standing. None as
 
 The living public relationship atlas is at `research/atlas/`. It uses accessible source cards and deep links with no required browser JavaScript. An AI-mediated or graphical Concordia relationship explorer may later consume these approved identities but must still verify private source authority through its own governed mechanisms.
 
+## RDA-04: Linking public research directions to curated inquiry
+
+`inquiries` is an optional, source-owned list connecting an approved direction to an **already authored** scientific inquiry pathway. The RDA-04 pilot maps `QG-D02` to the QG Explorer's `history` and `identity` paths, and `EPC-D01` to its exploratory `scale` path. The QG observation-instrument direction (`QG-D01`) has **no authored instrument pathway yet**, and is intentionally not mapped to a different question.
+
+Each mapping declares `path`, `label`, `scope`, and `basis_ids` pointing to public-direction claims, qualified obstructions, or open obligations. A mapping is a curated editorial correspondence, not a machine-proved mathematical equivalence. Its evidence level is determined from the underlying sources; conceptual paths remain explicitly hypothetical where appropriate.
+
+The generator `node scripts/build-inquiry-bridge.mjs` produces two outputs from existing approved direction records:
+
+- The source-provenance section inside the current QG Inquiry Explorer (static HTML readable without scripting).
+- `research/atlas/inquiry-index.json`, a **read-only public-data index** describing the same mappings and evidence scopes for possible future authorized clients. This does not grant Concordia access, create a conversational AI service, implement Runtime, or publish private scientific sources.
+
+The existing nine QG explanations remain authored prose. Visitors may deep-link to `?path=identity&depth=math#inquiry` or other validated paths; JavaScript displays the matching provenance and updates the URL after deliberate selection. Unsupported query values return to a defined authored default. The question-proposal form remains a user-controlled email draft, without website data collection or background transmission.
+
+### Adding an inquiry mapping
+
+1. Review the source research direction and the actual authored Inquiry Explorer; do not generate a new scientific response from an inferred relationship.
+2. Add the approved `inquiries` entry to the relevant direction, with a statement of its actual scientific limits and existing `basis_ids`.
+3. Append an RDA-02 `editorial_review` or `relationship` event with `affects:["inquiries"]`. Preserve all earlier history.
+4. Regenerate pages using `build-site-discovery.mjs`, `build-program-pages.mjs`, and `build-inquiry-bridge.mjs`, then validate the site and `tests/test_inquiry_bridge.mjs`.
+5. Review the public wording, claim authority, publication links, access boundaries, and exact inherited scientific assumptions before approving a PR.
+
+The compiler currently recognizes only `history`, `identity`, and `scale` for the existing QG exhibit. Creating a new pathway, for instance about the QGCO mathematical measurement instrument, requires a separately reviewed, source-grounded authored panel and corresponding schema/renderer extensions. We deliberately do not invent a universal scientific chatbot or imply a live mathematical proof-check service.
+
 ## Future compatibility
 
-RDA-01 establishes stable identities, claims, relationships, obstructions, and dated events. RDA-02 provides revision and provenance tooling; RDA-03 supplies the qualified cross-direction relationship atlas; RDA-04 can connect approved claims to authored Inquiry Explorers and governed Runtime access. These extensions do not require altering existing direction IDs.
+RDA-01 establishes stable identities, claims, relationships, obstructions, and dated events. RDA-02 provides revision and provenance tooling; RDA-03 supplies the qualified cross-direction relationship atlas; RDA-04 connects approved claims to authored Inquiry Explorers through public scoped metadata; governed Runtime access remains a future, independently qualified capability. These extensions do not require altering existing direction IDs.

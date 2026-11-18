@@ -27,8 +27,14 @@
       panels.some(panel=>!pathways.some(p=>p.id===panel.dataset.inquiryPath) ||
          !depths.some(d=>d.id===panel.dataset.inquiryDepth))) return;
 
-  let selectedPath=pathways[0].id;
-  let selectedDepth=depths[0].id;
+  // Shareable, whitelisted deep links: public controls only select authored text.
+  const params=new URLSearchParams(window.location.search);
+  const requestedPath=params.get("path"),requestedDepth=params.get("depth");
+  let selectedPath=pathways.some(x=>x.id===requestedPath)?requestedPath:pathways[0].id;
+  let selectedDepth=depths.some(x=>x.id===requestedDepth)?requestedDepth:depths[0].id;
+  const origins=Array.from(document.querySelectorAll("[data-inquiry-source-for][data-inquiry-direction-id]"));
+  const hasProvenance=origins.length===pathways.length&&
+    pathways.every(p=>origins.some(o=>o.dataset.inquirySourceFor===p.id));
   const topicInput=document.getElementById("qx-propose-topic");
   let topicTouched=false;
 
@@ -50,6 +56,9 @@
       button.setAttribute("aria-pressed",String(active));
     }
     if (!topicTouched && topicInput) topicInput.value=activePath.topic;
+    if(hasProvenance)for(const origin of origins){
+      origin.hidden=origin.dataset.inquirySourceFor!==selectedPath;
+    }
     status.textContent="Showing "+activePath.label+" — "+activeDepth.label;
   }
   function registerButtons(buttons,items,onChoose){
@@ -65,8 +74,22 @@
       });
     });
   }
-  registerButtons(pathButtons,pathways,id=>{selectedPath=id;render();});
-  registerButtons(depthButtons,depths,id=>{selectedDepth=id;render();});
+  function shareSelection(){
+    // Preserve the exact authored inquiry path in the URL; no query leaves this browser.
+    const url=new URL(window.location.href);
+    url.searchParams.set("path",selectedPath);
+    url.searchParams.set("depth",selectedDepth);
+    url.hash="inquiry";
+    window.history.replaceState(null,"",url.pathname+url.search+url.hash);
+  }
+  registerButtons(pathButtons,pathways,id=>{selectedPath=id;render();shareSelection();});
+  registerButtons(depthButtons,depths,id=>{selectedDepth=id;render();shareSelection();});
+  window.addEventListener("popstate",()=>{
+    const u=new URLSearchParams(window.location.search);
+    selectedPath=pathways.some(p=>p.id===u.get("path"))?u.get("path"):pathways[0].id;
+    selectedDepth=depths.some(d=>d.id===u.get("depth"))?u.get("depth"):depths[0].id;
+    render();
+  });
   if (topicInput)topicInput.addEventListener("change",()=>{topicTouched=true;});
 
   // Hide unused panels only after the complete static source and controls are found.
@@ -105,7 +128,12 @@
       "https://instituteluxconsilio.org/publication-sqg10.html",
       "",
       "Guided ILC exhibit:",
-      "https://instituteluxconsilio.org/research/quantum-gravity-formal-lineage/#inquiry",
+      "https://instituteluxconsilio.org/research/quantum-gravity-formal-lineage/?path="+
+        encodeURIComponent(selectedPath)+"&depth="+encodeURIComponent(selectedDepth)+"#inquiry",
+      "",
+      "Public Research Atlas direction:",
+      (hasProvenance?origins.find(x=>x.dataset.inquirySourceFor===selectedPath)?.dataset.inquiryDirectionId:
+        "Curated exhibit; source classification in the exhibit"),
       "",
       "Paper XI research notes are in progress and are not yet a public scholarly publication."
     ].join("\n");

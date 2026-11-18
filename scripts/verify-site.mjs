@@ -686,7 +686,7 @@ assert.ok(qgExhibitJs.includes('document.addEventListener("click"'),
 const qgExhibitCss=fs.readFileSync("assets/css/qg-exhibit.css","utf8");
 assert.ok(qgExhibitCss.includes("overflow-x:clip")&&!qgExhibitCss.includes("overflow-x:hidden"),
  "Exhibit body must not establish an unintended scrolling container");
-assert.ok(qgExhibit.includes('qg-exhibit.css?v=3')&&qgExhibit.includes('qg-exhibit.js?v=3'),
+assert.ok(qgExhibit.includes('qg-exhibit.css?v=4')&&qgExhibit.includes('qg-exhibit.js?v=3'),
  "Navigation fix assets need refreshed browser cache keys");
 
 // A public, source-constrained interactive experience must be readable without JavaScript,
@@ -722,8 +722,22 @@ assert.ok(qgExhibit.includes("It does not submit data to the site")&&
 assert.ok(qgExhibit.includes("Stage 2 · In development")&&
  qgExhibit.includes("not a publicly available conversational service"),
  "Stage-two capability must be clearly labeled in development");
-assert.ok(qgExhibit.includes("qg-inquiry.js?v=1"),
+assert.ok(qgExhibit.includes("qg-inquiry.js?v=2"),
  "Interactive controls require a versioned independently maintained client script");
+const publicInquiryIndex=JSON.parse(fs.readFileSync("research/atlas/inquiry-index.json","utf8"));
+assert.equal(publicInquiryIndex.schema_version,1,"Public inquiry index schema changed");
+assert.deepStrictEqual(publicInquiryIndex.paths.map(p=>[p.path,p.direction_id]),
+ [["history","QG-D02"],["identity","QG-D02"],["scale","EPC-D01"]],
+ "Curated QG source provenance must match the approved Research Atlas owner identities");
+assert.ok(publicInquiryIndex.runtime_status==="in_development_not_publicly_available"&&
+ publicInquiryIndex.live_formal_verification===false,
+ "Public inquiry index must not claim live source verification or Runtime service");
+for(const v of publicInquiryIndex.paths){
+ assert.ok(qgExhibit.includes('data-inquiry-source-for="'+v.path+'"'),
+  "QG evidence block does not identify the matching authored inquiry path");
+ assert.ok(qgExhibit.includes('data-inquiry-direction-id="'+v.direction_id+'"'),
+  "QG source evidence is not linked to its approved direction identity");
+}
 const inquiryJs=fs.readFileSync("assets/js/qg-inquiry.js","utf8");
 assert.ok(inquiryJs.includes('window.location.href=mailto')&&
  inquiryJs.includes('encodeURIComponent(body)')&&
