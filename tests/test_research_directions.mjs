@@ -25,6 +25,7 @@ const restore=id=>fs.copyFileSync(path.join("research/directions",id+".json"),pa
 try{
  const sixth=structuredClone(get("QG-D02"));
  sixth.id="QG-D03";
+ sixth.history=sixth.history.map(h=>({...h,id:h.id.replace("QG-D02","QG-D03")}));
  sixth.title="Hypothetical Sixth Research Direction";
  sixth.display.order=6;
  sixth.claims=sixth.claims.map(c=>({...c,id:c.id.replace("QG-D02","QG-D03")}));
