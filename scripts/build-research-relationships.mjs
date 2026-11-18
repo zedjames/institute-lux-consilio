@@ -39,7 +39,7 @@ function basisName(d,id){
 }
 export function renderRelationshipAtlas(directions,catalog){
  const edges=enumerateResearchConnections(directions);
- const nav=directions.map(d=>`<a href="#source-${esc(d.id)}">${esc(d.title)}</a>`).join("\n");
+ const nav=directions.map(d=>`<a href="/research/atlas/#source-${esc(d.id)}">${esc(d.title)}</a>`).join("\n");
  const groups=directions.map(source=>{
   const own=edges.filter(e=>e.source.id===source.id);
   const heading=`<div class="atlas-rel-heading"><p class="eyebrow">${esc(source.stream)} · ${esc(source.id)}</p><h2 id="source-${esc(source.id)}"><a href="${esc(directionHref(source,catalog))}">${esc(source.title)}</a></h2><p>${esc(source.question)}</p></div>`;
