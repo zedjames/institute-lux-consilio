@@ -11,12 +11,12 @@ const RELATIONS=new Set(["informs","related_question","requires","extends","test
 const OBSTRUCTION_STANDING=new Set(["formal_internal","research_obligation","published"]);
 export const DIRECTION_EDITABLE_FIELDS=["title","stream","program_ids","program_relation","landing_href",
  "overview","question","foundation","limits","next","claims","obligations","obstructions",
- "relationships","publication_status","source_access","disclosure","display"];
+ "relationships","inquiries","publication_status","source_access","disclosure","display"];
 export const RESEARCH_HISTORY_EVENTS=["registered","finding","obstruction","correction",
  "question","publication","scope_change","relationship","editorial_review","milestone"];
 const FIELDS=new Set(["schema_version","id","title","stream","program_ids","program_relation","landing_href",
  "overview","question","foundation","limits","next","claims","obligations","obstructions",
- "relationships","history","publication_status","source_access","disclosure","display"]);
+ "relationships","inquiries","history","publication_status","source_access","disclosure","display"]);
 const textSafe=v=>String(v??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 function requireThat(ok,message){if(!ok)throw Error("RDA-01: "+message);}
 const validDate=v=>typeof v==="string"&&/^20\d\d-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])$/.test(v)&&!Number.isNaN(Date.parse(v+"T00:00:00Z"));
@@ -103,6 +103,22 @@ function validateOne(d,catalog){
   relIds.push(r.id);
  }
  requireThat(uniq(relIds),d.id+" duplicated relationship ID");
+ if(d.inquiries!==undefined){
+  requireThat(Array.isArray(d.inquiries)&&uniq(d.inquiries.map(x=>x.path)),
+   d.id+" inquiry paths must be unique");
+  for(const entry of d.inquiries){
+   assertKeys(entry,new Set(["path","label","scope","basis_ids"]),d.id+" inquiry");
+   requireThat(["history","identity","scale"].includes(entry.path),
+    d.id+" references an unknown authored inquiry path");
+   requireThat(nonempty(entry.label)&&nonempty(entry.scope),
+    d.id+" inquiry missing explanatory content");
+   requireThat(Array.isArray(entry.basis_ids)&&entry.basis_ids.length>0&&uniq(entry.basis_ids),
+    d.id+" inquiry must identify scoped scientific evidence or an open obligation");
+   const ids=[...d.claims.map(x=>x.id),...d.obligations.map(x=>x.id),...d.obstructions.map(x=>x.id)];
+   requireThat(entry.basis_ids.every(id=>ids.includes(id)),
+    d.id+" inquiry basis is not an established claim, obstruction or obligation in its direction");
+  }
+ }
  requireThat(Array.isArray(d.history)&&d.history.length>0,d.id+" needs immutable first history entry");
  requireThat(d.history[0].event==="registered",d.id+" first event must register the direction");
  let last="";
@@ -143,6 +159,9 @@ export function loadDirections(root=process.cwd(),catalog){
   requireThat(target.disclosure==="public_summary"||d.disclosure!=="public_summary",
    d.id+" publicly visible relationship cannot expose a withheld direction "+r.target);
  }
+ const existingInquiryPaths=all.filter(d=>d.disclosure==="public_summary")
+  .flatMap(d=>(d.inquiries||[]).map(x=>x.path));
+ requireThat(uniq(existingInquiryPaths),"an authored inquiry path has multiple public scientific owners");
  for(const d of all)for(const c of d.claims)if(c.publication_id){
   const p=catalog.publications.find(x=>x.id===c.publication_id);
   requireThat(localHref(p.localPage||"publication-"+p.id+".html"),d.id+" cannot link to publication "+c.publication_id);
@@ -188,6 +207,7 @@ export function renderProgramDirections(directions,catalog,programId){
   <p><strong>Scientific limit:</strong> ${textSafe(d.limits)}</p>
   <p><strong>Next question:</strong> ${textSafe(d.obligations[0].question)}</p>
   <p class="atlas-program-reference">${reference}</p>
+  ${d.inquiries?.length?`<p class="atlas-program-relations"><strong>Curated investigation:</strong> ${d.inquiries.map(i=>`<a href="research/quantum-gravity-formal-lineage/?path=${encodeURIComponent(i.path)}&amp;depth=idea#inquiry">${textSafe(i.label)}</a>`).join(" · ")} <span>(authored, source-scoped)</span></p>`:""}
   ${links?`<p class="atlas-program-relations"><strong>Related inquiry:</strong> ${links} · <a href="research/atlas/#connections">Explore the relationship →</a></p>`:""}
   </article>`;
  }).join("\n");
