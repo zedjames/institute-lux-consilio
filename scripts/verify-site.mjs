@@ -461,6 +461,25 @@ assert.ok(epcDirectionsMarkup.includes("<!-- ILC_EPC_DIRECTIONS_START -->\n"+
  "\n<!-- ILC_EPC_DIRECTIONS_END -->"),
  "Emerging initiative direction is not generated from the canonical register");
 // RDA-03: source-owned scientific connections retain explicit evidence status.
+// RDA-06: Qualified CH scientific progress is visible through a native
+// evidence disclosure without changing CH's scientific identity or paper standing.
+const chDirection=directions.find(d=>d.id==="CH-D01");
+assert.ok(chDirection&&chDirection.claims.length===4&&chDirection.obligations.length===4&&
+ chDirection.obstructions.length===2,"CH scattering source record missing qualified new results and obligations");
+assert.ok(chDirection.claims.every(c=>c.evidence==="formal_internal")&&
+ chDirection.publication_status==="unpublished_direction",
+ "No CH internal theorem may be silently elevated to a published result");
+assert.ok(chDirection.history.some(e=>e.id==="CH-D01-H0003"&&e.event==="finding"),
+ "CH progress must have a durable dated scientific development event");
+const chProgram=fs.readFileSync("research-gaussian-celestial.html","utf8");
+assert.ok(chProgram.includes('id="direction-CH-D01"')&&
+ chProgram.includes('<details class="atlas-program-evidence"')&&
+ chProgram.includes("Internal formal research")&&
+ chProgram.includes("not a gauge/BRST-reduced physical S-matrix"),
+ "CH source-qualified kinematic work must be inspectable within its existing program page");
+assert.ok(chProgram.includes("original unit coupling")&&
+ chProgram.includes("not a published CH Paper IX"),
+ "CH limits must distinguish scaled scattering from original unit coupling and physical publication");
 const relations=enumerateResearchConnections(directions);
 assert.equal(relations.length,4,"Initial RDA-03 source-backed relation count changed");
 assert.ok(relations.every(({edge})=>edge.standing==="research_question"),
@@ -489,7 +508,7 @@ assert.ok(!directions.some(d=>d.publication_status==="published"),
 for(const file of ["research.html","research-relational-quantum-gravity.html",
  "research-kinetic-organization-biological-function.html","research-gaussian-celestial.html",
  "research-health-formally-defined.html","research-essence-physical-constitution.html"]){
- assert.ok(fs.readFileSync(file,"utf8").includes('href="assets/css/research-atlas.css?v=2"'),
+ assert.ok(fs.readFileSync(file,"utf8").includes('href="assets/css/research-atlas.css?v=3"'),
   "Missing Atlas design stylesheet: "+file);
 }
 assert.ok(fs.existsSync("research/directions/schema.json")&&fs.existsSync("research/directions/README.md"),
