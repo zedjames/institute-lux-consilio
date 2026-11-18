@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://instituteluxconsilio.org/research/directions/schema.json",
+  "title": "ILC public research direction v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "title",
+    "stream",
+    "program_ids",
+    "overview",
+    "question",
+    "foundation",
+    "limits",
+    "next",
+    "claims",
+    "obligations",
+    "obstructions",
+    "relationships",
+    "history",
+    "publication_status",
+    "source_access",
+    "disclosure",
+    "display"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,4}-D[0-9]{2}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 9
+    },
+    "stream": {
+      "type": "string",
+      "minLength": 9
+    },
+    "program_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "program_relation": {
+      "const": "adjacent_research_stream"
+    },
+    "landing_href": {
+      "type": "string",
+      "pattern": "^[a-z0-9/-]+\\.html(#[a-z0-9-]+)?$"
+    },
+    "overview": {
+      "type": "string",
+      "minLength": 9
+    },
+    "question": {
+      "type": "string",
+      "minLength": 9
+    },
+    "foundation": {
+      "type": "string",
+      "minLength": 9
+    },
+    "limits": {
+      "type": "string",
+      "minLength": 9
+    },
+    "next": {
+      "type": "string",
+      "minLength": 9
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "statement",
+          "evidence",
+          "scope"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "evidence": {
+            "enum": [
+              "published",
+              "formal_internal",
+              "research_in_progress",
+              "hypothesis"
+            ]
+          },
+          "publication_id": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "obligations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "question"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "obstructions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "summary",
+          "standing"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "standing": {
+            "enum": [
+              "published",
+              "formal_internal",
+              "research_obligation"
+            ]
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "target",
+          "summary"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "informs",
+              "related_question",
+              "requires",
+              "extends",
+              "tests",
+              "obstructed_by"
+            ]
+          },
+          "target": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "date",
+          "event",
+          "summary"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "event": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "publication_status": {
+      "enum": [
+        "unpublished_direction",
+        "initiative",
+        "preprint",
+        "published"
+      ]
+    },
+    "source_access": {
+      "enum": [
+        "public",
+        "public_summary",
+        "governed",
+        "mixed",
+        "restricted"
+      ]
+    },
+    "disclosure": {
+      "enum": [
+        "public_summary",
+        "withheld"
+      ]
+    },
+    "display": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "featured",
+        "order"
+      ],
+      "properties": {
+        "featured": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}
