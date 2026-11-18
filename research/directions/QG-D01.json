@@ -39,9 +39,15 @@
   "obstructions": [],
   "relationships": [
     {
+      "id": "QG-D01-R0001",
       "kind": "informs",
       "target": "QG-D02",
-      "summary": "Observation and excitation identity may have different continuation requirements."
+      "summary": "Observation and excitation identity may have different continuation requirements.",
+      "standing": "research_question",
+      "scope": "The observation/identity connection is a research question. Transport of the actual QGCO instrument across the physical continuation has not been established.",
+      "basis_ids": [
+        "QG-D01-O01"
+      ]
     }
   ],
   "history": [
@@ -51,6 +57,15 @@
       "event": "registered",
       "summary": "Public summary registered as an emerging direction; underlying formal research remains separately governed.",
       "affects": []
+    },
+    {
+      "id": "QG-D01-H0002",
+      "date": "2026-11-18",
+      "event": "relationship",
+      "summary": "Qualified the existing cross-direction research connection with explicit evidence context and limits; no new formal or physical bridge is claimed.",
+      "affects": [
+        "relationships"
+      ]
     }
   ],
   "publication_status": "unpublished_direction",
