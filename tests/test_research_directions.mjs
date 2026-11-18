@@ -54,7 +54,7 @@ try{
  assert.ok(!renderDirectionsOverview(visible,catalog).includes("QG-D03"));
  sixth.disclosure="public_summary";put(sixth);
 
- sixth.relationships=[{kind:"requires",target:"QG-D99",summary:"A proposed link whose target does not exist in the public register."}];put(sixth);
+ sixth.relationships=[{id:"QG-D03-R0001",kind:"requires",target:"QG-D99",summary:"A proposed link whose target does not exist in the public register.",standing:"research_question",scope:"The proposed connection is not an established mathematical or physical bridge.",basis_ids:["QG-D03-O01"]}];put(sixth);
  assert.throws(()=>loadDirections(temp,catalog),/unresolved direction link/);
  sixth.relationships=[];put(sixth);
 

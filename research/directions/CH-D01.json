@@ -45,9 +45,15 @@
   ],
   "relationships": [
     {
+      "id": "CH-D01-R0001",
       "kind": "related_question",
       "target": "QG-D02",
-      "summary": "Both programs investigate continuation and boundary structure; a common physical mathematical bridge remains to be proved."
+      "summary": "Both programs investigate continuation and boundary structure; a common physical mathematical bridge remains to be proved.",
+      "standing": "research_question",
+      "scope": "The scattering program and QG continuation program both study boundary conditions, but no common source-derived physical scattering/continuation interface is proved.",
+      "basis_ids": [
+        "CH-D01-O01"
+      ]
     }
   ],
   "history": [
@@ -57,6 +63,15 @@
       "event": "registered",
       "summary": "CH scattering registered as a distinct research stream associated with, but not identical to, the site's celestial research program.",
       "affects": []
+    },
+    {
+      "id": "CH-D01-H0002",
+      "date": "2026-11-18",
+      "event": "relationship",
+      "summary": "Qualified the existing cross-direction research connection with explicit evidence context and limits; no new formal or physical bridge is claimed.",
+      "affects": [
+        "relationships"
+      ]
     }
   ],
   "publication_status": "unpublished_direction",

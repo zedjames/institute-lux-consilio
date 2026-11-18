@@ -77,12 +77,32 @@ function validateOne(d,catalog){
  }
  requireThat(uniq(obstructions),d.id+" duplicate obstruction");
  requireThat(Array.isArray(d.relationships),d.id+" relationships missing");
- for(const r of d.relationships){
-  assertKeys(r,new Set(["kind","target","summary"]),d.id+" relationship");
-  requireThat(RELATIONS.has(r.kind)&&/^([A-Z]{2,4})-D\d\d$/.test(r.target||"")&&nonempty(r.summary),
-   d.id+" relationship malformed");
-  requireThat(r.target!==d.id,d.id+" self-link must be documented as an obligation, not a direction relation");
+ const relIds=[];
+ for(const [index,r] of d.relationships.entries()){
+  assertKeys(r,new Set(["id","kind","target","summary","standing","scope","basis_ids"]),d.id+" relationship");
+  requireThat(r.id===d.id+"-R"+String(index+1).padStart(4,"0"),
+   d.id+" relationship identity/sequence invalid");
+  requireThat(RELATIONS.has(r.kind)&&/^([A-Z]{2,4})-D\d\d$/.test(r.target||"")&&
+   nonempty(r.summary)&&nonempty(r.scope),d.id+" relationship malformed");
+  requireThat(r.target!==d.id,d.id+" self-link must be an obligation, not a direction relation");
+  requireThat(["research_question","proposed_bridge","formal_internal_bridge","published_bridge"].includes(r.standing),
+   d.id+" relationship standing invalid");
+  requireThat(Array.isArray(r.basis_ids)&&r.basis_ids.length>0&&uniq(r.basis_ids),
+   d.id+" relationship requires a distinct source-side scientific basis");
+  const accepted=[...d.claims.map(x=>x.id),...d.obligations.map(x=>x.id),...d.obstructions.map(x=>x.id)];
+  requireThat(r.basis_ids.every(id=>accepted.includes(id)),
+   d.id+" relationship references an unknown source claim, obligation, or obstruction");
+  if(r.standing==="formal_internal_bridge"){
+   requireThat(r.basis_ids.some(id=>d.claims.some(c=>c.id===id&&c.evidence==="formal_internal")),
+    d.id+" formal bridge requires a separately scoped formal claim as its basis");
+  }
+  if(r.standing==="published_bridge"){
+   requireThat(r.basis_ids.some(id=>d.claims.some(c=>c.id===id&&c.evidence==="published"&&c.publication_id)),
+    d.id+" published bridge requires a cited published claim");
+  }
+  relIds.push(r.id);
  }
+ requireThat(uniq(relIds),d.id+" duplicated relationship ID");
  requireThat(Array.isArray(d.history)&&d.history.length>0,d.id+" needs immutable first history entry");
  requireThat(d.history[0].event==="registered",d.id+" first event must register the direction");
  let last="";
@@ -117,8 +137,12 @@ export function loadDirections(root=process.cwd(),catalog){
   validateOne(d,catalog);return d;
  });
  requireThat(uniq(all.map(d=>d.display.order)),"duplicate featured order");
- for(const d of all)for(const r of d.relationships)
-  requireThat(all.some(x=>x.id===r.target),d.id+" unresolved direction link "+r.target);
+ for(const d of all)for(const r of d.relationships){
+  const target=all.find(x=>x.id===r.target);
+  requireThat(!!target,d.id+" unresolved direction link "+r.target);
+  requireThat(target.disclosure==="public_summary"||d.disclosure!=="public_summary",
+   d.id+" publicly visible relationship cannot expose a withheld direction "+r.target);
+ }
  for(const d of all)for(const c of d.claims)if(c.publication_id){
   const p=catalog.publications.find(x=>x.id===c.publication_id);
   requireThat(localHref(p.localPage||"publication-"+p.id+".html"),d.id+" cannot link to publication "+c.publication_id);
@@ -126,9 +150,8 @@ export function loadDirections(root=process.cwd(),catalog){
  return all.filter(d=>d.disclosure==="public_summary").sort((a,b)=>a.display.order-b.display.order);
 }
 export function directionHref(d,catalog){
- if(d.landing_href)return d.landing_href;
- const p=catalog.programs.find(p=>p.id===d.program_ids[0]);
- return p.href+"#research-directions";
+ const base=d.landing_href||catalog.programs.find(p=>p.id===d.program_ids[0]).href;
+ return base+"#direction-"+d.id;
 }
 function standing(d){
  if(d.publication_status==="initiative")return "Emerging initiative";
@@ -153,13 +176,19 @@ export function renderProgramDirections(directions,catalog,programId){
   const p=pub?catalog.publications.find(x=>x.id===pub.publication_id):null;
   const reference=p?`<a href="${textSafe(p.localPage||"publication-"+p.id+".html")}">Related published foundation →</a>`:
      `<span>Underlying formal work and ongoing research are not presented here as a published paper.</span>`;
-  return `<article class="atlas-program-direction" data-direction-id="${textSafe(d.id)}">
+  const links=d.relationships.map(rel=>{
+   const other=directions.find(x=>x.id===rel.target);
+   if(!other)return "";
+   return `<a href="${textSafe(directionHref(other,catalog))}">${textSafe(other.title)}</a>`;
+  }).filter(Boolean).join(" · ");
+  return `<article class="atlas-program-direction" id="direction-${textSafe(d.id)}" data-direction-id="${textSafe(d.id)}">
   <p class="eyebrow">${textSafe(d.stream)} · ${textSafe(standing(d))}</p>
   <h3>${textSafe(d.title)}</h3>
   <p>${textSafe(d.overview)}</p>
   <p><strong>Scientific limit:</strong> ${textSafe(d.limits)}</p>
   <p><strong>Next question:</strong> ${textSafe(d.obligations[0].question)}</p>
   <p class="atlas-program-reference">${reference}</p>
+  ${links?`<p class="atlas-program-relations"><strong>Related inquiry:</strong> ${links} · <a href="research/atlas/#connections">Explore the relationship →</a></p>`:""}
   </article>`;
  }).join("\n");
  return `<section class="section section--mist" id="research-directions" aria-labelledby="program-atlas-heading">
@@ -175,6 +204,6 @@ export function renderDirectionsSection(directions,catalog){
  <div id="direction-grid" class="atlas-directions" data-static="1"><!-- ILC_DIRECTION_INDEX_START -->
 ${renderDirectionsOverview(directions,catalog)}
 <!-- ILC_DIRECTION_INDEX_END --></div>
- <p class="atlas-afterword">The Atlas preserves a direction's identity and history as its science develops. <a href="collaborate.html">Investigate with ILC →</a></p>
+ <p class="atlas-afterword">The Atlas preserves each direction's identity, history and qualified links to other investigations. <a href="research/atlas/">Explore relationships between directions →</a> · <a href="collaborate.html">Investigate with ILC →</a></p>
  </div></section>`;
 }

@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import assert from "node:assert/strict";
 import {CLOUDFLARE_WEB_ANALYTICS_BEACON} from "./cloudflare-analytics.mjs";
+import {enumerateResearchConnections,renderRelationshipAtlas,replaceRelationshipAtlas} from "./build-research-relationships.mjs";
 
 const raw=fs.readFileSync("assets/data/research.js","utf8").trim();
 assert.ok(raw.startsWith("window.ILC_DATA="),"Expected structured research data");
@@ -37,7 +38,7 @@ for(const key of ["programs","emergingPrograms","themes","questions","publicatio
 }
 const root=new Set(fs.readdirSync("."));
 const navPages=[...root].filter(p=>p.endsWith(".html")&&!p.startsWith("preview-")).sort()
- .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html"]);
+ .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html"]);
 // Require the exact Cloudflare script, exactly once per published page.
 for(const page of navPages){
  const html=fs.readFileSync(page,"utf8");
@@ -459,6 +460,28 @@ assert.ok(epcDirectionsMarkup.includes("<!-- ILC_EPC_DIRECTIONS_START -->\n"+
  renderProgramDirections(directions,data,"research-essence-physical-constitution.html")+
  "\n<!-- ILC_EPC_DIRECTIONS_END -->"),
  "Emerging initiative direction is not generated from the canonical register");
+// RDA-03: source-owned scientific connections retain explicit evidence status.
+const relations=enumerateResearchConnections(directions);
+assert.equal(relations.length,4,"Initial RDA-03 source-backed relation count changed");
+assert.ok(relations.every(({edge})=>edge.standing==="research_question"),
+ "Pilot research connections must not be described as established formal bridges");
+for(const {source,target,edge} of relations){
+ assert.ok(edge.basis_ids.length>0&&target.id!==source.id,
+  "Qualified connection requires actual source context and a distinct target");
+ assert.ok(directions.some(d=>d.id===edge.target),
+  "Connection references a nonexistent public direction");
+}
+const relationsPage=fs.readFileSync("research/atlas/index.html","utf8");
+assert.ok(relationsPage.includes('<base href="/">')&&
+ relationsPage.includes('<link rel="canonical" href="https://instituteluxconsilio.org/research/atlas/">'),
+ "Canonical relationship atlas route or base missing");
+assert.equal(replaceRelationshipAtlas(relationsPage,renderRelationshipAtlas(directions,data)),relationsPage,
+ "Relationship atlas no longer matches canonical scientific data");
+assert.ok(researchPage.includes('href="research/atlas/"'),"Research overview must link to the relationship atlas");
+assert.ok(siteSitemap.includes("<loc>https://instituteluxconsilio.org/research/atlas/</loc>"),
+ "Research relationship atlas missing from public sitemap");
+assert.ok(fs.readFileSync("scripts/build-publication-pages.mjs","utf8").includes('"research/atlas/"'),
+ "Sitemap generator omits the relationship atlas");
 assert.ok(directions.find(d=>d.id==="CH-D01").program_relation==="adjacent_research_stream",
  "CH scattering must remain distinct from the existing celestial program");
 assert.ok(!directions.some(d=>d.publication_status==="published"),
@@ -466,7 +489,7 @@ assert.ok(!directions.some(d=>d.publication_status==="published"),
 for(const file of ["research.html","research-relational-quantum-gravity.html",
  "research-kinetic-organization-biological-function.html","research-gaussian-celestial.html",
  "research-health-formally-defined.html","research-essence-physical-constitution.html"]){
- assert.ok(fs.readFileSync(file,"utf8").includes('href="assets/css/research-atlas.css?v=1"'),
+ assert.ok(fs.readFileSync(file,"utf8").includes('href="assets/css/research-atlas.css?v=2"'),
   "Missing Atlas design stylesheet: "+file);
 }
 assert.ok(fs.existsSync("research/directions/schema.json")&&fs.existsSync("research/directions/README.md"),

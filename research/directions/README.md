@@ -55,6 +55,30 @@ Event types: `finding`, `obstruction`, `correction`, `question`, `publication`, 
 
 RDA-02 maintains versioned scientific development histories **without introducing a public news feed**. The Atlas remains curated and concise. If historical timelines or weekly digests later provide value, they can be generated from approved events while preserving the same scientific identities and evidence boundaries.
 
+## RDA-03: Scientific relationships and source-qualified mathematical inheritance
+
+A research direction owns its outgoing `relationships`. The register does not maintain a second independent relationship graph: `scripts/build-research-relationships.mjs` derives the public Atlas page from those canonical direction records.
+
+Each relationship has an immutable sequential ID (`QG-D01-R0001`), an explicit target direction, a relationship kind, a precise summary, a scope statement, a declared evidence standing, and `basis_ids` pointing to the source direction's own claim, open obligation, or qualified obstruction. Relationship kinds describe how questions interact; they **do not themselves prove mathematical or physical compatibility**.
+
+Supported scientific standing:
+- `research_question`: an identified intellectual/scientific connection; no mathematical bridge is claimed.
+- `proposed_bridge`: a proposed mathematical interface whose proof remains outstanding.
+- `formal_internal_bridge`: available only when tied to a source-side formal claim; independently checking it remains subject to that source's access and actual proof scope.
+- `published_bridge`: requires a source-side published claim linked to a real paper record. Publication does not certify empirical validity or unrestricted physical application.
+
+RDA-03's four pilot connections all retain `research_question` standing. None asserts an established physical mathematical interface across QG, CH, EPC, and observation. Directed links are deliberate; `A → B` does not imply `B → A`, and no transitive mathematical inheritance is inferred from graph connectivity.
+
+### Maintenance and editorial checks
+
+1. Add a connection only after confirming the source-side research claim or obligation and declaring the target scientific question. Source files and unpublished confidential artifacts stay in Concordia; do not paste them into this public repository.
+2. Allocate the next `-R000n` ID in the source direction. Identify the relationship's precise scope and one or more valid source-side `basis_ids`.
+3. Append a dated `relationship` history event to the source direction using RDA-02, with `affects:["relationships"]`. An editorial review must assess whether the proposed relation has any proven mathematical or physical significance.
+4. Run `node scripts/build-site-discovery.mjs`, `node scripts/build-program-pages.mjs`, `node scripts/build-research-relationships.mjs`, and `node scripts/verify-site.mjs`. Validate the generated public page, direction anchors, DOI provenance, and evidence qualifications.
+5. Publish only after source-scope and public-disclosure approval. The public relationship page is an index for scientific inquiry, **not** an automatically inferred proof dependency graph.
+
+The living public relationship atlas is at `research/atlas/`. It uses accessible source cards and deep links with no required browser JavaScript. An AI-mediated or graphical Concordia relationship explorer may later consume these approved identities but must still verify private source authority through its own governed mechanisms.
+
 ## Future compatibility
 
-RDA-01 establishes stable identities, claims, relationships, obstructions, and dated events. RDA-02 provides revision and provenance tooling; RDA-03 can add a fully navigable relationship atlas; RDA-04 can connect approved claims to authored Inquiry Explorers and governed Runtime access. These extensions do not require altering existing direction IDs.
+RDA-01 establishes stable identities, claims, relationships, obstructions, and dated events. RDA-02 provides revision and provenance tooling; RDA-03 supplies the qualified cross-direction relationship atlas; RDA-04 can connect approved claims to authored Inquiry Explorers and governed Runtime access. These extensions do not require altering existing direction IDs.

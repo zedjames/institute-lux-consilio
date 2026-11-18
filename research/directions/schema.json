@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://instituteluxconsilio.org/research/directions/schema.json",
-  "title": "ILC public research direction v1 — RDA-02 history continuity",
+  "title": "ILC public research direction v1 — RDA-03 scientific relationships",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -164,11 +164,19 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "id",
           "kind",
           "target",
-          "summary"
+          "summary",
+          "standing",
+          "scope",
+          "basis_ids"
         ],
         "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z]{2,4}-D[0-9]{2}-R[0-9]{4}$"
+          },
           "kind": {
             "enum": [
               "informs",
@@ -184,6 +192,26 @@
           },
           "summary": {
             "type": "string"
+          },
+          "standing": {
+            "enum": [
+              "research_question",
+              "proposed_bridge",
+              "formal_internal_bridge",
+              "published_bridge"
+            ]
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 9
+          },
+          "basis_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
           }
         }
       }

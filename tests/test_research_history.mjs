@@ -14,7 +14,7 @@ next.history=appendResearchEvent(d,eventArgs).history;
 const ok=checkDirectionRevision(d,next);
 assert.deepStrictEqual(ok.changed,["next"]);
 assert.equal(ok.appended.length,1);
-assert.equal(ok.appended[0].id,"QG-D01-H0002");
+assert.equal(ok.appended[0].id,"QG-D01-H"+String(d.history.length+1).padStart(4,"0"));
 
 assert.throws(()=>checkDirectionRevision(d,{...copy(d),next:next.next}),
  /scientific changes without an appended event/);
@@ -59,10 +59,10 @@ try{
  const file=path.join(dir,"QG-D01.json");
  fs.writeFileSync(file,JSON.stringify(d,null,2)+"\n");
  const preview=updateDirectionFile(root,{id:"QG-D01",...eventArgs,dryRun:true});
- assert.equal(preview.event.id,"QG-D01-H0002");
- assert.equal(JSON.parse(fs.readFileSync(file,"utf8")).history.length,1);
+ assert.equal(preview.event.id,"QG-D01-H"+String(d.history.length+1).padStart(4,"0"));
+ assert.equal(JSON.parse(fs.readFileSync(file,"utf8")).history.length,d.history.length);
  const result=updateDirectionFile(root,{id:"QG-D01",...eventArgs});
- assert.equal(result.event.id,"QG-D01-H0002");
- assert.equal(JSON.parse(fs.readFileSync(file,"utf8")).history.length,2);
+ assert.equal(result.event.id,"QG-D01-H"+String(d.history.length+1).padStart(4,"0"));
+ assert.equal(JSON.parse(fs.readFileSync(file,"utf8")).history.length,d.history.length+1);
 }finally{fs.rmSync(root,{recursive:true,force:true});}
 console.log("RDA-02 history tests passed: immutable prefix, scope annotation, chronological event IDs, migration, review and intake.");

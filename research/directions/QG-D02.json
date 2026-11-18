@@ -45,9 +45,15 @@
   ],
   "relationships": [
     {
+      "id": "QG-D02-R0001",
       "kind": "informs",
       "target": "QG-D01",
-      "summary": "Observational equivalence may provide a test of continued quantum identity."
+      "summary": "Observational equivalence may provide a test of continued quantum identity.",
+      "standing": "research_question",
+      "scope": "Observational comparison is a proposed identity test; a quantum transport map and sufficiently discriminating observable family remain open.",
+      "basis_ids": [
+        "QG-D02-O01"
+      ]
     }
   ],
   "history": [
@@ -57,6 +63,15 @@
       "event": "registered",
       "summary": "Published classical baseline and active representational questions distinguished.",
       "affects": []
+    },
+    {
+      "id": "QG-D02-H0002",
+      "date": "2026-11-18",
+      "event": "relationship",
+      "summary": "Qualified the existing cross-direction research connection with explicit evidence context and limits; no new formal or physical bridge is claimed.",
+      "affects": [
+        "relationships"
+      ]
     }
   ],
   "publication_status": "unpublished_direction",
