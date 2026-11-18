@@ -342,7 +342,8 @@
             "enum": [
               "history",
               "identity",
-              "scale"
+              "scale",
+              "observation"
             ]
           },
           "label": {
