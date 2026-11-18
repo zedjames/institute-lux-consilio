@@ -108,7 +108,7 @@ function validateOne(d,catalog){
    d.id+" inquiry paths must be unique");
   for(const entry of d.inquiries){
    assertKeys(entry,new Set(["path","label","scope","basis_ids"]),d.id+" inquiry");
-   requireThat(["history","identity","scale"].includes(entry.path),
+   requireThat(["history","identity","scale","observation"].includes(entry.path),
     d.id+" references an unknown authored inquiry path");
    requireThat(nonempty(entry.label)&&nonempty(entry.scope),
     d.id+" inquiry missing explanatory content");
