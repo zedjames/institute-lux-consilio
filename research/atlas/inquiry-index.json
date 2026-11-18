@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "kind": "public_curated_inquiry_index",
+  "generated_from": "approved research/directions public summaries",
+  "public_source_scope": "Each view retains authored prose; this index supplies only scoped public provenance.",
+  "runtime_status": "in_development_not_publicly_available",
+  "live_formal_verification": false,
+  "ai_generated_responses": false,
+  "paths": [
+    {
+      "path": "history",
+      "label": "Physical history",
+      "direction_id": "QG-D02",
+      "direction_title": "Physical Continuation and Representational Boundaries",
+      "direction_href": "research-relational-quantum-gravity.html#direction-QG-D02",
+      "question": "What structure must persist for an original excitation to retain its identity as its representation changes?",
+      "scope": "The published Paper X joined Einstein–scalar solution supports the local continuation question; free-clock stationarity remains a distinct developing research obligation.",
+      "limits": "A local classical continuation does not establish indefinite continuation, free-boundary stationarity in all variation classes, or transport of the full original quantum representation.",
+      "basis": [
+        {
+          "id": "QG-D02-C01",
+          "standing": "published",
+          "label": "Published research foundation",
+          "statement": "Published Paper X establishes a specified classical Einstein–scalar continuation on its earned joined domain.",
+          "scope": "Domain-qualified classical history, without global quantum identity or maximal continuation.",
+          "publication_id": "sqg10",
+          "publication_page": "publication-sqg10.html",
+          "doi": "10.5281/zenodo.23990050"
+        },
+        {
+          "id": "QG-D02-O02",
+          "standing": "obligation",
+          "label": "Open mathematical obligation",
+          "statement": "Differentiate physical continuation from natural-boundary variational stationarity."
+        }
+      ],
+      "url": "research/quantum-gravity-formal-lineage/?path=history&depth=idea#inquiry",
+      "interface_kind": "authored_curated_source_scoped"
+    },
+    {
+      "path": "identity",
+      "label": "Physical identity",
+      "direction_id": "QG-D02",
+      "direction_title": "Physical Continuation and Representational Boundaries",
+      "direction_href": "research-relational-quantum-gravity.html#direction-QG-D02",
+      "question": "What structure must persist for an original excitation to retain its identity as its representation changes?",
+      "scope": "The continuing excitation's identity is an open research problem requiring justified quantum-state transport; the local classical continuation alone does not establish it.",
+      "limits": "A local classical continuation does not establish indefinite continuation, free-boundary stationarity in all variation classes, or transport of the full original quantum representation.",
+      "basis": [
+        {
+          "id": "QG-D02-C02",
+          "standing": "hypothesis",
+          "label": "Research hypothesis; not an established theorem",
+          "statement": "General physical identity across a change of representation is a developing scientific hypothesis.",
+          "scope": "Not established as a universal continuation or identity theorem."
+        },
+        {
+          "id": "QG-D02-O01",
+          "standing": "obligation",
+          "label": "Open mathematical obligation",
+          "statement": "Identify an appropriate identity-preserving quantum-state transport map."
+        }
+      ],
+      "url": "research/quantum-gravity-formal-lineage/?path=identity&depth=idea#inquiry",
+      "interface_kind": "authored_curated_source_scoped"
+    },
+    {
+      "path": "scale",
+      "label": "Across scale",
+      "direction_id": "EPC-D01",
+      "direction_title": "Essence and Physical Constitution",
+      "direction_href": "research-essence-physical-constitution.html#direction-EPC-D01",
+      "question": "When do the properties attributed to an object arise through its interactions, constraints and relationships?",
+      "scope": "An exploratory constitutive question connecting organized physical identity across scales; neither a universal hierarchy nor a cross-program physical equivalence is established.",
+      "limits": "This is a developing research initiative. Its proposed constitutive relationships are not established as universal physical laws or as a completed published research series.",
+      "basis": [
+        {
+          "id": "EPC-D01-C01",
+          "standing": "hypothesis",
+          "label": "Research hypothesis; not an established theorem",
+          "statement": "The constitutive question is an active institutional research initiative.",
+          "scope": "Foundational scientific direction, not a settled theorem or empirical model."
+        },
+        {
+          "id": "EPC-D01-O01",
+          "standing": "obligation",
+          "label": "Open mathematical obligation",
+          "statement": "Define mathematically testable criteria for constitutive properties and stable physical identity."
+        }
+      ],
+      "url": "research/quantum-gravity-formal-lineage/?path=scale&depth=idea#inquiry",
+      "interface_kind": "authored_curated_source_scoped"
+    }
+  ]
+}
