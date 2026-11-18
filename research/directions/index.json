@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "description": "ILC Research Atlas — public scientific directions",
+  "registered": [
+    "QG-D01",
+    "QG-D02",
+    "KIN-D01",
+    "EPC-D01",
+    "CH-D01"
+  ],
+  "release_policy": "Only records explicitly marked public_summary are rendered; private Concordia sources and records are never imported into this public repository."
+}
