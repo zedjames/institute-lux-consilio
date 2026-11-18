@@ -8,9 +8,9 @@
   ],
   "overview": "What can a quantum observation distinguish when two states have the same gravitational-source assignment?",
   "question": "Which quantum properties remain observationally distinguishable beyond the complete Einstein-source description?",
-  "foundation": "The Schwarzschild series establishes quantum scalar and gravitational-source constructions. A developing, finite-bank, fixed-background mathematical instrument motivates a more detailed inquiry into observational distinctions.",
-  "limits": "A finite-bank, window-associated mathematical measurement does not establish strict field-theoretic locality, a detector realization, preservation of all physical constraints or cross-geometry observation transport.",
-  "next": "Quantify accessible distinctions, test matched-frame transport and gauge compatibility, and investigate conditions for measurement-conditioned Einstein–scalar sources.",
+  "foundation": "The published Schwarzschild series supplies the original scalar-field, Fock-state and gravitational-source constructions. Subsequent internal formal research constructs a finite-bank, fixed-background, spatial-circle-window-associated two-outcome quantum measurement from that field, with bounded effects, outcome probabilities and eligible conditional pure states. A particular same-Einstein-source number/coherent pair has distinguishable probabilities for one common specified observation.",
+  "limits": "The result concerns the constructed fixed-background, finite-bank Fock carrier and a proper spatial-circle test window. The associated observation is not a strictly local AQFT observable or physical black-hole detector: no causal commutator theorem, detector coupling, general density-state instrument, cross-geometry transport, post-measurement stress-domain preservation or self-consistent gravitational backreaction is established. The QGCO result is internal formal research, not a published paper.",
+  "next": "Determine quantitative distinguishability; prove when the complete instrument transports through matched Fock frames and physically constrained representations; then test domain-preserving conditional stress and Einstein–scalar closure.",
   "claims": [
     {
       "id": "QG-D01-C01",
@@ -21,9 +21,15 @@
     },
     {
       "id": "QG-D01-C02",
-      "statement": "An internal formal measurement construction motivates the observational-equivalence question.",
+      "statement": "Internal formal research constructs a field-derived, finite-bank, proper-window two-outcome pure-state instrument with consistent outcome probabilities and normalized positive-probability conditional states.",
       "evidence": "formal_internal",
-      "scope": "Finite-bank, fixed-background, window-associated mathematical instrument; no experimental detector or general physical measurement claim."
+      "scope": "Fixed-background scalar Fock carrier, one spatial-circle orbit with a supported real test and the corresponding bounded effect; a mathematical model rather than an experimental measurement interaction or published QGCO paper."
+    },
+    {
+      "id": "QG-D01-C03",
+      "statement": "In the specified original quantum model, a number-state realization and coherent realization with the same complete Einstein-source tensor give different probabilities for one common constructed yes/no effect.",
+      "evidence": "formal_internal",
+      "scope": "Existence of a particular eligible test and nonzero Weyl parameter on one fixed-background finite-bank carrier; not generic state reconstruction, strict locality, or gravitationally conditioned measurement across geometries."
     }
   ],
   "obligations": [
@@ -34,6 +40,10 @@
     {
       "id": "QG-D01-O02",
       "question": "Establish source-consistent conditional states and any ensuing gravitational backreaction."
+    },
+    {
+      "id": "QG-D01-O03",
+      "question": "Extend the actual source-field correspondence to bounded effects, both outcome maps and selective predictions under a justified matched Fock-frame transport."
     }
   ],
   "obstructions": [],
@@ -66,6 +76,20 @@
       "affects": [
         "relationships"
       ]
+    },
+    {
+      "id": "QG-D01-H0003",
+      "date": "2026-11-18",
+      "event": "finding",
+      "summary": "Prepared an editorially scoped public account of the internal field-derived two-outcome instrument and its particular equal-source, distinct-outcome witness, with an authored observation inquiry and explicit unproved physical extensions. Public distribution of underlying QGCO source files or a manuscript is not authorized by this record.",
+      "affects": [
+        "foundation",
+        "limits",
+        "next",
+        "claims",
+        "obligations",
+        "inquiries"
+      ]
     }
   ],
   "publication_status": "unpublished_direction",
@@ -74,5 +98,18 @@
   "display": {
     "featured": true,
     "order": 1
-  }
+  },
+  "inquiries": [
+    {
+      "path": "observation",
+      "label": "Quantum observation",
+      "scope": "An authored question about how a mathematically constructed field observation can discriminate a particular equal-Einstein-source quantum-state pair. The formal QGCO result is internal and window-associated, while source-domain preservation, physical detector realization and cross-geometry observation remain open.",
+      "basis_ids": [
+        "QG-D01-C02",
+        "QG-D01-C03",
+        "QG-D01-O01",
+        "QG-D01-O03"
+      ]
+    }
+  ]
 }
