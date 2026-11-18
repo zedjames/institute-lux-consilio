@@ -29,6 +29,8 @@ jobs:
       - run: node --check tests/test_research_history.mjs
       - run: node tests/test_research_history.mjs
       - run: node tests/test_research_directions.mjs
+      - run: node --check tests/test_ch_scattering_frontier.mjs
+      - run: node tests/test_ch_scattering_frontier.mjs
       - name: Review research direction changes and preserve prior history
         run: node scripts/review-research-directions.mjs --base-ref ${{ github.event_name == 'pull_request' && 'origin/main' || 'HEAD^' }}
       - run: node scripts/build-site-discovery.mjs
