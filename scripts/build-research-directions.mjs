@@ -94,7 +94,7 @@ export function loadDirections(root=process.cwd(),catalog){
  const manifest=JSON.parse(fs.readFileSync(path.join(dir,"index.json"),"utf8"));
  requireThat(manifest.schema_version===1&&Array.isArray(manifest.registered)&&
    uniq(manifest.registered),"invalid direction manifest");
- const recorded=fs.readdirSync(dir).filter(n=>/\.json$/.test(n)&&n!=="index.json").sort();
+ const recorded=fs.readdirSync(dir).filter(n=>/\.json$/.test(n)&&!["index.json","schema.json"].includes(n)).sort();
  const expected=manifest.registered.map(id=>id+".json").sort();
  requireThat(JSON.stringify(recorded)===JSON.stringify(expected),
   "manifest and direction files differ; every direction requires an explicit identity");
