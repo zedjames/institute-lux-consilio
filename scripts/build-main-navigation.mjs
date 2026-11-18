@@ -15,7 +15,7 @@ export function activeForPage(p) {
  p=String(p).replaceAll("\\","/");
  if(p.startsWith("concordia/"))return "concordia";
  if(p==="publications.html"||p==="publication.html"||/^publication-[a-z0-9-]+\.html$/.test(p))return "publications";
- if(p==="research.html"||p==="program.html"||/^research-[a-z0-9-]+\.html$/.test(p))return "research";
+ if(p==="research.html"||p==="program.html"||p.startsWith("research/")||/^research-[a-z0-9-]+\.html$/.test(p))return "research";
  if(p==="methods.html")return "methods";
  if(p==="institute.html"||p==="governance.html"||p==="ai-scientific-continuity.html")return "about";
  if(p==="collaborate.html"||p==="contact.html")return "collaborate";
