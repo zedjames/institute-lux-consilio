@@ -108,7 +108,7 @@ export function loadDirections(root=process.cwd(),catalog){
   requireThat(all.some(x=>x.id===r.target),d.id+" unresolved direction link "+r.target);
  for(const d of all)for(const c of d.claims)if(c.publication_id){
   const p=catalog.publications.find(x=>x.id===c.publication_id);
-  requireThat(p.localPage&&localHref(p.localPage),d.id+" cannot link to publication "+c.publication_id);
+  requireThat(localHref(p.localPage||"publication-"+p.id+".html"),d.id+" cannot link to publication "+c.publication_id);
  }
  return all.filter(d=>d.disclosure==="public_summary").sort((a,b)=>a.display.order-b.display.order);
 }
@@ -138,7 +138,7 @@ export function renderProgramDirections(directions,catalog,programId){
  const cards=selected.map(d=>{
   const pub=d.claims.find(c=>c.evidence==="published");
   const p=pub?catalog.publications.find(x=>x.id===pub.publication_id):null;
-  const reference=p?`<a href="${textSafe(p.localPage)}">Related published foundation →</a>`:
+  const reference=p?`<a href="${textSafe(p.localPage||"publication-"+p.id+".html")}">Related published foundation →</a>`:
      `<span>Underlying formal work and ongoing research are not presented here as a published paper.</span>`;
   return `<article class="atlas-program-direction" data-direction-id="${textSafe(d.id)}">
   <p class="eyebrow">${textSafe(d.stream)} · ${textSafe(standing(d))}</p>
