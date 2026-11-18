@@ -52,9 +52,11 @@
   ],
   "history": [
     {
+      "id": "QG-D02-H0001",
       "date": "2026-11-18",
       "event": "registered",
-      "summary": "Published classical baseline and active representational questions distinguished."
+      "summary": "Published classical baseline and active representational questions distinguished.",
+      "affects": []
     }
   ],
   "publication_status": "unpublished_direction",
