@@ -7,39 +7,64 @@
     "celestial"
   ],
   "program_relation": "adjacent_research_stream",
-  "overview": "When does an interaction derived from a gravitational action support physically meaningful incoming and outgoing scattering states?",
+  "overview": "How far can an original gravitational action carry us from source-owned interactions and boundary data toward genuinely physical incoming and outgoing scattering states?",
   "question": "What additional boundary, constraint and asymptotic structures turn a source-derived kinematic scattering calculation into a physical scattering system?",
-  "foundation": "The developing CH program has constructed source-derived one-particle and Bose-pair carriers and progressively stronger kinematic wave and scattering results; its existing physical-action and boundary investigations identify further constraints.",
-  "limits": "Kinematic wave or scattering operators are not by themselves a constraint-preserving physical gravitational S-matrix. The direct matching of a full nonlinear action-derived boundary phase to the existing W6 carrier encounters a source-specific obstruction; physical phase-space, Bose-pair, flux and BRST conditions remain to be established.",
-  "next": "Construct an action-derived physical phase space and boundary flux law, establish constrained Bose-pair and BRST-compatible interaction transport, and investigate the existence of physical and celestial scattering observables.",
+  "foundation": "In developing internal CH/P9-SA11 formal research, original-action W6 one-particle and CH24 symmetric Bose-pair states enter a common source-generated kinematic setting. Focused Lean-checked constructions establish self-adjoint free/interacting kinematic generators, strong incoming/outgoing wave isometries, equality of their ranges with the interacting absolutely continuous carrier, and a unitary kinematic comparison. A real-scaled family of the unchanged source interaction provably yields nonidentity comparisons for sufficiently small positive couplings. Separately, the complete six-sector action defines a positive complex boundary phase on its full twelve-real-control chart, while its nearby nonlinear future-frame metric fails a direct W6 fullbank readback test.",
+  "limits": "The nonidentity result concerns a real-scaled kinematic interaction at source-dependent sufficiently small nonzero coupling; nonidentity at the original unit coupling remains open. The full source boundary-phase result does not give an action-derived physical W6/CH24 Hilbert carrier: the original nonlinear frame has a proved W6 range obstruction, and an inhabited source family retains nonzero released-boundary variation. Neither physical constraint/BRST preservation, a justified boundary Euler/Cartan flux law, continuum momentum covariance, a physical gravitational S-matrix, nor a celestial scattering amplitude has been constructed. This is internal formal research, not a published CH Paper IX.",
+  "next": "Develop a source-derived phase space with physically justified boundary equations and Cartan flux, incorporating any necessary extra geometric degrees of freedom; prove invariant W6/CH24 Bose-pair and gauge/BRST constraints; distinguish the original unit-coupling kinematic question from physical scattering, then test on-shell channels and celestial transform eligibility.",
   "claims": [
     {
       "id": "CH-D01-C01",
-      "statement": "Continuing formally checked research develops source-derived kinematic asymptotic structures.",
+      "statement": "For the specified original finite-rank W6⊕CH24 kinematic interaction, incoming and outgoing strong-limit wave isometries have ranges equal to the interacting absolutely continuous carrier, and their comparison is unitary.",
       "evidence": "formal_internal",
-      "scope": "Specified W6/CH24 source carriers and kinematic scattering results; no physical S-matrix or published CH Paper IX claimed."
+      "scope": "Original action-linked, self-adjoint finite-rank cubic-plus-affine kinematic generators on the received two-sector Hilbert carrier and their established Cook domains. This is not a gauge/BRST-reduced physical S-matrix or celestial scattering amplitude."
     },
     {
       "id": "CH-D01-C02",
-      "statement": "A source-specific boundary-carrier mismatch motivates an enlarged physical scattering construction.",
-      "evidence": "research_in_progress",
-      "scope": "Formal obstruction in a particular original-action representation, not a universal impossibility of gravitational scattering."
+      "statement": "The complete six-sector source action yields a positive compatible complex structure on its twelve-real-control boundary phase chart, but its nearby nonlinear future-frame metric cannot be identified directly with the existing W6 fullbank readback.",
+      "evidence": "formal_internal",
+      "scope": "Scoped two-face interior-stationary source phase, source Cartan form and sufficiently small nonzero pure-old controls. This is a proved obstruction to that direct W6 identification, not a no-go theorem for enlarged physical carriers or other action-derived boundary conditions."
+    },
+    {
+      "id": "CH-D01-C03",
+      "statement": "A real-coupling deformation of the unchanged source-owned interaction has a nonidentity kinematic scattering comparison for every sufficiently small positive coupling within a source-dependent interval, witnessed on a fixed Cook-domain state.",
+      "evidence": "formal_internal",
+      "scope": "Original W6/CH24 source interaction scaled by a real coupling in a mathematically constructed kinematic family. The established radius is not certified to include unit coupling; a physical scattering operator and gravitational on-shell amplitude remain open."
+    },
+    {
+      "id": "CH-D01-C04",
+      "statement": "The original cubic interaction produces a nonzero W6-to-CH24 pair response, and the corresponding source-cell one- and two-particle energy shells have checked overlapping support under the stated cell and energy conditions.",
+      "evidence": "formal_internal",
+      "scope": "Source-specific kinematic one/pair channels with exact energy-domain and finite-regulator qualifications; nonzero pair creation and energy overlap do not establish a connected, spatial-momentum-covariant physical on-shell scattering amplitude."
     }
   ],
   "obligations": [
     {
       "id": "CH-D01-O01",
-      "question": "Develop an original-action boundary phase space with coupled Euler/flux constraints."
+      "question": "Derive a physically justified boundary phase space and Euler/Cartan flux law from the original action that accommodates the nonlinear metric components missing from the existing W6 readback."
     },
     {
       "id": "CH-D01-O02",
-      "question": "Establish physically constrained incoming/outgoing wave operators and compatible Bose-pair/BRST descent."
+      "question": "Construct a coupled W6/CH24 Bose-pair constraint and gauge/BRST physical domain preserved by the interaction and compatible with incoming/outgoing wave operators."
+    },
+    {
+      "id": "CH-D01-O03",
+      "question": "Resolve nonidentity of the original unit-coupling kinematic comparison without treating small-coupling family results as its proof."
+    },
+    {
+      "id": "CH-D01-O04",
+      "question": "After obtaining an action-owned physical scattering carrier, test physical on-shell transitions, continuum translation/momentum covariance and eligibility for the published celestial transform."
     }
   ],
   "obstructions": [
     {
       "id": "CH-D01-X01",
-      "summary": "A direct full nonlinear boundary-frame identification fails on a specified source phase chart, necessitating a more suitable physical carrier.",
+      "summary": "On the full twelve-real-control positive source-phase chart, the original nonlinear future-frame metric has no W6 fullbank preimage for sufficiently small nonzero pure-old controls; direct phase-to-W6 promotion therefore fails on that source family.",
+      "standing": "formal_internal"
+    },
+    {
+      "id": "CH-D01-X02",
+      "summary": "An inhabited original-action source-matched interior family retains a nonzero released middle-face boundary variation. Dirichlet source matching alone does not supply the free-boundary Euler equation or physical scattering dynamics.",
       "standing": "formal_internal"
     }
   ],
@@ -71,6 +96,21 @@
       "summary": "Qualified the existing cross-direction research connection with explicit evidence context and limits; no new formal or physical bridge is claimed.",
       "affects": [
         "relationships"
+      ]
+    },
+    {
+      "id": "CH-D01-H0003",
+      "date": "2026-11-18",
+      "event": "finding",
+      "summary": "Reviewed developing P9-SA11 source records and qualified the proved kinematic wave/range and small-coupling nonidentity results alongside original-action positive boundary geometry, explicit W6 and released-boundary obstructions, and still-open physical scattering requirements. No CH Paper IX publication or physical S-matrix is claimed.",
+      "affects": [
+        "overview",
+        "foundation",
+        "limits",
+        "next",
+        "claims",
+        "obligations",
+        "obstructions"
       ]
     }
   ],
