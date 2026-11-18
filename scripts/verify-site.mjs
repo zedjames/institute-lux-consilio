@@ -693,9 +693,9 @@ assert.ok(qgExhibit.includes('qg-exhibit.css?v=4')&&qgExhibit.includes('qg-exhib
 // and must not present in-progress Paper XI as a completed scholarly publication.
 assert.ok(qgExhibit.includes('id="qx-inquiry-panels"')&&qgExhibit.includes('id="qx-inquiry-controls"'),
  "Curated inquiry reader and progressive enhancement controls are missing");
-assert.equal((qgExhibit.match(/class="qx-inquiry-panel" data-inquiry-path=/g)||[]).length,9,
- "Each of three questions must offer three independently authored depths");
-for(const question of ["history","identity","scale"]){
+assert.equal((qgExhibit.match(/class="qx-inquiry-panel" data-inquiry-path=/g)||[]).length,12,
+ "Each of four questions must offer three independently authored depths");
+for(const question of ["history","identity","scale","observation"]){
  for(const depth of ["idea","math","next"]){
   assert.ok(qgExhibit.includes('data-inquiry-path="'+question+'" data-inquiry-depth="'+depth+'"'),
    "Missing source-scoped inquiry question/depth: "+question+"/"+depth);
@@ -705,6 +705,10 @@ for(const question of ["history","identity","scale"]){
 }
 assert.equal((qgExhibit.match(/data-inquiry-depth-select=/g)||[]).length,3,
  "Reader must offer conceptual, mathematical and forward research depth");
+assert.ok(qgExhibit.includes("Internal formally developed mathematical result")&&
+ qgExhibit.includes("not a published manuscript")&&
+ qgExhibit.includes("strictly local")&&qgExhibit.includes("QGCO-07"),
+ "Instrument pathway must distinguish a formal mathematical model from physical or published claims");
 assert.ok(qgExhibit.includes("Paper XI research notes in progress")&&
  qgExhibit.includes("No Paper XI publication, DOI")&&
  qgExhibit.includes("not yet a public scholarly publication"),
@@ -722,12 +726,12 @@ assert.ok(qgExhibit.includes("It does not submit data to the site")&&
 assert.ok(qgExhibit.includes("Stage 2 · In development")&&
  qgExhibit.includes("not a publicly available conversational service"),
  "Stage-two capability must be clearly labeled in development");
-assert.ok(qgExhibit.includes("qg-inquiry.js?v=2"),
+assert.ok(qgExhibit.includes("qg-inquiry.js?v=3"),
  "Interactive controls require a versioned independently maintained client script");
 const publicInquiryIndex=JSON.parse(fs.readFileSync("research/atlas/inquiry-index.json","utf8"));
 assert.equal(publicInquiryIndex.schema_version,1,"Public inquiry index schema changed");
 assert.deepStrictEqual(publicInquiryIndex.paths.map(p=>[p.path,p.direction_id]),
- [["history","QG-D02"],["identity","QG-D02"],["scale","EPC-D01"]],
+ [["history","QG-D02"],["identity","QG-D02"],["scale","EPC-D01"],["observation","QG-D01"]],
  "Curated QG source provenance must match the approved Research Atlas owner identities");
 assert.ok(publicInquiryIndex.runtime_status==="in_development_not_publicly_available"&&
  publicInquiryIndex.live_formal_verification===false,
