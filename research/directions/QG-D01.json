@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "QG-D01",
+  "title": "Quantum Observation and Gravitational Information",
+  "stream": "Schwarzschild Quantum Gravity",
+  "program_ids": [
+    "qg"
+  ],
+  "overview": "What can a quantum observation distinguish when two states have the same gravitational-source assignment?",
+  "question": "Which quantum properties remain observationally distinguishable beyond the complete Einstein-source description?",
+  "foundation": "The Schwarzschild series establishes quantum scalar and gravitational-source constructions. A developing, finite-bank, fixed-background mathematical instrument motivates a more detailed inquiry into observational distinctions.",
+  "limits": "A finite-bank, window-associated mathematical measurement does not establish strict field-theoretic locality, a detector realization, preservation of all physical constraints or cross-geometry observation transport.",
+  "next": "Quantify accessible distinctions, test matched-frame transport and gauge compatibility, and investigate conditions for measurement-conditioned Einstein–scalar sources.",
+  "claims": [
+    {
+      "id": "QG-D01-C01",
+      "statement": "The published series provides the inherited quantum-matter and relational gravitational framework.",
+      "evidence": "published",
+      "publication_id": "sqg8",
+      "scope": "Published mathematical and physical constructions within their declared hypotheses."
+    },
+    {
+      "id": "QG-D01-C02",
+      "statement": "An internal formal measurement construction motivates the observational-equivalence question.",
+      "evidence": "formal_internal",
+      "scope": "Finite-bank, fixed-background, window-associated mathematical instrument; no experimental detector or general physical measurement claim."
+    }
+  ],
+  "obligations": [
+    {
+      "id": "QG-D01-O01",
+      "question": "Determine when an instrument is compatible with physically constrained state equivalence."
+    },
+    {
+      "id": "QG-D01-O02",
+      "question": "Establish source-consistent conditional states and any ensuing gravitational backreaction."
+    }
+  ],
+  "obstructions": [],
+  "relationships": [
+    {
+      "kind": "informs",
+      "target": "QG-D02",
+      "summary": "Observation and excitation identity may have different continuation requirements."
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-18",
+      "event": "registered",
+      "summary": "Public summary registered as an emerging direction; underlying formal research remains separately governed."
+    }
+  ],
+  "publication_status": "unpublished_direction",
+  "source_access": "mixed",
+  "disclosure": "public_summary",
+  "display": {
+    "featured": true,
+    "order": 1
+  }
+}
