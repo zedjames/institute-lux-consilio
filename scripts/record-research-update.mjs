@@ -40,7 +40,8 @@ export function updateDirectionFile(root,options){
  const file=path.join(root,"research","directions",id+".json");
  requireArg(fs.existsSync(file),"unknown direction record "+id);
  const d=JSON.parse(fs.readFileSync(file,"utf8"));
- const affected=options.affects?options.affects.split(",").map(x=>x.trim()).filter(Boolean):[];
+ const affected=Array.isArray(options.affects)?options.affects:
+   options.affects?options.affects.split(",").map(x=>x.trim()).filter(Boolean):[];
  const next=appendResearchEvent(d,{date:options.date,kind:options.kind,summary:options.summary,affects:affected});
  if(!options.dryRun)fs.writeFileSync(file,JSON.stringify(next,null,2)+"\n");
  return {event:next.history.at(-1),file,dryRun:!!options.dryRun};
