@@ -478,7 +478,7 @@ assert.ok(relationsPage.includes('<base href="/">')&&
 assert.equal(replaceRelationshipAtlas(relationsPage,renderRelationshipAtlas(directions,data)),relationsPage,
  "Relationship atlas no longer matches canonical scientific data");
 assert.ok(researchPage.includes('href="research/atlas/"'),"Research overview must link to the relationship atlas");
-assert.ok(sitemap.includes("<loc>https://instituteluxconsilio.org/research/atlas/</loc>"),
+assert.ok(siteSitemap.includes("<loc>https://instituteluxconsilio.org/research/atlas/</loc>"),
  "Research relationship atlas missing from public sitemap");
 assert.ok(fs.readFileSync("scripts/build-publication-pages.mjs","utf8").includes('"research/atlas/"'),
  "Sitemap generator omits the relationship atlas");
