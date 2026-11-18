@@ -212,6 +212,7 @@ export function renderDirectionEvidence(d,catalog){
  <summary>Examine the scientific basis and open questions</summary>
  <div class="atlas-program-evidence__body">
  <p class="atlas-evidence-intro">These claims retain their individual evidence classes and mathematical scope. Internal formal research is not a published paper or a live proof check.</p>
+ <p class="atlas-evidence-setting"><strong>Scientific setting:</strong> ${textSafe(d.foundation)}</p>
  <h4>Established foundations and developing results</h4><ol>${claims}</ol>
  ${obstructions?`<h4>Scoped obstructions</h4><ol>${obstructions}</ol>`:""}
  <h4>What remains to be demonstrated</h4><ol>${open}</ol>
