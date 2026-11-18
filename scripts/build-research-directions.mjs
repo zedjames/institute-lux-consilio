@@ -207,8 +207,7 @@ export function renderProgramDirections(directions,catalog,programId){
   <p><strong>Scientific limit:</strong> ${textSafe(d.limits)}</p>
   <p><strong>Next question:</strong> ${textSafe(d.obligations[0].question)}</p>
   <p class="atlas-program-reference">${reference}</p>
-  ${d.inquiries?.length?`<p class="atlas-program-relations"><strong>Curated investigation:</strong> ${d.inquiries.map(i=>`<a href="research/quantum-gravity-formal-lineage/?path=${encodeURIComponent(i.path)}&amp;depth=idea#inquiry">${textSafe(i.label)}</a>`).join(" · ")} <span>(authored, source-scoped)</span></p>`:""}
-  ${links?`<p class="atlas-program-relations"><strong>Related inquiry:</strong> ${links} · <a href="research/atlas/#connections">Explore the relationship →</a></p>`:""}
+${d.inquiries?.length?`  <p class="atlas-program-relations"><strong>Curated investigation:</strong> ${d.inquiries.map(i=>`<a href="research/quantum-gravity-formal-lineage/?path=${encodeURIComponent(i.path)}&amp;depth=idea#inquiry">${textSafe(i.label)}</a>`).join(" · ")} <span>(authored, source-scoped)</span></p>\n`:""}  ${links?`<p class="atlas-program-relations"><strong>Related inquiry:</strong> ${links} · <a href="research/atlas/#connections">Explore the relationship →</a></p>`:""}
   </article>`;
  }).join("\n");
  return `<section class="section section--mist" id="research-directions" aria-labelledby="program-atlas-heading">
