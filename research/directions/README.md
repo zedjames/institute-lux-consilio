@@ -112,6 +112,23 @@ The original QGCO-07 internal research has no separate authorized public manuscr
 
 A future weekly change should modify this existing direction and append an event; scientific records, web overview, QG program frontier, public inquiry index and authored provenance must then be regenerated together. Do not copy manuscript source details into a new isolated page whenever a research result advances.
 
+## RDA-06: CH scattering as the second substantive weekly intake
+
+The first substantive CH/P9-SA11 public scientific summary advances `CH-D01` in place. It does **not** create an additional research-program identity, conflate CH with the site's Gaussian/Celestial program, or publish a CH Paper IX manuscript.
+
+The approved-for-review record distinguishes these scopes:
+
+- **Formally checked kinematic waves:** the source-linked finite-rank W6/CH24 pair has self-adjoint kinematic generators, incoming/outgoing wave isometries, equal wave ranges on the interacting absolutely continuous carrier and a unitary kinematic comparison.
+- **Scaled-family nonidentity:** for sufficiently small positive real couplings, the unchanged source interaction has a nonidentity kinematic comparison on a fixed Cook state. Its source-dependent interval is **not certified to reach the original unit coupling**.
+- **Original-action boundary structure:** the full six-sector two-face source action has a positive complex phase on its twelve-real-control chart, alongside a proved obstruction to directly carrying the corresponding nearby nonlinear future metric through the existing W6 fullbank readback.
+- **Open physical promotion:** the original source retains released-boundary Euler/flux obligations, coupled W6/CH24 Bose-pair and gauge/BRST constraints, interacting preservation, and continuum on-shell/momentum covariance. There is no accepted physical gravitational S-matrix or celestial scattering amplitude from these kinematic results.
+
+The direction's new dated event `CH-D01-H0003` identifies the claims, limits, obstructions and obligations changed. All internal formal claims remain `formal_internal`, and there is **no published CH Paper IX record**.
+
+The program rendering now includes a native HTML `<details>` section for every public direction. It exposes its scoped claim evidence, published references when they exist, formal research standing, obstructions, and open problems **on demand**, rather than maintaining another prose source or adding a site page for every weekly result. This is the scalable CH inquiry: *What is established? What prevents direct physical interpretation? What must be proved next?* No JavaScript, simulated detector or live Concordia lookup is required.
+
+Changes in other directions are carried automatically by the same renderer. The research homepage remains a compact overview, and CH stays an adjacent, distinctly identified scattering program in the host celestial program's discovery context.
+
 ## Future compatibility
 
 RDA-01 establishes stable identities, claims, relationships, obstructions, and dated events. RDA-02 provides revision and provenance tooling; RDA-03 supplies the qualified cross-direction relationship atlas; RDA-04 connects approved claims to authored Inquiry Explorers through public scoped metadata; governed Runtime access remains a future, independently qualified capability. These extensions do not require altering existing direction IDs.

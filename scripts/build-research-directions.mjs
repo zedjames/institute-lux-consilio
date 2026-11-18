@@ -187,6 +187,38 @@ export function renderDirectionsOverview(directions,catalog){
   <a class="arrow-link" href="${textSafe(directionHref(d,catalog))}">Explore this direction →</a>
  </article>`).join("\n");
 }
+// RDA-06: Detailed science is available on demand from existing vetted claim and
+// obligation records. Native HTML disclosure keeps every statement readable without JS.
+const DIRECTION_EVIDENCE_LABELS={
+ published:"Published scholarly foundation",
+ formal_internal:"Internal formal research",
+ research_in_progress:"Developing investigation",
+ hypothesis:"Scientific hypothesis",
+ research_obligation:"Unresolved mathematical requirement"
+};
+export function renderDirectionEvidence(d,catalog){
+ const claims=d.claims.map(c=>{
+  const p=c.publication_id?catalog.publications.find(x=>x.id===c.publication_id):null;
+  const cite=p?` <a href="${textSafe(p.localPage||"publication-"+p.id+".html")}">Published record →</a>`:"";
+  return `<li><strong>${textSafe(c.statement)}</strong><span class="atlas-evidence-type">${textSafe(DIRECTION_EVIDENCE_LABELS[c.evidence])}</span><p><strong>Scope:</strong> ${textSafe(c.scope)}${cite}</p></li>`;
+ }).join("");
+ const obstructions=(d.obstructions||[]).map(x=>
+  `<li><strong>${textSafe(x.summary)}</strong><span class="atlas-evidence-type">${textSafe(DIRECTION_EVIDENCE_LABELS[x.standing])}</span></li>`
+ ).join("");
+ const open=d.obligations.map(x=>`<li>${textSafe(x.question)}</li>`).join("");
+ const adjacent=d.program_relation==="adjacent_research_stream"?
+  '<p class="atlas-evidence-caveat">This is an adjacent research stream presented here for discovery; its scientific identity and source obligations remain distinct from the host research program.</p>':"";
+ return `<details class="atlas-program-evidence" aria-label="Scientific basis and open work for ${textSafe(d.title)}">
+ <summary>Examine the scientific basis and open questions</summary>
+ <div class="atlas-program-evidence__body">
+ <p class="atlas-evidence-intro">These claims retain their individual evidence classes and mathematical scope. Internal formal research is not a published paper or a live proof check.</p>
+ <p class="atlas-evidence-setting"><strong>Scientific setting:</strong> ${textSafe(d.foundation)}</p>
+ <h4>Established foundations and developing results</h4><ol>${claims}</ol>
+ ${obstructions?`<h4>Scoped obstructions</h4><ol>${obstructions}</ol>`:""}
+ <h4>What remains to be demonstrated</h4><ol>${open}</ol>
+ ${adjacent}
+ </div></details>`;
+}
 export function renderProgramDirections(directions,catalog,programId){
  const selected=directions.filter(d=>d.program_ids.includes(programId)||d.landing_href===programId);
  if(!selected.length)return "";
@@ -207,6 +239,7 @@ export function renderProgramDirections(directions,catalog,programId){
   <p><strong>Scientific limit:</strong> ${textSafe(d.limits)}</p>
   <p><strong>Next question:</strong> ${textSafe(d.obligations[0].question)}</p>
   <p class="atlas-program-reference">${reference}</p>
+  ${renderDirectionEvidence(d,catalog)}
 ${d.inquiries?.length?`  <p class="atlas-program-relations"><strong>Curated investigation:</strong> ${d.inquiries.map(i=>`<a href="research/quantum-gravity-formal-lineage/?path=${encodeURIComponent(i.path)}&amp;depth=idea#inquiry">${textSafe(i.label)}</a>`).join(" · ")} <span>(authored, source-scoped)</span></p>\n`:""}  ${links?`<p class="atlas-program-relations"><strong>Related inquiry:</strong> ${links} · <a href="research/atlas/#connections">Explore the relationship →</a></p>`:""}
   </article>`;
  }).join("\n");

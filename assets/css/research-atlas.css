@@ -59,3 +59,23 @@
 .atlas-program-direction{scroll-margin-top:110px}
 .atlas-rel-nav a:focus-visible,.atlas-rel-card a:focus-visible,.atlas-rel-heading a:focus-visible{outline:3px solid #6da8ba;outline-offset:3px}
 @media(max-width:800px){.atlas-rel-group{grid-template-columns:1fr}.atlas-rel-heading{max-width:650px}}
+
+/* RDA-06: progressive disclosure for source-qualified scientific evidence.
+   Works with native <details> and remains readable without client scripting. */
+.atlas-program-evidence{border:1px solid #cedde3;background:#f7fafb;margin:18px 0 16px}
+.atlas-program-evidence summary{cursor:pointer;display:list-item;padding:12px 18px;color:#25536a;font-size:13px;font-weight:760;line-height:1.6}
+.atlas-program-evidence summary:hover{background:#eaf3f5}
+.atlas-program-evidence summary:focus-visible{outline:3px solid #5a9aaf;outline-offset:3px}
+.atlas-program-evidence__body{padding:6px clamp(18px,2vw,26px) 20px;border-top:1px solid #d5e2e7}
+.atlas-program-evidence__body h4{font-size:15px;color:#173d52;font-weight:760;line-height:1.5;margin:22px 0 10px}
+.atlas-program-evidence__body ol{padding-left:20px;margin:0 0 14px}
+.atlas-program-evidence__body li{font-size:13px;line-height:1.7;color:#47606d;margin-bottom:15px;padding-left:2px}
+.atlas-program-evidence__body li>strong{font-weight:680;color:#315263}
+.atlas-program-evidence__body li p{font-size:12.5px;margin:5px 0;line-height:1.65}
+.atlas-program-evidence__body a{color:#1b617a;text-decoration:underline;text-underline-offset:3px}
+.atlas-evidence-type{display:block;font-size:11px;line-height:1.6;text-transform:uppercase;letter-spacing:.035em;color:#4c7484;margin-top:3px;font-weight:700}
+.atlas-program-evidence__body .atlas-evidence-intro,
+.atlas-program-evidence__body .atlas-evidence-caveat{font-size:12.5px;line-height:1.8;margin:9px 0 13px;color:#526d78}
+.atlas-program-evidence__body .atlas-evidence-caveat{border-left:2px solid #a99063;padding-left:13px}
+
+.atlas-program-evidence__body .atlas-evidence-setting{font-size:13px;line-height:1.75;color:#395b69;margin:14px 0 17px}
