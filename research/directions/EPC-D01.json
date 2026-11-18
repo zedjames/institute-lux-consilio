@@ -54,6 +54,15 @@
       "affects": [
         "relationships"
       ]
+    },
+    {
+      "id": "EPC-D01-H0003",
+      "date": "2026-11-18",
+      "event": "editorial_review",
+      "summary": "Mapped approved public research claims and open obligations to the existing authored QG Inquiry Explorer without conferring new formal or experimental authority.",
+      "affects": [
+        "inquiries"
+      ]
     }
   ],
   "publication_status": "initiative",
@@ -62,5 +71,16 @@
   "display": {
     "featured": true,
     "order": 4
-  }
+  },
+  "inquiries": [
+    {
+      "path": "scale",
+      "label": "Across scale",
+      "scope": "An exploratory constitutive question connecting organized physical identity across scales; neither a universal hierarchy nor a cross-program physical equivalence is established.",
+      "basis_ids": [
+        "EPC-D01-C01",
+        "EPC-D01-O01"
+      ]
+    }
+  ]
 }
