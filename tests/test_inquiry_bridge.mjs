@@ -10,7 +10,7 @@ const raw=fs.readFileSync("assets/data/research.js","utf8").trim();
 const catalog=JSON.parse(raw.replace(/^window\.ILC_DATA=/,"").replace(/;\s*$/,""));
 const dirs=loadDirections(process.cwd(),catalog),index=buildPublicInquiryIndex(dirs,catalog);
 assert.deepStrictEqual(index.paths.map(p=>[p.path,p.direction_id]),
- [["history","QG-D02"],["identity","QG-D02"],["scale","EPC-D01"]]);
+ [["history","QG-D02"],["identity","QG-D02"],["scale","EPC-D01"],["observation","QG-D01"]]);
 assert.equal(index.kind,"public_curated_inquiry_index");
 assert.equal(index.runtime_status,"in_development_not_publicly_available");
 assert.equal(index.live_formal_verification,false);
@@ -22,14 +22,16 @@ for(const p of index.paths){
  assert.ok(p.basis.length>=1);
  assert.ok(p.basis.every(b=>b.statement&&["published","formal_internal","research_in_progress","hypothesis","obligation","obstruction"].includes(b.standing)));
 }
-const history=index.paths[0],identity=index.paths[1],scale=index.paths[2];
+const history=index.paths[0],identity=index.paths[1],scale=index.paths[2],observation=index.paths[3];
+assert.ok(observation.basis.some(x=>x.id==="QG-D01-C03"&&x.standing==="formal_internal"));
+assert.ok(observation.basis.every(x=>!x.publication_id),"Internal instrument must not be presented as a separate published paper");
 assert.ok(history.basis.some(x=>x.publication_id==="sqg10"&&x.doi&&x.publication_page==="publication-sqg10.html"));
 assert.ok(identity.basis.every(x=>!x.publication_id),"Hypothesis cannot inherit the published Paper X authority");
 assert.ok(scale.basis.every(x=>!x.publication_id),"The across-scale hypothesis cannot claim a published QG theorem");
 const exhibit=fs.readFileSync("research/quantum-gravity-formal-lineage/index.html","utf8");
 assert.equal(replaceInquiryProvenance(exhibit,renderInquiryProvenance(index)),exhibit,
  "Source cards must reproduce exactly from approved direction records");
-assert.ok(exhibit.includes('qg-inquiry.js?v=2')&&exhibit.includes('qg-exhibit.css?v=4'));
+assert.ok(exhibit.includes('qg-inquiry.js?v=3')&&exhibit.includes('qg-exhibit.css?v=4'));
 for(const p of index.paths){
  assert.ok(exhibit.includes('data-inquiry-source-for="'+p.path+'"'));
  assert.ok(exhibit.includes('data-inquiry-direction-id="'+p.direction_id+'"'));
@@ -67,4 +69,4 @@ try{
 }finally{fs.rmSync(root,{recursive:true,force:true});}
 assert.throws(()=>buildPublicInquiryIndex(dirs.filter(d=>d.id!=="EPC-D01"),catalog),
  /exactly one public direction/,"Missing authored path must block publication");
-console.log("RDA-04 tests passed: authored pathway ownership, source bounds, citations, reproducible HTML/index and negative controls.");
+console.log("RDA-05 tests passed: authored pathway ownership, source bounds, citations, reproducible HTML/index and negative controls.");

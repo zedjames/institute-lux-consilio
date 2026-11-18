@@ -90,6 +90,46 @@
       ],
       "url": "research/quantum-gravity-formal-lineage/?path=scale&depth=idea#inquiry",
       "interface_kind": "authored_curated_source_scoped"
+    },
+    {
+      "path": "observation",
+      "label": "Quantum observation",
+      "direction_id": "QG-D01",
+      "direction_title": "Quantum Observation and Gravitational Information",
+      "direction_href": "research-relational-quantum-gravity.html#direction-QG-D01",
+      "question": "Which quantum properties remain observationally distinguishable beyond the complete Einstein-source description?",
+      "scope": "An authored question about how a mathematically constructed field observation can discriminate a particular equal-Einstein-source quantum-state pair. The formal QGCO result is internal and window-associated, while source-domain preservation, physical detector realization and cross-geometry observation remain open.",
+      "limits": "The result concerns the constructed fixed-background, finite-bank Fock carrier and a proper spatial-circle test window. The associated observation is not a strictly local AQFT observable or physical black-hole detector: no causal commutator theorem, detector coupling, general density-state instrument, cross-geometry transport, post-measurement stress-domain preservation or self-consistent gravitational backreaction is established. The QGCO result is internal formal research, not a published paper.",
+      "basis": [
+        {
+          "id": "QG-D01-C02",
+          "standing": "formal_internal",
+          "label": "Governed formal work; not a public paper",
+          "statement": "Internal formal research constructs a field-derived, finite-bank, proper-window two-outcome pure-state instrument with consistent outcome probabilities and normalized positive-probability conditional states.",
+          "scope": "Fixed-background scalar Fock carrier, one spatial-circle orbit with a supported real test and the corresponding bounded effect; a mathematical model rather than an experimental measurement interaction or published QGCO paper."
+        },
+        {
+          "id": "QG-D01-C03",
+          "standing": "formal_internal",
+          "label": "Governed formal work; not a public paper",
+          "statement": "In the specified original quantum model, a number-state realization and coherent realization with the same complete Einstein-source tensor give different probabilities for one common constructed yes/no effect.",
+          "scope": "Existence of a particular eligible test and nonzero Weyl parameter on one fixed-background finite-bank carrier; not generic state reconstruction, strict locality, or gravitationally conditioned measurement across geometries."
+        },
+        {
+          "id": "QG-D01-O01",
+          "standing": "obligation",
+          "label": "Open mathematical obligation",
+          "statement": "Determine when an instrument is compatible with physically constrained state equivalence."
+        },
+        {
+          "id": "QG-D01-O03",
+          "standing": "obligation",
+          "label": "Open mathematical obligation",
+          "statement": "Extend the actual source-field correspondence to bounded effects, both outcome maps and selective predictions under a justified matched Fock-frame transport."
+        }
+      ],
+      "url": "research/quantum-gravity-formal-lineage/?path=observation&depth=idea#inquiry",
+      "interface_kind": "authored_curated_source_scoped"
     }
   ]
 }

@@ -6,7 +6,7 @@ import {fileURLToPath} from "node:url";
 import {loadDirections,directionHref} from "./build-research-directions.mjs";
 
 const EXHIBIT="research/quantum-gravity-formal-lineage/";
-const PATHS=["history","identity","scale"];
+const PATHS=["history","identity","scale","observation"];
 const html=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const publicationPage=p=>p.localPage||"publication-"+p.id+".html";
 const evidenceLabel={

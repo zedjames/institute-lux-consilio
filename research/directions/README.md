@@ -100,7 +100,17 @@ The existing nine QG explanations remain authored prose. Visitors may deep-link 
 4. Regenerate pages using `build-site-discovery.mjs`, `build-program-pages.mjs`, and `build-inquiry-bridge.mjs`, then validate the site and `tests/test_inquiry_bridge.mjs`.
 5. Review the public wording, claim authority, publication links, access boundaries, and exact inherited scientific assumptions before approving a PR.
 
-The compiler currently recognizes only `history`, `identity`, and `scale` for the existing QG exhibit. Creating a new pathway, for instance about the QGCO mathematical measurement instrument, requires a separately reviewed, source-grounded authored panel and corresponding schema/renderer extensions. We deliberately do not invent a universal scientific chatbot or imply a live mathematical proof-check service.
+The compiler now recognizes four authored QG paths: `history`, `identity`, `scale`, and `observation`. The fourth is a source-scoped public summary of QGCO-07 internal mathematical research, not a paper release, strict-locality claim or experimental measurement device. Additional pathways must receive separate editorial scientific review, formal/source qualification, a corresponding Atlas owner, and three authored depths before being included. The architecture does not provide a universal scientific chatbot or a live mathematical proof-check service.
+
+## RDA-05: First full scientific update — QGCO observation instrument
+
+The first real test of RDA-01 through RDA-04 updates **QG-D01** rather than creating a redundant research program. It introduces an additional source-scoped formal claim for the particular equal-Einstein-source, distinct-outcome observation witness; expands the research foundation and limitations; adds the open matched-frame transport obligation; and appends a dated `finding` history event. The `observation` Inquiry Explorer path has three authored levels (conceptual result, mathematical instrument, and open physical continuation).
+
+The mathematical instrument is constructed on the original **fixed-background finite-bank Fock carrier** with a **proper spatial-circle test window** and bounded two-outcome effects. Conditional pure states require a positive-probability outcome. This is **not** strict AQFT localization, a laboratory device, a detector near a black hole, a general density-state instrument, or a measurement-induced self-consistent Einstein–scalar solution.
+
+The original QGCO-07 internal research has no separate authorized public manuscript or Zenodo release. The approved-for-review Atlas content is a qualified **public scientific summary**; no internal Lean implementation files, confidential collaborator files or non-public theorem proofs are included. Subsequent publication, external source distribution, or cross-geometry physical measurement claims require independent authorization.
+
+A future weekly change should modify this existing direction and append an event; scientific records, web overview, QG program frontier, public inquiry index and authored provenance must then be regenerated together. Do not copy manuscript source details into a new isolated page whenever a research result advances.
 
 ## Future compatibility
 

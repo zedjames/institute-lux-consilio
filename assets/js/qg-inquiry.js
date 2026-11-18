@@ -10,7 +10,8 @@
   const pathways=[
     {id:"history",label:"Physical history",topic:"Physical history and boundaries"},
     {id:"identity",label:"Physical identity",topic:"Excitation identity and quantum representation"},
-    {id:"scale",label:"Across scale",topic:"Constitutive organization across scales"}
+    {id:"scale",label:"Across scale",topic:"Constitutive organization across scales"},
+    {id:"observation",label:"Quantum observation",topic:"Quantum observation and gravitational source equivalence"}
   ];
   const depths=[
     {id:"idea",label:"Explore the idea"},
