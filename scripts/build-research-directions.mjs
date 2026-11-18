@@ -9,6 +9,11 @@ const PUBLICATIONS=new Set(["unpublished_direction","initiative","preprint","pub
 const ACCESS=new Set(["public","public_summary","governed","mixed","restricted"]);
 const RELATIONS=new Set(["informs","related_question","requires","extends","tests","obstructed_by"]);
 const OBSTRUCTION_STANDING=new Set(["formal_internal","research_obligation","published"]);
+export const DIRECTION_EDITABLE_FIELDS=["title","stream","program_ids","program_relation","landing_href",
+ "overview","question","foundation","limits","next","claims","obligations","obstructions",
+ "relationships","publication_status","source_access","disclosure","display"];
+export const RESEARCH_HISTORY_EVENTS=["registered","finding","obstruction","correction",
+ "question","publication","scope_change","relationship","editorial_review","milestone"];
 const FIELDS=new Set(["schema_version","id","title","stream","program_ids","program_relation","landing_href",
  "overview","question","foundation","limits","next","claims","obligations","obstructions",
  "relationships","history","publication_status","source_access","disclosure","display"]);
@@ -81,10 +86,18 @@ function validateOne(d,catalog){
  requireThat(Array.isArray(d.history)&&d.history.length>0,d.id+" needs immutable first history entry");
  requireThat(d.history[0].event==="registered",d.id+" first event must register the direction");
  let last="";
- for(const h of d.history){
-  assertKeys(h,new Set(["date","event","summary"]),d.id+" history");
-  requireThat(validDate(h.date)&&h.date>=last&&nonempty(h.summary)&&nonempty(h.event),
-   d.id+" invalid chronological history");
+ const historyTypes=new Set(RESEARCH_HISTORY_EVENTS);
+ const editable=new Set(DIRECTION_EDITABLE_FIELDS);
+ for(const [i,h] of d.history.entries()){
+  assertKeys(h,new Set(["id","date","event","summary","affects"]),d.id+" history");
+  requireThat(h.id===d.id+"-H"+String(i+1).padStart(4,"0"),
+   d.id+" history event ID or sequence invalid");
+  requireThat(validDate(h.date)&&h.date>=last&&nonempty(h.summary)&&historyTypes.has(h.event),
+   d.id+" invalid chronological research event");
+  requireThat(Array.isArray(h.affects)&&uniq(h.affects)&&h.affects.every(k=>editable.has(k)),
+   d.id+" history affects must identify valid unique scientific record fields");
+  requireThat((i===0)===(h.event==="registered"),d.id+" registration must occur exactly once, at the beginning");
+  requireThat(i!==0||h.affects.length===0,d.id+" registration has no previous revision to compare");
   last=h.date;
  }
 }
