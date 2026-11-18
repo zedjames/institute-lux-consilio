@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://instituteluxconsilio.org/research/directions/schema.json",
-  "title": "ILC public research direction v1",
+  "title": "ILC public research direction v1 — RDA-02 history continuity",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -195,20 +195,63 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "id",
           "date",
           "event",
-          "summary"
+          "summary",
+          "affects"
         ],
         "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z]{2,4}-D[0-9]{2}-H[0-9]{4}$"
+          },
           "date": {
             "type": "string",
             "format": "date"
           },
           "event": {
-            "type": "string"
+            "enum": [
+              "registered",
+              "finding",
+              "obstruction",
+              "correction",
+              "question",
+              "publication",
+              "scope_change",
+              "relationship",
+              "editorial_review",
+              "milestone"
+            ]
           },
           "summary": {
             "type": "string"
+          },
+          "affects": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "title",
+                "stream",
+                "program_ids",
+                "program_relation",
+                "landing_href",
+                "overview",
+                "question",
+                "foundation",
+                "limits",
+                "next",
+                "claims",
+                "obligations",
+                "obstructions",
+                "relationships",
+                "publication_status",
+                "source_access",
+                "disclosure",
+                "display"
+              ]
+            }
           }
         }
       }
