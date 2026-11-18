@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "EPC-D01",
+  "title": "Essence and Physical Constitution",
+  "stream": "Essence and Physical Constitution",
+  "program_ids": [],
+  "landing_href": "research-essence-physical-constitution.html",
+  "overview": "How do quantum properties and physical exchanges contribute to the constitution of recognizable physical objects?",
+  "question": "When do the properties attributed to an object arise through its interactions, constraints and relationships?",
+  "foundation": "The Institute's emerging Essence and Physical Constitution initiative asks how intrinsic properties, relational exchanges and stable organized forms might be placed within a precise mathematical account.",
+  "limits": "This is a developing research initiative. Its proposed constitutive relationships are not established as universal physical laws or as a completed published research series.",
+  "next": "Specify elementary physical carriers, their interaction maps and observables, then test whether different descriptions define the same constitutive object.",
+  "claims": [
+    {
+      "id": "EPC-D01-C01",
+      "statement": "The constitutive question is an active institutional research initiative.",
+      "evidence": "hypothesis",
+      "scope": "Foundational scientific direction, not a settled theorem or empirical model."
+    }
+  ],
+  "obligations": [
+    {
+      "id": "EPC-D01-O01",
+      "question": "Define mathematically testable criteria for constitutive properties and stable physical identity."
+    }
+  ],
+  "obstructions": [],
+  "relationships": [
+    {
+      "kind": "related_question",
+      "target": "QG-D02",
+      "summary": "Both directions examine identity under changing physical relationships, without assuming a proved universal bridge."
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-18",
+      "event": "registered",
+      "summary": "Emerging institutional initiative included as a distinct direction without inventing a published paper sequence."
+    }
+  ],
+  "publication_status": "initiative",
+  "source_access": "public_summary",
+  "disclosure": "public_summary",
+  "display": {
+    "featured": true,
+    "order": 4
+  }
+}
