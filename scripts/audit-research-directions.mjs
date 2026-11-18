@@ -21,7 +21,12 @@ export function checkDirectionRevision(before,after){
  enforce(before.schema_version===after.schema_version,"schema version changed: "+before.id);
  const count=before.history.length;
  enforce(after.history.length>=count,"research history was truncated: "+before.id);
- enforce(equal(before.history,after.history.slice(0,count)),
+ // One-time, strictly content-preserving RDA-01 -> RDA-02 metadata migration:
+ // a prior registration without an ID receives only its deterministic ID and empty affects.
+ // Once the baseline contains IDs, all events are compared byte-for-byte as structured data.
+ const normalized=before.history.map((h,i)=>
+  h.id?h:{id:before.id+"-H"+String(i+1).padStart(4,"0"),...h,affects:[]});
+ enforce(equal(normalized,after.history.slice(0,count)),
   "research history was rewritten or reordered: "+before.id);
  const appended=after.history.slice(count);
  const changed=DIRECTION_EDITABLE_FIELDS.filter(key=>!equal(before[key],after[key]));
