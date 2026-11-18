@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
+import {loadDirections,renderDirectionsSection} from "./build-research-directions.mjs";
 function escHtml(x){return String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function paperHref(p){return p.localPage||"publication-"+p.id+".html";}
 function fmtDate(s){return new Date(s+"T12:00:00Z").toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric",timeZone:"UTC"});}
@@ -60,13 +61,20 @@ function updateHealthFullText(html,block){
  if(html.split(marker).length!==2)throw Error("Unknown homepage recent section structure");
  return html.replace(marker,`<!-- ILC_HOME_RECENT_END --></div>\n${start}\n${block}\n${end}\n</div></section>`);
 }
-function updateDiscovery(data,home,research){
+function updateDiscovery(data,home,research,root=process.cwd()){
  let newHome=updateProgramBlock(home,programCards(data));
  let newResearch=updateProgramBlock(research,programCards(data));
  newHome=setStatic(newHome,'emerging-list',emergingCards(data),'ILC_EMERGING_INDEX');
  newResearch=setStatic(newResearch,'emerging-list',emergingCards(data),'ILC_EMERGING_INDEX');
  newResearch=setStatic(newResearch,'question-grid',questionCards(data),'ILC_QUESTION_INDEX');
- newResearch=setStatic(newResearch,'theme-grid',themeCards(data),'ILC_THEME_INDEX');
+ // Replace the existing eight generic theme cards, rather than appending more public density.
+ const oldDirections='<section class="section"><div class="wrap"><div class="heading-row"><div><p class="eyebrow">Across disciplines</p>';
+ const currentDirections='<section class="section atlas-section" id="current-directions"';
+ const begin=newResearch.includes(oldDirections)?newResearch.indexOf(oldDirections):newResearch.indexOf(currentDirections);
+ const end=newResearch.indexOf('</main>',begin);
+ if(begin<0||end<=begin)throw Error("Could not isolate the curated Research Atlas section");
+ const directions=loadDirections(root,data);
+ newResearch=newResearch.slice(0,begin)+renderDirectionsSection(directions,data)+newResearch.slice(end);
  newHome=updateHomeRecent(newHome,recentCards(data));
  newHome=updateHealthFullText(newHome,healthFullText(data));
  // The remaining themes and questions continue to use the browser-side catalog.
@@ -86,7 +94,7 @@ export function updateSite(root=process.cwd()){
  if(!raw.startsWith("window.ILC_DATA="))throw Error("Unrecognized ILC catalog");
  const data=JSON.parse(raw.slice("window.ILC_DATA=".length).replace(/;\s*$/,""));
  const homePath=path.join(root,"index.html"),researchPath=path.join(root,"research.html");
- const output=updateDiscovery(data,fs.readFileSync(homePath,"utf8"),fs.readFileSync(researchPath,"utf8"));
+ const output=updateDiscovery(data,fs.readFileSync(homePath,"utf8"),fs.readFileSync(researchPath,"utf8"),root);
  fs.writeFileSync(homePath,output.home);fs.writeFileSync(researchPath,output.research);
  console.log("Refreshed "+data.programs.length+" static research programs and four recent paper records.");
 }
