@@ -133,7 +133,7 @@ export function renderDirectionsOverview(directions,catalog){
  </article>`).join("\n");
 }
 export function renderProgramDirections(directions,catalog,programId){
- const selected=directions.filter(d=>d.program_ids.includes(programId));
+ const selected=directions.filter(d=>d.program_ids.includes(programId)||d.landing_href===programId);
  if(!selected.length)return "";
  const cards=selected.map(d=>{
   const pub=d.claims.find(c=>c.evidence==="published");
