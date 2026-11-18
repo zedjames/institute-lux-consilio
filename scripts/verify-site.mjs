@@ -449,12 +449,23 @@ for(const id of ["qg","kinetic","celestial"]){
  assert.ok(html.includes(renderProgramDirections(directions,data,id)),"Program direction section out of sync: "+id);
  assert.ok(html.includes('href="research.html#current-directions"'),"Atlas cross-link absent: "+id);
 }
+// Standalone and specially generated research pages must share the same register.
+const healthDirectionsMarkup=fs.readFileSync("research-health-formally-defined.html","utf8");
+assert.ok(healthDirectionsMarkup.includes("<!-- ILC_HEALTH_DIRECTIONS_START -->\n"+
+ renderProgramDirections(directions,data,"health")+"\n<!-- ILC_HEALTH_DIRECTIONS_END -->"),
+ "Health direction placeholder is not generated from the canonical register");
+const epcDirectionsMarkup=fs.readFileSync("research-essence-physical-constitution.html","utf8");
+assert.ok(epcDirectionsMarkup.includes("<!-- ILC_EPC_DIRECTIONS_START -->\n"+
+ renderProgramDirections(directions,data,"research-essence-physical-constitution.html")+
+ "\n<!-- ILC_EPC_DIRECTIONS_END -->"),
+ "Emerging initiative direction is not generated from the canonical register");
 assert.ok(directions.find(d=>d.id==="CH-D01").program_relation==="adjacent_research_stream",
  "CH scattering must remain distinct from the existing celestial program");
 assert.ok(!directions.some(d=>d.publication_status==="published"),
  "Pilot research directions are not additional published papers");
 for(const file of ["research.html","research-relational-quantum-gravity.html",
- "research-kinetic-organization-biological-function.html","research-gaussian-celestial.html"]){
+ "research-kinetic-organization-biological-function.html","research-gaussian-celestial.html",
+ "research-health-formally-defined.html","research-essence-physical-constitution.html"]){
  assert.ok(fs.readFileSync(file,"utf8").includes('href="assets/css/research-atlas.css?v=1"'),
   "Missing Atlas design stylesheet: "+file);
 }
