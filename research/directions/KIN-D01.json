@@ -40,9 +40,11 @@
   "relationships": [],
   "history": [
     {
+      "id": "KIN-D01-H0001",
       "date": "2026-11-18",
       "event": "registered",
-      "summary": "Published kinetic foundations and developing regenerative inquiry linked without premature publication claims."
+      "summary": "Published kinetic foundations and developing regenerative inquiry linked without premature publication claims.",
+      "affects": []
     }
   ],
   "publication_status": "unpublished_direction",
