@@ -27,9 +27,15 @@
   "obstructions": [],
   "relationships": [
     {
+      "id": "EPC-D01-R0001",
       "kind": "related_question",
       "target": "QG-D02",
-      "summary": "Both directions examine identity under changing physical relationships, without assuming a proved universal bridge."
+      "summary": "Both directions examine identity under changing physical relationships, without assuming a proved universal bridge.",
+      "standing": "research_question",
+      "scope": "The physical-constitution and continuation questions share a conceptual problem; no common governing theorem or physical identity criterion is claimed.",
+      "basis_ids": [
+        "EPC-D01-O01"
+      ]
     }
   ],
   "history": [
@@ -39,6 +45,15 @@
       "event": "registered",
       "summary": "Emerging institutional initiative included as a distinct direction without inventing a published paper sequence.",
       "affects": []
+    },
+    {
+      "id": "EPC-D01-H0002",
+      "date": "2026-11-18",
+      "event": "relationship",
+      "summary": "Qualified the existing cross-direction research connection with explicit evidence context and limits; no new formal or physical bridge is claimed.",
+      "affects": [
+        "relationships"
+      ]
     }
   ],
   "publication_status": "initiative",
