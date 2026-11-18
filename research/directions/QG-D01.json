@@ -46,9 +46,11 @@
   ],
   "history": [
     {
+      "id": "QG-D01-H0001",
       "date": "2026-11-18",
       "event": "registered",
-      "summary": "Public summary registered as an emerging direction; underlying formal research remains separately governed."
+      "summary": "Public summary registered as an emerging direction; underlying formal research remains separately governed.",
+      "affects": []
     }
   ],
   "publication_status": "unpublished_direction",
