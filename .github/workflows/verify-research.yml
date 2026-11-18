@@ -13,6 +13,12 @@ jobs:
           node-version: '22'
       - run: node --check assets/js/qg-exhibit.js
       - run: node --check assets/js/qg-inquiry.js
+      - run: node --check scripts/build-research-directions.mjs
+      - run: node --check tests/test_research_directions.mjs
+      - run: node tests/test_research_directions.mjs
+      - run: node scripts/build-site-discovery.mjs
+      - run: node scripts/build-program-pages.mjs
+      - run: git diff --exit-code -- research.html research-relational-quantum-gravity.html research-kinetic-organization-biological-function.html research-gaussian-celestial.html research-health-formally-defined.html research-essence-physical-constitution.html
       - run: node scripts/verify-site.mjs
       - run: python3 scripts/verify_health_zh.py
       - run: python3 -m unittest discover -s tests -p "test_zenodo_sync_*.py"

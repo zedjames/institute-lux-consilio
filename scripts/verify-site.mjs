@@ -428,8 +428,49 @@ assert.ok(fs.readFileSync("sitemap.xml","utf8").includes('<loc>https://institute
 
 const researchPage=fs.readFileSync("research.html","utf8");
 assert.ok(researchPage.includes("<!-- ILC_QUESTION_INDEX_START -->\n"+questionCards(data)+"\n<!-- ILC_QUESTION_INDEX_END -->"),"Research questions must be present in static HTML");
-assert.ok(researchPage.includes("<!-- ILC_THEME_INDEX_START -->\n"+themeCards(data)+"\n<!-- ILC_THEME_INDEX_END -->"),"Research themes must be present in static HTML");
-assert.ok(researchPage.includes('id="question-grid" data-static="1"')&&researchPage.includes('id="theme-grid" class="theme-grid" data-static="1"'),"Research static visibility controls missing");
+const directions=loadDirections(process.cwd(),data);
+assert.equal(directions.length,5,"RDA-01 pilot register must include all five proposed public summaries");
+assert.deepStrictEqual(directions.map(d=>d.id),["QG-D01","QG-D02","KIN-D01","EPC-D01","CH-D01"],
+ "Stable identity and editorial priority of the five pilot directions changed");
+assert.ok(researchPage.includes(renderDirectionsSection(directions,data)),
+ "Research Atlas section must be identical to generated canonical direction records");
+assert.ok(researchPage.includes('id="question-grid" data-static="1"')&&researchPage.includes('id="direction-grid" class="atlas-directions" data-static="1"'),
+ "Research direction or question visibility controls missing");
+assert.ok(!researchPage.includes('id="theme-grid"'),"Old theme cards should be replaced rather than appended");
+for(const d of directions){
+ assert.ok(researchPage.includes('data-direction-id="'+d.id+'"'),
+  "Missing direction in public overview: "+d.id);
+ assert.ok(d.history[0].event==="registered"&&d.history.length>0,
+  "Direction has lost its original scientific record");
+}
+for(const id of ["qg","kinetic","celestial"]){
+ const program=data.programs.find(p=>p.id===id);
+ const html=fs.readFileSync(program.href,"utf8");
+ assert.ok(html.includes(renderProgramDirections(directions,data,id)),"Program direction section out of sync: "+id);
+ assert.ok(html.includes('href="research.html#current-directions"'),"Atlas cross-link absent: "+id);
+}
+// Standalone and specially generated research pages must share the same register.
+const healthDirectionsMarkup=fs.readFileSync("research-health-formally-defined.html","utf8");
+assert.ok(healthDirectionsMarkup.includes("<!-- ILC_HEALTH_DIRECTIONS_START -->\n"+
+ renderProgramDirections(directions,data,"health")+"\n<!-- ILC_HEALTH_DIRECTIONS_END -->"),
+ "Health direction placeholder is not generated from the canonical register");
+const epcDirectionsMarkup=fs.readFileSync("research-essence-physical-constitution.html","utf8");
+assert.ok(epcDirectionsMarkup.includes("<!-- ILC_EPC_DIRECTIONS_START -->\n"+
+ renderProgramDirections(directions,data,"research-essence-physical-constitution.html")+
+ "\n<!-- ILC_EPC_DIRECTIONS_END -->"),
+ "Emerging initiative direction is not generated from the canonical register");
+assert.ok(directions.find(d=>d.id==="CH-D01").program_relation==="adjacent_research_stream",
+ "CH scattering must remain distinct from the existing celestial program");
+assert.ok(!directions.some(d=>d.publication_status==="published"),
+ "Pilot research directions are not additional published papers");
+for(const file of ["research.html","research-relational-quantum-gravity.html",
+ "research-kinetic-organization-biological-function.html","research-gaussian-celestial.html",
+ "research-health-formally-defined.html","research-essence-physical-constitution.html"]){
+ assert.ok(fs.readFileSync(file,"utf8").includes('href="assets/css/research-atlas.css?v=1"'),
+  "Missing Atlas design stylesheet: "+file);
+}
+assert.ok(fs.existsSync("research/directions/schema.json")&&fs.existsSync("research/directions/README.md"),
+ "RDA-01 data contract and publishing policy missing");
 const home=fs.readFileSync("index.html","utf8");
 assert.ok(home.includes("<!-- ILC_HOME_RECENT_START -->\n"+recentCards(data)+"\n<!-- ILC_HOME_RECENT_END -->"),"Stale homepage recent-publications list");
 assert.ok(home.includes('data-limit="4" data-static="1"'),"Homepage client script may overwrite current research");
@@ -463,7 +504,8 @@ import crypto from "node:crypto";
 import {makeArtifacts, publicationPath} from "./build-publication-pages.mjs";
 import {activeForPage,renderMainNav} from "./build-main-navigation.mjs";
 import {renderProgramContent, renderResearchInquiry, PROGRAM_IDS} from "./build-program-pages.mjs";
-import {programCards, emergingCards, recentCards, healthFullText, questionCards, themeCards} from "./build-site-discovery.mjs";
+import {programCards, emergingCards, recentCards, healthFullText, questionCards} from "./build-site-discovery.mjs";
+import {loadDirections,renderDirectionsSection,renderProgramDirections} from "./build-research-directions.mjs";
 const pdfManifest=JSON.parse(fs.readFileSync("research/site-pdfs.json","utf8"));
 const requiredPDFs=Object.fromEntries(pdfManifest.papers.map(p=>[
   p.recordPage.replace(/^publication-(hfd[0-9]+)\.html$/, "$1"),

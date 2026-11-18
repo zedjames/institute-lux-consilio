@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "QG-D02",
+  "title": "Physical Continuation and Representational Boundaries",
+  "stream": "Schwarzschild Quantum Gravity",
+  "program_ids": [
+    "qg"
+  ],
+  "overview": "What continues physically when a familiar mathematical description reaches its boundary?",
+  "question": "What structure must persist for an original excitation to retain its identity as its representation changes?",
+  "foundation": "Paper X establishes an earned, domain-qualified Einstein–scalar history and scoped scalar-wave structures across a regular crossing. Later boundary and identity questions remain developing investigations.",
+  "limits": "A local classical continuation does not establish indefinite continuation, free-boundary stationarity in all variation classes, or transport of the full original quantum representation.",
+  "next": "Investigate local identity-preserving mode maps, justified quantum transport, and the distinct mathematical obligations of new boundary representations.",
+  "claims": [
+    {
+      "id": "QG-D02-C01",
+      "statement": "Published Paper X establishes a specified classical Einstein–scalar continuation on its earned joined domain.",
+      "evidence": "published",
+      "publication_id": "sqg10",
+      "scope": "Domain-qualified classical history, without global quantum identity or maximal continuation."
+    },
+    {
+      "id": "QG-D02-C02",
+      "statement": "General physical identity across a change of representation is a developing scientific hypothesis.",
+      "evidence": "hypothesis",
+      "scope": "Not established as a universal continuation or identity theorem."
+    }
+  ],
+  "obligations": [
+    {
+      "id": "QG-D02-O01",
+      "question": "Identify an appropriate identity-preserving quantum-state transport map."
+    },
+    {
+      "id": "QG-D02-O02",
+      "question": "Differentiate physical continuation from natural-boundary variational stationarity."
+    }
+  ],
+  "obstructions": [
+    {
+      "id": "QG-D02-X01",
+      "summary": "A specified free-boundary stationarity problem has additional obligations beyond classical joined-solution existence.",
+      "standing": "research_obligation"
+    }
+  ],
+  "relationships": [
+    {
+      "kind": "informs",
+      "target": "QG-D01",
+      "summary": "Observational equivalence may provide a test of continued quantum identity."
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-18",
+      "event": "registered",
+      "summary": "Published classical baseline and active representational questions distinguished."
+    }
+  ],
+  "publication_status": "unpublished_direction",
+  "source_access": "mixed",
+  "disclosure": "public_summary",
+  "display": {
+    "featured": true,
+    "order": 2
+  }
+}

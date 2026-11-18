@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "KIN-D01",
+  "title": "Regenerative Functional Maintenance",
+  "stream": "Kinetic Organization and Biological Function",
+  "program_ids": [
+    "kinetic"
+  ],
+  "overview": "How can a functional process persist while the material structures supporting it undergo damage and renewal?",
+  "question": "What dynamical constraints maintain organized transport, recovery and function through structural turnover?",
+  "foundation": "The published Kinetic Organization series develops coupled movement, resource constraints and globally selected collective organization. Further regenerative models examine structural turnover and quantitative persistent function.",
+  "limits": "Developing regenerative bounds belong to specified synthetic physical sources and mathematical preparation classes; they do not establish general biological aging, clinical outcomes, or an experimentally calibrated mechanism.",
+  "next": "Clarify attractor structure, causal kinetic lag, loss of regenerative capacity and the mathematical onset of non-maintainability.",
+  "claims": [
+    {
+      "id": "KIN-D01-C01",
+      "statement": "The published Kinetic series establishes a foundation for coupled kinetic organization and global selection.",
+      "evidence": "published",
+      "publication_id": "kobf5",
+      "scope": "Source-specific four-phase collective construction."
+    },
+    {
+      "id": "KIN-D01-C02",
+      "statement": "Quantitative regenerative maintenance is a continuing internal manuscript and formalization direction.",
+      "evidence": "research_in_progress",
+      "scope": "Additional source-specific work; not represented here as a published or universally Lean-verified theorem."
+    }
+  ],
+  "obligations": [
+    {
+      "id": "KIN-D01-O01",
+      "question": "Classify complete regenerative attracting dynamics and persistence under perturbation."
+    },
+    {
+      "id": "KIN-D01-O02",
+      "question": "Formulate the onset of functional decline from explicitly evolving regenerative resources."
+    }
+  ],
+  "obstructions": [],
+  "relationships": [],
+  "history": [
+    {
+      "date": "2026-11-18",
+      "event": "registered",
+      "summary": "Published kinetic foundations and developing regenerative inquiry linked without premature publication claims."
+    }
+  ],
+  "publication_status": "unpublished_direction",
+  "source_access": "mixed",
+  "disclosure": "public_summary",
+  "display": {
+    "featured": true,
+    "order": 3
+  }
+}

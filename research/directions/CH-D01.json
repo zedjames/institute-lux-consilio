@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "CH-D01",
+  "title": "From Gravitational Action to Physical Scattering",
+  "stream": "CH — Celestial Holography and Scattering",
+  "program_ids": [
+    "celestial"
+  ],
+  "program_relation": "adjacent_research_stream",
+  "overview": "When does an interaction derived from a gravitational action support physically meaningful incoming and outgoing scattering states?",
+  "question": "What additional boundary, constraint and asymptotic structures turn a source-derived kinematic scattering calculation into a physical scattering system?",
+  "foundation": "The developing CH program has constructed source-derived one-particle and Bose-pair carriers and progressively stronger kinematic wave and scattering results; its existing physical-action and boundary investigations identify further constraints.",
+  "limits": "Kinematic wave or scattering operators are not by themselves a constraint-preserving physical gravitational S-matrix. The direct matching of a full nonlinear action-derived boundary phase to the existing W6 carrier encounters a source-specific obstruction; physical phase-space, Bose-pair, flux and BRST conditions remain to be established.",
+  "next": "Construct an action-derived physical phase space and boundary flux law, establish constrained Bose-pair and BRST-compatible interaction transport, and investigate the existence of physical and celestial scattering observables.",
+  "claims": [
+    {
+      "id": "CH-D01-C01",
+      "statement": "Continuing formally checked research develops source-derived kinematic asymptotic structures.",
+      "evidence": "formal_internal",
+      "scope": "Specified W6/CH24 source carriers and kinematic scattering results; no physical S-matrix or published CH Paper IX claimed."
+    },
+    {
+      "id": "CH-D01-C02",
+      "statement": "A source-specific boundary-carrier mismatch motivates an enlarged physical scattering construction.",
+      "evidence": "research_in_progress",
+      "scope": "Formal obstruction in a particular original-action representation, not a universal impossibility of gravitational scattering."
+    }
+  ],
+  "obligations": [
+    {
+      "id": "CH-D01-O01",
+      "question": "Develop an original-action boundary phase space with coupled Euler/flux constraints."
+    },
+    {
+      "id": "CH-D01-O02",
+      "question": "Establish physically constrained incoming/outgoing wave operators and compatible Bose-pair/BRST descent."
+    }
+  ],
+  "obstructions": [
+    {
+      "id": "CH-D01-X01",
+      "summary": "A direct full nonlinear boundary-frame identification fails on a specified source phase chart, necessitating a more suitable physical carrier.",
+      "standing": "formal_internal"
+    }
+  ],
+  "relationships": [
+    {
+      "kind": "related_question",
+      "target": "QG-D02",
+      "summary": "Both programs investigate continuation and boundary structure; a common physical mathematical bridge remains to be proved."
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-18",
+      "event": "registered",
+      "summary": "CH scattering registered as a distinct research stream associated with, but not identical to, the site's celestial research program."
+    }
+  ],
+  "publication_status": "unpublished_direction",
+  "source_access": "governed",
+  "disclosure": "public_summary",
+  "display": {
+    "featured": true,
+    "order": 5
+  }
+}
