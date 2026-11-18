@@ -87,8 +87,28 @@ export function updateFiles(root=process.cwd()){
  const i=healthHtml.indexOf(healthStart),j=healthHtml.indexOf(healthEnd,i+healthStart.length);
  if(i<0||j<i)throw Error("Health page inquiry markers missing");
  const rendered=renderResearchInquiry(data.programDetails.health.inquiry);
- const healthOut=healthHtml.slice(0,i+healthStart.length)+"\n"+rendered+healthHtml.slice(j);
+ let healthOut=healthHtml.slice(0,i+healthStart.length)+"\n"+rendered+healthHtml.slice(j);
+ const visible=loadDirections(root,data);
+ function replaceDirectionBlock(html,marker,content,before){
+  const a="<!-- "+marker+"_START -->",b="<!-- "+marker+"_END -->";
+  if(html.includes(a)&&html.includes(b)){
+   const i=html.indexOf(a)+a.length,j=html.indexOf(b,i);
+   return html.slice(0,i)+"\n"+content+"\n"+html.slice(j);
+  }
+  const at=html.indexOf(before);
+  if(at<0)throw Error("Missing insertion point for "+marker);
+  return html.slice(0,at)+a+"\n"+content+"\n"+b+"\n"+html.slice(at);
+ }
+ healthOut=replaceDirectionBlock(healthOut,"ILC_HEALTH_DIRECTIONS",
+  renderProgramDirections(visible,data,"health"),"</main>");
  fs.writeFileSync(healthFile,healthOut);
+ const epcPath="research-essence-physical-constitution.html";
+ const epcFile=path.join(root,epcPath);
+ const epcHtml=fs.readFileSync(epcFile,"utf8");
+ const epcOutput=replaceDirectionBlock(epcHtml,"ILC_EPC_DIRECTIONS",
+  renderProgramDirections(visible,data,epcPath),
+  '<section class="epc-section epc-section--mist"><div class="wrap"><p class="epc-eyebrow">Continue exploring</p>');
+ fs.writeFileSync(epcFile,epcOutput);
  console.log("Updated "+PROGRAM_IDS.length+" static scientific program pages.");
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))updateFiles();
