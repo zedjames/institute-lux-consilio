@@ -188,3 +188,22 @@ html{scroll-behavior:auto}
 .qx-propose-form .qx-form-feedback{color:#547080;font-size:12px;line-height:1.6;margin:15px 0 0}
 @media(max-width:890px){.qx-inquiry-controls,.qx-propose-grid{grid-template-columns:1fr}.qx-inquiry-findings{gap:10px}}
 @media(max-width:630px){.qx-inquiry-findings{grid-template-columns:1fr}.qx-inquiry-control{width:100%}.qx-inquiry-choices{gap:6px}.qx-inquiry-choice{flex:1 1 125px}.qx-inquiry-panel{padding:24px 19px}.qx-inquiry-sources{padding:19px}.qx-propose-form{padding:21px}}
+
+/* RDA-04 — source-qualified, generated research provenance alongside authored inquiry. */
+.qx-inquiry-origins{border:1px solid #bed4dc;background:#f8fafb;padding:clamp(22px,3vw,35px);margin:20px 0 28px}
+.qx-inquiry-origins>.eyebrow{color:#486f80}
+.qx-inquiry-origins>h3{font-size:clamp(22px,2.5vw,30px);color:#173d51;margin:9px 0 8px}
+.qx-inquiry-origins>p{font-size:14px;line-height:1.75;color:#4b6471}
+.qx-inquiry-origin-panels{display:grid;gap:12px;margin:21px 0 14px}
+.qx-inquiry-origin{padding:20px 22px;border:1px solid #d1e2e7;border-top:3px solid #548897;background:#fff}
+.qx-inquiry-origin[hidden]{display:none!important}
+.qx-inquiry-origin h3{font-size:clamp(18px,2vw,23px);line-height:1.3;margin:0 0 10px}
+.qx-inquiry-origin h3 a{color:#1a4b64;text-decoration:none}
+.qx-inquiry-origin h3 a:hover{text-decoration:underline}
+.qx-inquiry-origin p{font-size:14px;line-height:1.65;color:#4a6471;margin:0 0 12px}
+.qx-inquiry-basis{list-style:none;margin:14px 0;padding:0;display:grid;gap:7px}
+.qx-inquiry-basis li{padding:9px 12px;background:#f0f5f6;font-size:13px;line-height:1.55;color:#3b5865}
+.qx-inquiry-basis code{font:600 12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-wrap:anywhere;color:#21516a}
+.qx-inquiry-origins a{color:#1a607e;text-decoration:underline;text-underline-offset:3px}
+.qx-inquiry-origins a:focus-visible{outline:3px solid #5c9fbf;outline-offset:3px}
+.qx-inquiry-origins .qx-inquiry-origin-note{font-size:13px;line-height:1.6;margin:18px 0 0}
