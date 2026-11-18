@@ -34,9 +34,11 @@
   ],
   "history": [
     {
+      "id": "EPC-D01-H0001",
       "date": "2026-11-18",
       "event": "registered",
-      "summary": "Emerging institutional initiative included as a distinct direction without inventing a published paper sequence."
+      "summary": "Emerging institutional initiative included as a distinct direction without inventing a published paper sequence.",
+      "affects": []
     }
   ],
   "publication_status": "initiative",
