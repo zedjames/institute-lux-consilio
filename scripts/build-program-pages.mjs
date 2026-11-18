@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
+import {loadDirections,renderProgramDirections} from "./build-research-directions.mjs";
 function htmlSafe(t){return String(t??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));}
 function pubPath(x){return x.localPage || "publication-"+x.id+".html";}
 function usDate(s){return new Date(s+"T12:00:00Z").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric",timeZone:"UTC"});}
@@ -13,6 +14,8 @@ function renderResearchInquiry(detail){
 }
 function renderProgramContent(d,id){
  const p=d.programs.find(x=>x.id===id);if(!p)throw Error("Unknown program: "+id);
+ const publicDirections=loadDirections(process.cwd(),d);
+ const directionsHtml=renderProgramDirections(publicDirections,d,id);
  const detail=(d.programDetails||{})[id]||{};
  const all=(d.publications||[]).filter(x=>x.program===id);
  const pubs=(id==="rmmo"?all.filter(x=>x.seriesId==="rmmo"):all).sort((a,b)=>(a.order||0)-(b.order||0));
@@ -45,7 +48,7 @@ ${metrics?`<section class="section section--tight section--alt"><div class="wrap
 <section class="section section--alt"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Paper sequence</p><h2>Published stages of the program.</h2></div><p>${status}</p></div>${seriesDownloads}<div class="paper-sequence">${pubs.length?pubs.map(paperCard).join(""):'<p class="muted">No public papers are attached to this program yet.</p>'}</div></div></section>
 ${related.length?`<section class="section section--tight"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Related scientific work</p><h2>Adjacent research</h2></div></div><div class="paper-sequence">${related.map((x,i)=>paperCard(x,i)).join("")}</div></div></section>`:""}
 <section class="section"><div class="wrap program-layout"><article class="program-main"><p class="eyebrow">Current frontier</p><h2>What the public record hands forward.</h2><p class="frontier-copy">${htmlSafe(detail.frontier||"The program remains active and will be updated as additional public results are released.")}</p></article><aside class="program-aside"><p class="eyebrow">Open questions</p><ol class="open-question-list">${questions}</ol></aside></div></section>
-${artifacts?`<section class="section section--deep"><div class="wrap"><div class="sec-head"><div><p class="eyebrow" style="color:#c8ae83">Artifacts</p><h2>Research objects and verification surfaces.</h2></div><p style="color:#c7cfca">Papers and reproducible research records make the program inspectable.</p></div><div class="artifact-list">${artifacts}</div></div></section>`:""}
+${directionsHtml}${artifacts?`<section class="section section--deep"><div class="wrap"><div class="sec-head"><div><p class="eyebrow" style="color:#c8ae83">Artifacts</p><h2>Research objects and verification surfaces.</h2></div><p style="color:#c7cfca">Papers and reproducible research records make the program inspectable.</p></div><div class="artifact-list">${artifacts}</div></div></section>`:""}
 <section class="section section--tight"><div class="wrap"><a class="link-arrow" href="research.html">← Return to all research programs</a></div></section>
 `;
 }
