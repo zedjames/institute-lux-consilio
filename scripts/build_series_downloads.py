@@ -120,6 +120,18 @@ def verified_zenodo_pdf(pub: dict, pin: dict, expected_hash: str) -> tuple[bytes
     actual = hashlib.sha256(payload).hexdigest()
     if expected_hash and actual != expected_hash:
         raise ValueError(f"{pub['id']}: published PDF SHA-256 differs from catalog")
+    if pub["id"] == "gps9":
+        file_info, file_url = pdf_file(record)
+        print("GPS9_VERIFIED_ZENODO_METADATA " + json.dumps({
+            "doi": record.get("doi"),
+            "conceptDoi": record.get("conceptdoi"),
+            "conceptrecid": record.get("conceptrecid"),
+            "title": (record.get("metadata") or {}).get("title"),
+            "date": (record.get("metadata") or {}).get("publication_date"),
+            "version": (record.get("metadata") or {}).get("version"),
+            "filename": file_info.get("key") or file_info.get("filename"),
+            "pdf": file_url, "sha256": actual
+        }, ensure_ascii=False), flush=True)
     return payload, actual
 
 
