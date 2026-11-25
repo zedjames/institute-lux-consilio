@@ -494,9 +494,9 @@ assert.ok(chProgram.includes('id="direction-CH-D01"')&&
  chProgram.includes("Internal formal research")&&
  chProgram.includes("not a gauge/BRST-reduced physical S-matrix"),
  "CH source-qualified kinematic work must be inspectable within its existing program page");
-assert.ok(chProgram.includes("original unit coupling")&&
+assert.ok(chProgram.includes("original unit-coupling claim open")&&
  chProgram.includes("publication-gps9.html")&&chProgram.includes("Published scholarly foundation")&&
- chProgram.includes("not a physical S-matrix"),
+ chProgram.includes("does not establish a physical S-matrix"),
  "CH limits must separate the published geometric Paper IX from internal physical-scattering obligations");
 const relations=enumerateResearchConnections(directions);
 assert.equal(relations.length,4,"Initial RDA-03 source-backed relation count changed");
