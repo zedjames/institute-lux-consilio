@@ -17,7 +17,7 @@
       "id": "CH-D01-C01",
       "statement": "For the specified original finite-rank W6⊕CH24 kinematic interaction, incoming and outgoing strong-limit wave isometries have ranges equal to the interacting absolutely continuous carrier, and their comparison is unitary.",
       "evidence": "formal_internal",
-      "scope": "Original action-linked, self-adjoint finite-rank cubic-plus-affine kinematic generators on the received two-sector Hilbert carrier and their established Cook domains. This is not a gauge/BRST-reduced physical S-matrix or celestial scattering amplitude."
+      "scope": "Original action-linked self-adjoint finite-rank cubic-plus-affine kinematic generators on the received two-sector Hilbert carrier and their established Cook domains. This developing kinematic scattering result is distinct from the published Paper IX metric-reconstruction theorems and does not establish a gauge/BRST-reduced physical S-matrix."
     },
     {
       "id": "CH-D01-C02",
