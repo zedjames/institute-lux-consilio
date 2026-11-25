@@ -29,7 +29,7 @@ assert.deepStrictEqual([...ch.history.find(x=>x.id==="CH-D01-H0003").affects].so
  ["overview","foundation","limits","next","claims","obligations","obstructions"].sort());
 assert.ok(ch.limits.includes("original unit-coupling claim open")&&
  ch.limits.includes("physical S-matrix")&&
- ch.limits.includes("Published Paper IX")===false,
+ ch.limits.includes("Paper IX proves source-specific nonlinear gravitational reconstruction"),
  "Kinematic, physical and publication boundaries must remain explicit");
 assert.ok(ch.claims.find(c=>c.id==="CH-D01-C03").scope.includes("not certified to include unit coupling"));
 assert.ok(ch.claims.find(c=>c.id==="CH-D01-C02").scope.includes("not a no-go theorem"));
