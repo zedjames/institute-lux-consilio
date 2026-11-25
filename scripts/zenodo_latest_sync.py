@@ -157,7 +157,7 @@ def sync(site,probe=False,allow_partial=False):
     pubs={x["id"]:x for x in records if (x.get("collection")=="publications" if ffb else True)}
     # Paper VII is DOI-indexed before its all-versions Zenodo family is independently audited.
     # Preserve existing pinned mirror updates; never infer a concept DOI from a numeric neighbor.
-    pending={"hfd7": "10.5281/zenodo.24143821"} if not ffb else {}
+    pending={"hfd7": "10.5281/zenodo.24143821", "gps9": "10.5281/zenodo.24540001"} if not ffb else {}
     present_pending={k:v for k,v in pending.items() if k in pubs}
     if set(pubs)!=set(pins)|set(present_pending) or any(pubs[k].get("doi")!=v for k,v in present_pending.items()):
         raise ValueError("Publication registry and audited Zenodo families differ; reconcile before syncing")
