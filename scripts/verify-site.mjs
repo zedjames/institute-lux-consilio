@@ -351,6 +351,9 @@ assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-gps9.
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-gps8.html"),"Celestial VIII missing from static sitemap");
 const celestialIX=data.publications.find(x=>x.id==="gps9");
 assert.ok(celestialIX&&celestialIX.order===9&&celestialIX.seriesId==="gaussian"&&celestialIX.program==="celestial");
+assertVersionedPublication(celestialIX,{concept:"10.5281/zenodo.24539999",minRecord:24540001,minDate:"2026-11-25",minVersion:"1.0"});
+assert.equal(celestialIX.pdfSha256,"3bbbd8931f926a41fea65553971779645e677149d9314420cd63021532dc52af","Paper IX PDF differs from verified uploaded and Zenodo bytes");
+assert.ok(celestialIX.pdf.startsWith("https://zenodo.org/api/records/24540001/files/")&&celestialIX.pdf.endsWith("/content"),"Celestial Paper IX lacks verified direct scholarly PDF URL");
 assert.ok(celestialIX.summary.includes("320-dimensional sitewise trace kernel")&&
  celestialIX.summary.includes("211")&&celestialIX.summary.includes("347")&&
  celestialIX.summary.includes("boundary Cartan"),"Celestial IX must retain both physical observation results and action-derived boundary context");
@@ -633,19 +636,10 @@ assert.equal(nsIV?.program,"ns");
 const gaussianPapers=data.publications.filter(p=>p.seriesId==="gaussian").sort((a,b)=>a.order-b.order);
 assert.deepStrictEqual(gaussianPapers.map(p=>p.order),[1,2,3,4,5,6,7,8,9],"Gaussian/Celestial sequence must contain Papers I–IX");
 const pins=JSON.parse(fs.readFileSync("research/zenodo-concepts.json","utf8")).papers;
-assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.filter(p=>!["hfd7","gps9"].includes(p.id)).map(p=>p.id).sort(),"Existing ILC publications must retain audited Zenodo families; Paper VII is temporarily version-DOI indexed");
+assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.filter(p=>p.id!=="hfd7").map(p=>p.id).sort(),"Existing ILC publications must retain audited Zenodo families; Paper VII is temporarily version-DOI indexed");
 for(const pub of data.publications){
  const pin=pins[pub.id];
  assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(pub.doi),"Invalid version DOI "+pub.id);
- if(pub.id==="gps9"){
-   assert.equal(pub.doi,"10.5281/zenodo.24540001","Celestial IX DOI must match the attached signed preprint");
-   assert.equal(pub.title,"From Interaction Topology to Nonlinear Gravitational Geometry");
-   assert.equal(pub.version,"1.0");
-   assert.equal(pub.date,"2026-11-25");
-   assert.ok(!pub.conceptDoi&&!pub.pdf,"Do not infer Zenodo concept DOI or PDF direct URL for a version-only paper");
-   assert.equal(pub.pdfSha256,"3bbbd8931f926a41fea65553971779645e677149d9314420cd63021532dc52af","Manuscript fingerprint must match attached v1.0");
-   continue;
- }
  if(pub.id==="hfd7"){
    assert.equal(pub.doi,"10.5281/zenodo.24143821","Paper VII must cite its source record");
    assert.equal(pub.localPage,"publication-hfd7.html");
