@@ -190,7 +190,7 @@ const completeSeriesDownloads={
  health:["research-health-formally-defined.html","health-formally-defined",7],
  kinetic:["research-kinetic-organization-biological-function.html","kinetic-organization-biological-function",5],
  rmmo:["research-relational-morphogenesis.html","rmmo",3],
- celestial:["research-gaussian-celestial.html","gaussian",8],
+ celestial:["research-gaussian-celestial.html","gaussian",9],
  qg:["research-relational-quantum-gravity.html","schwarzschild-qg",10],
  ns:["research-navier-stokes.html","navier-stokes",4],
 };
@@ -340,15 +340,34 @@ assert.equal(celestialVIII.title,"Interaction Topologies of Celestial Radiative 
 assertVersionedPublication(celestialVIII,{concept:"10.5281/zenodo.23651437",minRecord:23651438,minDate:"2026-10-25",minVersion:"1.0"});
 assert.ok(celestialVIII.summary.includes("entire admissible cubic span")&&celestialVIII.summary.includes("No continuum scattering operator"),"Celestial VIII must preserve topology and scattering scope");
 assert.ok(data.programDetails.celestial.narrative.some(x=>x.startsWith("Paper VIII v1.0 proves")),"Celestial VIII trajectory missing");
-assert.ok(data.programDetails.celestial.frontier.includes("Papers VI–VIII")&&!data.programDetails.celestial.frontier.includes("being drafted"),"Celestial VIII must be a published result, not a draft");
-assert.equal(data.series.find(s=>s.id==="gaussian")?.publishedCount,8,"Celestial published sequence must include VIII");
-assert.equal(data.series.find(s=>s.id==="gaussian")?.status,"Papers I–VIII published");
+assert.ok(data.programDetails.celestial.frontier.includes("Paper IX")&&!data.programDetails.celestial.frontier.includes("being drafted"),"Celestial IX must be represented as the newest published geometric result");
+assert.equal(data.series.find(s=>s.id==="gaussian")?.publishedCount,9,"Celestial published sequence must include IX");
+assert.equal(data.series.find(s=>s.id==="gaussian")?.status,"Papers I–IX published");
 assert.ok(data.programDetails.celestial.artifacts.some(x=>x.href==="publication-gps8.html"),"Celestial VIII scholarly artifact missing");
 const celestialVIIIHtml=fs.readFileSync("publication-gps8.html","utf8");
 assert.ok(celestialVIIIHtml.includes('name="citation_doi" content="'+celestialVIII.doi+'"')&&celestialVIIIHtml.includes(celestialVIII.pdf),"Celestial VIII indexed publication must expose current DOI and PDF");
 assert.ok(fs.readFileSync("publication-gps7.html","utf8").includes('href="publication-gps8.html"'),"Celestial VII must link to next published paper");
-assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-gps8.html"'),"Celestial VIII missing from homepage");
+assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-gps9.html"'),"Newest Celestial Paper IX missing from homepage");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-gps8.html"),"Celestial VIII missing from static sitemap");
+const celestialIX=data.publications.find(x=>x.id==="gps9");
+assert.ok(celestialIX&&celestialIX.order===9&&celestialIX.seriesId==="gaussian"&&celestialIX.program==="celestial");
+assertVersionedPublication(celestialIX,{concept:"10.5281/zenodo.24539999",minRecord:24540001,minDate:"2026-11-25",minVersion:"1.0"});
+assert.equal(celestialIX.pdfSha256,"3bbbd8931f926a41fea65553971779645e677149d9314420cd63021532dc52af","Paper IX PDF differs from verified uploaded and Zenodo bytes");
+assert.ok(celestialIX.pdf.startsWith("https://zenodo.org/api/records/24540001/files/")&&celestialIX.pdf.endsWith("/content"),"Celestial Paper IX lacks verified direct scholarly PDF URL");
+assert.ok(celestialIX.summary.includes("320-dimensional sitewise trace kernel")&&
+ celestialIX.summary.includes("211")&&celestialIX.summary.includes("347")&&
+ celestialIX.summary.includes("boundary Cartan"),"Celestial IX must retain both physical observation results and action-derived boundary context");
+assert.ok(data.programDetails.celestial.narrative.some(x=>x.startsWith("Paper IX v1.0 reconstructs"))&&
+ data.programDetails.celestial.artifacts.some(x=>x.href==="publication-gps9.html"),
+ "Celestial Paper IX must appear in the scientific trajectory and scholarly artifacts");
+const celestialIXHtml=fs.readFileSync("publication-gps9.html","utf8");
+assert.ok(celestialIXHtml.includes('name="citation_doi" content="'+celestialIX.doi+'"')&&
+ celestialIXHtml.includes('name="citation_title" content="'+celestialIX.title+'"'),
+ "Celestial IX must have correct machine-readable scholarly citation metadata");
+assert.ok(fs.readFileSync("publication-gps8.html","utf8").includes('href="publication-gps9.html"'),
+ "Paper VIII must lead to its new successor Paper IX");
+assert.ok(siteSitemap.includes("<loc>https://instituteluxconsilio.org/publication-gps9.html</loc>"),
+ "Celestial IX must be indexed in the static sitemap");
 const kineticIII=data.publications.find(x=>x.id==="kobf3");
 assert.equal(kineticIII?.conceptDoi,"10.5281/zenodo.23547073","Kinetic Paper III DOI family changed");
 assert.ok(Number(kineticIII?.doi?.split(".").at(-1))>=23547074,"Kinetic Paper III must remain at v1.0 or later");
@@ -464,22 +483,24 @@ assert.ok(epcDirectionsMarkup.includes("<!-- ILC_EPC_DIRECTIONS_START -->\n"+
 // RDA-06: Qualified CH scientific progress is visible through a native
 // evidence disclosure without changing CH's scientific identity or paper standing.
 const chDirection=directions.find(d=>d.id==="CH-D01");
-assert.ok(chDirection&&chDirection.claims.length===4&&chDirection.obligations.length===4&&
+assert.ok(chDirection&&chDirection.claims.length===5&&chDirection.obligations.length===4&&
  chDirection.obstructions.length===2,"CH scattering source record missing qualified new results and obligations");
-assert.ok(chDirection.claims.every(c=>c.evidence==="formal_internal")&&
+assert.ok(chDirection.claims.filter(c=>c.evidence==="formal_internal").length===4&&
+ chDirection.claims.some(c=>c.id==="CH-D01-C05"&&c.evidence==="published"&&c.publication_id==="gps9")&&
  chDirection.publication_status==="unpublished_direction",
- "No CH internal theorem may be silently elevated to a published result");
+ "Published geometric Paper IX must support CH while separate kinematic scattering remains internal research");
 assert.ok(chDirection.history.some(e=>e.id==="CH-D01-H0003"&&e.event==="finding"),
  "CH progress must have a durable dated scientific development event");
 const chProgram=fs.readFileSync("research-gaussian-celestial.html","utf8");
 assert.ok(chProgram.includes('id="direction-CH-D01"')&&
  chProgram.includes('<details class="atlas-program-evidence"')&&
  chProgram.includes("Internal formal research")&&
- chProgram.includes("not a gauge/BRST-reduced physical S-matrix"),
+ chProgram.includes("does not establish a gauge/BRST-reduced physical S-matrix"),
  "CH source-qualified kinematic work must be inspectable within its existing program page");
-assert.ok(chProgram.includes("original unit coupling")&&
- chProgram.includes("not a published CH Paper IX"),
- "CH limits must distinguish scaled scattering from original unit coupling and physical publication");
+assert.ok(chProgram.includes("original unit-coupling claim open")&&
+ chProgram.includes("publication-gps9.html")&&chProgram.includes("Published scholarly foundation")&&
+ chProgram.includes("does not establish a physical S-matrix"),
+ "CH limits must separate the published geometric Paper IX from internal physical-scattering obligations");
 const relations=enumerateResearchConnections(directions);
 assert.equal(relations.length,4,"Initial RDA-03 source-backed relation count changed");
 assert.ok(relations.every(({edge})=>edge.standing==="research_question"),
@@ -613,7 +634,7 @@ assert.equal(nsIV?.title,"Faithful Terminal Descent of Autonomous Histories in P
 assert.equal(nsIV?.conceptDoi,"10.5281/zenodo.23378028");
 assert.equal(nsIV?.program,"ns");
 const gaussianPapers=data.publications.filter(p=>p.seriesId==="gaussian").sort((a,b)=>a.order-b.order);
-assert.deepStrictEqual(gaussianPapers.map(p=>p.order),[1,2,3,4,5,6,7,8],"Gaussian/Celestial sequence must contain Papers I–VIII");
+assert.deepStrictEqual(gaussianPapers.map(p=>p.order),[1,2,3,4,5,6,7,8,9],"Gaussian/Celestial sequence must contain Papers I–IX");
 const pins=JSON.parse(fs.readFileSync("research/zenodo-concepts.json","utf8")).papers;
 assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.filter(p=>p.id!=="hfd7").map(p=>p.id).sort(),"Existing ILC publications must retain audited Zenodo families; Paper VII is temporarily version-DOI indexed");
 for(const pub of data.publications){

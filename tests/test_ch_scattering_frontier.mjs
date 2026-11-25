@@ -13,20 +13,23 @@ assert.ok(ch,"Missing registered CH research direction");
 assert.equal(ch.program_relation,"adjacent_research_stream");
 assert.deepStrictEqual(ch.program_ids,["celestial"]);
 assert.equal(ch.publication_status,"unpublished_direction");
-assert.equal(ch.source_access,"governed");
-assert.equal(ch.claims.length,4);
-assert.ok(ch.claims.every(c=>c.evidence==="formal_internal"&&!c.publication_id),
- "CH P9-SA11 research must remain internal formal work, not a published paper");
+assert.equal(ch.source_access,"mixed");
+assert.equal(ch.claims.length,5);
+assert.ok(ch.claims.filter(c=>c.evidence==="formal_internal"&&!c.publication_id).length===4,
+ "CH P9-SA11 wave/scattering claims must retain internal formal standing");
+assert.ok(ch.claims.some(c=>c.id==="CH-D01-C05"&&c.evidence==="published"&&c.publication_id==="gps9"),
+ "Published Paper IX must be represented as scoped nonlinear geometry, not scattering");
 assert.equal(ch.obstructions.length,2);
 assert.ok(ch.obstructions.every(o=>o.standing==="formal_internal"));
 assert.equal(ch.obligations.length,4);
-assert.equal(ch.history.at(-1).id,"CH-D01-H0003");
-assert.equal(ch.history.at(-1).event,"finding");
-assert.deepStrictEqual([...ch.history.at(-1).affects].sort(),
+assert.equal(ch.history.at(-1).id,"CH-D01-H0004");
+assert.equal(ch.history.at(-1).event,"publication");
+assert.ok(ch.history.some(x=>x.id==="CH-D01-H0003"&&x.event==="finding"));
+assert.deepStrictEqual([...ch.history.find(x=>x.id==="CH-D01-H0003").affects].sort(),
  ["overview","foundation","limits","next","claims","obligations","obstructions"].sort());
-assert.ok(ch.limits.includes("original unit coupling remains open")&&
- ch.limits.includes("physical gravitational S-matrix")&&
- ch.limits.includes("not a published CH Paper IX"),
+assert.ok(ch.limits.includes("original unit-coupling claim open")&&
+ ch.limits.includes("physical S-matrix")&&
+ ch.limits.includes("Paper IX proves source-specific nonlinear gravitational reconstruction"),
  "Kinematic, physical and publication boundaries must remain explicit");
 assert.ok(ch.claims.find(c=>c.id==="CH-D01-C03").scope.includes("not certified to include unit coupling"));
 assert.ok(ch.claims.find(c=>c.id==="CH-D01-C02").scope.includes("not a no-go theorem"));
@@ -34,13 +37,13 @@ assert.ok(ch.claims.find(c=>c.id==="CH-D01-C02").scope.includes("not a no-go the
 const evidence=renderDirectionEvidence(ch,catalog);
 assert.ok(evidence.startsWith('<details class="atlas-program-evidence"'));
 assert.ok(evidence.includes("<summary>Examine the scientific basis and open questions</summary>"));
-assert.equal((evidence.match(/class="atlas-evidence-type"/g)||[]).length,6,
- "Detailed CH disclosure must identify four claims and two qualified obstructions");
+assert.equal((evidence.match(/class="atlas-evidence-type"/g)||[]).length,7,
+ "Detailed CH disclosure must identify four internal claims, one published foundation and two obstructions");
 assert.ok(evidence.includes("source-dependent")&&evidence.includes("released middle-face")&&
  evidence.includes("Cartan flux")&&evidence.includes("Internal formal research"));
 assert.ok(evidence.includes("adjacent research stream"));
-assert.ok(!evidence.includes("Published record →"),
- "CH formal work must not be rendered as a published paper");
+assert.ok(evidence.includes('href="publication-gps9.html"')&&evidence.includes("Published scholarly foundation"),
+ "Published IX must be linked as a separate scholarly foundation");
 
 const program=fs.readFileSync("research-gaussian-celestial.html","utf8");
 assert.ok(program.includes(renderProgramDirections(directions,catalog,"celestial")),

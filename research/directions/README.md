@@ -129,6 +129,20 @@ The program rendering now includes a native HTML `<details>` section for every p
 
 Changes in other directions are carried automatically by the same renderer. The research homepage remains a compact overview, and CH stays an adjacent, distinctly identified scattering program in the host celestial program's discovery context.
 
+## November 25, 2026 — Celestial Paper IX publication and CH inquiry continuity
+
+Paper IX of **Gaussian Physical States and Celestial Representation** is `gps9`: *From Interaction Topology to Nonlinear Gravitational Geometry — Action-derived response, osculating structure, and physical reconstruction in celestial representations*, preprint v1.0, DOI `10.5281/zenodo.24540001`. The edition submitted for the public ILC catalog is dated November 25, 2026 and has attached PDF SHA-256 `3bbbd8931f926a41fea65553971779645e677149d9314420cd63021532dc52af`.
+
+The new catalog record and publication page preserve the actual scientific distinction:
+
+- **Finite momentum-packet radiative observation:** dimension 128, first/second/third osculating dimensions 134/155/211; independent quadratic and cubic increments 21 and 56.
+- **Common translated Schwartz-profile full-field observation:** dimension 320 (the full sitewise spatial-trace kernel), first/second/third dimensions 326/347/347; exact closure of the complete locally observed nonlinear response at second order.
+- **Action and physical geometry:** six trace coordinates determine a local metric inverse, 27 scalar traces identify the independent first/second derivative span, and the reduced action determines the nondegenerate boundary Cartan form and physical radiative–boundary pairing under its declared hypotheses.
+
+`CH-D01` remains a separate **active physical scattering direction**. Its internal P9-SA11 kinematic wave operators, small-coupling nonidentity family and action-derived physical phase-space obstructions are classified separately from the published Paper IX metric-reconstruction theorem. `CH-D01-C05` references the published foundation; the four existing scattering claims retain internal formal standing. The `CH-D01-H0004` event records the transition without rewriting previous events.
+
+**Verified archival identity.** GitHub Actions independently retrieved the published Zenodo record for Paper IX and confirmed the version DOI `10.5281/zenodo.24540001`, stable all-versions DOI `10.5281/zenodo.24539999`, exact title, publication date, version `v1.0`, deposited PDF filename, and SHA-256 `3bbbd8931f926a41fea65553971779645e677149d9314420cd63021532dc52af`. The complete PDF URL is recorded in both canonical catalogs and the independently audited concept DOI in `research/zenodo-concepts.json`. The series ZIP publisher must continue to verify the archived version bytes; the CH physical scattering claims remain distinct from the published geometric paper.
+
 ## Future compatibility
 
 RDA-01 establishes stable identities, claims, relationships, obstructions, and dated events. RDA-02 provides revision and provenance tooling; RDA-03 supplies the qualified cross-direction relationship atlas; RDA-04 connects approved claims to authored Inquiry Explorers through public scoped metadata; governed Runtime access remains a future, independently qualified capability. These extensions do not require altering existing direction IDs.

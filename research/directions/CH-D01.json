@@ -9,15 +9,15 @@
   "program_relation": "adjacent_research_stream",
   "overview": "How far can an original gravitational action carry us from source-owned interactions and boundary data toward genuinely physical incoming and outgoing scattering states?",
   "question": "What additional boundary, constraint and asymptotic structures turn a source-derived kinematic scattering calculation into a physical scattering system?",
-  "foundation": "In developing internal CH/P9-SA11 formal research, original-action W6 one-particle and CH24 symmetric Bose-pair states enter a common source-generated kinematic setting. Focused Lean-checked constructions establish self-adjoint free/interacting kinematic generators, strong incoming/outgoing wave isometries, equality of their ranges with the interacting absolutely continuous carrier, and a unitary kinematic comparison. A real-scaled family of the unchanged source interaction provably yields nonidentity comparisons for sufficiently small positive couplings. Separately, the complete six-sector action defines a positive complex boundary phase on its full twelve-real-control chart, while its nearby nonlinear future-frame metric fails a direct W6 fullbank readback test.",
-  "limits": "The nonidentity result concerns a real-scaled kinematic interaction at source-dependent sufficiently small nonzero coupling; nonidentity at the original unit coupling remains open. The full source boundary-phase result does not give an action-derived physical W6/CH24 Hilbert carrier: the original nonlinear frame has a proved W6 range obstruction, and an inhabited source family retains nonzero released-boundary variation. Neither physical constraint/BRST preservation, a justified boundary Euler/Cartan flux law, continuum momentum covariance, a physical gravitational S-matrix, nor a celestial scattering amplitude has been constructed. This is internal formal research, not a published CH Paper IX.",
+  "foundation": "Published Paper IX establishes the local nonlinear metric-response geometry derived from the same boundary-completed regulated gravitational action: the finite radiative packet observation has 21 new quadratic and 56 new cubic quotient directions, while a specified common Schwartz-profile observation achieves complete observed nonlinear response closure at second order. In parallel, the developing internal P9-SA11 scattering investigation constructs source-linked W6 one-particle and CH24 Bose-pair kinematic evolution, source-derived incoming/outgoing wave operators and a unitary kinematic comparison, with nonidentity proved for a small-coupling family.",
+  "limits": "Paper IX proves source-specific nonlinear gravitational reconstruction and boundary geometry in a prescribed finite regulator; it does not establish a physical S-matrix. The separately developing P9-SA11 kinematic nonidentity result concerns sufficiently small positive real couplings, with the original unit-coupling claim open. The nonlinear future-frame W6 readback obstruction and the original released-boundary variation require an enlarged action-derived physical carrier, appropriate Euler/Cartan flux, and coupled Bose-pair/gauge/BRST preservation before physical or celestial scattering amplitudes can be inferred.",
   "next": "Develop a source-derived phase space with physically justified boundary equations and Cartan flux, incorporating any necessary extra geometric degrees of freedom; prove invariant W6/CH24 Bose-pair and gauge/BRST constraints; distinguish the original unit-coupling kinematic question from physical scattering, then test on-shell channels and celestial transform eligibility.",
   "claims": [
     {
       "id": "CH-D01-C01",
       "statement": "For the specified original finite-rank W6⊕CH24 kinematic interaction, incoming and outgoing strong-limit wave isometries have ranges equal to the interacting absolutely continuous carrier, and their comparison is unitary.",
       "evidence": "formal_internal",
-      "scope": "Original action-linked, self-adjoint finite-rank cubic-plus-affine kinematic generators on the received two-sector Hilbert carrier and their established Cook domains. This is not a gauge/BRST-reduced physical S-matrix or celestial scattering amplitude."
+      "scope": "Original action-linked self-adjoint finite-rank cubic-plus-affine kinematic generators on the received two-sector Hilbert carrier and their established Cook domains. This developing kinematic scattering result is distinct from the published Paper IX metric-reconstruction theorems and does not establish a gauge/BRST-reduced physical S-matrix."
     },
     {
       "id": "CH-D01-C02",
@@ -36,6 +36,13 @@
       "statement": "The original cubic interaction produces a nonzero W6-to-CH24 pair response, and the corresponding source-cell one- and two-particle energy shells have checked overlapping support under the stated cell and energy conditions.",
       "evidence": "formal_internal",
       "scope": "Source-specific kinematic one/pair channels with exact energy-domain and finite-regulator qualifications; nonzero pair creation and energy overlap do not establish a connected, spatial-momentum-covariant physical on-shell scattering amplitude."
+    },
+    {
+      "id": "CH-D01-C05",
+      "statement": "Published Paper IX establishes the action-derived finite-packet normal metric increments of ranks 21 and 56 at second and third order, and exact second-order local nonlinear metric-response closure under the specified full-field common Schwartz-profile observation.",
+      "evidence": "published",
+      "publication_id": "gps9",
+      "scope": "Original unit-coupling, finite-regulator six-control gravitational response and the declared radiative observation maps; the theorem concerns metric reconstruction and representation, not the existence of a physical gravitational scattering operator."
     }
   ],
   "obligations": [
@@ -112,10 +119,22 @@
         "obligations",
         "obstructions"
       ]
+    },
+    {
+      "id": "CH-D01-H0004",
+      "date": "2026-11-25",
+      "event": "publication",
+      "summary": "Added Gaussian/Celestial Paper IX as an archived scholarly foundation for nonlinear gravitational metric reconstruction. Preserved the distinction between the published source-specific osculating geometry and the separately developing internal W6/CH24 physical scattering program.",
+      "affects": [
+        "foundation",
+        "limits",
+        "claims",
+        "source_access"
+      ]
     }
   ],
   "publication_status": "unpublished_direction",
-  "source_access": "governed",
+  "source_access": "mixed",
   "disclosure": "public_summary",
   "display": {
     "featured": true,
