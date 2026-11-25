@@ -23,6 +23,9 @@ ROOT = Path(__file__).resolve().parents[1]
 RELEASE_TAG = "series-latest"
 RELEASE_BASE = "https://github.com/zedjames/institute-lux-consilio/releases/download/" + RELEASE_TAG + "/"
 INDEX_NAME = "series-index.json"
+# Version-only publication records awaiting an independently audited Zenodo concept DOI.
+# Never guess a concept identifier from neighboring numeric record IDs.
+PENDING_VERSION_PUBLICATIONS = {"hfd7": "10.5281/zenodo.24143821", "gps9": "10.5281/zenodo.24540001"}
 
 
 def safe_slug(value: str) -> str:
@@ -94,13 +97,13 @@ def verified_zenodo_pdf(pub: dict, pin: dict, expected_hash: str) -> tuple[bytes
     if record.get("doi") != pub["doi"]:
         raise ValueError(f"{pub['id']}: Zenodo version DOI mismatch")
     if pin is None:
-        if pub["id"] != "hfd7" or pub["doi"] != "10.5281/zenodo.24143821":
+        if PENDING_VERSION_PUBLICATIONS.get(pub["id"]) != pub["doi"]:
             raise ValueError("Unapproved DOI-indexed publication without concept pin")
         # Verify the actual version record and author; its stable concept DOI has
         # not yet been registered as an audited latest-edition family.
         from difflib import SequenceMatcher
         if SequenceMatcher(None, normalize(pub["title"]), normalize((record.get("metadata") or {}).get("title"))).ratio() < 0.78:
-            raise ValueError("Paper VII Zenodo title mismatch")
+            raise ValueError(f"{pub['id']}: Zenodo deposited title mismatch")
     else:
         if record.get("conceptdoi") != pin["concept_doi"]:
             raise ValueError(f"{pub['id']}: Zenodo concept DOI mismatch")
@@ -184,8 +187,13 @@ def main() -> None:
         raise ValueError("Unknown or empty program: " + args.program)
     expected = {p["id"] for papers in groups.values() for p in papers}
     pending = expected - pins.keys()
-    if pending != {"hfd7"} and pending:
-        raise ValueError("Unpinned publications: " + str(pending))
+    unexpected = pending - PENDING_VERSION_PUBLICATIONS.keys()
+    if unexpected:
+        raise ValueError("Unpinned publications: " + str(unexpected))
+    for ident in pending:
+        pub = next(p for p in catalog["publications"] if p["id"] == ident)
+        if pub["doi"] != PENDING_VERSION_PUBLICATIONS[ident]:
+            raise ValueError("Unapproved version-only publication record: " + ident)
     index = archive_index(catalog, local_manifest)
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / INDEX_NAME).write_text(
