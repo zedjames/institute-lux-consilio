@@ -1,6 +1,6 @@
 {
   "schema": "ilc-scholarly-catalog/v1",
-  "updated": "2026-11-17",
+  "updated": "2026-11-25",
   "editor": "Institute Lux Consilio",
   "purpose": "Canonical public scholarly index for cross-disciplinary research programs, publications, and notes.",
   "provenance": "The scholarly catalog preserves original authorship, DOI identifiers, archival links, and source provenance for each publication.",
@@ -337,6 +337,33 @@
       ],
       "localPage": "publication-hfd4.html",
       "pdf": "papers/health-formally-defined-paper-iv.pdf"
+    },
+    {
+      "id": "gps9",
+      "date": "2026-11-25",
+      "seriesId": "gaussian",
+      "series": "Gaussian Physical States and Celestial Representation",
+      "order": 9,
+      "title": "From Interaction Topology to Nonlinear Gravitational Geometry",
+      "subtitle": "Action-derived response, osculating structure, and physical reconstruction in celestial representations",
+      "doi": "10.5281/zenodo.24540001",
+      "summary": "Paper IX reconstructs the nonlinear response of a boundary-completed regulated gravitational action from six boundary controls, an 810-dimensional Lorentz-reduced interior system, and 384 observed spatial-metric components. The finite helicity-two packet observation has image dimension 128; the complete first, second, and third osculating spaces have dimensions 134, 155, and 211, with maximal quadratic and cubic quotient ranks 21 and 56. For a common translated Schwartz-profile observation of the full physical radiative field, the image is exactly the 320-dimensional sitewise trace kernel, and the corresponding osculating sequence is 326, 347, 347. This observer therefore achieves exact local observed nonlinear response closure at second order. Six local trace coordinates reconstruct the analytic metric response, while a nonsingular 27-trace joint observation resolves its first two derivative levels. The same original action yields a nondegenerate twelve-dimensional boundary Cartan form, compatible complex structure, and nonzero radiative–boundary coupling, with internal Lorentz and material-regulator covariance established on their stated domains. The two observation maps disclose distinct tensorial reconstruction requirements for the same action-derived metric response. The paper distinguishes prescribed interior stationarity and released-boundary equations; asymptotic gravitational scattering remains a subsequent dynamical investigation.",
+      "program": "celestial",
+      "domains": [
+        "Mathematical physics",
+        "Celestial holography",
+        "Nonlinear gravitational geometry",
+        "Representation theory",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "invariance-identity",
+        "formalization-proof"
+      ],
+      "version": "1.0",
+      "pdfSha256": "3bbbd8931f926a41fea65553971779645e677149d9314420cd63021532dc52af"
     },
     {
       "id": "gps8",
