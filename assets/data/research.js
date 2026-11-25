@@ -358,7 +358,9 @@ window.ILC_DATA={
         "formalization-proof"
       ],
       "version": "1.0",
-      "pdfSha256": "3bbbd8931f926a41fea65553971779645e677149d9314420cd63021532dc52af"
+      "pdfSha256": "3bbbd8931f926a41fea65553971779645e677149d9314420cd63021532dc52af",
+      "conceptDoi": "10.5281/zenodo.24539999",
+      "pdf": "https://zenodo.org/api/records/24540001/files/From%20Interaction%20Topology%20to%20Nonlinear%20Gravitational%20Geometry%20v1.0.pdf/content"
     },
     {
       "id": "gps8",
