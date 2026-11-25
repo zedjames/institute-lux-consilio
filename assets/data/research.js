@@ -91,9 +91,9 @@ window.ILC_DATA={
       "id": "gaussian",
       "label": "Gaussian Physical States and Celestial Representation",
       "domain": "Mathematical physics",
-      "description": "A foundational investigation of the physical carriers, symmetries, operator domains, information retention and interaction continuity required for celestial representation. The published sequence proceeds from Gaussian states to radiative Bose-pair source faithfulness, failure of bounded retained Hilbert completion, a gravitational cubic adjoint-range obstruction, and strict cubic–quartic interaction-topology refinements on the actual physical retained image.",
-      "status": "Papers I–VIII published",
-      "publishedCount": 8
+      "description": "A foundational investigation of the physical carriers, operator domains, information preservation, interaction continuity, and nonlinear gravitational reconstruction required for celestial representation. The sequence develops Gaussian physical states, radiative Bose-pair faithfulness, exact cubic–quartic interaction topologies, and the nonlinear metric responses that can be reconstructed by specified physical radiative observations.",
+      "status": "Papers I–IX published",
+      "publishedCount": 9
     },
     {
       "id": "relational-cell-fate",
@@ -332,6 +332,33 @@ window.ILC_DATA={
       ],
       "localPage": "publication-hfd4.html",
       "pdf": "papers/health-formally-defined-paper-iv.pdf"
+    },
+    {
+      "id": "gps9",
+      "date": "2026-11-25",
+      "seriesId": "gaussian",
+      "series": "Gaussian Physical States and Celestial Representation",
+      "order": 9,
+      "title": "From Interaction Topology to Nonlinear Gravitational Geometry",
+      "subtitle": "Action-derived response, osculating structure, and physical reconstruction in celestial representations",
+      "doi": "10.5281/zenodo.24540001",
+      "summary": "Paper IX reconstructs the nonlinear response of a boundary-completed regulated gravitational action from six boundary controls, an 810-dimensional Lorentz-reduced interior system, and 384 observed spatial-metric components. The finite helicity-two packet observation has image dimension 128; the complete first, second, and third osculating spaces have dimensions 134, 155, and 211, with maximal quadratic and cubic quotient ranks 21 and 56. For a common translated Schwartz-profile observation of the full physical radiative field, the image is exactly the 320-dimensional sitewise trace kernel, and the corresponding osculating sequence is 326, 347, 347. This observer therefore achieves exact local observed nonlinear response closure at second order. Six local trace coordinates reconstruct the analytic metric response, while a nonsingular 27-trace joint observation resolves its first two derivative levels. The same original action yields a nondegenerate twelve-dimensional boundary Cartan form, compatible complex structure, and nonzero radiative–boundary coupling, with internal Lorentz and material-regulator covariance established on their stated domains. The two observation maps disclose distinct tensorial reconstruction requirements for the same action-derived metric response. The paper distinguishes prescribed interior stationarity and released-boundary equations; asymptotic gravitational scattering remains a subsequent dynamical investigation.",
+      "program": "celestial",
+      "domains": [
+        "Mathematical physics",
+        "Celestial holography",
+        "Nonlinear gravitational geometry",
+        "Representation theory",
+        "Formal methods"
+      ],
+      "themes": [
+        "representation-reconstruction",
+        "continuation-stability",
+        "invariance-identity",
+        "formalization-proof"
+      ],
+      "version": "1.0",
+      "pdfSha256": "3bbbd8931f926a41fea65553971779645e677149d9314420cd63021532dc52af"
     },
     {
       "id": "gps8",
@@ -1484,9 +1511,10 @@ window.ILC_DATA={
         "The middle of the series separates representation-theoretic existence from physical particle semantics, then follows the same pair geometry into radiative response. Different response maps retain different parts of the original provenance, making information compression an explicit theorem of the construction.",
         "Papers V and VI develop the source-aware celestial Clebsch–Gordan representation of the radiative Bose pair. Fixed-source Weyl isometry fails, but the intrinsic cross-ratio and full signed transforms are source-faithful at every physical external-label pair. Paper VI v2.0 settles the previously conditional retained Hilbert-completion question negatively: bounded-energy physical sources can have divergent retained output, and no common almost-everywhere decomposable bound holds in the declared norms.",
         "Paper VII v2.0 uses the original normalized retained coefficient on a dense physical Bose-pair domain, without restoring the bounded completion disproved by Paper VI. For a finite-regulator cubic generated by ordered third variations of the complete action, it establishes exact source identification and an exact-range gravitational response, but proves that response is discontinuous in the retained-output Hilbert norm: the cubic Riesz vector lies outside the true partial-adjoint range. A response-normalized family has fixed nonzero cubic output and vanishing retained coefficient.",
-        "Paper VIII v1.0 proves that the original physical retained Clebsch–Gordan map is densely defined, injective, unbounded and closable, with a canonical closed source realization on a proper dense domain. On its exact retained image the complete-action cubic and fixed-action-leg quartic impose successive strict topological refinements, τret ⊊ τ3 ⊊ τ3,4. A true partial-adjoint and full-cubic-family obstruction, grounded in a seven-row physical action certificate, establishes the new quartic step. Regulator results distinguish compatible native null-face decay from occupied-to-null-face and static-transport obstructions; a source-recovering projective carrier offers a separate continuity framework. These claims do not construct scattering amplitudes or celestial OPEs."
+        "Paper VIII v1.0 proves that the original physical retained Clebsch–Gordan map is densely defined, injective, unbounded and closable, with a canonical closed source realization on a proper dense domain. On its exact retained image the complete-action cubic and fixed-action-leg quartic impose successive strict topological refinements, τret ⊊ τ3 ⊊ τ3,4. A true partial-adjoint and full-cubic-family obstruction, grounded in a seven-row physical action certificate, establishes the new quartic step. Regulator results distinguish compatible native null-face decay from occupied-to-null-face and static-transport obstructions; a source-recovering projective carrier offers a separate continuity framework. These claims do not construct scattering amplitudes or celestial OPEs.",
+        "Paper IX v1.0 reconstructs the nonlinear metric response of the boundary-completed gravitational action. Six boundary controls determine an analytic 384-component metric observation after solving the Lorentz-reduced 810-dimensional interior system. The finite radiative packet image has dimension 128 and requires 6, 21 and 56 independent first-, second- and third-order increments, giving a 211-dimensional third osculating space. For a common translated Schwartz-profile observer, the full physical radiative image is instead the 320-dimensional sitewise trace kernel: the first and second osculating spaces have dimensions 326 and 347, and the complete observed nonlinear response is contained in the latter. The paper supplies exact six-trace metric reconstruction, a 27-trace free immersion, a nondegenerate boundary Cartan geometry and a source-derived radiative–boundary coupling. It identifies the further dynamical conditions required for a physical scattering realization."
       ],
-      "frontier": "Papers VI–VIII now distinguish three source-specific boundaries: the retained coefficient does not admit uniform bounded Hilbert completion in the stated norms; the complete-action cubic gravitational response fails continuity in the inherited retained-output topology; and the additional physical fixed-leg quartic requires a further strict refinement on the same exact retained image. Paper VIII establishes a canonical closed partial realization and regulator-conditional compatibility and obstruction tests, but it does not establish action-independent transport, a continuum scattering operator, or interacting celestial operator products. The next frontier is to construct scattering-compatible asymptotic domains, physical evolution and regulator-transferred complete actions before testing connected amplitudes, factorization, crossing, soft-charge relations, celestial OPEs and Ward identities.",
+      "frontier": "Papers VI–VIII establish faithful physical Bose-pair representation, the unbounded retained coefficient and the strict cubic–quartic continuity topology required by the gravitational action. Paper IX adds action-derived nonlinear metric reconstruction and classifies what two physical radiative observations can represent: the finite packet image requires 56 new cubic quotient directions after the first 27, whereas a common translated Schwartz-profile observation reaches complete local metric-response closure at second order. Its six-trace inverse, 27-trace free immersion, Lorentz-reduced source equations and boundary Cartan structure provide a concrete geometric foundation. The next investigations concern higher-order finite-packet osculating geometry, persistence under changes of regulator and observation, and an action-derived, constraint-preserving physical scattering phase space with valid boundary flux, asymptotic domains and celestial transform entry.",
       "methods": [
         "Machine-checked constrained gauge-field models and completed radiative Bose/Fock carriers",
         "Physical source-aware Weyl and celestial Clebsch–Gordan representation",
@@ -1494,13 +1522,15 @@ window.ILC_DATA={
         "Dense literal operator domains, genuine partial Hilbert adjoints and uncut two-branch synthesis",
         "Complete-action finite-regulator gravitational cubic and analytic source-face obstruction",
         "Closability and genuine partial-adjoint domains; full cubic–quartic interaction-topology refinements on the exact retained image",
-        "Complete-action seven-row augmented-minor certificates; rational polarization-moment enclosures and native regulator transport tests"
+        "Complete-action seven-row augmented-minor certificates; rational polarization-moment enclosures and native regulator transport tests",
+        "Action-derived nonlinear metric response, exact osculating-rank certificates and matched physical Schwartz observations",
+        "Boundary Cartan geometry, constrained frame covariance, and quantitative reconstruction criteria"
       ],
       "openQuestions": [
-        "Can the source-recovering projective carrier and the canonical closed retained graph be connected by physically justified changed-kernel output and interaction laws?",
-        "Which regulator transfers produce compatible complete cubic and quartic action observables across physically meaningful meshes, radii and anchors?",
-        "Does the named temporal Bochner source enter the global canonical closed domain, and can outstanding complete contact-polynomial and nonlinear transport questions be resolved?",
-        "Which asymptotic state domains, propagation and connected transition amplitudes establish a scattering construction that supports factorization, soft charges, celestial OPEs and interacting Ward identities?"
+        "At fourth through sixth order, does the unchanged action fill any or all of the remaining 25 possible finite-packet metric-observation directions?",
+        "Which relationships between finite-packet and full-field observations persist under regulator changes, spatial transport and different test banks?",
+        "How can the original action's boundary Euler/Cartan flux laws and its W6/CH24 interaction define a conserved physical constraint and BRST-compatible scattering carrier?",
+        "Under what source-derived conditions can physical scattering states and amplitudes enter the retained celestial transform, with the appropriate continuum asymptotics and momentum laws?"
       ],
       "artifacts": [
         {
@@ -1527,6 +1557,11 @@ window.ILC_DATA={
           "label": "Paper VIII v1.0 — published interaction topologies",
           "href": "publication-gps8.html",
           "kind": "Publication"
+        },
+        {
+          "label": "Paper IX v1.0 — nonlinear gravitational geometry and reconstruction",
+          "href": "publication-gps9.html",
+          "kind": "Publication"
         }
       ],
       "foundation": {
@@ -1546,7 +1581,7 @@ window.ILC_DATA={
         "paragraphs": [
           "The Gaussian Physical States and Celestial Representation series follows particular states, operators, and source data through changes of mathematical representation. It examines the relationships between the physical source, radiative response, and the celestial descriptions built from them.",
           "An admissible mathematical representation must carry specific physical information. Some maps compress distinctions; some domains require careful selection; and gravitational interaction places stronger continuity demands on structures already established in earlier stages.",
-          "That is why the sequence proceeds from Gaussian physical states and particle semantics to radiative information, reconstruction, operator domains, and cubic and quartic interaction topologies. The emerging conditions are themselves the subjects of inquiry."
+          "The sequence proceeds from Gaussian states and physical particle semantics through radiative faithfulness and interaction topologies to nonlinear gravitational reconstruction. The latest results compare what a finite packet observation and a full-field coherent observation can identify from the same action-derived metric response."
         ],
         "centralQuestion": "When a physical description changes, what must be preserved for the resulting representation to remain faithful to the physics?",
         "closing": "The series examines physical correspondence step by step. Each result determines what information is carried forward, what mathematical structure an interaction requires, and which further questions arise on the path toward scattering."
