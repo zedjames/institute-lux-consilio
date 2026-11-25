@@ -495,7 +495,7 @@ const chProgram=fs.readFileSync("research-gaussian-celestial.html","utf8");
 assert.ok(chProgram.includes('id="direction-CH-D01"')&&
  chProgram.includes('<details class="atlas-program-evidence"')&&
  chProgram.includes("Internal formal research")&&
- chProgram.includes("not a gauge/BRST-reduced physical S-matrix"),
+ chProgram.includes("does not establish a gauge/BRST-reduced physical S-matrix"),
  "CH source-qualified kinematic work must be inspectable within its existing program page");
 assert.ok(chProgram.includes("original unit-coupling claim open")&&
  chProgram.includes("publication-gps9.html")&&chProgram.includes("Published scholarly foundation")&&
