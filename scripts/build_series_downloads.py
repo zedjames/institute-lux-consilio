@@ -94,7 +94,7 @@ def verified_zenodo_pdf(pub: dict, pin: dict, expected_hash: str) -> tuple[bytes
     if record.get("doi") != pub["doi"]:
         raise ValueError(f"{pub['id']}: Zenodo version DOI mismatch")
     if pin is None:
-        if pub["id"] != "hfd7" or pub["doi"] != "10.5281/zenodo.24143821":
+        if {"hfd7":"10.5281/zenodo.24143821","hfd8":"10.5281/zenodo.24610039","epc1":"10.5281/zenodo.24600824"}.get(pub["id"]) != pub["doi"]:
             raise ValueError("Unapproved DOI-indexed publication without concept pin")
         # Verify the actual version record and author; its stable concept DOI has
         # not yet been registered as an audited latest-edition family.
@@ -184,7 +184,7 @@ def main() -> None:
         raise ValueError("Unknown or empty program: " + args.program)
     expected = {p["id"] for papers in groups.values() for p in papers}
     pending = expected - pins.keys()
-    if pending != {"hfd7"} and pending:
+    if pending - {"hfd7","hfd8","epc1"}:
         raise ValueError("Unpinned publications: " + str(pending))
     index = archive_index(catalog, local_manifest)
     args.output.mkdir(parents=True, exist_ok=True)

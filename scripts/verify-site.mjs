@@ -187,7 +187,7 @@ for(const id of PROGRAM_IDS){
 // The release publisher verifies actual PDF bytes against Zenodo and publishes the
 // archives separately; static site tests validate page-to-release identity.
 const completeSeriesDownloads={
- health:["research-health-formally-defined.html","health-formally-defined",7],
+ health:["research-health-formally-defined.html","health-formally-defined",8],
  kinetic:["research-kinetic-organization-biological-function.html","kinetic-organization-biological-function",5],
  rmmo:["research-relational-morphogenesis.html","rmmo",3],
  celestial:["research-gaussian-celestial.html","gaussian",9],
@@ -398,7 +398,7 @@ assert.equal(kineticSeries?.status,"Papers I–V published; global-selection arc
 const kineticVHtml=fs.readFileSync("publication-kobf5.html","utf8");
 assert.ok(kineticVHtml.includes('name="citation_doi" content="'+kineticV.doi+'"')&&kineticVHtml.includes(kineticV.pdf),"Kinetic V current scholarly metadata or PDF link missing");
 assert.ok(fs.readFileSync("publication-kobf4.html","utf8").includes('href="publication-kobf5.html"'),"Paper IV must link to Paper V");
-assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-kobf5.html"'),"Homepage missing Kinetic Paper V");
+assert.ok(fs.readFileSync("publications.html","utf8").includes('href="publication-kobf5.html"'),"Homepage missing Kinetic Paper V");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-kobf5.html"),"Sitemap missing Kinetic Paper V");
 
 const kineticIVHtml=fs.readFileSync("publication-kobf4.html","utf8");
@@ -430,7 +430,7 @@ const essencePage=fs.readFileSync(essence.href,"utf8");
 assert.equal(essence.id,emerging[0].id);
 assert.equal(essence.hypotheses.length,5);
 assert.deepStrictEqual(essence.hypotheses.map(h=>h.number),[1,2,3,4,5]);
-assert.equal(essence.seriesStatus,"Proposed scientific series; no papers yet registered");
+assert.equal(essence.seriesStatus,"Paper I published; further investigations in development");
 assert.ok(essencePage.includes(essence.foundationalStatement),"Foundational proposition absent from public initiative");
 assert.ok(essencePage.includes(essence.unifyingQuestion),"Unifying research question absent");
 for(const h of essence.hypotheses){
@@ -441,8 +441,8 @@ for(const h of essence.hypotheses){
 assert.ok(essencePage.includes('href="mailto:research@instituteluxconsilio.org?subject=Essence%20and%20Physical%20Constitution'),"Missing program collaboration route");
 assert.ok(essencePage.includes('action="https://buttondown.com/api/emails/embed-subscribe/institute-lux-consilio"'),"Missing functioning ILC newsletter signup");
 assert.ok(essencePage.includes('name="utm_campaign" value="essence-physical-constitution"'),"Missing initiative-attributed subscription campaign");
-assert.ok(essencePage.includes("Research initiative in formation")&&essencePage.includes("No paper has been announced as published"),"Initiative falsely presented as a published series");
-assert.ok(!/citation_doi|zenodo[.]org|10[.]5281/.test(essencePage),"Proposed initiative must not carry invented publication DOI");
+assert.ok(essencePage.includes("Paper I published")&&essencePage.includes("publication-epc1.html"),"Essence publication missing");
+assert.ok(essencePage.includes("10.5281/zenodo.24600824"),"Essence Paper I DOI missing");
 assert.ok(fs.readFileSync("collaborate.html","utf8").includes('id="essence-physical-constitution"'),"Dedicated collaboration entry missing");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes('<loc>https://instituteluxconsilio.org/research-essence-physical-constitution.html</loc>'),"Emerging program is not indexed");
 
@@ -604,8 +604,8 @@ const ids=(records,label)=>{
 };
 ids(data.programs,"program");ids(data.publications,"publication");ids(data.notes,"note");
 const healthPapers=data.publications.filter(p=>p.seriesId==="health-formally-defined").sort((a,b)=>a.order-b.order);
-assert.deepStrictEqual(healthPapers.map(p=>p.order),[1,2,3,4,5,6,7],"Health series sequence I–VII");
-assert.equal(data.series.find(s=>s.id==="health-formally-defined")?.publishedCount,7);
+assert.deepStrictEqual(healthPapers.map(p=>p.order),[1,2,3,4,5,6,7,8],"Health series sequence I–VIII");
+assert.equal(data.series.find(s=>s.id==="health-formally-defined")?.publishedCount,8);
 for (const [id,conceptDoi] of [
   ["hfd4","10.5281/zenodo.23268802"],
   ["hfd5","10.5281/zenodo.23268986"],
@@ -636,13 +636,13 @@ assert.equal(nsIV?.program,"ns");
 const gaussianPapers=data.publications.filter(p=>p.seriesId==="gaussian").sort((a,b)=>a.order-b.order);
 assert.deepStrictEqual(gaussianPapers.map(p=>p.order),[1,2,3,4,5,6,7,8,9],"Gaussian/Celestial sequence must contain Papers I–IX");
 const pins=JSON.parse(fs.readFileSync("research/zenodo-concepts.json","utf8")).papers;
-assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.filter(p=>p.id!=="hfd7").map(p=>p.id).sort(),"Existing ILC publications must retain audited Zenodo families; Paper VII is temporarily version-DOI indexed");
+assert.deepStrictEqual(Object.keys(pins).sort(),data.publications.filter(p=>!["hfd7","hfd8","epc1"].includes(p.id)).map(p=>p.id).sort(),"Existing ILC publications must retain audited Zenodo families; Paper VII is temporarily version-DOI indexed");
 for(const pub of data.publications){
  const pin=pins[pub.id];
  assert.ok(/^10[.]5281[/]zenodo[.][0-9]+$/.test(pub.doi),"Invalid version DOI "+pub.id);
- if(pub.id==="hfd7"){
-   assert.equal(pub.doi,"10.5281/zenodo.24143821","Paper VII must cite its source record");
-   assert.equal(pub.localPage,"publication-hfd7.html");
+ if(["hfd7","hfd8","epc1"].includes(pub.id)){
+   assert.equal(pub.doi,{hfd7:"10.5281/zenodo.24143821",hfd8:"10.5281/zenodo.24610039",epc1:"10.5281/zenodo.24600824"}[pub.id],"Paper VII must cite its source record");
+   assert.equal(pub.localPage,"publication-"+pub.id+".html");
    assert.ok(!pub.conceptDoi && !pub.pdf,"Unverified concept DOI or PDF mirror must not be invented for Paper VII");
    continue;
  }

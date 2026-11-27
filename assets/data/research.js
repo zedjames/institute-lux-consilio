@@ -107,9 +107,9 @@ window.ILC_DATA={
       "id": "health-formally-defined",
       "label": "Health, Formally Defined",
       "domain": "Foundations of health",
-      "description": "A formal measurement-science program defining prospective Health through present organization and lawful continuation. Papers I–III establish the definition, context transport and query-relative representation theory; Paper IV tests finite information provenance and conservative enrichment; Paper V studies an empirical-synthetic forest measurement chain; Paper VI proves model-relative observability and prospective-verdict preservation under maintaining measurement interventions. Paper VII instantiates prospective Health in a physical-time interacting stochastic transporter population, proving survival and productive-response bounds and characterizing momentum-sensitive observation.",
-      "status": "Ongoing series; Papers I–VII published; model-to-instrument validation remains future work",
-      "publishedCount": 7
+      "description": "A formal measurement-science program defining prospective Health through present organization and lawful continuation. Papers I–III establish the definition, context transport and query-relative representation theory; Paper IV tests finite information provenance and conservative enrichment; Paper V studies an empirical-synthetic forest measurement chain; Paper VI proves model-relative observability and prospective-verdict preservation under maintaining measurement interventions. Paper VII instantiates prospective Health in a physical-time interacting stochastic transporter population, proving survival and productive-response bounds and characterizing momentum-sensitive observation. Paper VIII establishes graded renewal resistance from retained transformation products under a common damage challenge.",
+      "status": "Ongoing series; Papers I–VIII published; model-to-instrument validation remains future work",
+      "publishedCount": 8
     },
     {
       "id": "rmmo",
@@ -118,6 +118,14 @@ window.ILC_DATA={
       "description": "A systems-biology series investigating relational comparability, developmental organization, and cross-embryo correspondence. Papers I–III establish context-sensitive directional structure, the comparative roles of measured molecular present and lineage history, and overlapping set-valued local geometry with construction-held-out molecular evidence.",
       "status": "Ongoing series; Papers I–III published; further developmental studies ahead",
       "publishedCount": 3
+    },
+    {
+      "id": "essence-physical-constitution",
+      "label": "Essence and Physical Constitution",
+      "domain": "Foundational mathematical physics",
+      "description": "Paper I investigates how relational qualities develop through physical transformation and determine subsequent responses. In a Schwarzschild scalar Fock sector, anomalous correlations distinguish later occupations and the quadratic moments obey exact two-time dynamics with a conserved Gram determinant. In the radiative Bose sector, a finite gravitational observation has an infinite-dimensional canonical full-history quotient, while finite packet spaces admit stable amplitude reconstruction. A source-matched Einstein–scalar family exhibits invariant curvature separation and fourth-order physical scalar response in the matched conformal clock.",
+      "status": "Ongoing series; Paper I published",
+      "publishedCount": 1
     }
   ],
   "themes": [
@@ -163,6 +171,50 @@ window.ILC_DATA={
     }
   ],
   "publications": [
+    {
+      "id": "hfd8",
+      "date": "2026-11-27",
+      "seriesId": "health-formally-defined",
+      "series": "Health, Formally Defined",
+      "program": "health",
+      "order": 8,
+      "version": "1.0",
+      "title": "Constitutive Renewal and Physical Corruption",
+      "subtitle": "Transformation-generated residue, renewal resistance, and prospective Health",
+      "doi": "10.5281/zenodo.24610039",
+      "summary": "Paper VIII extends a regenerative mechanochemical transporter by local storage for transformation-generated material. Matched intact preparations retain equal immediate transport rates yet exhibit strictly graded recovery probabilities after a common damage challenge on a proved short-time interval. Exact material balance, quadratic renewal-resistance coefficients and an access-disabled control distinguish residual material from Corruption for the specified demand. The model supplies a requirement-relative Health classification, controlled recovery-probability evaluation and finite-sample identification guarantees.",
+      "domains": [
+        "Foundations of health",
+        "Stochastic dynamics",
+        "Regenerative mechanochemistry",
+        "Prospective measurement"
+      ],
+      "localPage": "publication-hfd8.html",
+      "fullTextDoi": "https://doi.org/10.5281/zenodo.24610039",
+      "fullTextHosting": "Zenodo DOI record"
+    },
+    {
+      "id": "epc1",
+      "date": "2026-11-27",
+      "seriesId": "essence-physical-constitution",
+      "series": "Essence and Physical Constitution",
+      "program": "essence-physical-constitution",
+      "order": 1,
+      "version": "1.0",
+      "title": "Relational Qualities and the Constitution of Physical Response",
+      "subtitle": "Bogoliubov dynamics, radiative Bose composition, and gravitational response",
+      "doi": "10.5281/zenodo.24600824",
+      "summary": "Paper I investigates how relational qualities develop through physical transformation and determine subsequent responses. In a Schwarzschild scalar Fock sector, anomalous correlations distinguish later occupations and the quadratic moments obey exact two-time dynamics with a conserved Gram determinant. In the radiative Bose sector, a finite gravitational observation has an infinite-dimensional canonical full-history quotient, while finite packet spaces admit stable amplitude reconstruction. A source-matched Einstein–scalar family exhibits invariant curvature separation and fourth-order physical scalar response in the matched conformal clock.",
+      "domains": [
+        "Mathematical physics",
+        "Quantum field theory",
+        "Gravitational response",
+        "Dynamical observability"
+      ],
+      "localPage": "publication-epc1.html",
+      "fullTextDoi": "https://doi.org/10.5281/zenodo.24600824",
+      "fullTextHosting": "Zenodo DOI record"
+    },
     {
       "id": "hfd7",
       "date": "2026-11-11",
@@ -1920,7 +1972,7 @@ window.ILC_DATA={
       ]
     }
   ],
-  "updated": "2026-11-17",
+  "updated": "2026-11-27",
   "companionPublications": [
     {
       "id": "hfd-go",
@@ -2006,8 +2058,8 @@ window.ILC_DATA={
       "id": "essence-physical-constitution",
       "title": "Essence and Physical Constitution",
       "domain": "Foundational mathematical physics",
-      "status": "Initiative in formation",
-      "desc": "How elementary quantum properties and relational exchange become persistent physical organization.",
+      "status": "Developing series · Paper I published",
+      "desc": "How elementary quantum properties and relational exchange become persistent physical organization; Paper I establishes exact relational response results.",
       "href": "research-essence-physical-constitution.html",
       "subtitle": "From Elementary Quantum Excitation to Organized Physical Form",
       "launchDate": "2026-11-17"
