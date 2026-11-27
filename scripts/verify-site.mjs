@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import assert from "node:assert/strict";
+import {renderEssencePublications} from "./build-essence-publications.mjs";
 import {CLOUDFLARE_WEB_ANALYTICS_BEACON} from "./cloudflare-analytics.mjs";
 import {enumerateResearchConnections,renderRelationshipAtlas,replaceRelationshipAtlas} from "./build-research-relationships.mjs";
 
@@ -443,6 +444,9 @@ assert.ok(essencePage.includes('action="https://buttondown.com/api/emails/embed-
 assert.ok(essencePage.includes('name="utm_campaign" value="essence-physical-constitution"'),"Missing initiative-attributed subscription campaign");
 assert.ok(essencePage.includes("Paper I published")&&essencePage.includes("publication-epc1.html"),"Essence publication missing");
 assert.ok(essencePage.includes("10.5281/zenodo.24600824"),"Essence Paper I DOI missing");
+assert.ok(essencePage.includes("<!-- ILC_EPC_PUBLICATIONS_START -->\n"+renderEssencePublications(essence,data)+"\n<!-- ILC_EPC_PUBLICATIONS_END -->"),"Essence scientific publication overview differs from source register");
+assert.ok(!essencePage.includes("has not yet assigned a Paper I DOI"),"Stale prepublication language");
+assert.ok(essencePage.indexOf('id="published-research"')<essencePage.indexOf('id="research-hypotheses"'),"Published results should precede the original hypotheses");
 assert.ok(fs.readFileSync("collaborate.html","utf8").includes('id="essence-physical-constitution"'),"Dedicated collaboration entry missing");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes('<loc>https://instituteluxconsilio.org/research-essence-physical-constitution.html</loc>'),"Emerging program is not indexed");
 

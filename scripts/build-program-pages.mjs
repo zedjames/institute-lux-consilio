@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
+import {renderEssencePublications} from "./build-essence-publications.mjs";
 import {loadDirections,renderProgramDirections} from "./build-research-directions.mjs";
 function htmlSafe(t){return String(t??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));}
 function pubPath(x){return x.localPage || "publication-"+x.id+".html";}
@@ -105,9 +106,11 @@ export function updateFiles(root=process.cwd()){
  const epcPath="research-essence-physical-constitution.html";
  const epcFile=path.join(root,epcPath);
  const epcHtml=fs.readFileSync(epcFile,"utf8");
- const epcOutput=replaceDirectionBlock(epcHtml,"ILC_EPC_DIRECTIONS",
+ let epcOutput=replaceDirectionBlock(epcHtml,"ILC_EPC_DIRECTIONS",
   renderProgramDirections(visible,data,epcPath),
   '<section class="epc-section epc-section--mist"><div class="wrap"><p class="epc-eyebrow">Continue exploring</p>');
+ const essence=JSON.parse(fs.readFileSync(path.join(root,"research/essence-physical-constitution.json"),"utf8"));
+ epcOutput=replaceDirectionBlock(epcOutput,"ILC_EPC_PUBLICATIONS",renderEssencePublications(essence,data),'<section class="epc-section" id="foundational-proposition">');
  fs.writeFileSync(epcFile,epcOutput);
  console.log("Updated "+PROGRAM_IDS.length+" static scientific program pages.");
 }

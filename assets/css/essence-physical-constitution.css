@@ -64,3 +64,20 @@
 @media(max-width:850px){.epc-page .epc-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.epc-page .epc-flow__step:nth-child(2):after{content:none}.epc-page .epc-participation{grid-template-columns:1fr}.epc-page .epc-method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.epc-page .epc-hypothesis-grid,.epc-page .epc-method-grid,.epc-page .epc-relationship-list{grid-template-columns:1fr}.epc-page .epc-hypothesis:nth-child(5){grid-column:auto}.epc-page .epc-hero:before{inset:auto -60% -60% 45%}.epc-page .epc-flow{grid-template-columns:1fr}.epc-page .epc-flow__step:after{content:"↓";right:calc(50% - 8px);top:auto;bottom:-17px;transform:none}.epc-page .epc-flow__step:nth-child(2):after{content:"↓"}.epc-page .epc-flow__step:last-child:after{content:none}}
 @media(prefers-reduced-motion:reduce){.epc-page *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Published research sequence and source-scoped scientific results. */
+.epc-page .epc-publication{background:#f9fcfd;border:1px solid var(--epc-edge);border-left:4px solid var(--epc-gold);padding:clamp(22px,4vw,38px);max-width:1060px;line-height:1.75}
+.epc-page .epc-publication h3{font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.3;margin:8px 0;color:var(--epc-navy)}
+.epc-page .epc-publication p+p{margin-top:12px}
+.epc-page .epc-publication__subtitle{font-size:1.1rem;color:var(--epc-cyan);font-weight:600}
+.epc-page .epc-results-head{margin-top:clamp(38px,6vw,70px)}
+.epc-page .epc-result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.epc-page .epc-result{background:#fff;border:1px solid var(--epc-edge);padding:clamp(20px,3vw,30px);min-width:0;line-height:1.72}
+.epc-page .epc-result h3{font-size:clamp(1.17rem,2.2vw,1.55rem);line-height:1.3;color:var(--epc-navy);margin:9px 0}
+.epc-page .epc-result p+p{margin-top:13px}
+.epc-page .epc-result__setting{color:var(--epc-cyan);font-size:14px;font-weight:700}
+.epc-page .epc-equation{font-family:Georgia,serif;font-size:clamp(1.02rem,2vw,1.28rem);line-height:1.6;overflow-wrap:anywhere;background:var(--epc-mist);border-left:3px solid var(--epc-cyan);padding:14px 16px;margin:18px 0;color:var(--epc-navy)}
+.epc-page .epc-progress-list{display:grid;gap:0;max-width:1000px}
+.epc-page .epc-progress-list article{border-top:1px solid var(--epc-edge);padding:18px 0;line-height:1.65}
+.epc-page .epc-progress-list h3{font-size:1.05rem;line-height:1.4;margin-bottom:6px}
+@media(max-width:650px){.epc-page .epc-result-grid{grid-template-columns:1fr}}
