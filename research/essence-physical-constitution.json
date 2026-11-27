@@ -58,7 +58,7 @@
     "Kinetic organizations",
     "Collective and continuum physical descriptions"
   ],
-  "scientificStatus": "Paper I establishes model-specific quantum relational response results. The broader hypotheses remain research questions.",
+  "scientificStatus": "Paper I establishes model-specific results on the generation of relational qualities, exact dynamical response, symmetric quantum composition and source-matched gravitational conditioning. The broader constitutive hypotheses guide subsequent investigations.",
   "researchRelationships": [
     {
       "id": "celestial",
@@ -99,7 +99,95 @@
       "title": "Relational Qualities and the Constitution of Physical Response",
       "doi": "10.5281/zenodo.24600824",
       "href": "publication-epc1.html",
-      "date": "2026-11-27"
+      "date": "2026-11-27",
+      "scientificResults": [
+        {
+          "id": "generation",
+          "title": "Relational qualities develop through physical evolution",
+          "setting": "Real scalar field on a fixed Schwarzschild interior",
+          "statement": "Starting from a normalized one-excitation state with zero anomalous correlation, the action-derived Bogoliubov evolution generates a nonzero anomalous correlation at a physically realized later interior clock. Independently, matched even-parity preparations with equal occupation and norm but different anomalous correlations yield different later occupations.",
+          "formula": "A(t) = 3α(t)β(t); N(t) = 1 + 3|β(t)|²",
+          "meaning": "The state can acquire a relational quality through evolution, and that quality can be consequential to a subsequent physical response. Generation and consequence are demonstrated on their respective controlled preparations.",
+          "reference": "Proposition 3.1; Theorem 4.1"
+        },
+        {
+          "id": "closure",
+          "title": "Continuity has an exact relational representation",
+          "setting": "Completed scalar Fock graph",
+          "statement": "The zero-mode quadratic moments N (occupation), A (anomalous correlation) and w (squared norm) obey a closed two-time evolution on the free-Hamiltonian domain, including non-Gaussian states. Their Gram determinant is conserved.",
+          "formula": "Δ = N(N + w) − |A|²; Δ(U(t,s)Ψ) = Δ(Ψ)",
+          "meaning": "The individual moments may change while an exact constitutive relation persists. The reduced representation is sufficient for the declared quadratic responses; the full state carries further distinctions.",
+          "reference": "Theorems 4.3 and 4.5; Proposition 4.4"
+        },
+        {
+          "id": "composition",
+          "title": "Composition carries relational information",
+          "setting": "Symmetric helicity-two radiative pair and regulated gravitational response",
+          "statement": "Bose symmetrization contains a constituent-overlap term and supports stable fixed-partner amplitude reconstruction. The finite mixed-Hessian gravitational load has a non-invariant kernel under free pair evolution. Its canonical full-history quotient is separable and infinite-dimensional; on each finite-dimensional boundary-generated packet subspace, exactly its complex dimension in rational-time two-leg amplitude tests is necessary and sufficient for stable linear reconstruction.",
+          "formula": "2‖B(x,y)‖² = ‖x‖²‖y‖² + |⟨x,y⟩|²",
+          "meaning": "The composite response depends on relational data, and a finite instantaneous observation may omit distinctions required by its complete dynamical response. The quotient and the independent two-leg reconstruction tests address distinct observation families.",
+          "reference": "Proposition 5.1; Theorem 6.2; Corollary 6.4; Theorem 7.2"
+        },
+        {
+          "id": "geometry",
+          "title": "Quantum constitution and geometry condition physical response",
+          "setting": "Source-matched Einstein–scalar branches",
+          "statement": "Different excitation probabilities determine different fixed source strengths, and the corresponding geometries already differ in invariant scalar curvature at matched anchors. The canonical zero-mode coefficients first differ at third order, but the reconstructed physical scalar coefficients agree through third order and separate at fourth order in the matched conformal-clock parametrization.",
+          "formula": "Δφ⁽⁴⁾(0) = −2Fₘ Δq / a*⁷ ≠ 0",
+          "meaning": "Physical reconstruction changes the order at which a constitutive distinction becomes visible. The branch-relative quantum stress is conserved on each fixed-source branch; source-changing feedback is a further coupled evolution problem.",
+          "reference": "Propositions 9.1–9.2; Equations (58)–(63)"
+        }
+      ],
+      "hypothesisConnections": [
+        {
+          "number": 1,
+          "statement": "Unitary state continuation and the conserved quadratic Gram determinant distinguish physical lineage, invariant structure and selected observable equivalence."
+        },
+        {
+          "number": 2,
+          "statement": "Matched normal occupations with distinct anomalous phases distinguish subsequent response under the same action-derived evolution."
+        },
+        {
+          "number": 3,
+          "statement": "Boundary-generated amplitude tests and the mixed-load response quotient give precise model-specific information criteria."
+        },
+        {
+          "number": 4,
+          "statement": "Bogoliubov transport generates anomalous correlations; Bose composition explicitly retains constituent overlap."
+        },
+        {
+          "number": 5,
+          "statement": "The moment and full-history quotients establish distinct forms of response sufficiency. Stable individuality across changes of physical carrier remains a research question."
+        }
+      ]
+    }
+  ],
+  "updated": "2026-11-27",
+  "connectedPublication": {
+    "id": "hfd8",
+    "series": "Health, Formally Defined",
+    "order": 8,
+    "statement": "In the regenerative mechanochemical model, restoration can retain material that changes the conditions of future renewal. Matched intact states have the same present loaded transport rate, yet their post-challenge recovery probabilities are strictly ordered on a proved positive short-time interval. The access-disabled control preserves the projected carrier history despite retained material. Corruption is the restrictive participation of a residual constitutive quality; prospective Health evaluates capacity against a declared requirement.",
+    "formula": "R₀(T;y) > R₁(T;y) > R₂(T;y)",
+    "scope": "The quantum and mechanochemical systems establish complementary constitutive relationships in their own physical domains.",
+    "reference": "Health Paper VIII, Theorems 6.1, 7.2, 8.1 and 8.3; Corollary 6.2"
+  },
+  "nextInvestigations": [
+    {
+      "title": "Constitutive development and physical individuality",
+      "text": "Investigate which generated qualities persist through changing interaction conditions, and develop criteria for continuity of an organized form when its constituents or representation change."
+    },
+    {
+      "title": "Reciprocal quantum–gravitational conditioning",
+      "text": "Extend the fixed-source Einstein–scalar comparison toward a coupled law in which the quantum source strength itself evolves, with conserved stress and compatible geometry."
+    },
+    {
+      "title": "Composition and cross-scale inheritance",
+      "text": "Determine when collective structures support a sufficient physical description of subsequent interaction, and when an effective constituent can participate in a larger organization."
+    },
+    {
+      "title": "Renewal, transformation and residual qualities",
+      "text": "Develop the connection to regenerative kinetic systems through repeated renewal, collective residue dynamics and explicit structural energetics, using source-specific response and adequacy criteria."
     }
   ]
 }
