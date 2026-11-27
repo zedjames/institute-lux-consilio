@@ -5,11 +5,11 @@
   "title": "Essence and Physical Constitution",
   "subtitle": "From Elementary Quantum Excitation to Organized Physical Form",
   "nameZh": "精",
-  "status": "Research initiative in formation",
+  "status": "Developing research series",
   "initiated": "2026-11-17",
   "domain": "Foundational mathematical physics",
   "href": "research-essence-physical-constitution.html",
-  "seriesStatus": "Proposed scientific series; no papers yet registered",
+  "seriesStatus": "Paper I published; further investigations in development",
   "description": "Investigating how elementary physical properties and relational exchange make organized physical form, identity and continuity possible.",
   "foundationalStatement": "Essence is not simply the material from which a physical object is assembled. It is the elementary physical reality whose intrinsic and relational qualities make the constitution of physical form possible.",
   "proposition": "Elementary physical constituents possess essential properties that determine their lawful possibilities of interaction. Through exchanges across physical boundaries, constituents develop additional relational qualities and participate in the constitution of larger organized forms. These forms acquire distinguishable properties and capacities that govern their subsequent interactions. Physical individuality and continuity arise through the persistence of such organizations within the interconnected dynamics of the larger physical system.",
@@ -58,7 +58,7 @@
     "Kinetic organizations",
     "Collective and continuum physical descriptions"
   ],
-  "scientificStatus": "Hypotheses proposed; definitions, test systems, physical interpretation and verification remain research tasks. No paper DOI has been assigned.",
+  "scientificStatus": "Paper I establishes model-specific quantum relational response results. The broader hypotheses remain research questions.",
   "researchRelationships": [
     {
       "id": "celestial",
@@ -92,5 +92,14 @@
     }
   ],
   "collaboration": "research@instituteluxconsilio.org",
-  "updates": "https://buttondown.com/institute-lux-consilio"
+  "updates": "https://buttondown.com/institute-lux-consilio",
+  "publications": [
+    {
+      "id": "epc1",
+      "title": "Relational Qualities and the Constitution of Physical Response",
+      "doi": "10.5281/zenodo.24600824",
+      "href": "publication-epc1.html",
+      "date": "2026-11-27"
+    }
+  ]
 }
