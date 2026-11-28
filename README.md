@@ -115,7 +115,7 @@ The public inventory source is the sanitized snapshot metadata JSON at
 `concordia/inventory/snapshots.json`. The private 2026-10-17 Markdown source
 record was not copied into the public repository. Its Git source pin, user-
 supplied SHA-256 and scoped lexical totals are published without suggesting
-that a full Lean build was run. Update the inventory page, formal-program
+that a full Lean build was run for that historical census. The November 28, 2026 snapshot is separately pinned to its research-branch commit, with identical local main Lean tree and an institution-reported successful full-repository build. No new private-report digest or independent build log was supplied. Update the inventory page, formal-program
 metrics and snapshot JSON together; the integrity checker asserts the exact
 current snapshot figures. Future reports may extend historical snapshots.
 

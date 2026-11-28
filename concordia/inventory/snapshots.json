@@ -21,6 +21,23 @@
       "tracked": true,
       "leanTreeClean": true,
       "fullLeanBuildRun": false
+    },
+    {
+      "date": "2026-11-28",
+      "commit": "b45107337ee47bc293d59773dc9551bb928aeec9",
+      "branch": "research/hfd-bmc-epc-path-01",
+      "files": 77411,
+      "lines": 22430871,
+      "nonblankLines": 20683539,
+      "theorems": 976144,
+      "lemmas": 4816,
+      "theoremsAndLemmas": 980960,
+      "sourceBytes": 1701264577,
+      "tracked": true,
+      "localMainLeanTreeIdentical": true,
+      "fullLeanBuildRun": true,
+      "fullLeanBuildPassed": true,
+      "buildEvidence": "Institution-reported full-repository green build; independent build log not supplied."
     }
   ]
 }

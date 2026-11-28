@@ -1784,7 +1784,7 @@ window.ILC_DATA={
       "narrative": [
         "ILC's formal scientific infrastructure supports multiple research programs with a large Lean 4 corpus, machine-checkable definitions and proofs, targeted verification surfaces, computational research, and explicit provenance records.",
         "Concordia's Formal World is deliberately more than a catalog of machine-checked results. It is designed as a living, versioned mathematical environment in which typed inheritance, explicit adapters and bridges, recorded obstructions, and research-history standing make mathematical constructions available for further inquiry. Links between distinct physical domains require established compatibility and separate physical justification.",
-        "The October 17, 2026 recursive source inventory records 44,808 tracked Lean files, 18,935,259 physical lines, 888,350 lexical theorem declarations and 4,718 lexical lemma declarations at a clean Lean-tree snapshot. This is a source census rather than a compilation or proof-verification result; no full Lean build was run for the inventory. Formal World admission, theorem authority and scientific validity are separately qualified.",
+        "The November 28, 2026 recursive source inventory records 77,411 committed Lean files, 22,430,871 physical source lines, 976,144 lexical theorem declarations and 4,816 lexical lemma declarations (980,960 combined). ILC reports a successful full-repository Lean build for this snapshot. Lexical counts, build status, Runtime Formal World admission and scientific interpretation describe distinct aspects of the research corpus.",
         "The verification framework tracks source presence, import reachability, canonical theorem-surface membership, successful compilation of specified targets, mathematical establishment under stated hypotheses and axioms, scientific interpretation, and empirical realization as distinct layers of the scientific record."
       ],
       "frontier": "The formal-methods frontier is both compositional and evidentiary: determining when deliberately compatible mathematical structures can support new investigations, while tracing each resulting claim to exact definitions, theorem dependencies, build targets, axiom audits, frozen artifacts and cryptographic provenance. The presence of a relation or a successful compile does not establish a new physical realization.",
@@ -1825,19 +1825,19 @@ window.ILC_DATA={
       ],
       "metrics": [
         {
-          "value": "44,808",
+          "value": "77,411",
           "label": "Tracked Lean files"
         },
         {
-          "value": "18,935,259",
+          "value": "22,430,871",
           "label": "Physical source lines"
         },
         {
-          "value": "893,068",
+          "value": "980,960",
           "label": "Lexical theorem + lemma declarations"
         },
         {
-          "value": "2026-10-17",
+          "value": "2026-11-28",
           "label": "Recorded inventory snapshot"
         }
       ]

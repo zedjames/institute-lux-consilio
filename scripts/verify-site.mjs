@@ -114,8 +114,7 @@ assert.ok(aiDoc.includes("Version 1.1 — Source-constrained AI-mediated scienti
 const concordia=fs.readFileSync("concordia/index.html","utf8");
 const inv=JSON.parse(fs.readFileSync("concordia/inventory/snapshots.json","utf8"));
 const snap=inv.snapshots.at(-1);
-assert.deepStrictEqual({date:snap.date,commit:snap.commit,files:snap.files,lines:snap.lines,theorems:snap.theorems,lemmas:snap.lemmas,sha256:snap.recordSha256},
- {date:"2026-10-17",commit:"b0054d4773b4e76a6efce3e0b998494bb770678a",files:44808,lines:18935259,theorems:888350,lemmas:4718,sha256:"c9ebb23099ace4ddd9804797dd33dcf84d524d5cca3294836bdcdae44e8a262e"},
+assert.deepStrictEqual(snap, {"date":"2026-11-28","commit":"b45107337ee47bc293d59773dc9551bb928aeec9","branch":"research/hfd-bmc-epc-path-01","files":77411,"lines":22430871,"nonblankLines":20683539,"theorems":976144,"lemmas":4816,"theoremsAndLemmas":980960,"sourceBytes":1701264577,"tracked":true,"localMainLeanTreeIdentical":true,"fullLeanBuildRun":true,"fullLeanBuildPassed":true,"buildEvidence":"Institution-reported full-repository green build; independent build log not supplied."},
  "Concordia recorded inventory figures or provenance changed without review");
 for(const [route,description] of [["inventory","formal source inventory"],["runtime","governed inquiry"]]){
  const p=fs.readFileSync("concordia/"+route+"/index.html","utf8");
@@ -125,8 +124,8 @@ for(const [route,description] of [["inventory","formal source inventory"],["runt
  assert.ok(!p.includes('src="assets/data/research.js'),"Concordia science must not depend on JavaScript catalogs");
 }
 const inventoryHtml=fs.readFileSync("concordia/inventory/index.html","utf8");
-for(const number of ["44,808","18,935,259","888,350","4,718",snap.commit,snap.recordSha256]) assert.ok(inventoryHtml.includes(number),"Concordia inventory missing "+number);
-assert.ok(inventoryHtml.includes("No full Lean build"),"Concordia inventory missing build qualification");
+for(const number of ["77,411","22,430,871","976,144","4,816","20,683,539","980,960","1,701,264,577",snap.commit,snap.branch]) assert.ok(inventoryHtml.includes(number),"Concordia inventory missing "+number);
+assert.ok(inventoryHtml.includes("Full-repository Lean build: passed.")&&inventoryHtml.includes("No full Lean build was conducted for the October census"),"Concordia inventory missing build qualification");
 const runtimeHtml=fs.readFileSync("concordia/runtime/index.html","utf8");
 const signupName="institute-lux-consilio";
 const buttondownEndpoint="https://buttondown.com/api/emails/embed-subscribe/"+signupName;
