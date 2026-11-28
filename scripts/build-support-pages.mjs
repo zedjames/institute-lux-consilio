@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {renderMainNav} from "./build-main-navigation.mjs";
 import {enhanceSupportPage,renderDemonstration} from "./render-support-demonstration.mjs";
+import {enhanceParticipation,renderParticipation} from "./render-support-participation.mjs";
 function escape(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function renderSupport(d,catalog,template,mainNav){
  const contact="mailto:contact@instituteluxconsilio.org?subject=Concordia%20scientific%20philanthropy";
@@ -43,5 +44,8 @@ if(!runtime.includes("Currently in "+data.runtime.status)||!runtime.includes("Cl
 const outputs=renderSupport(data,catalog,read("governance.html").replace('<a href="support/">Support ILC</a>',''),renderMainNav("support"));
 for(const file of Object.keys(outputs))outputs[file]=enhanceSupportPage(outputs[file]);
 Object.assign(outputs,renderDemonstration(JSON.parse(read("support/scientific-demonstration.json")),data,catalog,read("governance.html"),renderMainNav("support")));
+const participation=JSON.parse(read("support/participation.json"));
+Object.assign(outputs,renderParticipation(participation,read("governance.html"),renderMainNav("support")));
+for(const file of Object.keys(outputs))outputs[file]=enhanceParticipation(outputs[file],[participation.patrons,participation.partnerships]);
 for(const [file,html] of Object.entries(outputs)){if(process.argv.includes("--check")){if(read(file)!==html)throw Error("Stale support page: "+file);}else{fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,html);}}
 console.log("Support pages "+(process.argv.includes("--check")?"verified":"generated"));

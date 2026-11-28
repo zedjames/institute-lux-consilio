@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "patrons": {
+    "route": "support/patrons/",
+    "title": "Founding Scientific Patrons",
+    "subtitle": "Help establish enduring scientific capacity for the researchers who follow.",
+    "description": "Scientific patronage at Institute Lux Consilio supports foundational inquiry, mathematical inheritance and the development of Concordia.",
+    "intro": [
+      "The opportunity for founding scientific patrons is to participate in the formative development of a scientific environment whose value extends through future discoveries. Concordia preserves and connects mathematical constructions, scientific results, established obstructions and research histories so they can participate in subsequent inquiry.",
+      "Individuals and family foundations are invited to discuss philanthropic support for this work. Sustained support can help establish the continuity required for research infrastructure, independent examination and qualified participation across disciplines."
+    ],
+    "ways": [
+      {
+        "title": "Flexible institutional support",
+        "text": "Support the Institute’s charitable scientific and educational work, including the continuity of foundational research, mathematical infrastructure and scholarly communication."
+      },
+      {
+        "title": "Scientific infrastructure",
+        "text": "Discuss support for the Formal World, Runtime development, research computing, reproducibility and the maintenance of mathematical sources."
+      },
+      {
+        "title": "Independent examination",
+        "text": "Help make specialist review, mathematical reconstruction and qualified scholarly engagement possible."
+      },
+      {
+        "title": "Future researcher participation",
+        "text": "Discuss support for onboarding, computational resources and the development of research fellowships as the necessary program arrangements are established."
+      },
+      {
+        "title": "Multi-year patronage",
+        "text": "Explore a sustained philanthropic commitment aligned with the Institute’s actual development milestones, resources and charitable mission."
+      },
+      {
+        "title": "Project-specific support",
+        "text": "Discuss a defined scientific or infrastructure objective with an agreed scope, appropriate oversight and reporting arrangements."
+      }
+    ],
+    "principles": [
+      [
+        "Scientific independence",
+        "Scientific conclusions remain governed by mathematical and empirical evidence. A contribution creates no scientific authority, ownership of research results or entitlement to restricted sources."
+      ],
+      [
+        "Recognition and privacy",
+        "Recognition, when appropriate and agreed, may acknowledge philanthropic participation. Donor names are used only with permission; reporting and correspondence arrangements are discussed before acceptance."
+      ],
+      [
+        "Responsible stewardship",
+        "Gift purpose, restrictions, reporting and any relevant conflicts are evaluated through appropriate institutional arrangements. ILC’s charitable activities are distinct from Fieldflux Biosystems’ commercial activities."
+      ]
+    ],
+    "subject": "ILC founding scientific patronage",
+    "body": "Hello Institute Lux Consilio,\n\nI would like to discuss founding scientific patronage.\n\nMy interests or proposed area of support:\n\nPreferred way to follow up:\n\nThank you.",
+    "cta": "Discuss founding patronage",
+    "status": "Expressions of interest welcome · Support by arrangement"
+  },
+  "partnerships": {
+    "route": "support/partnerships/",
+    "title": "Institutional and Technology Partnerships",
+    "subtitle": "Extend the reach of scientific inquiry through shared expertise, infrastructure and questions.",
+    "description": "Explore research, institutional, philanthropic and technology partnerships with Institute Lux Consilio.",
+    "intro": [
+      "Concordia is being developed as scientific infrastructure for cumulative mathematical research and governed human–AI inquiry. Institutions can help broaden this capability through research participation, technical expertise, computational resources, independent verification and appropriately structured philanthropic support.",
+      "A partnership begins with a scientific or infrastructural objective. The parties identify the relevant source materials, responsibilities, anticipated outcomes and appropriate evidence of progress."
+    ],
+    "ways": [
+      {
+        "title": "Universities and research institutes",
+        "text": "Joint investigations, specialist examination, formal mathematical collaboration and qualified researcher participation."
+      },
+      {
+        "title": "Scientific and philanthropic foundations",
+        "text": "Research grants, infrastructure development, independent verification and the future participation of researchers."
+      },
+      {
+        "title": "AI research organizations",
+        "text": "Source-grounded mathematical reasoning, long-horizon research, scientific evidence qualification and governed human–AI collaboration."
+      },
+      {
+        "title": "Computational infrastructure partners",
+        "text": "Computing credits, model access, storage, reproducible environments and formal verification resources."
+      },
+      {
+        "title": "Measurement and experimental institutions",
+        "text": "Observation theory, measurement sufficiency, physical modeling and independent empirical investigation."
+      },
+      {
+        "title": "Educational organizations",
+        "text": "Inquiry-driven mathematical education, scholarly mentorship and future fellowship or graduate research opportunities."
+      }
+    ],
+    "principles": [
+      [
+        "Define a shared objective",
+        "Identify a scientific question or infrastructure need, the relevant research program, and the type of contribution."
+      ],
+      [
+        "Qualify scope and responsibilities",
+        "Agree upon scientific methods, evidence requirements, permitted access, security, publication, attribution, data and intellectual property arrangements as appropriate."
+      ],
+      [
+        "Evaluate scientific value",
+        "Assess results at their actual mathematical or empirical scope. Any ongoing relationship remains subject to institutional review and documented responsibilities."
+      ]
+    ],
+    "subject": "ILC institutional or technology partnership",
+    "body": "Hello Institute Lux Consilio,\n\nI would like to discuss an institutional or technology partnership.\n\nOrganization and role:\n\nResearch or infrastructure objective:\n\nPotential contribution or resource:\n\nRelevant publication or program (optional):\n\nPreferred way to follow up:\n\nThank you.",
+    "cta": "Propose a partnership",
+    "status": "Institutional inquiries welcome · Collaboration by arrangement"
+  }
+}
