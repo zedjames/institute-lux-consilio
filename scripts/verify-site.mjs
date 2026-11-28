@@ -39,7 +39,7 @@ for(const key of ["programs","emergingPrograms","themes","questions","publicatio
 }
 const root=new Set(fs.readdirSync("."));
 const navPages=[...root].filter(p=>p.endsWith(".html")&&!p.startsWith("preview-")).sort()
- .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html","research/quantum-gravity-formal-lineage/index.html","support/index.html","support/concordia/index.html"]);
+ .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html","research/quantum-gravity-formal-lineage/index.html","support/index.html","support/concordia/index.html","support/concordia/research/index.html","support/concordia/brief/index.html"]);
 // Require the exact Cloudflare script, exactly once per published page.
 for(const page of navPages){
  const html=fs.readFileSync(page,"utf8");
