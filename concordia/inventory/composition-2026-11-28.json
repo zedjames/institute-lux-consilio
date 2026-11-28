@@ -1,0 +1,78 @@
+{
+  "schema": "ilc.concordia.sourceComposition.v1",
+  "date": "2026-11-28",
+  "sourceCommit": "b45107337ee47bc293d59773dc9551bb928aeec9",
+  "scope": "lean/Tier30/Research/CelestialInteractionBranchAtlas/",
+  "corpus": {
+    "files": 77411,
+    "lines": 22430871
+  },
+  "atlas": {
+    "files": 20713,
+    "lines": 13588570
+  },
+  "families": [
+    {
+      "path": "CIBA01/NativeFourthCertificates/",
+      "files": 15141,
+      "lines": 11319157
+    },
+    {
+      "path": "CIBA01/NativeThirdCertificates/",
+      "files": 2896,
+      "lines": 1916955
+    },
+    {
+      "path": "Other CIBA01/ files",
+      "files": 1226,
+      "lines": 204617
+    },
+    {
+      "path": "P8FS01/",
+      "files": 1392,
+      "lines": 142420
+    },
+    {
+      "path": "P7PDO01/",
+      "files": 58,
+      "lines": 5421
+    }
+  ],
+  "generatedFourthChunks": {
+    "path": "CIBA01/NativeFourthCertificates/RatioNeighborhood/CellChunks/Face*/Row*/Columns*To*/Certificate.lean",
+    "files": 12288,
+    "lines": 11009792,
+    "faces": 3,
+    "rowsPerFace": 256,
+    "chunksPerRow": 16,
+    "cellsPerChunk": 16,
+    "nodesPerCell": 45,
+    "physicalMomentSlots": 5
+  },
+  "historical": {
+    "date": "2026-10-17",
+    "sourceCommit": "b0054d4773b4e76a6efce3e0b998494bb770678a",
+    "corpusLines": 18935259,
+    "atlasFiles": 19225,
+    "atlasLines": 13436215,
+    "atlasLexicalTheorems": 731174
+  },
+  "evidence": {
+    "lineCounts": "Institution-reported physical source line census, including generated material, blank lines and comments; November aggregate line counts were not independently recounted in this source review.",
+    "fileCounts": "Confirmed by recursive Git subtree enumeration at the pinned November revision; representative certificate, generator, soundness proof, full-family consumer and branch decision matrix inspected.",
+    "build": "No Lean build rerun for this clarification. November full-repository green build is institution-reported; the branch decision matrix records targeted audits and the inherited axiom profile."
+  },
+  "privateSourceReferences": [
+    "docs/working_groups/celestial_interaction_branch_atlas/CIBA_01_SPEC.md",
+    "docs/working_groups/celestial_interaction_branch_atlas/CIBA_01_BRANCH_MATRIX.md",
+    "research/celestial_interaction_branch_atlas/generate_face_program_table.py",
+    "CIBA01/NativeFourthCertificates/RatioNeighborhood/CellChunks/Face0/Row0/Columns0To15/Certificate.lean",
+    "CIBA01/NativeFourthCertificates/RatioNeighborhood/CertifiedFaceProgram.lean",
+    "CIBA01/NativeFourthCertificates/RatioNeighborhood/ActualFullFamilyObstruction.lean",
+    "CIBA01/NativeThirdCertificates/TwoEdgeOutgoingBank/Edge0/Kinds000/Time0/Connection0.lean"
+  ],
+  "publicPapers": [
+    "publication-gps7.html",
+    "publication-gps8.html"
+  ]
+}
