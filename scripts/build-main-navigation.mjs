@@ -34,8 +34,10 @@ export function rewriteMainNav(html,p){
 }
 export function rewriteSupportFooter(html){
  const marker="<h3>Get involved</h3>";
- if(!html.includes(marker)||html.includes('<a href="support/">Support ILC</a>'))return html;
- return html.replace(marker,marker+'<a href="support/">Support ILC</a>');
+ if(html.includes('<a href="support/">Support ILC</a>'))return html;
+ if(html.includes(marker))return html.replace(marker,marker+'<a href="support/">Support ILC</a>');
+ const email='<a href="mailto:contact@instituteluxconsilio.org">Email ILC</a>';
+ return html.replace(email,'<a href="support/">Support ILC</a>'+email);
 }
 export function updateFiles(root=process.cwd()){
  const pages=fs.readdirSync(root).filter(p=>p.endsWith(".html")&&!p.startsWith("preview-"))

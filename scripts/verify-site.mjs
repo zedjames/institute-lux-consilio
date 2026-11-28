@@ -289,7 +289,7 @@ assert.ok(data.programDetails.qg.artifacts.some(x=>x.href==="publication-sqg10.h
 const qgXHtml=fs.readFileSync("publication-sqg10.html","utf8");
 assert.ok(qgXHtml.includes('name="citation_doi" content="'+qgX.doi+'"')&&qgXHtml.includes(qgX.pdf),"Paper X static record missing current DOI or PDF");
 assert.ok(fs.readFileSync("publication-sqg9.html","utf8").includes('href="publication-sqg10.html"'),"Paper IX must link forward to X");
-assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-sqg10.html"'),"Newest Schwarzschild X missing from homepage");
+assert.ok(fs.readFileSync("publications.html","utf8").includes('href="publication-sqg10.html"'),"Schwarzschild X missing from publication archive");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-sqg10.html"),"Schwarzschild X missing from sitemap");
 const qgCurrentPage=fs.readFileSync("research-relational-quantum-gravity.html","utf8");
 assert.ok(!qgCurrentPage.includes("earlier version-specific Zenodo DOI"),"Stale Paper VIII publication warning remains");
@@ -353,7 +353,7 @@ assert.ok(data.programDetails.celestial.artifacts.some(x=>x.href==="publication-
 const celestialVIIIHtml=fs.readFileSync("publication-gps8.html","utf8");
 assert.ok(celestialVIIIHtml.includes('name="citation_doi" content="'+celestialVIII.doi+'"')&&celestialVIIIHtml.includes(celestialVIII.pdf),"Celestial VIII indexed publication must expose current DOI and PDF");
 assert.ok(fs.readFileSync("publication-gps7.html","utf8").includes('href="publication-gps8.html"'),"Celestial VII must link to next published paper");
-assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-gps9.html"'),"Newest Celestial Paper IX missing from homepage");
+assert.ok(fs.readFileSync("publications.html","utf8").includes('href="publication-gps9.html"'),"Celestial Paper IX missing from publication archive");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-gps8.html"),"Celestial VIII missing from static sitemap");
 const celestialIX=data.publications.find(x=>x.id==="gps9");
 assert.ok(celestialIX&&celestialIX.order===9&&celestialIX.seriesId==="gaussian"&&celestialIX.program==="celestial");

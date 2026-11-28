@@ -54,6 +54,7 @@ jobs:
           node scripts/build-program-pages.mjs
           node scripts/build-site-discovery.mjs
           node scripts/build-main-navigation.mjs
+          node scripts/build-support-pages.mjs
       - name: Validate complete updated scholarly preview
         run: |
           node scripts/verify-site.mjs
@@ -74,6 +75,7 @@ jobs:
           node scripts/build-program-pages.mjs
           node scripts/build-site-discovery.mjs
           node scripts/build-main-navigation.mjs
+          node scripts/build-support-pages.mjs
       - name: Validate complete updated scholarly state
         run: |
           node scripts/verify-site.mjs
@@ -84,6 +86,7 @@ jobs:
           git config user.name "scholarly-zenodo-version-bot"
           git config user.email "contact@instituteluxconsilio.org"
           git add -- research/catalog.json research/site-pdfs.json assets/data/research.js
+          git add -- support/index.html support/concordia/index.html
           git add -- papers/*.pdf 'publication-*.html' publications.html sitemap.xml index.html research.html research-*.html
           if git diff --cached --quiet; then
             echo "No newly published Zenodo versions."
