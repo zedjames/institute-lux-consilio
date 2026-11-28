@@ -41,7 +41,7 @@ export function rewriteSupportFooter(html){
 }
 export function updateFiles(root=process.cwd()){
  const pages=fs.readdirSync(root).filter(p=>p.endsWith(".html")&&!p.startsWith("preview-"))
-  .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html","research/quantum-gravity-formal-lineage/index.html","support/index.html","support/concordia/index.html","support/concordia/research/index.html","support/concordia/brief/index.html","support/patrons/index.html","support/partnerships/index.html"]);
+  .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html","research/quantum-gravity-formal-lineage/index.html","support/index.html","support/concordia/index.html","support/concordia/research/index.html","support/concordia/brief/index.html","support/patrons/index.html","support/partnerships/index.html","support/fellowships/index.html","support/stewardship/index.html","support/stewardship/2026-baseline/index.html"]);
  for(const p of pages){const filepath=path.join(root,p),old=fs.readFileSync(filepath,"utf8"),next=ensureCloudflareAnalytics(rewriteSupportFooter(rewriteMainNav(old,p)),p);
   if(old!==next)fs.writeFileSync(filepath,next);}
  console.log("Refreshed the canonical static main navigation on "+pages.length+" pages.");

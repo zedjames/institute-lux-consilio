@@ -56,3 +56,7 @@
 .support-principles article{border:1px solid var(--edge);padding:20px;background:#fff}.support-principles h3{font-size:19px;line-height:1.35;margin:0 0 10px}
 .support-mail{display:inline-block;padding:12px 18px;background:var(--blue);color:white;text-decoration:none;font-weight:700}.support-mail:hover{background:var(--ink)}
 @media(max-width:740px){.support-principles{grid-template-columns:1fr}}
+
+/* Stage 4: reporting and research progression */
+.support-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px;margin:24px 0}.support-steps article{padding:20px;background:#fff;border-left:3px solid var(--blue);border-top:1px solid var(--edge);border-right:1px solid var(--edge);border-bottom:1px solid var(--edge)}.support-steps h3{font-size:19px;margin:6px 0 8px;line-height:1.35}.support-steps p{margin:0}.sd-brief code{overflow-wrap:anywhere}.sd-brief .sd-metrics strong{font-size:clamp(18px,2.5vw,28px);overflow-wrap:anywhere}.sd-rank-table caption{font-weight:600}
+@media(max-width:740px){.support-steps{grid-template-columns:1fr}}

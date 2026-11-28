@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "fellowship": {
+    "route": "support/fellowships/",
+    "title": "Concordia Scientific Discovery Fellowship",
+    "status": "In development · Applications are not open",
+    "intro": [
+      "The future Concordia Scientific Discovery Fellowship is intended to enable researchers to pursue original scientific questions within an interconnected mathematical environment. The intellectual direction belongs to the fellow. Concordia’s formal constructions, research histories, counterexamples and qualified dependencies would provide resources for continuing inquiry.",
+      "The proposed program will explore how researchers can inherit existing scientific capacity, develop their mathematical expertise and contribute new, appropriately qualified discoveries. Launch, participation arrangements, eligibility, duration and funding depend on institutional resources, program design and Runtime qualification."
+    ],
+    "participants": "The intended audience includes researchers in mathematics, physics, computational science, biological organization, engineering and measurement science, including early-career researchers and qualified graduate students. Final eligibility, selection and support arrangements will be published only when approved.",
+    "components": [
+      [
+        "Researcher-directed inquiry",
+        "Begin with a question the researcher wishes to investigate; relate it to the existing scientific record."
+      ],
+      [
+        "Qualified Concordia access",
+        "Use source-identified mathematical and scientific material within the capabilities and access scope actually authorized."
+      ],
+      [
+        "Research computing",
+        "Develop appropriate AI, verification and computational support in accordance with the inquiry and available resources."
+      ],
+      [
+        "Mathematical development",
+        "Examine hypotheses and dependencies; construct proofs, counterexamples and source-qualified relationships."
+      ],
+      [
+        "Scientific collaboration",
+        "Develop opportunities for specialist feedback, learning and independent examination."
+      ],
+      [
+        "Scientific contribution",
+        "Document results, negative findings and open obligations; propose qualified contributions for review."
+      ]
+    ],
+    "phases": [
+      [
+        "Define the question",
+        "Agree on a feasible scientific scope and the source materials needed to begin."
+      ],
+      [
+        "Inherit and examine",
+        "Reconstruct representative results or examine their evidence and established boundaries."
+      ],
+      [
+        "Develop the inquiry",
+        "Investigate a construction, extension, obstruction or qualified cross-program relationship."
+      ],
+      [
+        "Review and retain",
+        "Submit results and evidence for appropriate review. Record what is established, what remains open and what may be reusable."
+      ]
+    ],
+    "contribution": "The proposed pathway begins with a scientific question or contribution submitted through the research mailbox. A prospective arrangement would identify provenance, authorship, access, publication and intellectual property conditions before source work begins. A result would be considered for admission only after its mathematical scope, dependencies, evidence and applicable permissions are examined. This description does not establish automatic intake or admission."
+  },
+  "reporting": {
+    "route": "support/stewardship/",
+    "title": "Stewardship and Impact",
+    "status": "Reporting framework · Baseline available",
+    "intro": [
+      "Philanthropic participation supports the conditions through which scientific knowledge becomes more useful to future researchers. ILC’s proposed reporting framework therefore emphasizes scientific capacity established, evidence supporting it and opportunities for continuing inquiry.",
+      "The Institute intends to report progress through dated accounts of foundational research, formal infrastructure, research participation and stewardship. Existing scientific disclosures retain their standing authority. Financial and program-specific reporting will be prepared from applicable institutional records and reviewed through appropriate governance arrangements."
+    ],
+    "categories": [
+      [
+        "Scientific discoveries",
+        "New published results and precise scientific scope; stable publication records and source editions."
+      ],
+      [
+        "Mathematical inheritance",
+        "Source-identified reusable constructions, dependency interfaces and the hypotheses needed for transfer."
+      ],
+      [
+        "Established boundaries",
+        "Obstructions, counterexamples and unresolved obligations that constrain future inquiry."
+      ],
+      [
+        "Independent examination",
+        "Scope, sources and methods of completed external examination; distinguish publication review, source review and executed formal checks."
+      ],
+      [
+        "Concordia development",
+        "Actual capabilities, dated development milestones, evidence coverage and known limits."
+      ],
+      [
+        "Research participation",
+        "Invited, active and completing participants, with cohort dates, defined denominators and consent-aware reporting."
+      ],
+      [
+        "Scientific applicability",
+        "Qualified mathematical, observational or empirical methodologies; distinguish theory, prototype and independently tested physical realization."
+      ],
+      [
+        "Financial stewardship",
+        "Reviewed contributions, expenditures, restrictions and use of funds for ILC’s charitable purposes, with period and accounting basis."
+      ]
+    ],
+    "metrics": [
+      [
+        "Independent entry",
+        "Record invitations, onboarded researchers and active participants by cohort, with clear definitions and denominators."
+      ],
+      [
+        "Scientific inheritance",
+        "Document source-scoped reproductions and the time and resources needed to reach the first independently reviewed result; report only measured observations."
+      ],
+      [
+        "Original inquiry",
+        "Record completed investigations, including established obstructions and unresolved questions, with evidence and declared scope."
+      ],
+      [
+        "Cross-program transfer",
+        "Distinguish exploratory analogies from qualified mathematical bridges. Record source, target and checked compatibility conditions."
+      ],
+      [
+        "Continuing contribution",
+        "Track submitted, reviewed and accepted results separately. Preserve attribution, access restrictions and basis of admission."
+      ],
+      [
+        "Researcher experience",
+        "Collect opt-in feedback on navigation, mathematical accessibility and continuity, alongside limitations and unresolved needs."
+      ]
+    ],
+    "method": [
+      [
+        "Dated evidence",
+        "Use a defined reporting period, dated source records, stable identifiers, editions and correction history."
+      ],
+      [
+        "Qualified indicators",
+        "Distinguish verified public records, source-reported claims, measured outcomes and planned activities. Record unavailable evidence explicitly."
+      ],
+      [
+        "Responsible disclosure",
+        "Protect participant, donor and confidential research information. Financial statements and gift-specific reports require appropriate review and approval."
+      ],
+      [
+        "Scientific capacity",
+        "Assess what additional capacity was established and what future inquiry it enables. Counts provide context rather than substitutes for evidence."
+      ]
+    ]
+  },
+  "reports": [
+    {
+      "id": "2026-development-baseline",
+      "route": "support/stewardship/2026-baseline/",
+      "title": "Scientific Discovery and Institutional Development — 2026 Baseline",
+      "period": "Snapshot as of November 28, 2026",
+      "type": "Public-record development baseline; not an annual financial or audited impact report",
+      "sourceRevision": "f384f4b9987a3c641fba3dff9c53790eb81a8c69",
+      "catalog": {
+        "researchRecords": 41,
+        "companionRecords": 1,
+        "translationRecords": 7,
+        "programs": 7,
+        "emergingPrograms": 1,
+        "celestialPapers": 9,
+        "directions": 5
+      },
+      "inventory": {
+        "date": "2026-10-17",
+        "commit": "b0054d4773b4e76a6efce3e0b998494bb770678a",
+        "files": 44808,
+        "lines": 18935259,
+        "theorems": 888350,
+        "lemmas": 4718,
+        "fullLeanBuildRun": false
+      },
+      "runtime": {
+        "status": "Alpha Testing",
+        "target": "Q2 2027",
+        "access": "Invitation-only closed beta",
+        "qualification": "Timing and invitations depend on continuing testing and qualification."
+      },
+      "unreported": [
+        "Financial contributions, expenditures, donor commitments and restricted balances",
+        "Independent closed-beta participation, completed external inquiries and accepted participant contributions",
+        "Fellowship admissions, cohort sizes, funding commitments and stipends",
+        "Independent platform-wide reproducibility or measured improvements in research productivity"
+      ]
+    }
+  ]
+}
