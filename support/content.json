@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "initiative": "Concordia Scientific Discovery Initiative",
   "runtime": {
     "status": "Alpha Testing",
@@ -35,20 +35,22 @@
   ],
   "futureRoutes": [
     {
-      "path": "support/patrons/",
-      "title": "Founding Scientific Patrons"
-    },
-    {
       "path": "support/fellowships/",
       "title": "Concordia Scientific Discovery Fellowship"
     },
     {
-      "path": "support/partnerships/",
-      "title": "Institutional and Technology Partnerships"
-    },
-    {
       "path": "support/stewardship/",
       "title": "Stewardship and Impact"
+    }
+  ],
+  "participationRoutes": [
+    {
+      "path": "support/patrons/",
+      "title": "Founding Scientific Patrons"
+    },
+    {
+      "path": "support/partnerships/",
+      "title": "Institutional and Technology Partnerships"
     }
   ]
 }
