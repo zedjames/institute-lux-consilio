@@ -39,7 +39,7 @@ for(const key of ["programs","emergingPrograms","themes","questions","publicatio
 }
 const root=new Set(fs.readdirSync("."));
 const navPages=[...root].filter(p=>p.endsWith(".html")&&!p.startsWith("preview-")).sort()
- .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html"]);
+ .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html","research/quantum-gravity-formal-lineage/index.html","support/index.html","support/concordia/index.html"]);
 // Require the exact Cloudflare script, exactly once per published page.
 for(const page of navPages){
  const html=fs.readFileSync(page,"utf8");
@@ -55,6 +55,11 @@ for(const page of navPages){
  const matches=[...html.matchAll(/<nav class="nav__links site-nav" aria-label="Main navigation">[\s\S]*?<\/nav>/g)];
  assert.equal(matches.length,1,"Missing unique static site navigation in "+page);
  assert.equal(matches[0][0],renderMainNav(activeForPage(page)),"Inconsistent site navigation / active section in "+page);
+}
+// The philanthropic pages retain static navigation and are checked against their shared source.
+for(const page of navPages){
+ const html=fs.readFileSync(page,"utf8");
+ assert.ok(html.includes('<a href="support/">Support ILC</a>'),"Missing Support footer: "+page);
 }
 // Public correspondence must be available in static HTML, without client JavaScript.
 const generalEmail='mailto:contact@instituteluxconsilio.org';
@@ -284,7 +289,7 @@ assert.ok(data.programDetails.qg.artifacts.some(x=>x.href==="publication-sqg10.h
 const qgXHtml=fs.readFileSync("publication-sqg10.html","utf8");
 assert.ok(qgXHtml.includes('name="citation_doi" content="'+qgX.doi+'"')&&qgXHtml.includes(qgX.pdf),"Paper X static record missing current DOI or PDF");
 assert.ok(fs.readFileSync("publication-sqg9.html","utf8").includes('href="publication-sqg10.html"'),"Paper IX must link forward to X");
-assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-sqg10.html"'),"Newest Schwarzschild X missing from homepage");
+assert.ok(fs.readFileSync("publications.html","utf8").includes('href="publication-sqg10.html"'),"Schwarzschild X missing from publication archive");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-sqg10.html"),"Schwarzschild X missing from sitemap");
 const qgCurrentPage=fs.readFileSync("research-relational-quantum-gravity.html","utf8");
 assert.ok(!qgCurrentPage.includes("earlier version-specific Zenodo DOI"),"Stale Paper VIII publication warning remains");
@@ -348,7 +353,7 @@ assert.ok(data.programDetails.celestial.artifacts.some(x=>x.href==="publication-
 const celestialVIIIHtml=fs.readFileSync("publication-gps8.html","utf8");
 assert.ok(celestialVIIIHtml.includes('name="citation_doi" content="'+celestialVIII.doi+'"')&&celestialVIIIHtml.includes(celestialVIII.pdf),"Celestial VIII indexed publication must expose current DOI and PDF");
 assert.ok(fs.readFileSync("publication-gps7.html","utf8").includes('href="publication-gps8.html"'),"Celestial VII must link to next published paper");
-assert.ok(fs.readFileSync("index.html","utf8").includes('href="publication-gps9.html"'),"Newest Celestial Paper IX missing from homepage");
+assert.ok(fs.readFileSync("publications.html","utf8").includes('href="publication-gps9.html"'),"Celestial Paper IX missing from publication archive");
 assert.ok(fs.readFileSync("sitemap.xml","utf8").includes("publication-gps8.html"),"Celestial VIII missing from static sitemap");
 const celestialIX=data.publications.find(x=>x.id==="gps9");
 assert.ok(celestialIX&&celestialIX.order===9&&celestialIX.seriesId==="gaussian"&&celestialIX.program==="celestial");

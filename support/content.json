@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "initiative": "Concordia Scientific Discovery Initiative",
+  "runtime": {
+    "status": "Alpha Testing",
+    "target": "Q2 2027",
+    "access": "Invitation-only closed beta",
+    "qualification": "Timing and invitations depend on continuing testing and qualification."
+  },
+  "priorities": [
+    {
+      "title": "Foundational discovery",
+      "description": "Develop mathematical and physical research across ILC’s programs, preserving the constructions that make further inquiry possible."
+    },
+    {
+      "title": "Mathematical infrastructure",
+      "description": "Extend and maintain Concordia’s Formal World, its typed objects, qualified dependencies, counterexamples and research histories."
+    },
+    {
+      "title": "Research computing",
+      "description": "Support Runtime engineering, computational resources, AI access, formal verification and infrastructure reliability."
+    },
+    {
+      "title": "Independent examination",
+      "description": "Enable specialists to interrogate mathematical claims, reconstruct computations and examine source-specific evidence."
+    },
+    {
+      "title": "Researcher participation",
+      "description": "Develop qualified scholarly access, onboarding, collaborative research and future fellowship opportunities."
+    },
+    {
+      "title": "Scientific applicability",
+      "description": "Develop mathematical and observational methods that enable meaningful engagement with physical reality, including new empirical questions."
+    }
+  ],
+  "futureRoutes": [
+    {
+      "path": "support/patrons/",
+      "title": "Founding Scientific Patrons"
+    },
+    {
+      "path": "support/fellowships/",
+      "title": "Concordia Scientific Discovery Fellowship"
+    },
+    {
+      "path": "support/partnerships/",
+      "title": "Institutional and Technology Partnerships"
+    },
+    {
+      "path": "support/stewardship/",
+      "title": "Stewardship and Impact"
+    }
+  ]
+}
