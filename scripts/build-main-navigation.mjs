@@ -9,10 +9,12 @@ export const MAIN_NAV = Object.freeze([
  {id:"concordia",label:"Concordia",href:"concordia/"},
  {id:"methods",label:"Methods",href:"methods.html"},
  {id:"about",label:"About",href:"institute.html"},
- {id:"collaborate",label:"Collaborate",href:"collaborate.html"}
+ {id:"collaborate",label:"Collaborate",href:"collaborate.html"},
+ {id:"support",label:"Support",href:"support/"}
 ]);
 export function activeForPage(p) {
  p=String(p).replaceAll("\\","/");
+ if(p.startsWith("support/"))return "support";
  if(p.startsWith("concordia/"))return "concordia";
  if(p==="publications.html"||p==="publication.html"||/^publication-[a-z0-9-]+\.html$/.test(p))return "publications";
  if(p==="research.html"||p==="program.html"||p.startsWith("research/")||/^research-[a-z0-9-]+\.html$/.test(p))return "research";
@@ -30,10 +32,15 @@ export function rewriteMainNav(html,p){
  if([...html.matchAll(re)].length!==1)throw Error("Expected one main navigation: "+p);
  return html.replace(re,renderMainNav(activeForPage(p)));
 }
+export function rewriteSupportFooter(html){
+ const marker="<h3>Get involved</h3>";
+ if(!html.includes(marker)||html.includes('<a href="support/">Support ILC</a>'))return html;
+ return html.replace(marker,marker+'<a href="support/">Support ILC</a>');
+}
 export function updateFiles(root=process.cwd()){
  const pages=fs.readdirSync(root).filter(p=>p.endsWith(".html")&&!p.startsWith("preview-"))
-  .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html"]);
- for(const p of pages){const filepath=path.join(root,p),old=fs.readFileSync(filepath,"utf8"),next=ensureCloudflareAnalytics(rewriteMainNav(old,p),p);
+  .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html","research/quantum-gravity-formal-lineage/index.html","support/index.html","support/concordia/index.html"]);
+ for(const p of pages){const filepath=path.join(root,p),old=fs.readFileSync(filepath,"utf8"),next=ensureCloudflareAnalytics(rewriteSupportFooter(rewriteMainNav(old,p)),p);
   if(old!==next)fs.writeFileSync(filepath,next);}
  console.log("Refreshed the canonical static main navigation on "+pages.length+" pages.");
 }

@@ -39,7 +39,7 @@ for(const key of ["programs","emergingPrograms","themes","questions","publicatio
 }
 const root=new Set(fs.readdirSync("."));
 const navPages=[...root].filter(p=>p.endsWith(".html")&&!p.startsWith("preview-")).sort()
- .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html"]);
+ .concat(["concordia/index.html","concordia/inventory/index.html","concordia/runtime/index.html","research/atlas/index.html","research/quantum-gravity-formal-lineage/index.html","support/index.html","support/concordia/index.html"]);
 // Require the exact Cloudflare script, exactly once per published page.
 for(const page of navPages){
  const html=fs.readFileSync(page,"utf8");
@@ -55,6 +55,11 @@ for(const page of navPages){
  const matches=[...html.matchAll(/<nav class="nav__links site-nav" aria-label="Main navigation">[\s\S]*?<\/nav>/g)];
  assert.equal(matches.length,1,"Missing unique static site navigation in "+page);
  assert.equal(matches[0][0],renderMainNav(activeForPage(page)),"Inconsistent site navigation / active section in "+page);
+}
+// The philanthropic pages retain static navigation and are checked against their shared source.
+for(const page of navPages){
+ const html=fs.readFileSync(page,"utf8");
+ assert.ok(html.includes('<a href="support/">Support ILC</a>'),"Missing Support footer: "+page);
 }
 // Public correspondence must be available in static HTML, without client JavaScript.
 const generalEmail='mailto:contact@instituteluxconsilio.org';
