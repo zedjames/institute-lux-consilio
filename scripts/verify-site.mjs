@@ -126,6 +126,24 @@ for(const [route,description] of [["inventory","formal source inventory"],["runt
 const inventoryHtml=fs.readFileSync("concordia/inventory/index.html","utf8");
 for(const number of ["77,411","22,430,871","976,144","4,816","20,683,539","980,960","1,701,264,577",snap.commit,snap.branch]) assert.ok(inventoryHtml.includes(number),"Concordia inventory missing "+number);
 assert.ok(inventoryHtml.includes("Full-repository Lean build: passed.")&&inventoryHtml.includes("No full Lean build was conducted for the October census"),"Concordia inventory missing build qualification");
+
+// Dated source composition: preserve the declared census and distinguish generated material.
+const composition=JSON.parse(fs.readFileSync("concordia/inventory/composition-2026-11-28.json","utf8"));
+const compSnap=inv.snapshots.find(x=>x.commit===composition.sourceCommit);
+assert.ok(compSnap&&composition.corpus.files===compSnap.files&&composition.corpus.lines===compSnap.lines,"Composition source snapshot mismatch");
+assert.equal(composition.families.reduce((n,x)=>n+x.files,0),composition.atlas.files);
+assert.equal(composition.families.reduce((n,x)=>n+x.lines,0),composition.atlas.lines);
+const chunks=composition.generatedFourthChunks;
+assert.equal(chunks.files,chunks.faces*chunks.rowsPerFace*chunks.chunksPerRow);
+assert.equal(chunks.files*chunks.cellsPerChunk,196608);
+assert.equal(chunks.files*chunks.cellsPerChunk*chunks.nodesPerCell,8847360);
+assert.ok(chunks.lines<=composition.families[0].lines&&chunks.files<=composition.families[0].files);
+assert.ok(inventoryHtml.includes('id="source-composition"')&&inventoryHtml.includes('href="concordia/inventory/#source-composition"'));
+for(const x of [composition.atlas.files,composition.atlas.lines,chunks.files,chunks.lines,196608,8847360,...composition.families.flatMap(x=>[x.files,x.lines])])
+ assert.ok(inventoryHtml.includes(x.toLocaleString("en-US")),"Missing composition figure "+x);
+for(const phrase of ["not independently recounted here","did not rerun a Lean build","Lean.ofReduceBool","Lean.trustCompiler","publication-gps7.html","publication-gps8.html"])
+ assert.ok(inventoryHtml.includes(phrase),"Missing composition evidence boundary "+phrase);
+
 const runtimeHtml=fs.readFileSync("concordia/runtime/index.html","utf8");
 const signupName="institute-lux-consilio";
 const buttondownEndpoint="https://buttondown.com/api/emails/embed-subscribe/"+signupName;
