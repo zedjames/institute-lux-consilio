@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "initiative": "Concordia Scientific Discovery Initiative",
   "runtime": {
     "status": "Alpha Testing",
@@ -33,7 +33,16 @@
       "description": "Develop mathematical and observational methods that enable meaningful engagement with physical reality, including new empirical questions."
     }
   ],
-  "futureRoutes": [
+  "futureRoutes": [],
+  "participationRoutes": [
+    {
+      "path": "support/patrons/",
+      "title": "Founding Scientific Patrons"
+    },
+    {
+      "path": "support/partnerships/",
+      "title": "Institutional and Technology Partnerships"
+    },
     {
       "path": "support/fellowships/",
       "title": "Concordia Scientific Discovery Fellowship"
@@ -43,14 +52,10 @@
       "title": "Stewardship and Impact"
     }
   ],
-  "participationRoutes": [
+  "reportRoutes": [
     {
-      "path": "support/patrons/",
-      "title": "Founding Scientific Patrons"
-    },
-    {
-      "path": "support/partnerships/",
-      "title": "Institutional and Technology Partnerships"
+      "path": "support/stewardship/2026-baseline/",
+      "title": "Scientific Discovery and Institutional Development — 2026 Baseline"
     }
   ]
 }

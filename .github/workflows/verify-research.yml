@@ -40,6 +40,7 @@ jobs:
       - run: git diff --exit-code -- research/quantum-gravity-formal-lineage/index.html research/atlas/inquiry-index.json research.html research/atlas/index.html research-relational-quantum-gravity.html research-kinetic-organization-biological-function.html research-gaussian-celestial.html research-health-formally-defined.html research-essence-physical-constitution.html
       - run: node --check scripts/build-support-pages.mjs
       - run: node scripts/build-support-pages.mjs --check
+      - run: node tests/test_support.mjs
       - run: node scripts/verify-site.mjs
       - run: python3 scripts/verify_health_zh.py
       - run: python3 -m unittest discover -s tests -p "test_zenodo_sync_*.py"
